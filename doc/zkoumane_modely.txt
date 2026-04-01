@@ -1,0 +1,22 @@
+
+
+Podle `oeg_judge_run2_submission_data.csv` (23.4MBytes) někdo zřejmě zkoumal v roli LLM-as-a-Judge následující modely:
+
+1 Llama-4-Maverick 400B (17B active) - API
+2 DeepSeek-V3   - 671B (37B active) - API
+3 CommandA      - 111B - API
+4 GPT-4.1       - API
+5 AyaExpanse-8B - 8GB - GPU
+6 Llama-3.1-8B - 8GB - GPU
+7 CommandR7B - 7B - GPU
+8 Claude-4      - API
+9 AyaExpanse-32B - 32B - ?
+10 Mistral-Medium - ? - 4xH100 - API
+11 Qwen3-235B - 235B (22B active) - API
+12 Mistral-7B - 7B - GPU
+13 Qwen2.5-7B - 7B - GPU
+---
+
+Výsledky jsou asi v
+`oeg_judge_human_agreement_results.json`
+

@@ -1,0 +1,115 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "coherence": {
+                "llama-4-maverick": 0.5495108695652174
+            },
+            "naturalness": {
+                "llama-4-maverick": 0.512518115942029
+            },
+            "instruction_following": {
+                "llama-4-maverick": 0.5308514492753623
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "coherence": {
+                "ar_EG": {
+                    "llama-4-maverick": 0.6268115942028986
+                },
+                "bn_BD": {
+                    "llama-4-maverick": 0.4827898550724638
+                },
+                "cs_CZ": {
+                    "llama-4-maverick": 0.42373188405797096
+                },
+                "de_DE": {
+                    "llama-4-maverick": 0.5771739130434781
+                },
+                "en_US": {
+                    "llama-4-maverick": 0.5998188405797101
+                },
+                "hi_IN": {
+                    "llama-4-maverick": 0.5980072463768115
+                },
+                "id_ID": {
+                    "llama-4-maverick": 0.4409420289855072
+                },
+                "ja_JP": {
+                    "llama-4-maverick": 0.5179347826086956
+                },
+                "ru_RU": {
+                    "llama-4-maverick": 0.6056159420289855
+                },
+                "zh_CN": {
+                    "llama-4-maverick": 0.6222826086956522
+                }
+            },
+            "naturalness": {
+                "ar_EG": {
+                    "llama-4-maverick": 0.4496376811594202
+                },
+                "bn_BD": {
+                    "llama-4-maverick": 0.5144927536231885
+                },
+                "cs_CZ": {
+                    "llama-4-maverick": 0.4721014492753623
+                },
+                "de_DE": {
+                    "llama-4-maverick": 0.4693840579710145
+                },
+                "en_US": {
+                    "llama-4-maverick": 0.6244565217391304
+                },
+                "hi_IN": {
+                    "llama-4-maverick": 0.5721014492753622
+                },
+                "id_ID": {
+                    "llama-4-maverick": 0.4324275362318841
+                },
+                "ja_JP": {
+                    "llama-4-maverick": 0.5067028985507246
+                },
+                "ru_RU": {
+                    "llama-4-maverick": 0.46721014492753626
+                },
+                "zh_CN": {
+                    "llama-4-maverick": 0.6166666666666668
+                }
+            },
+            "instruction_following": {
+                "ar_EG": {
+                    "llama-4-maverick": 0.6001811594202897
+                },
+                "bn_BD": {
+                    "llama-4-maverick": 0.48749999999999993
+                },
+                "cs_CZ": {
+                    "llama-4-maverick": 0.4253623188405797
+                },
+                "de_DE": {
+                    "llama-4-maverick": 0.5005434782608695
+                },
+                "en_US": {
+                    "llama-4-maverick": 0.6295289855072463
+                },
+                "hi_IN": {
+                    "llama-4-maverick": 0.5681159420289855
+                },
+                "id_ID": {
+                    "llama-4-maverick": 0.5297101449275362
+                },
+                "ja_JP": {
+                    "llama-4-maverick": 0.44710144927536233
+                },
+                "ru_RU": {
+                    "llama-4-maverick": 0.5954710144927536
+                },
+                "zh_CN": {
+                    "llama-4-maverick": 0.525
+                }
+            }
+        }
+    }
+}

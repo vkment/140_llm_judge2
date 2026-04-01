@@ -1,0 +1,261 @@
+I am using run `5 (ayaexpanse8b)` as the basic level for all comparisons, because:
+- I run it for all languages
+- I used the default English prompt here
+- Aya-Expanse-8B model is considered a generally good 8B model for 'LLM as a judge' use
+
+Below are results for comparative runs (I mostly just numbered them):
+10b, 11b, 11c, 11d - Aya-Expanse-8B with different CS and DE translations of different English prompts
+11e, 12 -  - Aya-Expanse8B with English 7-hybrid scale prompts 
+13 - Selene-1-Mini-Llama-3.1-8B with English 7-hybrid scale prompt
+14 - Qwen3-8B with English 7-hybrid scale prompt
+16 - Llama-4-Maverick with English 7-hybrid scale prompt
+
+Note:
+- in CSVs I use eg. 'aya-expanse-8b' or  'aya-expanse-8b_pcsdeh4' strings, ie. small caps
+- entirely compacted 'ayaexpanse8b' strings are used only occasionally, eg. for filenames
+
+Suffixes that I used:
+_p - run makes something with the prompt(s)
+_?csde - runs mostly concentrated with 'cs' and 'de' languages (it may still run for 'en' and 'ru' as a certain background)
+_?????h5 - which 'judge_templates_locales_[hybrid][5].py' file I really used, it contains all prompt templates 
+           eg. 'h' for 'hybrid' and '5' here, ie. 'judge_templates_locales_hybrid5.py' was used
+
+----------------------------
+                5 (ayaexpanse8b) vs     10b (ayaexpanse8b_pcsde)
+                	                    English uses former English prompt
+                                            translation of prompt to Czech language
+                                            translation of prompt to German language
+                                            Russian uses former English prompt
+instruction_following:
+"cs_CZ"		0.34891			0.35453      slightly better    (Czech translation of prompt for Czech)
+"de_DE"		0.46630			0.48206      slightly better    (German translation of prompt for German)
+"en_US"		0.57590			0.57590      same		(English prompt original for English)
+"ru_RU"		0.53985			0.53731      same		(English prompt original for Russian)
+
+naturalness
+"cs_CZ"	        0.35199			0.33568       slightly worse    (Czech translation of prompt for Czech)
+"de_DE"		0.45579			0.47264	      slightly better   (German translation of prompt for German)
+"en_US"		0.51974			0.51938       same		(English prompt original for English)
+"ru_RU"		0.38061			0.37736       same		(English prompt original for Russian)
+
+coherence
+"cs_CZ"		0.35580			0.30942       quite worse       (Czech translation of prompt for Czech)
+"de_DE"	        0.46848			0.49601       slightly better   (German translation of prompt for German)
+"en_US"		0.48460			0.48079       same              (English prompt original for English)
+"ru_RU"		0.51847			0.51847       same		(English prompt original for Russian)
+
+----------------------------
+                5 (ayaexpanse8b) vs     11b (ayaexpanse8b_pcsdh)
+                                            English newly uses full 7th scale description in the hybrid form
+                                            translation of new English prompt to Czech language
+                                            translation of new English prompt to German language
+					    Russian uses new English prompt
+					    
+instruction_following:
+"cs_CZ"		0.34891			0.369021      slightly better (Czech 7-prompt hybrid for Czech)
+"de_DE"		0.46630			0.573550      much better (German 7-prompt hybrid for German)
+"en_US"		0.57590			0.744927      much better (better than Maverick perhaps)
+"ru_RU"		0.53985			0.657971      much better (English 7-prompt hybrid for Russian)
+
+naturalness
+"cs_CZ"	        0.35199			0.307971      quite worse  (Czech 7-prompt hybrid for Czech)
+"de_DE"		0.45579			0.454167      same         (German 7-prompt hybrid for German)
+"en_US"		0.51974			0.611050      much better  (English 7-prompt hybrid for English)
+"ru_RU"		0.38061			0.348913      quite worse  (English 7-prompt hybrid for Russian)
+
+coherence
+"cs_CZ"		0.35580			0.303442      quite worse  (Czech 7-prompt hybrid for Czech)
+"de_DE"	        0.46848			0.526086      quite better (German 7-prompt hybrid for German)
+"en_US"		0.48460			0.647644      much better  (English 7-prompt hybrid for English)
+"ru_RU"		0.51847			0.606702      much better  (English 7-prompt hybrid for Russian)
+
+----------------------------
+
+                5 (ayaexpanse8b) vs     11c (aya-expanse-8b_pcsdeh2)
+                			As 11b, but (instruction following), (naturalness), (coherence)
+                
+instruction_following:
+"cs_CZ"		0.34891			0.367572      slightly better
+"de_DE"		0.46630			0.576268      slightly better
+"en_US"		0.57590			0.744927      same as 11b
+"ru_RU"		0.53985			0.657971      same as 11b
+
+naturalness
+"cs_CZ"	        0.35199			0.322463      better than 11b, but worse then English original prompt
+"de_DE"		0.45579			0.401449      worse than 11b
+"en_US"		0.51974			0.610144      same as 11b
+"ru_RU"		0.38061			0.349275      same as 11b
+
+coherence
+"cs_CZ"		0.35580			0.304528      quite worse, same as 11b
+"de_DE"	        0.46848			0.544565      much better, slightly better then 11b
+"en_US"		0.48460			0.649094      same as 11b
+"ru_RU"		0.51847			0.606702      same as 11b
+
+----------------------------
+
+                5 (ayaexpanse8b) vs     11d (aya-expanse-8b_pcsdeh3)
+                			As 11b, but (instruction following), (naturalness), (coherence)
+                			            Odpověď, Antwort ... natural intra language flow
+
+instruction_following:
+"cs_CZ"		0.34891			0.365398	slightly better, as 11c
+"de_DE"		0.46630			0.569021	same as 11c
+"en_US"		0.57590			0.74492   	same as 11b
+"ru_RU"		0.53985			0.65797		same as 11b
+
+naturalness
+"cs_CZ"	        0.35199			0.3217391	same as 11c
+"de_DE"		0.45579			0.3972826       sligtly worse as 11c
+"en_US"		0.51974			0.611050	same as 11b
+"ru_RU"		0.38061			0.348913	same as 11b
+
+coherence
+"cs_CZ"		0.35580			0.305072	same worse as 11c
+"de_DE"	        0.46848			0.555072	slightly better as 11c and better as 11b
+"en_US"		0.48460			0.648007   	same as 11b
+"ru_RU"		0.51847			0.606702  	same as 11b
+
+----------------------------
+                5 (ayaexpanse8b) vs     11e (aya-expanse-8b_pcsdeh4)
+                			As 11b, but no Czech or German translation, 
+					all languages use English 7-hybrid scale approach
+
+instruction_following:
+"cs_CZ"		0.34891			0.365217	slightly better, as 11c
+"de_DE"		0.46630			0.586413	better then 11d, 11c, 11b 
+"en_US"		0.57590			0.74492		same as 11d
+"ru_RU"		0.53985			0.657971	same as 11d
+
+naturalness
+"cs_CZ"	        0.35199			0.316123	poor as 11b, 11c, 11d - dislikes 7 scale
+"de_DE"		0.45579			0.46250  	slightly better then 11b, 11c, 11d - not a fan of 7-scale
+"en_US"		0.51974			0.61141		same as 11d
+"ru_RU"		0.38061			0.34927		same as 11d, worse then 10b (4-scale)
+
+coherence
+"cs_CZ"		0.35580			0.30797		poor as 11b, 11c, 11d - dislikes 7 scale
+"de_DE"	        0.46848			0.61467		much better (!) as 11d, 11c, 11b 
+"en_US"		0.48460			0.64800		same as 11d
+"ru_RU"		0.51847			0.60670		same as 11d
+
+----------------------------
+                5 (ayaexpanse8b) vs     12 (aya-expanse-8b_pcsdeh5)
+                			7-hybrid-English only prompt, criteria for 6-4-2 even for naturalness and coherence
+        			                			
+instruction_following:
+"cs_CZ"		0.34891			0.365217   	slightly better
+"de_DE"		0.46630			0.58641		same as 11e that is better then 11d, 11c, 11b 
+"en_US"		0.57590			0.744927	0.74492		same as 11d
+"ru_RU"		0.53985			0.657971	0.657971	same as 11d
+
+naturalness
+"cs_CZ"	        0.35199			0.3170289	poor as 11e, 11b, 11c, 11d - DISLIKES 7 scale
+"de_DE"		0.45579			0.471557	slightly better then 11e that is slightly better then 11b, 11c, 11d
+"en_US"		0.51974			0.621920	slightly better then 11e = same as 11b
+"ru_RU"		0.38061			0.351268	slightly better then 11e, worse then 10b (4-scale) - DISLIKES 7 scale
+
+coherence
+"cs_CZ"		0.35580			0.308876	poor as 11e 11b, 11c, 11d - DISLIKES 7 scale
+"de_DE"	        0.46848			0.612318	same as 11e that is much better (!) as 11d, 11c, 11b 
+"en_US"		0.48460			0.648550	same as 11e and 11d
+"ru_RU"		0.51847			0.60833		same as 11e and 11d
+
+----------------------------
+        5 (ayaexpanse8b) vs     13 (Selene-1-Mini-Llama-3.1-8B_pcsdeh5)
+                		7-hybrid-English only prompt, criteria for 6-4-2 even for naturalness and coherence
+        			                			
+instruction_following:
+"cs_CZ"		0.34891		0.428079	0.365217   	better than 5
+"de_DE"		0.46630		0.587318	0.58641		same as 11e that is better then 11d, 11c, 11b 
+"en_US"		0.57590		0.71413		0.744927	slightly worse as 11e
+"ru_RU"		0.53985		0.635869	0.657971	slightly worse as 11e
+
+naturalness
+"cs_CZ"	        0.35199		0.443659	0.3170289	better than 5
+"de_DE"		0.45579		0.428442	0.471557	slightly worse then 11e and 5
+"en_US"		0.51974		0.4896739	0.621920	much worse then 11e, slightly worse than 5
+"ru_RU"		0.38061		0.42137		0.351268	better then 5, better then 11e
+
+coherence
+"cs_CZ"		0.35580		0.345289	0.308876	same as 5, better as 11e 11b, 11c, 11d 
+"de_DE"	        0.46848		0.6148		0.612318	same as 12 that is much better (!) as 11d, 11c, 11b 
+"en_US"		0.48460		0.63659		0.648550	slightly worse as 12 and 11e and 11d
+"ru_RU"		0.51847		0.601630	0.60833		same as 12 and 11e and 11d
+
+----------------------------
+        5 (ayaexpanse8b) vs     14 (Qwen3-8B_pcsdeh5)
+                		7-hybrid-English only prompt, criteria for 6-4-2 even for naturalness and coherence
+        	 		                			
+instruction_following:		14		13		12
+"cs_CZ"		0.34891		0.41358		0.428079	0.365217   	nearly as 13 (best) 
+"de_DE"		0.46630		0.59221		0.587318	0.58641		slightly best result of all
+"en_US"		0.57590		0.72989		0.71413		0.744927	slightly worse as 12
+"ru_RU"		0.53985		0.6666666	0.635869	0.657971	slightly best result of all
+
+naturalness
+"cs_CZ"	        0.35199		0.44365		0.443659	0.3170289	same as 13 (best together) better than all rest
+"de_DE"		0.45579		0.46068		0.428442	0.471557	slightly worse then 12 and 10b
+"en_US"		0.51974		0.61376		0.4896739	0.621 (best)	same as 11*, slightly worse then 12 
+"ru_RU"		0.38061		0.4666		0.42137		0.351268	best of all here
+
+coherence
+"cs_CZ"		0.35580		0.40688		0.345289	0.308876	best of all 
+"de_DE"	        0.46848		0.59184		0.6148		0.612318	slghtly worse then 13, 12 that is much better as 11* 
+"en_US"		0.48460		0.64565		0.63659		0.648550	best with 12 and 11e and 11d
+"ru_RU"		0.51847		0.64112		0.601630	0.60833		better than 12 and 11e and 11d
+
+
+----------------------------
+        5 (ayaexpanse8b) vs     16 (llama-4-maverick_pcsh5)   [$5.22 --> 4.72 (netto) = $0.50]
+                		7-hybrid-English only prompt, criteria for 6-4-2 even for naturalness and coherence
+                		
+                		Best
+        		        maverick   maverick		
+		5		16 (_h5)   4 (default)		Best before (_h5)
+instruction_following:					 
+"cs_CZ"		0.34891		0.43985	   0.42536	vs. 	0.42808 (13) Selene-1_h5
+
+naturalness
+"cs_CZ"	        0.35199		0.47681	   0.47210	vs. 	0.44365 (14, 13)  Qwen3-8B_h5, Selene-1_h5 
+
+coherence
+"cs_CZ"		0.35580		0.44547	   0.42373	vs. 	0.40688	(14)   Qwen3-8B_h5
+
+----------------------------
+
+                        (14)         (26)           (14_1)              (32)                 (33)
+                        Qwen3-8B_h5  Qwen3-14B_hr7  Qwen3.5-9B_h5       Qwen3.5-35B-A3B_h7   Qwen3.5-35B-A3B_h8
+"cs_CZ"	
+instruction_following   0.41358	     0.461413       0.482789            0.46195              0.46231       0.46467
+naturalness             0.443659     0.47391        0.451449            0.528623             0.51811
+coherence               0.40688      0.367572       0.417210            0.481159             0.48460
+
+
+
+
+----------------------------
+
+
+        14 (Qwen3-8B_pcsdeh5)
+        7-hybrid-English only prompt, criteria for 6-4-2 even for naturalness and coherence
+
+                        Qwen3-8B_h5	Qwen3.5-9B_h5   Qwen3.5-35B-A3B_h9  Qwen3.5-35B-A3B_h10      			
+instruction_following:	14	        14_1	        34                  35           36.._h11   37..hc12
+"cs_CZ"			0.41358		0.482789        0.453442            0.440760     0.46467    0.489492
+"de_DE"			0.59221		0.507608        0.569565            0.574094     0.55326
+"en_US"			0.72989		0.726811        0.7371376           0.754528     0.74166    0.65126
+"ru_RU"			0.6666666	0.577173        0.648913            0.663224     0.64474
+
+naturalness
+"cs_CZ"	        	0.44365		0.45144927      0.529166            0.529528                0.53768
+"de_DE"			0.46068		0.448731        0.4605072           0.4576086
+"en_US"			0.61376		0.565217        0.598007            0.59800                 0.62590
+"ru_RU"			0.4666		0.4929347       0.54510             0.545833
+
+coherence
+"cs_CZ"			0.40688		0.417210        0.4891304           0.487681                0.461050
+"de_DE"	        	0.59184		0.518840        0.581159            0.583876
+"en_US"			0.64565		0.543115        0.6342391           0.636050                0.602717
+"ru_RU"			0.64112		0.516304        0.597101            0.597644
+

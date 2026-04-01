@@ -1,0 +1,30 @@
+{
+    "ranking_accuracy": {
+        "Llama-3.1-8B": 0.65
+    },
+    "acc_eq_by_instruction_following": {
+        "Llama-3.1-8B": 0.4944746376811594
+    },
+    "acc_eq_by_naturalness": {
+        "Llama-3.1-8B": 0.435036231884058
+    },
+    "acc_eq_by_coherence": {
+        "Llama-3.1-8B": 0.44065217391304345
+    },
+    "acc_eq_average": {
+        "Llama-3.1-8B": 0.4567210144927536
+    },
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "Llama-3.1-8B": 0.4944746376811594
+            },
+            "naturalness": {
+                "Llama-3.1-8B": 0.435036231884058
+            },
+            "coherence": {
+                "Llama-3.1-8B": 0.44065217391304345
+            }
+        }
+    }
+}

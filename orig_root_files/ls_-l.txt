@@ -1,0 +1,11 @@
+(.vsbenv) vojta@deb:~/projects/llm_judge2/orig_root_files$ ls -l
+total 25100
+-rw-rw-r-- 1 vojta vojta     4513 Mar 17 16:13 corr_utils.py
+-rw-rw-r-- 1 vojta vojta    21909 Mar 17 16:13 judge_human_agreement.py
+-rw-rw-r-- 1 vojta vojta     6821 Mar 17 16:13 judge_utils.py
+-rw-rw-r-- 1 vojta vojta  1672185 Mar 17 16:13 oeg_human_eval_data.csv
+-rw-rw-r-- 1 vojta vojta     2255 Mar 17 16:13 oeg_judge_human_agreement_by_criterion.json
+-rw-rw-r-- 1 vojta vojta     5258 Mar 17 16:13 oeg_judge_human_agreement_results.json
+-rw-rw-r-- 1 vojta vojta 23969615 Mar 17 16:13 oeg_judge_run2_submission_data.csv
+-rw-rw-r-- 1 vojta vojta     2157 Mar 17 16:13 README.md
+(.vsbenv) vojta@deb:~/projects/llm_judge2/orig_root_files$ 

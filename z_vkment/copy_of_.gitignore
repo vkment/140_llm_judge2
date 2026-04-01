@@ -1,0 +1,8 @@
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.env
+0*.env
+0hf.env
+0or.env
+*.log

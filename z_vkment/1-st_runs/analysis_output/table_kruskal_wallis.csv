@@ -1,0 +1,4 @@
+Criterion,Kruskal-Wallis H,p-value,Significant (p<0.05)
+coherence,1806.3,0.00e+00,YES
+naturalness,1866.49,0.00e+00,YES
+instruction_following,1365.73,1.96e-288,YES

@@ -1,0 +1,30 @@
+{
+    "ranking_accuracy": {
+        "llama-4-maverick_pcsh5": 0.853448275862069
+    },
+    "acc_eq_by_naturalness": {
+        "llama-4-maverick_pcsh5": 0.4768115942028985
+    },
+    "acc_eq_by_instruction_following": {
+        "llama-4-maverick_pcsh5": 0.43985507246376815
+    },
+    "acc_eq_by_coherence": {
+        "llama-4-maverick_pcsh5": 0.4454710144927536
+    },
+    "acc_eq_average": {
+        "llama-4-maverick_pcsh5": 0.4540458937198067
+    },
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "naturalness": {
+                "llama-4-maverick_pcsh5": 0.4768115942028985
+            },
+            "instruction_following": {
+                "llama-4-maverick_pcsh5": 0.43985507246376815
+            },
+            "coherence": {
+                "llama-4-maverick_pcsh5": 0.4454710144927536
+            }
+        }
+    }
+}

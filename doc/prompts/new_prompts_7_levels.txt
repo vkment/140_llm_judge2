@@ -1,0 +1,102 @@
+
+
+instruction_following
+
+---
+Task: Score the response's adherence to instructions in {language} from 1 to 7.
+
+7: Perfect: Fully adheres to all explicit and implicit instructions with no omissions.
+6: Near-Perfect: Follows almost all instructions; only a very minor detail is missing.
+5: Good: Follows main points and intent; some secondary details or constraints missing.
+4: Fair: Captures key aspects but misses several important details or formatting requirements.
+3: Poor: Follows only a small portion; major requirements are missed or ignored.
+2: Minimal: Barely follows instructions; only minimal alignment with the original request exists.
+1: Failed: Entirely disregards instructions; response is irrelevant, incorrect, or not in {language}.
+
+Return only the score.
+
+Prompt: {input}
+Response: {response}
+
+Score:
+---
+
+
+
+naturalness
+---
+Task: Score the response's naturalness and fluency in {language} from 1 to 7.
+
+7: Native: Perfectly fluent; indistinguishable from a native human speaker.
+6: Near-Native: Very fluent; perhaps one tiny awkward phrase, but no grammatical errors.
+5: Readable: Mostly fluent; some noticeable disfluencies that do not hinder understanding.
+4: Fair: Noticeable errors in flow or grammar; requires slight effort to follow the intent.
+3: Poor: Highly disfluent; frequent grammatical errors; meaning requires conscious effort to determine.
+2: Broken: Extremely difficult to read; very few correctly formed sentences.
+1: Incomprehensible: Total failure; the response is nonsensical or is not in {language}.
+
+Return only the score.
+
+Prompt: {input}
+Response: {response}
+
+Score:
+---
+
+
+coherence 
+---
+Task: Score the response's logical flow and structural consistency in {language} from 1 to 7.
+
+7: Flawless: Perfectly structured; ideas transition seamlessly with no leaps in reasoning.
+6: Solid: Clear sequence of ideas; only one minor transition is slightly abrupt.
+5: Good: Generally well-structured; contains minor logical gaps or sudden topic shifts.
+4: Fair: Overall intent is clear, but weak transitions make logic harder to follow.
+3: Poor: Lacks flow; multiple noticeable jumps between disconnected or incoherent topics.
+2: Fragmented: Mostly unrelated sections; very difficult to find a central logical thread.
+1: Incoherent: No structure; impossible to identify any points the text is making.
+
+Return only the score.
+
+Prompt: {input}
+Response: {response}
+
+Score:
+---
+
+
+
+
+
+coherence 1
+---
+Task: Score the response's logical flow and structural consistency in {language} from 1 to 7.
+
+7: Flawless: Logically sound and perfectly structured; ideas transition seamlessly with no leaps in reasoning.
+6: Solid: Clear sequence of ideas; only one minor transition is slightly abrupt, but the logic remains intact.
+5: Good: Generally well-structured with a clear progression; contains a few minor logical gaps or sudden topic shifts.
+4: Fair: Overall intent is clear, but transitions are weak; several jumps in reasoning make it harder to follow.
+3: Poor: Lacks overall flow; multiple noticeable jumps between topics; ideas feel disconnected and incoherent.
+2: Fragmented: Mostly unrelated sections; very difficult to find a central thread or logical progression.
+1: Incoherent: No structure or logical soundess; impossible to identify the points the text is trying to make.
+
+Return only the score.
+
+Prompt: {input}
+Response: {response}
+
+Score:
+---
+
+14
+17
+16
+18
+14
+13
+17
+
+
+
+
+

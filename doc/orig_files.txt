@@ -1,0 +1,28 @@
+vojta@deb:~/projects/llm_judge$ ls -l
+total 25116
+-rw-rw-r-- 1 vojta vojta     4513 Mar 17 16:13 corr_utils.py
+-rw-rw-r-- 1 vojta vojta    21909 Mar 17 16:13 judge_human_agreement.py
+-rw-rw-r-- 1 vojta vojta     3097 Mar 18 17:15 judge_utils2.py
+-rw-rw-r-- 1 vojta vojta     6821 Mar 17 16:13 judge_utils.py
+-rw-rw-r-- 1 vojta vojta  1672185 Mar 17 16:13 oeg_human_eval_data.csv
+-rw-rw-r-- 1 vojta vojta     2255 Mar 17 16:13 oeg_judge_human_agreement_by_criterion.json
+-rw-rw-r-- 1 vojta vojta     5258 Mar 17 16:13 oeg_judge_human_agreement_results.json
+-rw-rw-r-- 1 vojta vojta 23969615 Mar 17 16:13 oeg_judge_run2_submission_data.csv
+-rw-rw-r-- 1 vojta vojta     2157 Mar 17 16:13 README.md
+drwxrwxr-x 2 vojta vojta     4096 Mar 17 16:13 oeg_human_eval_raw_data
+vojta@deb:~/projects/llm_judge$ 
+vojta@deb:~/projects/llm_judge$ cd oeg_human_eval_raw_data
+vojta@deb:~/projects/llm_judge/oeg_human_eval_raw_data$ ls -l
+total 21648
+-rw-rw-r-- 1 vojta vojta 2126703 Mar 17 16:13 data_ar_EG.csv
+-rw-rw-r-- 1 vojta vojta 3406684 Mar 17 16:13 data_bn_BD.csv
+-rw-rw-r-- 1 vojta vojta 1704859 Mar 17 16:13 data_cs_CZ.csv
+-rw-rw-r-- 1 vojta vojta 1796710 Mar 17 16:13 data_de_DE.csv
+-rw-rw-r-- 1 vojta vojta 1988836 Mar 17 16:13 data_en_US.csv
+-rw-rw-r-- 1 vojta vojta 3221276 Mar 17 16:13 data_hi_IN.csv
+-rw-rw-r-- 1 vojta vojta 1826918 Mar 17 16:13 data_id_ID.csv
+-rw-rw-r-- 1 vojta vojta 1831359 Mar 17 16:13 data_ja_JP.csv
+-rw-rw-r-- 1 vojta vojta 2648000 Mar 17 16:13 data_ru_RU.csv
+-rw-rw-r-- 1 vojta vojta 1558894 Mar 17 16:13 data_zh_CN.csv
+-rw-rw-r-- 1 vojta vojta   29537 Mar 17 16:13 rankingInfo.json
+vojta@deb:~/projects/llm_judge/oeg_human_eval_raw_data$ 

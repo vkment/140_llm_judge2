@@ -1,0 +1,63 @@
+Metacentrum GPU nodes in March 2026
+according to 
+https://metavo.metacentrum.cz/pbsmon2/nodes/physical
+
+ 10 nodes: bee1.cerit-sc.cz . 2x NVIDIA H100 96GB (95830mb)
+ 
+ 5 nodes zia1.cerit-sc.cz . 4x NVIDIA A100 40GB  (40960mb)
+               15-17 rows/s aya-expanse-8b (vLLM)
+  
+ 6 nodes luna201.fzu.cz . 1x NVIDIA A40 48GB (46068mb)
+ 
+20 nodes fobos1.meta.zcu.cz  4x NVIDIA L40S 48GB (46068mb)
+   
+20 nodes galdor1.metacentrum.cz	4x NVIDIA A40 48GB (46068mb)
+                10 rows/s aya-expanse-8b (vLLM)
+
+9 nodes alfrid1.meta.zcu.cz  2x NVIDIA L40 48GB (46068mb)
+
+3 nodes fau1.natur.cuni.cz   8x Quadro RTX 5000 16GB  (16384mb )
+
+3 nodes fer1.natur.cuni.cz   8x NVIDIA RTX A4000 16GB (16376mb)
+
+8 nodes konos1.fav.zcu.cz  4x GPU NVIDIA GeForce GTX 1080 Ti  (11264mb)
+
+
+Add a Billing Address:
+
+Full name
+Country or region
+Address line 1
+
+2208
+
+293280
+10 languages 
+29328
+13 judges
+
+
+
+287 040
+10 languages
+28704
+13 judges
+2208 ... okay !!!
+
+
+
+
+2nd         
+
+loni:       letos:
+0.42137     0.43442
+
+loni:       letos:
+0.42735     0.431521
+
+loni:       letos:
+0.43351     0.46902
+
+
+
+

@@ -1,0 +1,15 @@
+"Llama-4-Maverick"
+"DeepSeek-V3"
+"CommandA"
+"GPT-4.1"
+"AyaExpanse-8B"
+"Llama-3.1-8B"
+"CommandR7B"
+"Claude-4"
+"AyaExpanse-32B"
+"Mistral-Medium"
+"Qwen3-235B"
+"Mistral-7B"
+"Qwen2.5-7B"
+
+                
