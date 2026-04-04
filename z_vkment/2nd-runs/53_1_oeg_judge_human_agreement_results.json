@@ -1,0 +1,30 @@
+{
+    "ranking_accuracy": {
+        "Magistral-Small-2509_h23": 0.8333333333333334
+    },
+    "acc_eq_by_instruction_following": {
+        "Magistral-Small-2509_h23": 0.582427536231884
+    },
+    "acc_eq_by_naturalness": {
+        "Magistral-Small-2509_h23": 0.5456521739130434
+    },
+    "acc_eq_by_coherence": {
+        "Magistral-Small-2509_h23": 0.5316123188405797
+    },
+    "acc_eq_average": {
+        "Magistral-Small-2509_h23": 0.5532306763285023
+    },
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "Magistral-Small-2509_h23": 0.582427536231884
+            },
+            "naturalness": {
+                "Magistral-Small-2509_h23": 0.5456521739130434
+            },
+            "coherence": {
+                "Magistral-Small-2509_h23": 0.5316123188405797
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "ranking_accuracy": {
+        "gemma-4-E4B-it_h13": 0.7368421052631579
+    },
+    "acc_eq_by_instruction_following": {
+        "gemma-4-E4B-it_h13": 0.5909420289855073
+    },
+    "acc_eq_by_naturalness": {
+        "gemma-4-E4B-it_h13": 0.5536231884057972
+    },
+    "acc_eq_by_coherence": {
+        "gemma-4-E4B-it_h13": 0.5292572463768116
+    },
+    "acc_eq_average": {
+        "gemma-4-E4B-it_h13": 0.5579408212560387
+    },
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "gemma-4-E4B-it_h13": 0.5909420289855073
+            },
+            "naturalness": {
+                "gemma-4-E4B-it_h13": 0.5536231884057972
+            },
+            "coherence": {
+                "gemma-4-E4B-it_h13": 0.5292572463768116
+            }
+        }
+    }
+}

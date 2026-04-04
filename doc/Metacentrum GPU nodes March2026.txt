@@ -8,7 +8,7 @@ https://metavo.metacentrum.cz/pbsmon2/nodes/physical
                15-17 rows/s aya-expanse-8b (vLLM)
   
  6 nodes luna201.fzu.cz . 1x NVIDIA A40 48GB (46068mb)
- 
+  
 20 nodes fobos1.meta.zcu.cz  4x NVIDIA L40S 48GB (46068mb)
    
 20 nodes galdor1.metacentrum.cz	4x NVIDIA A40 48GB (46068mb)
