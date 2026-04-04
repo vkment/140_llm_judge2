@@ -1,0 +1,115 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "coherence": {
+                "gemma-4-26B-A4B-it_s105_qq": 0.48820652173913043
+            },
+            "instruction_following": {
+                "gemma-4-26B-A4B-it_s105_qq": 0.5085869565217391
+            },
+            "naturalness": {
+                "gemma-4-26B-A4B-it_s105_qq": 0.4676449275362318
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "coherence": {
+                "ar_EG": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.5351449275362318
+                },
+                "bn_BD": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.5201086956521739
+                },
+                "cs_CZ": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.48514492753623195
+                },
+                "de_DE": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.4811594202898551
+                },
+                "en_US": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.38188405797101455
+                },
+                "hi_IN": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.5043478260869565
+                },
+                "id_ID": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.43695652173913047
+                },
+                "ja_JP": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.47771739130434787
+                },
+                "ru_RU": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.582427536231884
+                },
+                "zh_CN": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.4771739130434782
+                }
+            },
+            "instruction_following": {
+                "ar_EG": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.5440217391304347
+                },
+                "bn_BD": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.49184782608695643
+                },
+                "cs_CZ": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.4759057971014493
+                },
+                "de_DE": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.4817028985507245
+                },
+                "en_US": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.5092391304347826
+                },
+                "hi_IN": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.48713768115942024
+                },
+                "id_ID": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.5030797101449275
+                },
+                "ja_JP": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.480072463768116
+                },
+                "ru_RU": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.6110507246376813
+                },
+                "zh_CN": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.5018115942028986
+                }
+            },
+            "naturalness": {
+                "ar_EG": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.3902173913043478
+                },
+                "bn_BD": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.519927536231884
+                },
+                "cs_CZ": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.5157608695652174
+                },
+                "de_DE": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.4088768115942031
+                },
+                "en_US": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.3932971014492753
+                },
+                "hi_IN": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.479891304347826
+                },
+                "id_ID": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.4563405797101449
+                },
+                "ja_JP": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.4981884057971015
+                },
+                "ru_RU": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.5429347826086957
+                },
+                "zh_CN": {
+                    "gemma-4-26B-A4B-it_s105_qq": 0.4710144927536232
+                }
+            }
+        }
+    }
+}

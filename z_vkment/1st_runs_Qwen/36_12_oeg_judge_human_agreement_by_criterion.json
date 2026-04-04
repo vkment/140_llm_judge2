@@ -1,0 +1,43 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "Qwen3.5-35B-A3B_hcs22": 0.5984601449275362
+            },
+            "naturalness": {
+                "Qwen3.5-35B-A3B_hcs22": 0.5796195652173912
+            },
+            "coherence": {
+                "Qwen3.5-35B-A3B_hcs22": 0.5647644927536232
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "cs_CZ": {
+                    "Qwen3.5-35B-A3B_hcs22": 0.48188405797101447
+                },
+                "en_US": {
+                    "Qwen3.5-35B-A3B_hcs22": 0.715036231884058
+                }
+            },
+            "naturalness": {
+                "cs_CZ": {
+                    "Qwen3.5-35B-A3B_hcs22": 0.5400362318840581
+                },
+                "en_US": {
+                    "Qwen3.5-35B-A3B_hcs22": 0.6192028985507246
+                }
+            },
+            "coherence": {
+                "cs_CZ": {
+                    "Qwen3.5-35B-A3B_hcs22": 0.4817028985507246
+                },
+                "en_US": {
+                    "Qwen3.5-35B-A3B_hcs22": 0.6478260869565217
+                }
+            }
+        }
+    }
+}

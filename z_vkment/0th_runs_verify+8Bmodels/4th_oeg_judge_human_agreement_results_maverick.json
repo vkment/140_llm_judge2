@@ -1,0 +1,30 @@
+{
+    "ranking_accuracy": {
+        "llama-4-maverick": 0.8666666666666667
+    },
+    "acc_eq_by_coherence": {
+        "llama-4-maverick": 0.5495108695652174
+    },
+    "acc_eq_by_naturalness": {
+        "llama-4-maverick": 0.512518115942029
+    },
+    "acc_eq_by_instruction_following": {
+        "llama-4-maverick": 0.5308514492753623
+    },
+    "acc_eq_average": {
+        "llama-4-maverick": 0.5309601449275362
+    },
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "coherence": {
+                "llama-4-maverick": 0.5495108695652174
+            },
+            "naturalness": {
+                "llama-4-maverick": 0.512518115942029
+            },
+            "instruction_following": {
+                "llama-4-maverick": 0.5308514492753623
+            }
+        }
+    }
+}

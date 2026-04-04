@@ -1,0 +1,245 @@
+# SUMMARY (per locale x criterion)
+locale,language,criterion,n_pairs,llm_mean,human_mean,bias_total,mae_total,llm_low,llm_mid,llm_high,hum_low,hum_mid,hum_high
+ar_EG,Arabic,instruction_following,736,5.9266,5.8139,0.1128,0.9959,0.1060,0.1766,0.7174,0.1277,0.1386,0.7337
+ar_EG,Arabic,naturalness,736,6.1875,3.1549,3.0326,3.1413,0.0666,0.1916,0.7418,0.5774,0.1943,0.2283
+ar_EG,Arabic,coherence,736,6.3764,5.5910,0.7853,1.0109,0.0747,0.0897,0.8356,0.1454,0.2038,0.6508
+bn_BD,Bengali,instruction_following,736,5.2405,4.1889,1.0516,1.6739,0.2541,0.1834,0.5625,0.2677,0.6114,0.1209
+bn_BD,Bengali,naturalness,736,5.2989,3.6617,1.6372,1.9389,0.2595,0.1780,0.5625,0.4130,0.5054,0.0815
+bn_BD,Bengali,coherence,736,5.3465,3.4185,1.9280,2.3111,0.2717,0.1114,0.6168,0.5082,0.4185,0.0734
+cs_CZ,Czech,instruction_following,736,6.1902,5.8492,0.3410,1.0312,0.0815,0.1739,0.7446,0.0489,0.2541,0.6970
+cs_CZ,Czech,naturalness,736,6.1590,5.3383,0.8207,1.1712,0.0584,0.2188,0.7228,0.1005,0.3859,0.5136
+cs_CZ,Czech,coherence,736,6.5408,5.6848,0.8560,1.0978,0.0462,0.1073,0.8465,0.0707,0.3057,0.6236
+de_DE,German,instruction_following,736,6.3777,6.3220,0.0557,0.7976,0.0258,0.1467,0.8274,0.0231,0.1685,0.8084
+de_DE,German,naturalness,736,6.5190,6.0639,0.4552,0.8954,0.0149,0.1345,0.8505,0.0272,0.2582,0.7147
+de_DE,German,coherence,736,6.7432,6.5774,0.1658,0.4891,0.0082,0.0707,0.9212,0.0068,0.0815,0.9117
+en_US,English,instruction_following,736,6.4878,6.4389,0.0489,0.6766,0.0068,0.1155,0.8777,0.0122,0.1101,0.8777
+en_US,English,naturalness,736,6.9497,6.2310,0.7188,0.7840,0.0000,0.0122,0.9878,0.0068,0.2609,0.7323
+en_US,English,coherence,736,6.8668,6.3560,0.5109,0.6712,0.0014,0.0435,0.9552,0.0109,0.1562,0.8329
+hi_IN,Hindi,instruction_following,736,6.0109,5.8546,0.1562,1.0014,0.0870,0.1997,0.7133,0.0503,0.3668,0.5829
+hi_IN,Hindi,naturalness,736,6.1277,5.6073,0.5204,1.0666,0.0897,0.1562,0.7541,0.0761,0.4212,0.5027
+hi_IN,Hindi,coherence,736,6.2473,5.9538,0.2935,1.0163,0.0951,0.1087,0.7962,0.0408,0.3478,0.6114
+id_ID,Indonesian,instruction_following,736,6.3424,6.1671,0.1753,0.8302,0.0516,0.1807,0.7677,0.0856,0.1603,0.7541
+id_ID,Indonesian,naturalness,736,6.4986,5.8981,0.6005,0.9511,0.0245,0.1440,0.8315,0.0571,0.3030,0.6399
+id_ID,Indonesian,coherence,736,6.7785,5.9918,0.7867,0.9090,0.0217,0.0611,0.9171,0.0584,0.2663,0.6753
+ja_JP,Japanese,instruction_following,736,6.3818,5.6019,0.7799,1.1630,0.0435,0.1345,0.8220,0.1114,0.3288,0.5598
+ja_JP,Japanese,naturalness,736,6.3777,5.6155,0.7622,1.2052,0.0258,0.1481,0.8261,0.1576,0.2188,0.6236
+ja_JP,Japanese,coherence,736,6.6209,5.7310,0.8899,1.1590,0.0272,0.0666,0.9062,0.1332,0.2296,0.6372
+ru_RU,Russian,instruction_following,736,6.3981,6.4851,-0.0870,0.6957,0.0571,0.1128,0.8302,0.0408,0.1399,0.8193
+ru_RU,Russian,naturalness,736,6.4389,5.8424,0.5965,0.8465,0.0272,0.1209,0.8519,0.0761,0.3111,0.6128
+ru_RU,Russian,coherence,736,6.6821,6.4728,0.2092,0.5734,0.0204,0.0693,0.9103,0.0272,0.1495,0.8234
+zh_CN,Chinese,instruction_following,736,6.3601,5.9783,0.3818,1.0204,0.0476,0.1236,0.8288,0.0978,0.2636,0.6386
+zh_CN,Chinese,naturalness,736,6.6617,6.0625,0.5992,0.8546,0.0095,0.0951,0.8954,0.0367,0.3315,0.6318
+zh_CN,Chinese,coherence,736,6.6440,6.1250,0.5190,0.9457,0.0190,0.0842,0.8967,0.0734,0.2541,0.6726
+
+# LEVEL DETAIL (per locale x criterion x llm_level)
+locale,language,criterion,llm_level,count,human_mean,cond_bias,recommendation
+ar_EG,Arabic,instruction_following,1,24,1.8333,-0.8333,↑  zvýšit  (LLM o -0.83 pod lidmi)
+ar_EG,Arabic,instruction_following,2,3,2.6667,-0.6667,↑  zvýšit  (LLM o -0.67 pod lidmi)
+ar_EG,Arabic,instruction_following,3,51,2.7647,0.2353,OK
+ar_EG,Arabic,instruction_following,4,25,4.6000,-0.6000,↑  zvýšit  (LLM o -0.60 pod lidmi)
+ar_EG,Arabic,instruction_following,5,105,5.8476,-0.8476,↑  zvýšit  (LLM o -0.85 pod lidmi)
+ar_EG,Arabic,instruction_following,6,142,6.2183,-0.2183,OK
+ar_EG,Arabic,instruction_following,7,386,6.4093,0.5907,↓  snížit  (LLM o +0.59 nad lidmi)
+ar_EG,Arabic,naturalness,1,9,1.0000,0.0000,OK
+ar_EG,Arabic,naturalness,2,4,1.0000,1.0000,↓  snížit  (LLM o +1.00 nad lidmi)
+ar_EG,Arabic,naturalness,3,36,1.6111,1.3889,↓  snížit  (LLM o +1.39 nad lidmi)
+ar_EG,Arabic,naturalness,4,38,2.0789,1.9211,↓  snížit  (LLM o +1.92 nad lidmi)
+ar_EG,Arabic,naturalness,5,103,2.3398,2.6602,↓  snížit  (LLM o +2.66 nad lidmi)
+ar_EG,Arabic,naturalness,6,60,2.9167,3.0833,↓  snížit  (LLM o +3.08 nad lidmi)
+ar_EG,Arabic,naturalness,7,486,3.6132,3.3868,↓  snížit  (LLM o +3.39 nad lidmi)
+ar_EG,Arabic,coherence,1,16,1.3125,-0.3125,↑  zvýšit  (LLM o -0.31 pod lidmi)
+ar_EG,Arabic,coherence,2,4,1.0000,1.0000,↓  snížit  (LLM o +1.00 nad lidmi)
+ar_EG,Arabic,coherence,3,35,2.0571,0.9429,↓  snížit  (LLM o +0.94 nad lidmi)
+ar_EG,Arabic,coherence,4,22,3.8182,0.1818,OK
+ar_EG,Arabic,coherence,5,44,4.4773,0.5227,↓  snížit  (LLM o +0.52 nad lidmi)
+ar_EG,Arabic,coherence,6,49,6.0408,-0.0408,OK
+ar_EG,Arabic,coherence,7,566,6.0795,0.9205,↓  snížit  (LLM o +0.92 nad lidmi)
+bn_BD,Bengali,instruction_following,1,47,2.4468,-1.4468,↑  zvýšit  (LLM o -1.45 pod lidmi)
+bn_BD,Bengali,instruction_following,2,7,2.8571,-0.8571,↑  zvýšit  (LLM o -0.86 pod lidmi)
+bn_BD,Bengali,instruction_following,3,133,3.6015,-0.6015,↑  zvýšit  (LLM o -0.60 pod lidmi)
+bn_BD,Bengali,instruction_following,4,42,3.5238,0.4762,↓  snížit  (LLM o +0.48 nad lidmi)
+bn_BD,Bengali,instruction_following,5,93,4.2688,0.7312,↓  snížit  (LLM o +0.73 nad lidmi)
+bn_BD,Bengali,instruction_following,6,134,4.5746,1.4254,↓  snížit  (LLM o +1.43 nad lidmi)
+bn_BD,Bengali,instruction_following,7,280,4.6821,2.3179,↓  snížit  (LLM o +2.32 nad lidmi)
+bn_BD,Bengali,naturalness,1,27,1.5556,-0.5556,↑  zvýšit  (LLM o -0.56 pod lidmi)
+bn_BD,Bengali,naturalness,2,19,2.4737,-0.4737,↑  zvýšit  (LLM o -0.47 pod lidmi)
+bn_BD,Bengali,naturalness,3,145,2.9655,0.0345,OK
+bn_BD,Bengali,naturalness,4,83,2.9036,1.0964,↓  snížit  (LLM o +1.10 nad lidmi)
+bn_BD,Bengali,naturalness,5,48,3.8958,1.1042,↓  snížit  (LLM o +1.10 nad lidmi)
+bn_BD,Bengali,naturalness,6,70,3.8571,2.1429,↓  snížit  (LLM o +2.14 nad lidmi)
+bn_BD,Bengali,naturalness,7,344,4.2965,2.7035,↓  snížit  (LLM o +2.70 nad lidmi)
+bn_BD,Bengali,coherence,1,81,2.0617,-1.0617,↑  zvýšit  (LLM o -1.06 pod lidmi)
+bn_BD,Bengali,coherence,2,19,2.4211,-0.4211,↑  zvýšit  (LLM o -0.42 pod lidmi)
+bn_BD,Bengali,coherence,3,100,2.8900,0.1100,OK
+bn_BD,Bengali,coherence,4,25,2.7600,1.2400,↓  snížit  (LLM o +1.24 nad lidmi)
+bn_BD,Bengali,coherence,5,57,3.1930,1.8070,↓  snížit  (LLM o +1.81 nad lidmi)
+bn_BD,Bengali,coherence,6,47,3.5957,2.4043,↓  snížit  (LLM o +2.40 nad lidmi)
+bn_BD,Bengali,coherence,7,407,3.9165,3.0835,↓  snížit  (LLM o +3.08 nad lidmi)
+cs_CZ,Czech,instruction_following,1,7,2.4286,-1.4286,↑  zvýšit  (LLM o -1.43 pod lidmi)
+cs_CZ,Czech,instruction_following,2,0,,,—  (LLM toto skóre nepoužilo)
+cs_CZ,Czech,instruction_following,3,53,4.8491,-1.8491,↑  zvýšit  (LLM o -1.85 pod lidmi)
+cs_CZ,Czech,instruction_following,4,11,6.0000,-2.0000,↑  zvýšit  (LLM o -2.00 pod lidmi)
+cs_CZ,Czech,instruction_following,5,117,5.2906,-0.2906,OK
+cs_CZ,Czech,instruction_following,6,75,5.9067,0.0933,OK
+cs_CZ,Czech,instruction_following,7,473,6.1374,0.8626,↓  snížit  (LLM o +0.86 nad lidmi)
+cs_CZ,Czech,naturalness,1,6,1.0000,0.0000,OK
+cs_CZ,Czech,naturalness,2,1,1.0000,1.0000,↓  snížit  (LLM o +1.00 nad lidmi)
+cs_CZ,Czech,naturalness,3,36,3.5833,-0.5833,↑  zvýšit  (LLM o -0.58 pod lidmi)
+cs_CZ,Czech,naturalness,4,40,3.8500,0.1500,OK
+cs_CZ,Czech,naturalness,5,121,4.8430,0.1570,OK
+cs_CZ,Czech,naturalness,6,72,5.3750,0.6250,↓  snížit  (LLM o +0.62 nad lidmi)
+cs_CZ,Czech,naturalness,7,460,5.7957,1.2043,↓  snížit  (LLM o +1.20 nad lidmi)
+cs_CZ,Czech,coherence,1,6,2.3333,-1.3333,↑  zvýšit  (LLM o -1.33 pod lidmi)
+cs_CZ,Czech,coherence,2,2,5.5000,-3.5000,↑  zvýšit  (LLM o -3.50 pod lidmi)
+cs_CZ,Czech,coherence,3,26,3.6538,-0.6538,↑  zvýšit  (LLM o -0.65 pod lidmi)
+cs_CZ,Czech,coherence,4,12,4.3333,-0.3333,↑  zvýšit  (LLM o -0.33 pod lidmi)
+cs_CZ,Czech,coherence,5,67,4.7910,0.2090,OK
+cs_CZ,Czech,coherence,6,18,5.7778,0.2222,OK
+cs_CZ,Czech,coherence,7,605,5.9289,1.0711,↓  snížit  (LLM o +1.07 nad lidmi)
+de_DE,German,instruction_following,1,3,1.0000,0.0000,OK
+de_DE,German,instruction_following,2,0,,,—  (LLM toto skóre nepoužilo)
+de_DE,German,instruction_following,3,16,5.0000,-2.0000,↑  zvýšit  (LLM o -2.00 pod lidmi)
+de_DE,German,instruction_following,4,21,6.0952,-2.0952,↑  zvýšit  (LLM o -2.10 pod lidmi)
+de_DE,German,instruction_following,5,87,6.1264,-1.1264,↑  zvýšit  (LLM o -1.13 pod lidmi)
+de_DE,German,instruction_following,6,139,6.1655,-0.1655,OK
+de_DE,German,instruction_following,7,470,6.4936,0.5064,↓  snížit  (LLM o +0.51 nad lidmi)
+de_DE,German,naturalness,1,0,,,—  (LLM toto skóre nepoužilo)
+de_DE,German,naturalness,2,0,,,—  (LLM toto skóre nepoužilo)
+de_DE,German,naturalness,3,11,5.0000,-2.0000,↑  zvýšit  (LLM o -2.00 pod lidmi)
+de_DE,German,naturalness,4,16,4.6875,-0.6875,↑  zvýšit  (LLM o -0.69 pod lidmi)
+de_DE,German,naturalness,5,83,5.5422,-0.5422,↑  zvýšit  (LLM o -0.54 pod lidmi)
+de_DE,German,naturalness,6,96,5.8438,0.1562,OK
+de_DE,German,naturalness,7,530,6.2491,0.7509,↓  snížit  (LLM o +0.75 nad lidmi)
+de_DE,German,coherence,1,2,4.5000,-3.5000,↑  zvýšit  (LLM o -3.50 pod lidmi)
+de_DE,German,coherence,2,1,2.0000,0.0000,OK
+de_DE,German,coherence,3,3,6.6667,-3.6667,↑  zvýšit  (LLM o -3.67 pod lidmi)
+de_DE,German,coherence,4,2,4.0000,0.0000,OK
+de_DE,German,coherence,5,50,6.1800,-1.1800,↑  zvýšit  (LLM o -1.18 pod lidmi)
+de_DE,German,coherence,6,54,6.3519,-0.3519,↑  zvýšit  (LLM o -0.35 pod lidmi)
+de_DE,German,coherence,7,624,6.6506,0.3494,↓  snížit  (LLM o +0.35 nad lidmi)
+en_US,English,instruction_following,1,1,3.0000,-2.0000,↑  zvýšit  (LLM o -2.00 pod lidmi)
+en_US,English,instruction_following,2,0,,,—  (LLM toto skóre nepoužilo)
+en_US,English,instruction_following,3,4,4.2500,-1.2500,↑  zvýšit  (LLM o -1.25 pod lidmi)
+en_US,English,instruction_following,4,8,5.7500,-1.7500,↑  zvýšit  (LLM o -1.75 pod lidmi)
+en_US,English,instruction_following,5,77,6.4286,-1.4286,↑  zvýšit  (LLM o -1.43 pod lidmi)
+en_US,English,instruction_following,6,177,6.2429,-0.2429,OK
+en_US,English,instruction_following,7,469,6.5522,0.4478,↓  snížit  (LLM o +0.45 nad lidmi)
+en_US,English,naturalness,1,0,,,—  (LLM toto skóre nepoužilo)
+en_US,English,naturalness,2,0,,,—  (LLM toto skóre nepoužilo)
+en_US,English,naturalness,3,0,,,—  (LLM toto skóre nepoužilo)
+en_US,English,naturalness,4,2,5.0000,-1.0000,↑  zvýšit  (LLM o -1.00 pod lidmi)
+en_US,English,naturalness,5,7,5.8571,-0.8571,↑  zvýšit  (LLM o -0.86 pod lidmi)
+en_US,English,naturalness,6,17,6.4706,-0.4706,↑  zvýšit  (LLM o -0.47 pod lidmi)
+en_US,English,naturalness,7,710,6.2324,0.7676,↓  snížit  (LLM o +0.77 nad lidmi)
+en_US,English,coherence,1,0,,,—  (LLM toto skóre nepoužilo)
+en_US,English,coherence,2,0,,,—  (LLM toto skóre nepoužilo)
+en_US,English,coherence,3,1,2.0000,1.0000,↓  snížit  (LLM o +1.00 nad lidmi)
+en_US,English,coherence,4,1,6.0000,-2.0000,↑  zvýšit  (LLM o -2.00 pod lidmi)
+en_US,English,coherence,5,31,6.1935,-1.1935,↑  zvýšit  (LLM o -1.19 pod lidmi)
+en_US,English,coherence,6,29,6.3793,-0.3793,↑  zvýšit  (LLM o -0.38 pod lidmi)
+en_US,English,coherence,7,674,6.3694,0.6306,↓  snížit  (LLM o +0.63 nad lidmi)
+hi_IN,Hindi,instruction_following,1,9,1.8889,-0.8889,↑  zvýšit  (LLM o -0.89 pod lidmi)
+hi_IN,Hindi,instruction_following,2,3,4.3333,-2.3333,↑  zvýšit  (LLM o -2.33 pod lidmi)
+hi_IN,Hindi,instruction_following,3,52,4.3269,-1.3269,↑  zvýšit  (LLM o -1.33 pod lidmi)
+hi_IN,Hindi,instruction_following,4,22,4.8182,-0.8182,↑  zvýšit  (LLM o -0.82 pod lidmi)
+hi_IN,Hindi,instruction_following,5,125,5.7280,-0.7280,↑  zvýšit  (LLM o -0.73 pod lidmi)
+hi_IN,Hindi,instruction_following,6,135,6.1556,-0.1556,OK
+hi_IN,Hindi,instruction_following,7,390,6.1564,0.8436,↓  snížit  (LLM o +0.84 nad lidmi)
+hi_IN,Hindi,naturalness,1,9,1.4444,-0.4444,↑  zvýšit  (LLM o -0.44 pod lidmi)
+hi_IN,Hindi,naturalness,2,6,3.8333,-1.8333,↑  zvýšit  (LLM o -1.83 pod lidmi)
+hi_IN,Hindi,naturalness,3,51,4.0784,-1.0784,↑  zvýšit  (LLM o -1.08 pod lidmi)
+hi_IN,Hindi,naturalness,4,54,4.4074,-0.4074,↑  zvýšit  (LLM o -0.41 pod lidmi)
+hi_IN,Hindi,naturalness,5,61,5.6393,-0.6393,↑  zvýšit  (LLM o -0.64 pod lidmi)
+hi_IN,Hindi,naturalness,6,70,5.5143,0.4857,↓  snížit  (LLM o +0.49 nad lidmi)
+hi_IN,Hindi,naturalness,7,485,6.0103,0.9897,↓  snížit  (LLM o +0.99 nad lidmi)
+hi_IN,Hindi,coherence,1,19,4.2105,-3.2105,↑  zvýšit  (LLM o -3.21 pod lidmi)
+hi_IN,Hindi,coherence,2,9,4.3333,-2.3333,↑  zvýšit  (LLM o -2.33 pod lidmi)
+hi_IN,Hindi,coherence,3,42,4.7381,-1.7381,↑  zvýšit  (LLM o -1.74 pod lidmi)
+hi_IN,Hindi,coherence,4,21,4.6190,-0.6190,↑  zvýšit  (LLM o -0.62 pod lidmi)
+hi_IN,Hindi,coherence,5,59,5.8983,-0.8983,↑  zvýšit  (LLM o -0.90 pod lidmi)
+hi_IN,Hindi,coherence,6,46,5.8261,0.1739,OK
+hi_IN,Hindi,coherence,7,540,6.2056,0.7944,↓  snížit  (LLM o +0.79 nad lidmi)
+id_ID,Indonesian,instruction_following,1,5,2.4000,-1.4000,↑  zvýšit  (LLM o -1.40 pod lidmi)
+id_ID,Indonesian,instruction_following,2,1,5.0000,-3.0000,↑  zvýšit  (LLM o -3.00 pod lidmi)
+id_ID,Indonesian,instruction_following,3,32,4.6875,-1.6875,↑  zvýšit  (LLM o -1.69 pod lidmi)
+id_ID,Indonesian,instruction_following,4,1,3.0000,1.0000,↓  snížit  (LLM o +1.00 nad lidmi)
+id_ID,Indonesian,instruction_following,5,132,5.3409,-0.3409,↑  zvýšit  (LLM o -0.34 pod lidmi)
+id_ID,Indonesian,instruction_following,6,54,6.6481,-0.6481,↑  zvýšit  (LLM o -0.65 pod lidmi)
+id_ID,Indonesian,instruction_following,7,511,6.4677,0.5323,↓  snížit  (LLM o +0.53 nad lidmi)
+id_ID,Indonesian,naturalness,1,4,2.7500,-1.7500,↑  zvýšit  (LLM o -1.75 pod lidmi)
+id_ID,Indonesian,naturalness,2,0,,,—  (LLM toto skóre nepoužilo)
+id_ID,Indonesian,naturalness,3,14,4.2857,-1.2857,↑  zvýšit  (LLM o -1.29 pod lidmi)
+id_ID,Indonesian,naturalness,4,27,5.0370,-1.0370,↑  zvýšit  (LLM o -1.04 pod lidmi)
+id_ID,Indonesian,naturalness,5,79,5.2152,-0.2152,OK
+id_ID,Indonesian,naturalness,6,50,5.1800,0.8200,↓  snížit  (LLM o +0.82 nad lidmi)
+id_ID,Indonesian,naturalness,7,562,6.1619,0.8381,↓  snížit  (LLM o +0.84 nad lidmi)
+id_ID,Indonesian,coherence,1,0,,,—  (LLM toto skóre nepoužilo)
+id_ID,Indonesian,coherence,2,0,,,—  (LLM toto skóre nepoužilo)
+id_ID,Indonesian,coherence,3,16,4.0625,-1.0625,↑  zvýšit  (LLM o -1.06 pod lidmi)
+id_ID,Indonesian,coherence,4,0,,,—  (LLM toto skóre nepoužilo)
+id_ID,Indonesian,coherence,5,45,4.9778,0.0222,OK
+id_ID,Indonesian,coherence,6,9,5.8889,0.1111,OK
+id_ID,Indonesian,coherence,7,666,6.1081,0.8919,↓  snížit  (LLM o +0.89 nad lidmi)
+ja_JP,Japanese,instruction_following,1,4,3.0000,-2.0000,↑  zvýšit  (LLM o -2.00 pod lidmi)
+ja_JP,Japanese,instruction_following,2,0,,,—  (LLM toto skóre nepoužilo)
+ja_JP,Japanese,instruction_following,3,28,3.7857,-0.7857,↑  zvýšit  (LLM o -0.79 pod lidmi)
+ja_JP,Japanese,instruction_following,4,15,4.0667,-0.0667,OK
+ja_JP,Japanese,instruction_following,5,84,4.8929,0.1071,OK
+ja_JP,Japanese,instruction_following,6,106,5.5094,0.4906,↓  snížit  (LLM o +0.49 nad lidmi)
+ja_JP,Japanese,instruction_following,7,499,5.9098,1.0902,↓  snížit  (LLM o +1.09 nad lidmi)
+ja_JP,Japanese,naturalness,1,0,,,—  (LLM toto skóre nepoužilo)
+ja_JP,Japanese,naturalness,2,1,1.0000,1.0000,↓  snížit  (LLM o +1.00 nad lidmi)
+ja_JP,Japanese,naturalness,3,18,3.6667,-0.6667,↑  zvýšit  (LLM o -0.67 pod lidmi)
+ja_JP,Japanese,naturalness,4,41,3.6585,0.3415,↓  snížit  (LLM o +0.34 nad lidmi)
+ja_JP,Japanese,naturalness,5,68,5.1324,-0.1324,OK
+ja_JP,Japanese,naturalness,6,122,5.2951,0.7049,↓  snížit  (LLM o +0.70 nad lidmi)
+ja_JP,Japanese,naturalness,7,486,6.0103,0.9897,↓  snížit  (LLM o +0.99 nad lidmi)
+ja_JP,Japanese,coherence,1,5,2.0000,-1.0000,↑  zvýšit  (LLM o -1.00 pod lidmi)
+ja_JP,Japanese,coherence,2,0,,,—  (LLM toto skóre nepoužilo)
+ja_JP,Japanese,coherence,3,15,3.8000,-0.8000,↑  zvýšit  (LLM o -0.80 pod lidmi)
+ja_JP,Japanese,coherence,4,12,4.4167,-0.4167,↑  zvýšit  (LLM o -0.42 pod lidmi)
+ja_JP,Japanese,coherence,5,37,4.8108,0.1892,OK
+ja_JP,Japanese,coherence,6,79,5.3165,0.6835,↓  snížit  (LLM o +0.68 nad lidmi)
+ja_JP,Japanese,coherence,7,588,5.9524,1.0476,↓  snížit  (LLM o +1.05 nad lidmi)
+ru_RU,Russian,instruction_following,1,9,5.0000,-4.0000,↑  zvýšit  (LLM o -4.00 pod lidmi)
+ru_RU,Russian,instruction_following,2,0,,,—  (LLM toto skóre nepoužilo)
+ru_RU,Russian,instruction_following,3,33,5.7576,-2.7576,↑  zvýšit  (LLM o -2.76 pod lidmi)
+ru_RU,Russian,instruction_following,4,5,4.4000,-0.4000,↑  zvýšit  (LLM o -0.40 pod lidmi)
+ru_RU,Russian,instruction_following,5,78,5.8333,-0.8333,↑  zvýšit  (LLM o -0.83 pod lidmi)
+ru_RU,Russian,instruction_following,6,86,6.3953,-0.3953,↑  zvýšit  (LLM o -0.40 pod lidmi)
+ru_RU,Russian,instruction_following,7,525,6.6876,0.3124,↓  snížit  (LLM o +0.31 nad lidmi)
+ru_RU,Russian,naturalness,1,10,1.2000,-0.2000,OK
+ru_RU,Russian,naturalness,2,0,,,—  (LLM toto skóre nepoužilo)
+ru_RU,Russian,naturalness,3,10,3.1000,-0.1000,OK
+ru_RU,Russian,naturalness,4,23,4.3913,-0.3913,↑  zvýšit  (LLM o -0.39 pod lidmi)
+ru_RU,Russian,naturalness,5,66,5.1667,-0.1667,OK
+ru_RU,Russian,naturalness,6,112,5.0982,0.9018,↓  snížit  (LLM o +0.90 nad lidmi)
+ru_RU,Russian,naturalness,7,515,6.2990,0.7010,↓  snížit  (LLM o +0.70 nad lidmi)
+ru_RU,Russian,coherence,1,1,3.0000,-2.0000,↑  zvýšit  (LLM o -2.00 pod lidmi)
+ru_RU,Russian,coherence,2,1,6.0000,-4.0000,↑  zvýšit  (LLM o -4.00 pod lidmi)
+ru_RU,Russian,coherence,3,13,4.3077,-1.3077,↑  zvýšit  (LLM o -1.31 pod lidmi)
+ru_RU,Russian,coherence,4,6,5.3333,-1.3333,↑  zvýšit  (LLM o -1.33 pod lidmi)
+ru_RU,Russian,coherence,5,45,6.1556,-1.1556,↑  zvýšit  (LLM o -1.16 pod lidmi)
+ru_RU,Russian,coherence,6,63,6.1429,-0.1429,OK
+ru_RU,Russian,coherence,7,607,6.5947,0.4053,↓  snížit  (LLM o +0.41 nad lidmi)
+zh_CN,Chinese,instruction_following,1,6,3.1667,-2.1667,↑  zvýšit  (LLM o -2.17 pod lidmi)
+zh_CN,Chinese,instruction_following,2,1,3.0000,-1.0000,↑  zvýšit  (LLM o -1.00 pod lidmi)
+zh_CN,Chinese,instruction_following,3,28,4.4643,-1.4643,↑  zvýšit  (LLM o -1.46 pod lidmi)
+zh_CN,Chinese,instruction_following,4,11,3.9091,0.0909,OK
+zh_CN,Chinese,instruction_following,5,80,5.8625,-0.8625,↑  zvýšit  (LLM o -0.86 pod lidmi)
+zh_CN,Chinese,instruction_following,6,125,5.8400,0.1600,OK
+zh_CN,Chinese,instruction_following,7,485,6.2082,0.7918,↓  snížit  (LLM o +0.79 nad lidmi)
+zh_CN,Chinese,naturalness,1,1,1.0000,0.0000,OK
+zh_CN,Chinese,naturalness,2,0,,,—  (LLM toto skóre nepoužilo)
+zh_CN,Chinese,naturalness,3,6,5.3333,-2.3333,↑  zvýšit  (LLM o -2.33 pod lidmi)
+zh_CN,Chinese,naturalness,4,16,5.2500,-1.2500,↑  zvýšit  (LLM o -1.25 pod lidmi)
+zh_CN,Chinese,naturalness,5,54,5.5556,-0.5556,↑  zvýšit  (LLM o -0.56 pod lidmi)
+zh_CN,Chinese,naturalness,6,63,5.6667,0.3333,↓  snížit  (LLM o +0.33 nad lidmi)
+zh_CN,Chinese,naturalness,7,596,6.1879,0.8121,↓  snížit  (LLM o +0.81 nad lidmi)
+zh_CN,Chinese,coherence,1,2,3.0000,-2.0000,↑  zvýšit  (LLM o -2.00 pod lidmi)
+zh_CN,Chinese,coherence,2,0,,,—  (LLM toto skóre nepoužilo)
+zh_CN,Chinese,coherence,3,12,5.4167,-2.4167,↑  zvýšit  (LLM o -2.42 pod lidmi)
+zh_CN,Chinese,coherence,4,5,6.2000,-2.2000,↑  zvýšit  (LLM o -2.20 pod lidmi)
+zh_CN,Chinese,coherence,5,57,6.0877,-1.0877,↑  zvýšit  (LLM o -1.09 pod lidmi)
+zh_CN,Chinese,coherence,6,73,5.8767,0.1233,OK
+zh_CN,Chinese,coherence,7,587,6.1840,0.8160,↓  snížit  (LLM o +0.82 nad lidmi)

@@ -1,0 +1,773 @@
+{
+  "ar_EG|coherence": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 72,
+      "2": 9,
+      "3": 26,
+      "4": 32,
+      "5": 118,
+      "6": 124,
+      "7": 355
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "4.0": 1,
+      "5.0": 1,
+      "15.0": 1,
+      "16.0": 1,
+      "17.0": 1,
+      "19.0": 1,
+      "21.0": 1,
+      "23.0": 1,
+      "25.0": 1
+    }
+  },
+  "ar_EG|instruction_following": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 71,
+      "2": 8,
+      "3": 15,
+      "4": 17,
+      "5": 85,
+      "6": 126,
+      "7": 414
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "1.0": 1,
+      "2.0": 1,
+      "5.0": 1,
+      "8.0": 1,
+      "10.0": 1,
+      "11.0": 1,
+      "12.0": 1,
+      "14.0": 1,
+      "15.0": 1
+    }
+  },
+  "ar_EG|naturalness": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 357,
+      "2": 24,
+      "3": 44,
+      "4": 30,
+      "5": 113,
+      "6": 76,
+      "7": 92
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "4.0": 1,
+      "5.0": 1,
+      "6.0": 1,
+      "8.0": 1,
+      "13.0": 1,
+      "14.0": 1,
+      "15.0": 1,
+      "18.0": 1,
+      "19.0": 1
+    }
+  },
+  "bn_BD|coherence": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 101,
+      "2": 69,
+      "3": 204,
+      "4": 217,
+      "5": 91,
+      "6": 36,
+      "7": 18
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "1.0": 1,
+      "4.0": 1,
+      "5.0": 1,
+      "12.0": 1,
+      "13.0": 1,
+      "14.0": 1,
+      "15.0": 1,
+      "16.0": 1,
+      "17.0": 1
+    }
+  },
+  "bn_BD|instruction_following": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 67,
+      "2": 18,
+      "3": 112,
+      "4": 186,
+      "5": 264,
+      "6": 43,
+      "7": 46
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "1.0": 1,
+      "2.0": 1,
+      "3.0": 1,
+      "4.0": 1,
+      "5.0": 1,
+      "6.0": 1,
+      "7.0": 1,
+      "9.0": 1,
+      "10.0": 1
+    }
+  },
+  "bn_BD|naturalness": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 98,
+      "2": 50,
+      "3": 156,
+      "4": 208,
+      "5": 164,
+      "6": 43,
+      "7": 17
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "1.0": 1,
+      "3.0": 1,
+      "4.0": 1,
+      "5.0": 1,
+      "7.0": 1,
+      "10.0": 1,
+      "12.0": 1,
+      "13.0": 1,
+      "14.0": 1
+    }
+  },
+  "cs_CZ|coherence": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 20,
+      "2": 1,
+      "3": 31,
+      "4": 57,
+      "5": 168,
+      "6": 212,
+      "7": 247
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "7.0": 1,
+      "8.0": 1,
+      "15.0": 1,
+      "17.0": 1,
+      "24.0": 1,
+      "25.0": 1,
+      "31.0": 1,
+      "33.0": 1,
+      "34.0": 1
+    }
+  },
+  "cs_CZ|instruction_following": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 19,
+      "2": 4,
+      "3": 13,
+      "4": 33,
+      "5": 154,
+      "6": 254,
+      "7": 259
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "5.0": 1,
+      "6.0": 1,
+      "10.0": 1,
+      "12.0": 1,
+      "14.0": 2,
+      "15.0": 2,
+      "16.0": 2,
+      "18.0": 2,
+      "19.0": 3
+    }
+  },
+  "cs_CZ|naturalness": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 26,
+      "2": 2,
+      "3": 46,
+      "4": 79,
+      "5": 205,
+      "6": 226,
+      "7": 152
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "2.0": 1,
+      "5.0": 1,
+      "15.0": 1,
+      "17.0": 1,
+      "22.0": 1,
+      "25.0": 1,
+      "29.0": 1,
+      "30.0": 1,
+      "31.0": 1
+    }
+  },
+  "de_DE|coherence": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "2": 2,
+      "3": 3,
+      "4": 13,
+      "5": 47,
+      "6": 156,
+      "7": 515
+    },
+    "llm_to_calibrated_examples": {
+      "15.0": 2,
+      "34.0": 2,
+      "35.0": 3,
+      "45.0": 4,
+      "51.0": 4,
+      "53.0": 4,
+      "55.0": 4,
+      "63.0": 5,
+      "65.0": 5,
+      "67.0": 5
+    }
+  },
+  "de_DE|instruction_following": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 6,
+      "2": 4,
+      "3": 7,
+      "4": 26,
+      "5": 98,
+      "6": 141,
+      "7": 454
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "13.0": 2,
+      "20.0": 2,
+      "30.0": 3,
+      "32.0": 3,
+      "33.0": 3,
+      "34.0": 4,
+      "35.0": 4,
+      "40.0": 4,
+      "41.0": 4
+    }
+  },
+  "de_DE|naturalness": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 5,
+      "2": 4,
+      "3": 11,
+      "4": 47,
+      "5": 143,
+      "6": 168,
+      "7": 358
+    },
+    "llm_to_calibrated_examples": {
+      "33.0": 1,
+      "34.0": 1,
+      "35.0": 1,
+      "37.0": 2,
+      "41.0": 2,
+      "43.0": 2,
+      "45.0": 3,
+      "51.0": 4,
+      "53.0": 4,
+      "54.4": 4
+    }
+  },
+  "en_US|coherence": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "2": 2,
+      "3": 6,
+      "4": 20,
+      "5": 95,
+      "6": 190,
+      "7": 423
+    },
+    "llm_to_calibrated_examples": {
+      "42.0": 2,
+      "65.0": 2,
+      "75.0": 3,
+      "76.0": 3,
+      "77.0": 3,
+      "77.6": 4,
+      "78.0": 4,
+      "78.4": 4,
+      "78.8": 4,
+      "79.0": 4
+    }
+  },
+  "en_US|instruction_following": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "2": 3,
+      "3": 6,
+      "4": 13,
+      "5": 68,
+      "6": 199,
+      "7": 447
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 2,
+      "40.0": 3,
+      "41.0": 4,
+      "44.0": 4,
+      "45.0": 4,
+      "50.0": 4,
+      "56.2": 4,
+      "65.0": 4,
+      "75.0": 4,
+      "77.0": 5
+    }
+  },
+  "en_US|naturalness": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "2": 2,
+      "3": 3,
+      "4": 33,
+      "5": 159,
+      "6": 127,
+      "7": 412
+    },
+    "llm_to_calibrated_examples": {
+      "49.0": 2,
+      "73.2": 2,
+      "75.0": 3,
+      "76.2": 3,
+      "76.8": 4,
+      "77.0": 4,
+      "77.4": 4,
+      "79.8": 4,
+      "81.6": 4,
+      "82.0": 4
+    }
+  },
+  "hi_IN|coherence": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 15,
+      "2": 2,
+      "3": 13,
+      "4": 25,
+      "5": 231,
+      "6": 81,
+      "7": 369
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "1.0": 1,
+      "3.0": 1,
+      "5.0": 1,
+      "9.0": 2,
+      "11.0": 2,
+      "15.0": 3,
+      "17.0": 3,
+      "19.0": 4,
+      "21.0": 4
+    }
+  },
+  "hi_IN|instruction_following": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 16,
+      "2": 4,
+      "3": 17,
+      "4": 32,
+      "5": 238,
+      "6": 87,
+      "7": 342
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "2.0": 1,
+      "5.0": 1,
+      "6.0": 1,
+      "7.0": 2,
+      "10.0": 2,
+      "11.0": 3,
+      "14.0": 3,
+      "15.0": 3,
+      "19.0": 3
+    }
+  },
+  "hi_IN|naturalness": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 16,
+      "2": 3,
+      "3": 37,
+      "4": 46,
+      "5": 264,
+      "6": 100,
+      "7": 270
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "5.0": 1,
+      "7.0": 1,
+      "13.0": 1,
+      "15.0": 2,
+      "17.0": 3,
+      "19.0": 3,
+      "20.0": 3,
+      "21.0": 3,
+      "22.0": 3
+    }
+  },
+  "id_ID|coherence": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 10,
+      "3": 33,
+      "4": 34,
+      "5": 162,
+      "6": 124,
+      "7": 373
+    },
+    "llm_to_calibrated_examples": {
+      "2.0": 1,
+      "5.0": 1,
+      "7.0": 1,
+      "15.0": 1,
+      "19.0": 1,
+      "23.0": 1,
+      "27.0": 1,
+      "33.0": 1,
+      "34.0": 1,
+      "35.0": 3
+    }
+  },
+  "id_ID|instruction_following": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 13,
+      "2": 3,
+      "3": 47,
+      "4": 30,
+      "5": 88,
+      "6": 66,
+      "7": 489
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "5.0": 1,
+      "8.0": 1,
+      "11.0": 1,
+      "12.0": 1,
+      "14.0": 1,
+      "18.0": 1,
+      "19.0": 2,
+      "20.0": 2,
+      "24.0": 3
+    }
+  },
+  "id_ID|naturalness": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 6,
+      "2": 1,
+      "3": 35,
+      "4": 60,
+      "5": 163,
+      "6": 124,
+      "7": 347
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "17.0": 1,
+      "19.0": 1,
+      "21.0": 2,
+      "26.0": 3,
+      "30.0": 3,
+      "35.0": 3,
+      "37.0": 3,
+      "43.0": 3,
+      "44.0": 3
+    }
+  },
+  "ja_JP|coherence": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 19,
+      "2": 26,
+      "3": 53,
+      "4": 67,
+      "5": 102,
+      "6": 73,
+      "7": 396
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "5.0": 1,
+      "11.0": 1,
+      "15.0": 1,
+      "16.0": 1,
+      "25.0": 1,
+      "27.0": 1,
+      "30.0": 1,
+      "31.0": 1,
+      "33.0": 1
+    }
+  },
+  "ja_JP|instruction_following": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 9,
+      "2": 12,
+      "3": 61,
+      "4": 88,
+      "5": 154,
+      "6": 99,
+      "7": 313
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "1.0": 1,
+      "2.0": 2,
+      "10.0": 2,
+      "12.0": 2,
+      "19.0": 2,
+      "20.0": 2,
+      "22.0": 2,
+      "26.0": 2,
+      "28.0": 2
+    }
+  },
+  "ja_JP|naturalness": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 26,
+      "2": 39,
+      "3": 51,
+      "4": 61,
+      "5": 100,
+      "6": 81,
+      "7": 378
+    },
+    "llm_to_calibrated_examples": {
+      "3.0": 1,
+      "5.0": 1,
+      "13.0": 1,
+      "14.0": 1,
+      "15.0": 1,
+      "17.0": 1,
+      "20.0": 1,
+      "25.0": 1,
+      "27.0": 1,
+      "29.0": 1
+    }
+  },
+  "ru_RU|coherence": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 8,
+      "2": 2,
+      "3": 10,
+      "4": 20,
+      "5": 90,
+      "6": 50,
+      "7": 556
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "15.0": 1,
+      "19.0": 1,
+      "21.0": 1,
+      "28.0": 2,
+      "35.0": 2,
+      "37.0": 3,
+      "45.0": 3,
+      "47.0": 4,
+      "55.0": 4
+    }
+  },
+  "ru_RU|instruction_following": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 5,
+      "3": 25,
+      "4": 14,
+      "5": 89,
+      "6": 29,
+      "7": 574
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "1.0": 3,
+      "9.0": 3,
+      "14.0": 3,
+      "15.0": 3,
+      "16.0": 3,
+      "19.0": 3,
+      "20.0": 3,
+      "21.0": 3,
+      "22.0": 4
+    }
+  },
+  "ru_RU|naturalness": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 13,
+      "2": 2,
+      "3": 41,
+      "4": 41,
+      "5": 188,
+      "6": 101,
+      "7": 350
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "14.0": 1,
+      "15.0": 2,
+      "19.0": 3,
+      "25.0": 3,
+      "27.0": 3,
+      "29.0": 3,
+      "30.0": 3,
+      "33.0": 3,
+      "35.0": 3
+    }
+  },
+  "zh_CN|coherence": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 7,
+      "3": 47,
+      "4": 2,
+      "5": 185,
+      "6": 38,
+      "7": 457
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "15.0": 1,
+      "30.0": 1,
+      "31.0": 1,
+      "35.0": 1,
+      "40.0": 1,
+      "41.0": 3,
+      "43.0": 3,
+      "45.0": 3,
+      "47.0": 3
+    }
+  },
+  "zh_CN|instruction_following": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 13,
+      "2": 1,
+      "3": 58,
+      "4": 5,
+      "5": 189,
+      "6": 44,
+      "7": 426
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "12.0": 1,
+      "16.0": 1,
+      "18.0": 1,
+      "28.0": 1,
+      "30.0": 1,
+      "34.0": 1,
+      "40.0": 3,
+      "45.0": 3,
+      "47.0": 3
+    }
+  },
+  "zh_CN|naturalness": {
+    "method": "quantile-quantile",
+    "n_llm": 736,
+    "n_human": 736,
+    "human_distribution": {
+      "1": 1,
+      "3": 26,
+      "5": 244,
+      "6": 92,
+      "7": 373
+    },
+    "llm_to_calibrated_examples": {
+      "0.0": 1,
+      "25.0": 3,
+      "30.0": 3,
+      "35.0": 3,
+      "40.0": 3,
+      "43.0": 3,
+      "45.0": 3,
+      "49.0": 3,
+      "55.0": 3,
+      "57.0": 5
+    }
+  }
+}

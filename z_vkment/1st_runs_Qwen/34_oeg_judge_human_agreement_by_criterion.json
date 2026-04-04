@@ -1,0 +1,61 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "Qwen3.5-35B-A3B_h9": 0.6022644927536231
+            },
+            "naturalness": {
+                "Qwen3.5-35B-A3B_h9": 0.5331974637681158
+            },
+            "coherence": {
+                "Qwen3.5-35B-A3B_h9": 0.5754076086956522
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "cs_CZ": {
+                    "Qwen3.5-35B-A3B_h9": 0.4534420289855073
+                },
+                "de_DE": {
+                    "Qwen3.5-35B-A3B_h9": 0.5695652173913043
+                },
+                "en_US": {
+                    "Qwen3.5-35B-A3B_h9": 0.7371376811594202
+                },
+                "ru_RU": {
+                    "Qwen3.5-35B-A3B_h9": 0.6489130434782608
+                }
+            },
+            "naturalness": {
+                "cs_CZ": {
+                    "Qwen3.5-35B-A3B_h9": 0.5291666666666668
+                },
+                "de_DE": {
+                    "Qwen3.5-35B-A3B_h9": 0.4605072463768117
+                },
+                "en_US": {
+                    "Qwen3.5-35B-A3B_h9": 0.5980072463768115
+                },
+                "ru_RU": {
+                    "Qwen3.5-35B-A3B_h9": 0.5451086956521739
+                }
+            },
+            "coherence": {
+                "cs_CZ": {
+                    "Qwen3.5-35B-A3B_h9": 0.4891304347826086
+                },
+                "de_DE": {
+                    "Qwen3.5-35B-A3B_h9": 0.5811594202898551
+                },
+                "en_US": {
+                    "Qwen3.5-35B-A3B_h9": 0.6342391304347826
+                },
+                "ru_RU": {
+                    "Qwen3.5-35B-A3B_h9": 0.5971014492753622
+                }
+            }
+        }
+    }
+}

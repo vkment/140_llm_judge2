@@ -1,0 +1,61 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.5913496376811594
+            },
+            "naturalness": {
+                "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.44578804347826084
+            },
+            "coherence": {
+                "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.5495923913043478
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "cs_CZ": {
+                    "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.4280797101449276
+                },
+                "de_DE": {
+                    "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.5873188405797102
+                },
+                "en_US": {
+                    "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.7141304347826087
+                },
+                "ru_RU": {
+                    "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.6358695652173914
+                }
+            },
+            "naturalness": {
+                "cs_CZ": {
+                    "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.44365942028985494
+                },
+                "de_DE": {
+                    "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.4284420289855074
+                },
+                "en_US": {
+                    "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.48967391304347824
+                },
+                "ru_RU": {
+                    "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.421376811594203
+                }
+            },
+            "coherence": {
+                "cs_CZ": {
+                    "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.34528985507246374
+                },
+                "de_DE": {
+                    "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.614855072463768
+                },
+                "en_US": {
+                    "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.6365942028985507
+                },
+                "ru_RU": {
+                    "Selene-1-Mini-Llama-3.1-8B_pcsdeh5": 0.6016304347826086
+                }
+            }
+        }
+    }
+}

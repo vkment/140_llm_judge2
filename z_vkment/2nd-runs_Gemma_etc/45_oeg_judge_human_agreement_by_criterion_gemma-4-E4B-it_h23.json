@@ -1,0 +1,115 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "gemma-4-E4B-it_h23": 0.5934239130434783
+            },
+            "naturalness": {
+                "gemma-4-E4B-it_h23": 0.5233333333333333
+            },
+            "coherence": {
+                "gemma-4-E4B-it_h23": 0.5861413043478261
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "ar_EG": {
+                    "gemma-4-E4B-it_h23": 0.684963768115942
+                },
+                "bn_BD": {
+                    "gemma-4-E4B-it_h23": 0.5005434782608694
+                },
+                "cs_CZ": {
+                    "gemma-4-E4B-it_h23": 0.4548913043478261
+                },
+                "de_DE": {
+                    "gemma-4-E4B-it_h23": 0.5855072463768117
+                },
+                "en_US": {
+                    "gemma-4-E4B-it_h23": 0.742572463768116
+                },
+                "hi_IN": {
+                    "gemma-4-E4B-it_h23": 0.6514492753623189
+                },
+                "id_ID": {
+                    "gemma-4-E4B-it_h23": 0.5773550724637682
+                },
+                "ja_JP": {
+                    "gemma-4-E4B-it_h23": 0.47336956521739126
+                },
+                "ru_RU": {
+                    "gemma-4-E4B-it_h23": 0.6369565217391303
+                },
+                "zh_CN": {
+                    "gemma-4-E4B-it_h23": 0.6266304347826087
+                }
+            },
+            "naturalness": {
+                "ar_EG": {
+                    "gemma-4-E4B-it_h23": 0.43605072463768124
+                },
+                "bn_BD": {
+                    "gemma-4-E4B-it_h23": 0.5139492753623188
+                },
+                "cs_CZ": {
+                    "gemma-4-E4B-it_h23": 0.47681159420289865
+                },
+                "de_DE": {
+                    "gemma-4-E4B-it_h23": 0.4849637681159421
+                },
+                "en_US": {
+                    "gemma-4-E4B-it_h23": 0.6333333333333332
+                },
+                "hi_IN": {
+                    "gemma-4-E4B-it_h23": 0.6096014492753623
+                },
+                "id_ID": {
+                    "gemma-4-E4B-it_h23": 0.44728260869565223
+                },
+                "ja_JP": {
+                    "gemma-4-E4B-it_h23": 0.5132246376811594
+                },
+                "ru_RU": {
+                    "gemma-4-E4B-it_h23": 0.4744565217391305
+                },
+                "zh_CN": {
+                    "gemma-4-E4B-it_h23": 0.6436594202898551
+                }
+            },
+            "coherence": {
+                "ar_EG": {
+                    "gemma-4-E4B-it_h23": 0.6516304347826088
+                },
+                "bn_BD": {
+                    "gemma-4-E4B-it_h23": 0.48532608695652174
+                },
+                "cs_CZ": {
+                    "gemma-4-E4B-it_h23": 0.4259057971014493
+                },
+                "de_DE": {
+                    "gemma-4-E4B-it_h23": 0.6251811594202898
+                },
+                "en_US": {
+                    "gemma-4-E4B-it_h23": 0.6456521739130434
+                },
+                "hi_IN": {
+                    "gemma-4-E4B-it_h23": 0.6735507246376811
+                },
+                "id_ID": {
+                    "gemma-4-E4B-it_h23": 0.4648550724637681
+                },
+                "ja_JP": {
+                    "gemma-4-E4B-it_h23": 0.5507246376811594
+                },
+                "ru_RU": {
+                    "gemma-4-E4B-it_h23": 0.6447463768115942
+                },
+                "zh_CN": {
+                    "gemma-4-E4B-it_h23": 0.6938405797101449
+                }
+            }
+        }
+    }
+}

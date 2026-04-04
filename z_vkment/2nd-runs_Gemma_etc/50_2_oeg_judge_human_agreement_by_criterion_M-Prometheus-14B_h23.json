@@ -1,0 +1,115 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "M-Prometheus-14B_h23": 0.5848369565217391
+            },
+            "naturalness": {
+                "M-Prometheus-14B_h23": 0.5268659420289855
+            },
+            "coherence": {
+                "M-Prometheus-14B_h23": 0.5742028985507246
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "ar_EG": {
+                    "M-Prometheus-14B_h23": 0.6795289855072464
+                },
+                "bn_BD": {
+                    "M-Prometheus-14B_h23": 0.46992753623188405
+                },
+                "cs_CZ": {
+                    "M-Prometheus-14B_h23": 0.4344202898550725
+                },
+                "de_DE": {
+                    "M-Prometheus-14B_h23": 0.5623188405797103
+                },
+                "en_US": {
+                    "M-Prometheus-14B_h23": 0.7416666666666667
+                },
+                "hi_IN": {
+                    "M-Prometheus-14B_h23": 0.6422101449275363
+                },
+                "id_ID": {
+                    "M-Prometheus-14B_h23": 0.5976449275362318
+                },
+                "ja_JP": {
+                    "M-Prometheus-14B_h23": 0.47409420289855075
+                },
+                "ru_RU": {
+                    "M-Prometheus-14B_h23": 0.6380434782608695
+                },
+                "zh_CN": {
+                    "M-Prometheus-14B_h23": 0.6085144927536232
+                }
+            },
+            "naturalness": {
+                "ar_EG": {
+                    "M-Prometheus-14B_h23": 0.455072463768116
+                },
+                "bn_BD": {
+                    "M-Prometheus-14B_h23": 0.505072463768116
+                },
+                "cs_CZ": {
+                    "M-Prometheus-14B_h23": 0.47699275362318827
+                },
+                "de_DE": {
+                    "M-Prometheus-14B_h23": 0.4742753623188405
+                },
+                "en_US": {
+                    "M-Prometheus-14B_h23": 0.6210144927536232
+                },
+                "hi_IN": {
+                    "M-Prometheus-14B_h23": 0.5992753623188406
+                },
+                "id_ID": {
+                    "M-Prometheus-14B_h23": 0.4585144927536232
+                },
+                "ja_JP": {
+                    "M-Prometheus-14B_h23": 0.5382246376811594
+                },
+                "ru_RU": {
+                    "M-Prometheus-14B_h23": 0.5217391304347826
+                },
+                "zh_CN": {
+                    "M-Prometheus-14B_h23": 0.6184782608695653
+                }
+            },
+            "coherence": {
+                "ar_EG": {
+                    "M-Prometheus-14B_h23": 0.638586956521739
+                },
+                "bn_BD": {
+                    "M-Prometheus-14B_h23": 0.44565217391304346
+                },
+                "cs_CZ": {
+                    "M-Prometheus-14B_h23": 0.4096014492753622
+                },
+                "de_DE": {
+                    "M-Prometheus-14B_h23": 0.6130434782608695
+                },
+                "en_US": {
+                    "M-Prometheus-14B_h23": 0.6509057971014494
+                },
+                "hi_IN": {
+                    "M-Prometheus-14B_h23": 0.6657608695652174
+                },
+                "id_ID": {
+                    "M-Prometheus-14B_h23": 0.4476449275362319
+                },
+                "ja_JP": {
+                    "M-Prometheus-14B_h23": 0.5541666666666667
+                },
+                "ru_RU": {
+                    "M-Prometheus-14B_h23": 0.6282608695652174
+                },
+                "zh_CN": {
+                    "M-Prometheus-14B_h23": 0.6884057971014492
+                }
+            }
+        }
+    }
+}

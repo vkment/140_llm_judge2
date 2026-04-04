@@ -1,0 +1,731 @@
+(139env) (BOOKWORM)vok@galdor6:/storage/vestec1-elixir/home/vok/py26/llm_judge$ python run_judge12.py
+
+
+
+
+
+2026-03-23 00:07:19 [INFO] CUDA_VISIBLE_DEVICES remapped: 'GPU-20c54fc4-bccd-6c37-5d85-a834915783fa' → '0'
+2026-03-23 00:07:19 [INFO] Loaded templates from judge_templates_locales_hybrid5.py
+2026-03-23 00:07:19 [INFO] LLM I/O logging → run_judge12.log
+2026-03-23 00:07:19 [INFO] Starting run_judge.py | variant=local | model=CohereForAI/aya-expanse-8b
+2026-03-23 00:07:19 [INFO] Settings: locale=['cs_CZ', 'de_DE', 'en_US', 'ru_RU'] | max_rows=None | concurrency=32 | output=oeg_judge_outloc12_submission_data.csv
+2026-03-23 00:07:19 [INFO] Loaded 736 unique (system, prompt) pairs from data_cs_CZ.csv
+2026-03-23 00:07:19 [INFO] Loaded 736 unique (system, prompt) pairs from data_de_DE.csv
+2026-03-23 00:07:19 [INFO] Loaded 736 unique (system, prompt) pairs from data_en_US.csv
+2026-03-23 00:07:20 [INFO] Loaded 736 unique (system, prompt) pairs from data_ru_RU.csv
+2026-03-23 00:07:20 [INFO] Total tasks (before checkpoint): 8832
+2026-03-23 00:07:20 [INFO] Skipping 0 already-done tasks. Remaining: 8832
+2026-03-23 00:07:20 [INFO] Building all prompts for token-length pre-computation...
+2026-03-23 00:07:20 [INFO] Tokenising prompts to compute max_model_len (model=CohereForAI/aya-expanse-8b)...
+tokenizer_config.json: 8.64kB [00:00, 23.7MB/s]
+tokenizer.json: 100%|██████████████████████████████████████████████████████| 12.8M/12.8M [00:02<00:00, 5.10MB/s]
+special_tokens_map.json: 100%|█████████████████████████████████████████████████| 439/439 [00:00<00:00, 1.98MB/s]
+2026-03-23 00:15:11 [INFO] Max prompt length: 3760 tokens → max_model_len=3770 (hard cap: 124000).
+2026-03-23 00:16:37 [INFO] Initialising vLLM (model=CohereForAI/aya-expanse-8b, dtype=auto, max_model_len=3770)...
+INFO 03-23 00:16:37 [utils.py:238] non-default args: {'max_model_len': 3770, 'disable_log_stats': True, 'model': 'CohereForAI/aya-expanse-8b'}
+config.json: 100%|█████████████████████████████████████████████████████████████| 634/634 [00:00<00:00, 1.83MB/s]
+INFO 03-23 00:19:09 [model.py:531] Resolved architecture: CohereForCausalLM
+INFO 03-23 00:19:09 [model.py:1554] Using max model len 3770
+INFO 03-23 00:19:13 [scheduler.py:231] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 03-23 00:19:13 [vllm.py:747] Asynchronous scheduling is enabled.
+generation_config.json: 100%|███████████████████████████████████████████████████| 137/137 [00:00<00:00, 529kB/s]
+(EngineCore_DP0 pid=347173) INFO 03-23 00:19:16 [core.py:101] Initializing a V1 LLM engine (v0.17.1) with config: model='CohereForAI/aya-expanse-8b', speculative_config=None, tokenizer='CohereForAI/aya-expanse-8b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=3770, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=CohereForAI/aya-expanse-8b, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore_DP0 pid=347173) INFO 03-23 00:19:20 [parallel_state.py:1393] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://195.113.209.176:41703 backend=nccl
+(EngineCore_DP0 pid=347173) INFO 03-23 00:19:20 [parallel_state.py:1715] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore_DP0 pid=347173) INFO 03-23 00:19:22 [base.py:106] Offloader set to NoopOffloader
+(EngineCore_DP0 pid=347173) INFO 03-23 00:19:22 [gpu_model_runner.py:4281] Starting to load model CohereForAI/aya-expanse-8b...
+(EngineCore_DP0 pid=347173) INFO 03-23 00:19:41 [cuda.py:405] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore_DP0 pid=347173) INFO 03-23 00:19:41 [flash_attn.py:587] Using FlashAttention version 2
+(EngineCore_DP0 pid=347173) <frozen importlib._bootstrap_external>:1241: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+(EngineCore_DP0 pid=347173) <frozen importlib._bootstrap_external>:1241: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+model.safetensors.index.json: 21.0kB [00:00, 45.6MB/s]
+model-00004-of-00004.safetensors: 100%|█████████████████████████████████████| 1.22G/1.22G [00:11<00:00, 107MB/s]
+model-00001-of-00004.safetensors: 100%|█████████████████████████████████████| 4.92G/4.92G [00:36<00:00, 134MB/s]
+model-00002-of-00004.safetensors: 100%|█████████████████████████████████████| 4.92G/4.92G [00:36<00:00, 134MB/s]
+model-00003-of-00004.safetensors: 100%|█████████████████████████████████████| 5.00G/5.00G [00:37<00:00, 135MB/s]
+(EngineCore_DP0 pid=347173) INFO 03-23 00:20:20 [weight_utils.py:561] Time spent downloading weights for CohereForAI/aya-expanse-8b: 37.693921 seconds
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:03,  1.14s/it]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:02<00:02,  1.16s/it]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:03<00:01,  1.23s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:04<00:00,  1.02s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:04<00:00,  1.08s/it]
+(EngineCore_DP0 pid=347173) 
+(EngineCore_DP0 pid=347173) INFO 03-23 00:20:25 [default_loader.py:293] Loading weights took 4.35 seconds
+(EngineCore_DP0 pid=347173) INFO 03-23 00:20:26 [gpu_model_runner.py:4364] Model loading took 14.96 GiB memory and 62.181606 seconds
+(EngineCore_DP0 pid=347173) INFO 03-23 00:21:19 [backends.py:916] Using cache directory: /scratch.ssd/vok/job_18305468.pbs-m1/vllm/torch_compile_cache/2f6d282c5b/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore_DP0 pid=347173) INFO 03-23 00:21:19 [backends.py:976] Dynamo bytecode transform time: 53.45 s
+(EngineCore_DP0 pid=347173) INFO 03-23 00:21:35 [backends.py:350] Cache the graph of compile range (1, 8192) for later use
+(EngineCore_DP0 pid=347173) INFO 03-23 00:21:52 [backends.py:366] Compiling a graph for compile range (1, 8192) takes 30.28 s
+(EngineCore_DP0 pid=347173) INFO 03-23 00:21:52 [monitor.py:35] torch.compile takes 85.67 s in total
+(EngineCore_DP0 pid=347173) INFO 03-23 00:21:52 [decorators.py:580] saving AOT compiled function to /scratch.ssd/vok/job_18305468.pbs-m1/vllm/torch_compile_cache/torch_aot_compile/4078fce1d0200cfa415286c320d13803665a5ec01dde7a307485aed32f19aa2c/rank_0_0/model
+(EngineCore_DP0 pid=347173) INFO 03-23 00:21:53 [decorators.py:588] saved AOT compiled function to /scratch.ssd/vok/job_18305468.pbs-m1/vllm/torch_compile_cache/torch_aot_compile/4078fce1d0200cfa415286c320d13803665a5ec01dde7a307485aed32f19aa2c/rank_0_0/model
+(EngineCore_DP0 pid=347173) INFO 03-23 00:22:09 [gpu_worker.py:424] Available KV cache memory: 22.91 GiB
+(EngineCore_DP0 pid=347173) INFO 03-23 00:22:09 [kv_cache_utils.py:1314] GPU KV cache size: 187,680 tokens
+(EngineCore_DP0 pid=347173) INFO 03-23 00:22:09 [kv_cache_utils.py:1319] Maximum concurrency for 3,770 tokens per request: 49.70x
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████████████| 51/51 [00:12<00:00,  4.04it/s]
+Capturing CUDA graphs (decode, FULL): 100%|█████████████████████████████████████| 35/35 [00:04<00:00,  7.55it/s]
+(EngineCore_DP0 pid=347173) INFO 03-23 00:22:27 [gpu_model_runner.py:5386] Graph capturing finished in 18 secs, took 0.51 GiB
+(EngineCore_DP0 pid=347173) INFO 03-23 00:22:27 [core.py:282] init engine (profile, create kv cache, warmup model) took 121.89 seconds
+INFO 03-23 00:22:31 [llm.py:388] Supported tasks: ['generate']
+2026-03-23 00:22:31 [INFO] vLLM ready.
+2026-03-23 00:22:31 [INFO] Using user-supplied batch_size=32.
+Rendering prompts: 100%|████████████████████████████████████████████████████████| 32/32 [00:04<00:00,  6.74it/s]
+Processed prompts: 100%|█| 32/32 [00:07<00:00,  4.56it/s, est. speed input: 4789.04 toks/s, output: 29.51 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 507.74it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.38it/s, est. speed input: 8254.64 toks/s, output: 76.44 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 165.57it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.99it/s, est. speed input: 8968.30 toks/s, output: 90.71 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 509.79it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.59it/s, est. speed input: 7853.33 toks/s, output: 68.60 toks/s
+2026-03-23 00:22:52 [INFO] Progress: 100/8832 (1.1%) | 4.7 rows/s | ETA 1848s | fallbacks: 0
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 157.24it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.06it/s, est. speed input: 8680.28 toks/s, output: 74.29 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 209.86it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.72it/s, est. speed input: 9440.40 toks/s, output: 108.55 toks/
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 174.80it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.54it/s, est. speed input: 8849.48 toks/s, output: 77.75 toks/s
+2026-03-23 00:23:01 [INFO] Progress: 200/8832 (2.3%) | 6.7 rows/s | ETA 1288s | fallbacks: 0
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 155.47it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.94it/s, est. speed input: 8477.48 toks/s, output: 60.08 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 213.87it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.78it/s, est. speed input: 9357.70 toks/s, output: 74.71 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 202.37it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.46it/s, est. speed input: 9152.59 toks/s, output: 81.02 toks/s
+2026-03-23 00:23:10 [INFO] Progress: 300/8832 (3.4%) | 7.7 rows/s | ETA 1109s | fallbacks: 0
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 192.85it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.03it/s, est. speed input: 9063.46 toks/s, output: 83.11 toks/s
+2026-03-23 00:23:13 [WARNING] Score parsing FAILED for output ' _[Your score here]_' (context: Gemini-2/fb2c387e7e5272a43305940219116463/coherence/cs_CZ). Using random fallback 4.
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 199.43it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.43it/s, est. speed input: 8998.44 toks/s, output: 83.89 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 175.40it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.93it/s, est. speed input: 9303.07 toks/s, output: 92.55 toks/s
+2026-03-23 00:23:18 [INFO] Progress: 400/8832 (4.5%) | 8.5 rows/s | ETA 996s | fallbacks: 1
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 177.25it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.97it/s, est. speed input: 8912.56 toks/s, output: 93.53 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 216.47it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.11it/s, est. speed input: 9308.12 toks/s, output: 85.21 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 172.76it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.71it/s, est. speed input: 8639.20 toks/s, output: 69.51 toks/s
+2026-03-23 00:23:27 [INFO] Progress: 500/8832 (5.7%) | 8.9 rows/s | ETA 936s | fallbacks: 1
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 187.08it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.61it/s, est. speed input: 8742.71 toks/s, output: 75.94 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 200.23it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.58it/s, est. speed input: 9062.42 toks/s, output: 90.51 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 171.33it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.58it/s, est. speed input: 8937.81 toks/s, output: 90.47 toks/s
+2026-03-23 00:23:36 [INFO] Progress: 600/8832 (6.8%) | 9.2 rows/s | ETA 895s | fallbacks: 1
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 163.73it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.08it/s, est. speed input: 8458.92 toks/s, output: 65.02 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 178.64it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.90it/s, est. speed input: 8508.20 toks/s, output: 71.46 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 160.29it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.15it/s, est. speed input: 8772.59 toks/s, output: 77.06 toks/s
+2026-03-23 00:23:47 [INFO] Progress: 700/8832 (7.9%) | 9.2 rows/s | ETA 884s | fallbacks: 1
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 171.48it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.59it/s, est. speed input: 8610.61 toks/s, output: 80.40 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 170.20it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.34it/s, est. speed input: 8817.49 toks/s, output: 74.83 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 166.76it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.05it/s, est. speed input: 9417.74 toks/s, output: 101.94 toks/
+2026-03-23 00:23:56 [INFO] Progress: 800/8832 (9.1%) | 9.4 rows/s | ETA 851s | fallbacks: 1
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 181.93it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.58it/s, est. speed input: 8857.18 toks/s, output: 77.80 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 189.96it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.59it/s, est. speed input: 8783.49 toks/s, output: 67.76 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 209.78it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.75it/s, est. speed input: 9130.12 toks/s, output: 81.49 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 170.56it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.21it/s, est. speed input: 8745.69 toks/s, output: 72.87 toks/s
+2026-03-23 00:24:08 [INFO] Progress: 900/8832 (10.2%) | 9.3 rows/s | ETA 851s | fallbacks: 1
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 156.08it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.62it/s, est. speed input: 8679.96 toks/s, output: 80.69 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 174.30it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.62it/s, est. speed input: 8445.16 toks/s, output: 83.52 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 152.29it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.66it/s, est. speed input: 8848.90 toks/s, output: 68.47 toks/s
+2026-03-23 00:24:17 [INFO] Progress: 1000/8832 (11.3%) | 9.5 rows/s | ETA 826s | fallbacks: 1
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 152.88it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.53it/s, est. speed input: 8670.62 toks/s, output: 75.33 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 169.38it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.75it/s, est. speed input: 8648.56 toks/s, output: 76.21 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 214.53it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.62it/s, est. speed input: 8969.74 toks/s, output: 84.78 toks/s
+2026-03-23 00:24:26 [INFO] Progress: 1100/8832 (12.5%) | 9.6 rows/s | ETA 807s | fallbacks: 1
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 161.68it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.76it/s, est. speed input: 8576.93 toks/s, output: 65.60 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 174.19it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.49it/s, est. speed input: 8466.17 toks/s, output: 57.54 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 162.82it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.58it/s, est. speed input: 8687.72 toks/s, output: 59.53 toks/s
+2026-03-23 00:24:36 [INFO] Progress: 1200/8832 (13.6%) | 9.6 rows/s | ETA 796s | fallbacks: 1
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 166.04it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.94it/s, est. speed input: 8662.40 toks/s, output: 81.01 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 183.69it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.70it/s, est. speed input: 8920.74 toks/s, output: 79.75 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 161.11it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.99it/s, est. speed input: 8736.80 toks/s, output: 71.43 toks/s
+2026-03-23 00:24:45 [INFO] Progress: 1300/8832 (14.7%) | 9.7 rows/s | ETA 777s | fallbacks: 1
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 189.07it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.73it/s, est. speed input: 8665.83 toks/s, output: 74.47 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 204.60it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.54it/s, est. speed input: 9012.60 toks/s, output: 69.80 toks/s
+2026-03-23 00:24:51 [WARNING] Score parsing FAILED for output '\n\n[Vaše hodnocení zde]' (context: Gemini-2/104373856e995a074579797ebe34fcb2/coherence/cs_CZ). Using random fallback 2.
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 176.73it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.71it/s, est. speed input: 9181.52 toks/s, output: 63.16 toks/s
+2026-03-23 00:24:54 [INFO] Progress: 1400/8832 (15.9%) | 9.8 rows/s | ETA 756s | fallbacks: 2
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 156.96it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.09it/s, est. speed input: 8398.11 toks/s, output: 68.44 toks/s
+2026-03-23 00:24:57 [WARNING] Score parsing FAILED for output '\n\n[Your score here]' (context: Gemma-3-12B/e4c27cfc2c87eba9a17d237c0988dcbd/coherence/cs_CZ). Using random fallback 1.
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 164.24it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.59it/s, est. speed input: 9240.94 toks/s, output: 79.11 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 216.78it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.88it/s, est. speed input: 9305.00 toks/s, output: 96.31 toks/s
+2026-03-23 00:25:03 [INFO] Progress: 1500/8832 (17.0%) | 9.9 rows/s | ETA 740s | fallbacks: 3
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 151.32it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.72it/s, est. speed input: 8714.37 toks/s, output: 66.23 toks/s
+2026-03-23 00:25:06 [WARNING] Score parsing FAILED for output ' [Your score here]' (context: Gemini-2/df85068ad8d348d04f95ee17882f0da4/coherence/cs_CZ). Using random fallback 2.
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 142.38it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.58it/s, est. speed input: 8581.57 toks/s, output: 76.96 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 173.48it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.10it/s, est. speed input: 8363.46 toks/s, output: 63.12 toks/s
+2026-03-23 00:25:13 [INFO] Progress: 1600/8832 (18.1%) | 9.9 rows/s | ETA 733s | fallbacks: 4
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 217.28it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.02it/s, est. speed input: 8868.35 toks/s, output: 70.22 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 155.44it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.08it/s, est. speed input: 8385.34 toks/s, output: 66.95 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 189.96it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.74it/s, est. speed input: 8787.98 toks/s, output: 79.24 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 144.81it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.90it/s, est. speed input: 8574.47 toks/s, output: 77.36 toks/s
+2026-03-23 00:25:26 [INFO] Progress: 1700/8832 (19.2%) | 9.7 rows/s | ETA 735s | fallbacks: 4
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 224.28it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.74it/s, est. speed input: 8676.71 toks/s, output: 76.32 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 164.58it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.82it/s, est. speed input: 8924.02 toks/s, output: 72.12 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 156.44it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.74it/s, est. speed input: 8912.89 toks/s, output: 88.37 toks/s
+2026-03-23 00:25:35 [INFO] Progress: 1800/8832 (20.4%) | 9.8 rows/s | ETA 717s | fallbacks: 4
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 136.16it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.15it/s, est. speed input: 8640.82 toks/s, output: 67.45 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 172.99it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.21it/s, est. speed input: 8712.06 toks/s, output: 82.68 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 176.09it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.46it/s, est. speed input: 9072.73 toks/s, output: 103.94 toks/
+2026-03-23 00:25:44 [INFO] Progress: 1900/8832 (21.5%) | 9.9 rows/s | ETA 703s | fallbacks: 4
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 174.46it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.23it/s, est. speed input: 8768.61 toks/s, output: 77.89 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 150.85it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.21it/s, est. speed input: 8322.10 toks/s, output: 58.73 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 214.52it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.66it/s, est. speed input: 8627.26 toks/s, output: 64.65 toks/s
+2026-03-23 00:25:54 [INFO] Progress: 2000/8832 (22.6%) | 9.8 rows/s | ETA 694s | fallbacks: 4
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 202.02it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.68it/s, est. speed input: 8890.61 toks/s, output: 82.42 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 145.47it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.89it/s, est. speed input: 8220.60 toks/s, output: 50.02 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 140.46it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.03it/s, est. speed input: 8399.00 toks/s, output: 68.60 toks/s
+2026-03-23 00:26:04 [INFO] Progress: 2100/8832 (23.8%) | 9.8 rows/s | ETA 684s | fallbacks: 4
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 195.43it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.99it/s, est. speed input: 8783.83 toks/s, output: 88.99 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 146.32it/s]
+Processed prompts: 100%|█| 32/32 [00:04<00:00,  7.75it/s, est. speed input: 8264.07 toks/s, output: 62.28 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 173.17it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.47it/s, est. speed input: 8730.30 toks/s, output: 77.05 toks/s
+2026-03-23 00:26:15 [INFO] Progress: 2200/8832 (24.9%) | 9.8 rows/s | ETA 675s | fallbacks: 4
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 161.38it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.32it/s, est. speed input: 7615.46 toks/s, output: 44.57 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 160.88it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.39it/s, est. speed input: 8182.74 toks/s, output: 56.94 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 147.30it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.19it/s, est. speed input: 8506.55 toks/s, output: 72.96 toks/s
+2026-03-23 00:26:26 [INFO] Progress: 2300/8832 (26.0%) | 9.8 rows/s | ETA 666s | fallbacks: 4
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 163.06it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.28it/s, est. speed input: 8699.47 toks/s, output: 66.42 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 163.18it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.68it/s, est. speed input: 8416.29 toks/s, output: 48.40 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 186.78it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.64it/s, est. speed input: 8641.09 toks/s, output: 57.85 toks/s
+2026-03-23 00:26:35 [INFO] Progress: 2400/8832 (27.2%) | 9.9 rows/s | ETA 653s | fallbacks: 4
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 164.65it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.66it/s, est. speed input: 8829.08 toks/s, output: 55.28 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 194.73it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.92it/s, est. speed input: 9188.53 toks/s, output: 64.19 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 145.53it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.10it/s, est. speed input: 9146.38 toks/s, output: 73.38 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 144.56it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.70it/s, est. speed input: 9007.34 toks/s, output: 68.67 toks/s
+2026-03-23 00:26:46 [INFO] Progress: 2500/8832 (28.3%) | 9.8 rows/s | ETA 646s | fallbacks: 4
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 134.60it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.48it/s, est. speed input: 8801.80 toks/s, output: 59.53 toks/s
+2026-03-23 00:26:50 [WARNING] Score parsing FAILED for output '\n\n[Your Score Here]' (context: Gemma-3-12B/25206396b6f90a56a632de9594cfa279/coherence/de_DE). Using random fallback 7.
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 144.96it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.81it/s, est. speed input: 8803.20 toks/s, output: 64.20 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 137.07it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.67it/s, est. speed input: 8900.29 toks/s, output: 65.02 toks/s
+2026-03-23 00:26:56 [INFO] Progress: 2600/8832 (29.4%) | 9.8 rows/s | ETA 635s | fallbacks: 5
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 112.99it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.58it/s, est. speed input: 8530.61 toks/s, output: 50.16 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 161.11it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.20it/s, est. speed input: 8476.29 toks/s, output: 61.82 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 146.25it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.13it/s, est. speed input: 8954.89 toks/s, output: 60.27 toks/s
+2026-03-23 00:27:06 [INFO] Progress: 2700/8832 (30.6%) | 9.8 rows/s | ETA 625s | fallbacks: 5
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 146.30it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.75it/s, est. speed input: 8624.27 toks/s, output: 52.69 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 177.87it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.33it/s, est. speed input: 9417.66 toks/s, output: 72.10 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 155.84it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.92it/s, est. speed input: 8478.57 toks/s, output: 56.64 toks/s
+2026-03-23 00:27:15 [INFO] Progress: 2800/8832 (31.7%) | 9.9 rows/s | ETA 612s | fallbacks: 5
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 159.55it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.44it/s, est. speed input: 9073.24 toks/s, output: 57.22 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 127.92it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.24it/s, est. speed input: 8674.14 toks/s, output: 57.46 toks/s
+2026-03-23 00:27:22 [WARNING] Score parsing FAILED for output '\n\n[Your Score Here]' (context: Gemini-2/25206396b6f90a56a632de9594cfa279/coherence/de_DE). Using random fallback 4.
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 198.13it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.70it/s, est. speed input: 8478.30 toks/s, output: 76.06 toks/s
+2026-03-23 00:27:25 [INFO] Progress: 2900/8832 (32.8%) | 9.9 rows/s | ETA 601s | fallbacks: 6
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 157.04it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.81it/s, est. speed input: 8771.68 toks/s, output: 72.95 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 158.60it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.04it/s, est. speed input: 9398.52 toks/s, output: 61.96 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 157.00it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.03it/s, est. speed input: 9440.77 toks/s, output: 70.47 toks/s
+2026-03-23 00:27:33 [INFO] Progress: 3000/8832 (34.0%) | 9.9 rows/s | ETA 587s | fallbacks: 6
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 158.28it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.79it/s, est. speed input: 9047.62 toks/s, output: 64.46 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 133.26it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.42it/s, est. speed input: 8996.58 toks/s, output: 68.41 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 194.50it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.95it/s, est. speed input: 8798.33 toks/s, output: 54.16 toks/s
+2026-03-23 00:27:42 [INFO] Progress: 3100/8832 (35.1%) | 10.0 rows/s | ETA 576s | fallbacks: 6
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 155.56it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.12it/s, est. speed input: 8962.41 toks/s, output: 81.47 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 173.94it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.33it/s, est. speed input: 8832.00 toks/s, output: 62.64 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 143.10it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.40it/s, est. speed input: 9027.46 toks/s, output: 71.61 toks/s
+2026-03-23 00:27:52 [INFO] Progress: 3200/8832 (36.2%) | 10.0 rows/s | ETA 564s | fallbacks: 6
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 165.22it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.22it/s, est. speed input: 8866.18 toks/s, output: 68.76 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 193.61it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 15.29it/s, est. speed input: 9319.00 toks/s, output: 65.92 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 146.24it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.89it/s, est. speed input: 8382.84 toks/s, output: 53.91 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 140.62it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.00it/s, est. speed input: 8341.20 toks/s, output: 58.51 toks/s
+2026-03-23 00:28:04 [INFO] Progress: 3300/8832 (37.4%) | 9.9 rows/s | ETA 558s | fallbacks: 6
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 157.69it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.14it/s, est. speed input: 8787.94 toks/s, output: 60.24 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 174.96it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.95it/s, est. speed input: 8680.56 toks/s, output: 66.73 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 164.29it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.70it/s, est. speed input: 9435.84 toks/s, output: 67.09 toks/s
+2026-03-23 00:28:13 [INFO] Progress: 3400/8832 (38.5%) | 10.0 rows/s | ETA 546s | fallbacks: 6
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 171.62it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.76it/s, est. speed input: 8895.38 toks/s, output: 68.75 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 147.22it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.87it/s, est. speed input: 9101.05 toks/s, output: 75.42 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 181.23it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.66it/s, est. speed input: 9197.38 toks/s, output: 76.85 toks/s
+2026-03-23 00:28:21 [INFO] Progress: 3500/8832 (39.6%) | 10.0 rows/s | ETA 534s | fallbacks: 6
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 147.27it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.77it/s, est. speed input: 8798.84 toks/s, output: 65.31 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 152.34it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.93it/s, est. speed input: 9129.74 toks/s, output: 61.91 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 161.82it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.18it/s, est. speed input: 8947.01 toks/s, output: 57.87 toks/s
+2026-03-23 00:28:30 [INFO] Progress: 3600/8832 (40.8%) | 10.0 rows/s | ETA 522s | fallbacks: 6
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 130.50it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.48it/s, est. speed input: 9031.19 toks/s, output: 64.57 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 163.30it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.69it/s, est. speed input: 8753.46 toks/s, output: 63.58 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 150.14it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.25it/s, est. speed input: 9135.46 toks/s, output: 68.93 toks/s
+2026-03-23 00:28:39 [INFO] Progress: 3700/8832 (41.9%) | 10.1 rows/s | ETA 510s | fallbacks: 6
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 130.20it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.95it/s, est. speed input: 8340.68 toks/s, output: 50.37 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 152.90it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.38it/s, est. speed input: 8742.05 toks/s, output: 53.18 toks/s
+2026-03-23 00:28:46 [WARNING] Score parsing FAILED for output '\n\n[Your score here]' (context: Gemma-3-12B/e4c27cfc2c87eba9a17d237c0988dcbd/coherence/de_DE). Using random fallback 2.
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 184.98it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.89it/s, est. speed input: 9212.83 toks/s, output: 75.36 toks/s
+2026-03-23 00:28:49 [INFO] Progress: 3800/8832 (43.0%) | 10.1 rows/s | ETA 500s | fallbacks: 7
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 133.87it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.52it/s, est. speed input: 8412.51 toks/s, output: 68.11 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 172.86it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.44it/s, est. speed input: 8671.79 toks/s, output: 54.47 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 151.30it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.05it/s, est. speed input: 9177.12 toks/s, output: 56.29 toks/s
+2026-03-23 00:28:58 [INFO] Progress: 3900/8832 (44.2%) | 10.1 rows/s | ETA 490s | fallbacks: 7
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 170.31it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.69it/s, est. speed input: 8935.89 toks/s, output: 71.02 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 171.06it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.35it/s, est. speed input: 9001.16 toks/s, output: 64.09 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 131.50it/s]
+Processed prompts: 100%|█| 32/32 [00:04<00:00,  7.37it/s, est. speed input: 8117.84 toks/s, output: 50.87 toks/s
+2026-03-23 00:29:08 [WARNING] Score parsing FAILED for output ' _ (Insert your score here) _' (context: Gemini-2/e4c27cfc2c87eba9a17d237c0988dcbd/coherence/de_DE). Using random fallback 4.
+2026-03-23 00:29:08 [INFO] Progress: 4000/8832 (45.3%) | 10.1 rows/s | ETA 480s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 158.85it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.86it/s, est. speed input: 8648.16 toks/s, output: 61.96 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 143.89it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.05it/s, est. speed input: 8971.65 toks/s, output: 57.34 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 174.72it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.01it/s, est. speed input: 9251.55 toks/s, output: 58.96 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 164.96it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.66it/s, est. speed input: 9005.27 toks/s, output: 64.87 toks/s
+2026-03-23 00:29:20 [INFO] Progress: 4100/8832 (46.4%) | 10.0 rows/s | ETA 472s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 184.86it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.28it/s, est. speed input: 8789.71 toks/s, output: 70.88 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 165.78it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.00it/s, est. speed input: 8999.95 toks/s, output: 54.37 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 185.10it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.54it/s, est. speed input: 8675.60 toks/s, output: 63.89 toks/s
+2026-03-23 00:29:29 [INFO] Progress: 4200/8832 (47.6%) | 10.0 rows/s | ETA 461s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 159.14it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.79it/s, est. speed input: 8410.03 toks/s, output: 55.19 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 188.08it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.20it/s, est. speed input: 8792.55 toks/s, output: 80.13 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 151.72it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.65it/s, est. speed input: 8764.49 toks/s, output: 64.55 toks/s
+2026-03-23 00:29:39 [INFO] Progress: 4300/8832 (48.7%) | 10.0 rows/s | ETA 451s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 168.34it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.42it/s, est. speed input: 9323.48 toks/s, output: 74.82 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 157.36it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.55it/s, est. speed input: 8979.97 toks/s, output: 85.17 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 169.38it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.74it/s, est. speed input: 9091.88 toks/s, output: 74.85 toks/s
+2026-03-23 00:29:47 [INFO] Progress: 4400/8832 (49.8%) | 10.1 rows/s | ETA 439s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 142.51it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.55it/s, est. speed input: 7907.45 toks/s, output: 62.06 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 162.15it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.07it/s, est. speed input: 8847.02 toks/s, output: 102.08 toks/
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 175.87it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.06it/s, est. speed input: 8790.26 toks/s, output: 82.04 toks/s
+2026-03-23 00:29:56 [INFO] Progress: 4500/8832 (51.0%) | 10.1 rows/s | ETA 428s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 218.19it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 15.80it/s, est. speed input: 9014.97 toks/s, output: 75.04 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 158.10it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.52it/s, est. speed input: 9267.86 toks/s, output: 84.83 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 151.27it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.60it/s, est. speed input: 8934.32 toks/s, output: 112.20 toks/
+2026-03-23 00:30:03 [INFO] Progress: 4600/8832 (52.1%) | 10.2 rows/s | ETA 416s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 139.81it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.82it/s, est. speed input: 8655.72 toks/s, output: 67.95 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 144.71it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 15.00it/s, est. speed input: 9554.46 toks/s, output: 101.27 toks/
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 175.03it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.08it/s, est. speed input: 8630.09 toks/s, output: 85.03 toks/s
+2026-03-23 00:30:12 [INFO] Progress: 4700/8832 (53.2%) | 10.2 rows/s | ETA 405s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 119.17it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.31it/s, est. speed input: 8285.72 toks/s, output: 59.50 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 120.19it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.99it/s, est. speed input: 8722.00 toks/s, output: 81.06 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 167.85it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.32it/s, est. speed input: 8660.41 toks/s, output: 76.09 toks/s
+2026-03-23 00:30:22 [INFO] Progress: 4800/8832 (54.3%) | 10.2 rows/s | ETA 396s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 140.24it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.83it/s, est. speed input: 8690.50 toks/s, output: 94.98 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 140.51it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.93it/s, est. speed input: 8501.43 toks/s, output: 82.57 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 164.20it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.01it/s, est. speed input: 8761.97 toks/s, output: 100.48 toks/
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 167.43it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.63it/s, est. speed input: 9136.84 toks/s, output: 95.14 toks/s
+2026-03-23 00:30:34 [INFO] Progress: 4900/8832 (55.5%) | 10.1 rows/s | ETA 388s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 174.44it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.78it/s, est. speed input: 8971.76 toks/s, output: 94.28 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 140.52it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.85it/s, est. speed input: 8699.49 toks/s, output: 77.62 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 153.08it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.26it/s, est. speed input: 8748.39 toks/s, output: 86.92 toks/s
+2026-03-23 00:30:43 [INFO] Progress: 5000/8832 (56.6%) | 10.2 rows/s | ETA 377s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 131.80it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.71it/s, est. speed input: 8840.62 toks/s, output: 73.57 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 174.66it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.34it/s, est. speed input: 8967.73 toks/s, output: 86.93 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 142.96it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.69it/s, est. speed input: 8907.79 toks/s, output: 70.87 toks/s
+2026-03-23 00:30:52 [INFO] Progress: 5100/8832 (57.7%) | 10.2 rows/s | ETA 366s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 130.63it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.36it/s, est. speed input: 8364.16 toks/s, output: 75.14 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 145.56it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.42it/s, est. speed input: 8921.72 toks/s, output: 81.76 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 114.68it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.23it/s, est. speed input: 8384.35 toks/s, output: 64.52 toks/s
+2026-03-23 00:31:02 [INFO] Progress: 5200/8832 (58.9%) | 10.2 rows/s | ETA 357s | fallbacks: 8
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 167.92it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.62it/s, est. speed input: 9269.35 toks/s, output: 115.75 toks/
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 144.41it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.76it/s, est. speed input: 8540.22 toks/s, output: 62.19 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 128.59it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.89it/s, est. speed input: 8338.03 toks/s, output: 69.21 toks/s
+2026-03-23 00:31:12 [WARNING] Score parsing FAILED for output '\n\n[Insert your score here]' (context: Gemma-3-12B/e4c27cfc2c87eba9a17d237c0988dcbd/coherence/en_US). Using random fallback 1.
+2026-03-23 00:31:12 [INFO] Progress: 5300/8832 (60.0%) | 10.2 rows/s | ETA 347s | fallbacks: 9
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 170.87it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.12it/s, est. speed input: 8996.65 toks/s, output: 102.49 toks/
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 168.69it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.06it/s, est. speed input: 9105.89 toks/s, output: 110.60 toks/
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 139.38it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.91it/s, est. speed input: 8899.40 toks/s, output: 90.80 toks/s
+2026-03-23 00:31:21 [INFO] Progress: 5400/8832 (61.1%) | 10.2 rows/s | ETA 336s | fallbacks: 9
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 217.57it/s]
+Processed prompts: 100%|█| 32/32 [00:01<00:00, 16.42it/s, est. speed input: 9574.78 toks/s, output: 95.98 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 123.05it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.20it/s, est. speed input: 8431.17 toks/s, output: 73.85 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 196.13it/s]
+Processed prompts: 100%|█| 32/32 [00:01<00:00, 18.00it/s, est. speed input: 9671.71 toks/s, output: 93.38 toks/s
+2026-03-23 00:31:28 [INFO] Progress: 5500/8832 (62.3%) | 10.2 rows/s | ETA 325s | fallbacks: 9
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 149.53it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.48it/s, est. speed input: 8575.16 toks/s, output: 93.33 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 156.39it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.14it/s, est. speed input: 8596.35 toks/s, output: 68.42 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 170.55it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.65it/s, est. speed input: 8650.23 toks/s, output: 102.04 toks/
+2026-03-23 00:31:38 [INFO] Progress: 5600/8832 (63.4%) | 10.2 rows/s | ETA 315s | fallbacks: 9
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 147.28it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.12it/s, est. speed input: 8080.70 toks/s, output: 61.67 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 160.30it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.04it/s, est. speed input: 8767.99 toks/s, output: 99.30 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 143.62it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.03it/s, est. speed input: 8625.82 toks/s, output: 67.41 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 119.95it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.91it/s, est. speed input: 8502.38 toks/s, output: 77.43 toks/s
+2026-03-23 00:31:52 [INFO] Progress: 5700/8832 (64.5%) | 10.2 rows/s | ETA 308s | fallbacks: 9
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 147.71it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.70it/s, est. speed input: 9039.03 toks/s, output: 83.76 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 157.86it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.12it/s, est. speed input: 8724.98 toks/s, output: 77.12 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 142.02it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.32it/s, est. speed input: 8453.21 toks/s, output: 64.11 toks/s
+2026-03-23 00:32:01 [WARNING] Score parsing FAILED for output '\n\n[Insert Score Here]' (context: Gemma-3-27B/fb2c387e7e5272a43305940219116463/coherence/en_US). Using random fallback 2.
+2026-03-23 00:32:01 [INFO] Progress: 5800/8832 (65.7%) | 10.2 rows/s | ETA 298s | fallbacks: 10
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 120.34it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.71it/s, est. speed input: 8585.01 toks/s, output: 75.84 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 157.72it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.41it/s, est. speed input: 8333.65 toks/s, output: 71.72 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 143.39it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.57it/s, est. speed input: 8178.37 toks/s, output: 75.63 toks/s
+2026-03-23 00:32:12 [INFO] Progress: 5900/8832 (66.8%) | 10.2 rows/s | ETA 289s | fallbacks: 10
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 132.45it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  8.92it/s, est. speed input: 8182.32 toks/s, output: 63.85 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 180.95it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.88it/s, est. speed input: 9060.37 toks/s, output: 99.31 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 140.00it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.37it/s, est. speed input: 8485.49 toks/s, output: 92.74 toks/s
+2026-03-23 00:32:21 [INFO] Progress: 6000/8832 (67.9%) | 10.2 rows/s | ETA 278s | fallbacks: 10
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 164.53it/s]
+Processed prompts: 100%|█| 32/32 [00:01<00:00, 18.00it/s, est. speed input: 10015.71 toks/s, output: 124.91 toks
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 156.09it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.74it/s, est. speed input: 8655.69 toks/s, output: 79.21 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 157.34it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.50it/s, est. speed input: 8764.99 toks/s, output: 79.81 toks/s
+2026-03-23 00:32:29 [INFO] Progress: 6100/8832 (69.1%) | 10.2 rows/s | ETA 268s | fallbacks: 10
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 153.64it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.32it/s, est. speed input: 8588.08 toks/s, output: 78.39 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 164.99it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.18it/s, est. speed input: 9535.74 toks/s, output: 79.78 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 161.94it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.64it/s, est. speed input: 9495.56 toks/s, output: 88.75 toks/s
+2026-03-23 00:32:37 [INFO] Progress: 6200/8832 (70.2%) | 10.2 rows/s | ETA 257s | fallbacks: 10
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 132.12it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.06it/s, est. speed input: 8448.73 toks/s, output: 74.74 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 124.54it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.88it/s, est. speed input: 8449.70 toks/s, output: 67.93 toks/s
+2026-03-23 00:32:44 [WARNING] Score parsing FAILED for output '\n\n[Insert Score Here]' (context: Gemma-3-12B/25206396b6f90a56a632de9594cfa279/coherence/en_US). Using random fallback 5.
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 150.39it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.93it/s, est. speed input: 8443.64 toks/s, output: 71.07 toks/s
+2026-03-23 00:32:48 [INFO] Progress: 6300/8832 (71.3%) | 10.2 rows/s | ETA 248s | fallbacks: 11
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 131.81it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.82it/s, est. speed input: 8669.61 toks/s, output: 65.29 toks/s
+2026-03-23 00:32:51 [WARNING] Score parsing FAILED for output '\n\n[Insert your score here]' (context: Gemma-3-27B/df85068ad8d348d04f95ee17882f0da4/coherence/en_US). Using random fallback 6.
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 152.61it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.80it/s, est. speed input: 8648.96 toks/s, output: 89.14 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 134.94it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.19it/s, est. speed input: 8692.78 toks/s, output: 81.85 toks/s
+2026-03-23 00:32:58 [INFO] Progress: 6400/8832 (72.5%) | 10.2 rows/s | ETA 238s | fallbacks: 12
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 226.05it/s]
+Processed prompts: 100%|█| 32/32 [00:01<00:00, 17.83it/s, est. speed input: 9052.10 toks/s, output: 111.99 toks/
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 143.45it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.96it/s, est. speed input: 8955.86 toks/s, output: 73.68 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 150.17it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.40it/s, est. speed input: 8227.13 toks/s, output: 64.66 toks/s
+2026-03-23 00:33:06 [WARNING] Score parsing FAILED for output '\n\n[Insert Score Here]' (context: Gemma-3-12B/df85068ad8d348d04f95ee17882f0da4/coherence/en_US). Using random fallback 3.
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 163.11it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.52it/s, est. speed input: 8881.01 toks/s, output: 89.58 toks/s
+2026-03-23 00:33:09 [INFO] Progress: 6500/8832 (73.6%) | 10.2 rows/s | ETA 229s | fallbacks: 13
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 142.86it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.55it/s, est. speed input: 8765.68 toks/s, output: 97.82 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 202.16it/s]
+Processed prompts: 100%|█| 32/32 [00:01<00:00, 18.16it/s, est. speed input: 9821.18 toks/s, output: 102.15 toks/
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 145.46it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.46it/s, est. speed input: 8491.74 toks/s, output: 77.18 toks/s
+2026-03-23 00:33:17 [INFO] Progress: 6600/8832 (74.7%) | 10.2 rows/s | ETA 218s | fallbacks: 13
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 150.07it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.83it/s, est. speed input: 8130.92 toks/s, output: 51.44 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 127.51it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.09it/s, est. speed input: 8797.59 toks/s, output: 85.07 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 134.59it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.00it/s, est. speed input: 8930.00 toks/s, output: 84.50 toks/s
+2026-03-23 00:33:26 [INFO] Progress: 6700/8832 (75.9%) | 10.2 rows/s | ETA 208s | fallbacks: 13
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 113.02it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.01it/s, est. speed input: 8545.97 toks/s, output: 69.43 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 122.07it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.04it/s, est. speed input: 8707.66 toks/s, output: 65.26 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 169.81it/s]
+Processed prompts: 100%|█| 32/32 [00:01<00:00, 16.19it/s, est. speed input: 9388.86 toks/s, output: 76.90 toks/s
+2026-03-23 00:33:35 [INFO] Progress: 6800/8832 (77.0%) | 10.2 rows/s | ETA 198s | fallbacks: 13
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 138.36it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.42it/s, est. speed input: 9502.46 toks/s, output: 68.52 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 155.09it/s]
+Processed prompts: 100%|█| 32/32 [00:01<00:00, 17.18it/s, est. speed input: 9744.98 toks/s, output: 89.12 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 134.84it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.41it/s, est. speed input: 9253.28 toks/s, output: 77.94 toks/s
+2026-03-23 00:33:42 [INFO] Progress: 6900/8832 (78.1%) | 10.3 rows/s | ETA 188s | fallbacks: 13
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 136.44it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.90it/s, est. speed input: 8978.64 toks/s, output: 83.83 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 167.08it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.25it/s, est. speed input: 9112.39 toks/s, output: 73.91 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 132.54it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.08it/s, est. speed input: 9013.34 toks/s, output: 86.47 toks/s
+2026-03-23 00:33:50 [INFO] Progress: 7000/8832 (79.3%) | 10.3 rows/s | ETA 178s | fallbacks: 13
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 162.21it/s]
+Processed prompts: 100%|█| 32/32 [00:01<00:00, 16.71it/s, est. speed input: 9884.16 toks/s, output: 86.70 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 138.48it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.73it/s, est. speed input: 9363.94 toks/s, output: 79.94 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 147.45it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.90it/s, est. speed input: 9037.45 toks/s, output: 69.54 toks/s
+2026-03-23 00:33:58 [INFO] Progress: 7100/8832 (80.4%) | 10.3 rows/s | ETA 168s | fallbacks: 13
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 128.85it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.52it/s, est. speed input: 9248.23 toks/s, output: 62.21 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 124.00it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.38it/s, est. speed input: 9217.93 toks/s, output: 75.10 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 138.89it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.53it/s, est. speed input: 9209.82 toks/s, output: 73.25 toks/s
+2026-03-23 00:34:06 [INFO] Progress: 7200/8832 (81.5%) | 10.4 rows/s | ETA 158s | fallbacks: 13
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 118.19it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.93it/s, est. speed input: 8723.68 toks/s, output: 58.05 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 122.08it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.30it/s, est. speed input: 8625.57 toks/s, output: 78.24 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 166.44it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.21it/s, est. speed input: 9031.82 toks/s, output: 57.38 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 137.43it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.21it/s, est. speed input: 9546.70 toks/s, output: 73.74 toks/s
+2026-03-23 00:34:18 [INFO] Progress: 7300/8832 (82.7%) | 10.3 rows/s | ETA 148s | fallbacks: 13
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 138.17it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.13it/s, est. speed input: 9097.61 toks/s, output: 76.71 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 169.45it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.47it/s, est. speed input: 8899.95 toks/s, output: 67.40 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 148.22it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.59it/s, est. speed input: 9124.05 toks/s, output: 79.11 toks/s
+2026-03-23 00:34:27 [INFO] Progress: 7400/8832 (83.8%) | 10.3 rows/s | ETA 138s | fallbacks: 13
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 130.05it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.61it/s, est. speed input: 9102.92 toks/s, output: 87.47 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 135.68it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.12it/s, est. speed input: 8794.15 toks/s, output: 66.40 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 125.92it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.85it/s, est. speed input: 8918.72 toks/s, output: 69.26 toks/s
+2026-03-23 00:34:36 [INFO] Progress: 7500/8832 (84.9%) | 10.4 rows/s | ETA 129s | fallbacks: 13
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 138.95it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.78it/s, est. speed input: 8807.69 toks/s, output: 63.70 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 158.91it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.24it/s, est. speed input: 8936.16 toks/s, output: 74.50 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 125.99it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.69it/s, est. speed input: 8872.40 toks/s, output: 70.88 toks/s
+2026-03-23 00:34:44 [INFO] Progress: 7600/8832 (86.1%) | 10.4 rows/s | ETA 119s | fallbacks: 13
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 197.61it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.80it/s, est. speed input: 8732.93 toks/s, output: 89.72 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 131.98it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.61it/s, est. speed input: 8621.82 toks/s, output: 51.36 toks/s
+2026-03-23 00:34:50 [WARNING] Score parsing FAILED for output '\n\n[Your score here]' (context: Gemma-3-12B/12f396cdef01341d9b307c7048b8d77a/coherence/ru_RU). Using random fallback 7.
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 131.56it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.18it/s, est. speed input: 8599.57 toks/s, output: 72.85 toks/s
+2026-03-23 00:34:54 [INFO] Progress: 7700/8832 (87.2%) | 10.4 rows/s | ETA 109s | fallbacks: 14
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 126.61it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.37it/s, est. speed input: 8684.40 toks/s, output: 71.44 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 139.16it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.25it/s, est. speed input: 9428.68 toks/s, output: 80.33 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 130.54it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.01it/s, est. speed input: 9053.77 toks/s, output: 78.04 toks/s
+2026-03-23 00:35:03 [INFO] Progress: 7800/8832 (88.3%) | 10.4 rows/s | ETA 99s | fallbacks: 14
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 155.38it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.49it/s, est. speed input: 9084.33 toks/s, output: 75.74 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 125.87it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.90it/s, est. speed input: 8938.65 toks/s, output: 79.97 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 139.00it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.75it/s, est. speed input: 8763.63 toks/s, output: 65.18 toks/s
+2026-03-23 00:35:12 [INFO] Progress: 7900/8832 (89.4%) | 10.4 rows/s | ETA 90s | fallbacks: 14
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 191.22it/s]
+Processed prompts: 100%|█| 32/32 [00:01<00:00, 16.64it/s, est. speed input: 9411.83 toks/s, output: 108.19 toks/
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 136.48it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.17it/s, est. speed input: 9274.27 toks/s, output: 82.73 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 142.06it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.81it/s, est. speed input: 9400.73 toks/s, output: 77.68 toks/s
+2026-03-23 00:35:19 [INFO] Progress: 8000/8832 (90.6%) | 10.4 rows/s | ETA 80s | fallbacks: 14
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 144.20it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.36it/s, est. speed input: 9383.35 toks/s, output: 80.81 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 169.62it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.83it/s, est. speed input: 8902.07 toks/s, output: 69.35 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 147.02it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.23it/s, est. speed input: 8956.71 toks/s, output: 73.00 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 166.23it/s]
+Processed prompts: 100%|█| 32/32 [00:01<00:00, 16.13it/s, est. speed input: 9751.57 toks/s, output: 94.76 toks/s
+2026-03-23 00:35:29 [INFO] Progress: 8100/8832 (91.7%) | 10.4 rows/s | ETA 70s | fallbacks: 14
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 135.24it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.36it/s, est. speed input: 8962.46 toks/s, output: 66.81 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 142.85it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 15.13it/s, est. speed input: 9583.31 toks/s, output: 98.37 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 149.83it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.73it/s, est. speed input: 9440.53 toks/s, output: 83.25 toks/s
+2026-03-23 00:35:37 [INFO] Progress: 8200/8832 (92.8%) | 10.4 rows/s | ETA 61s | fallbacks: 14
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 135.63it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.45it/s, est. speed input: 9521.61 toks/s, output: 84.45 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 147.31it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 13.74it/s, est. speed input: 9260.67 toks/s, output: 77.27 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 161.88it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 15.30it/s, est. speed input: 9725.23 toks/s, output: 79.36 toks/s
+2026-03-23 00:35:44 [INFO] Progress: 8300/8832 (94.0%) | 10.5 rows/s | ETA 51s | fallbacks: 14
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 148.21it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.31it/s, est. speed input: 9051.79 toks/s, output: 66.54 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 115.73it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.65it/s, est. speed input: 8616.98 toks/s, output: 76.30 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 116.20it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 10.67it/s, est. speed input: 8772.54 toks/s, output: 58.03 toks/s
+2026-03-23 00:35:54 [INFO] Progress: 8400/8832 (95.1%) | 10.5 rows/s | ETA 41s | fallbacks: 14
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 131.60it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.39it/s, est. speed input: 8606.43 toks/s, output: 67.54 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 131.14it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.96it/s, est. speed input: 9199.21 toks/s, output: 79.00 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 129.44it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.27it/s, est. speed input: 8881.08 toks/s, output: 69.01 toks/s
+2026-03-23 00:36:04 [INFO] Progress: 8500/8832 (96.2%) | 10.5 rows/s | ETA 32s | fallbacks: 14
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 136.37it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 11.70it/s, est. speed input: 8899.87 toks/s, output: 83.76 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 144.20it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 15.99it/s, est. speed input: 9696.41 toks/s, output: 86.45 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 130.66it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00,  9.40it/s, est. speed input: 8482.93 toks/s, output: 61.11 toks/s
+2026-03-23 00:36:12 [INFO] Progress: 8600/8832 (97.4%) | 10.5 rows/s | ETA 22s | fallbacks: 14
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 183.16it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.47it/s, est. speed input: 9182.25 toks/s, output: 78.24 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 121.44it/s]
+Processed prompts: 100%|█| 32/32 [00:03<00:00, 10.35it/s, est. speed input: 8803.89 toks/s, output: 55.98 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 135.56it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.07it/s, est. speed input: 9036.94 toks/s, output: 70.54 toks/s
+2026-03-23 00:36:21 [INFO] Progress: 8700/8832 (98.5%) | 10.5 rows/s | ETA 13s | fallbacks: 14
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 151.87it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.98it/s, est. speed input: 9197.79 toks/s, output: 78.69 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 157.75it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.74it/s, est. speed input: 8881.89 toks/s, output: 80.01 toks/s
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 132.18it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 12.28it/s, est. speed input: 9201.25 toks/s, output: 74.44 toks/s
+2026-03-23 00:36:29 [INFO] Progress: 8800/8832 (99.6%) | 10.5 rows/s | ETA 3s | fallbacks: 14
+Rendering prompts: 100%|███████████████████████████████████████████████████████| 32/32 [00:00<00:00, 185.12it/s]
+Processed prompts: 100%|█| 32/32 [00:02<00:00, 14.27it/s, est. speed input: 9366.87 toks/s, output: 77.15 toks/s
+2026-03-23 00:36:32 [INFO] Progress: 8832/8832 (100.0%) | 10.5 rows/s | ETA 0s | fallbacks: 14
+2026-03-23 00:36:32 [INFO] Done. 8832 tasks completed in 840.6s. Fallback scores: 14.
+2026-03-23 00:36:32 [INFO] Output written to: /auto/vestec1-elixir/home/vok/py26/llm_judge/oeg_judge_outloc12_submission_data.csv
+(139env) (BOOKWORM)vok@galdor6:/storage/vestec1-elixir/home/vok/py26/llm_judge$ 
+(139env) (BOOKWORM)vok@galdor6:/storage/vestec1-elixir/home/vok/py26/llm_judge$ 

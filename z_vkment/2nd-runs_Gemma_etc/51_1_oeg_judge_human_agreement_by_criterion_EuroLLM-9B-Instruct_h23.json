@@ -1,0 +1,115 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "EuroLLM-9B-Instruct_h23": 0.5377536231884058
+            },
+            "naturalness": {
+                "EuroLLM-9B-Instruct_h23": 0.4364855072463768
+            },
+            "coherence": {
+                "EuroLLM-9B-Instruct_h23": 0.5075
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "ar_EG": {
+                    "EuroLLM-9B-Instruct_h23": 0.6125
+                },
+                "bn_BD": {
+                    "EuroLLM-9B-Instruct_h23": 0.33985507246376806
+                },
+                "cs_CZ": {
+                    "EuroLLM-9B-Instruct_h23": 0.3869565217391305
+                },
+                "de_DE": {
+                    "EuroLLM-9B-Instruct_h23": 0.5641304347826087
+                },
+                "en_US": {
+                    "EuroLLM-9B-Instruct_h23": 0.7070652173913043
+                },
+                "hi_IN": {
+                    "EuroLLM-9B-Instruct_h23": 0.5653985507246377
+                },
+                "id_ID": {
+                    "EuroLLM-9B-Instruct_h23": 0.5244565217391303
+                },
+                "ja_JP": {
+                    "EuroLLM-9B-Instruct_h23": 0.41648550724637695
+                },
+                "ru_RU": {
+                    "EuroLLM-9B-Instruct_h23": 0.6519927536231883
+                },
+                "zh_CN": {
+                    "EuroLLM-9B-Instruct_h23": 0.6086956521739131
+                }
+            },
+            "naturalness": {
+                "ar_EG": {
+                    "EuroLLM-9B-Instruct_h23": 0.3628623188405797
+                },
+                "bn_BD": {
+                    "EuroLLM-9B-Instruct_h23": 0.30452898550724633
+                },
+                "cs_CZ": {
+                    "EuroLLM-9B-Instruct_h23": 0.3806159420289854
+                },
+                "de_DE": {
+                    "EuroLLM-9B-Instruct_h23": 0.4697463768115942
+                },
+                "en_US": {
+                    "EuroLLM-9B-Instruct_h23": 0.6090579710144927
+                },
+                "hi_IN": {
+                    "EuroLLM-9B-Instruct_h23": 0.5110507246376812
+                },
+                "id_ID": {
+                    "EuroLLM-9B-Instruct_h23": 0.36195652173913045
+                },
+                "ja_JP": {
+                    "EuroLLM-9B-Instruct_h23": 0.44456521739130433
+                },
+                "ru_RU": {
+                    "EuroLLM-9B-Instruct_h23": 0.3898550724637682
+                },
+                "zh_CN": {
+                    "EuroLLM-9B-Instruct_h23": 0.5306159420289854
+                }
+            },
+            "coherence": {
+                "ar_EG": {
+                    "EuroLLM-9B-Instruct_h23": 0.5306159420289854
+                },
+                "bn_BD": {
+                    "EuroLLM-9B-Instruct_h23": 0.32572463768115945
+                },
+                "cs_CZ": {
+                    "EuroLLM-9B-Instruct_h23": 0.3605072463768116
+                },
+                "de_DE": {
+                    "EuroLLM-9B-Instruct_h23": 0.6166666666666667
+                },
+                "en_US": {
+                    "EuroLLM-9B-Instruct_h23": 0.6023550724637681
+                },
+                "hi_IN": {
+                    "EuroLLM-9B-Instruct_h23": 0.6242753623188406
+                },
+                "id_ID": {
+                    "EuroLLM-9B-Instruct_h23": 0.3822463768115942
+                },
+                "ja_JP": {
+                    "EuroLLM-9B-Instruct_h23": 0.4601449275362318
+                },
+                "ru_RU": {
+                    "EuroLLM-9B-Instruct_h23": 0.5222826086956521
+                },
+                "zh_CN": {
+                    "EuroLLM-9B-Instruct_h23": 0.6501811594202899
+                }
+            }
+        }
+    }
+}

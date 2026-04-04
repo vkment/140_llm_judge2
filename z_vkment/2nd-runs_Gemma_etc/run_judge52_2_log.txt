@@ -1,0 +1,105 @@
+(139env) (BOOKWORM)vok@bee2:/storage/vestec1-elixir/home/vok/py26/llm_judge$ 
+(139env) (BOOKWORM)vok@bee2:/storage/vestec1-elixir/home/vok/py26/llm_judge$ python run_judge52_2.py
+2026-04-04 12:38:06 [INFO] CUDA_VISIBLE_DEVICES remapped: 'GPU-f754a378-1925-670e-30d3-c719d8f1c53d' → '0'
+2026-04-04 12:38:06 [INFO] Loaded templates from judge_templates_locales_hybrid23.py
+2026-04-04 12:38:06 [INFO] LLM I/O logging → run_judge52_2.log
+2026-04-04 12:38:06 [INFO] Starting run_judge.py | variant=local | model=utter-project/EuroLLM-22B-Instruct-2512
+2026-04-04 12:38:06 [INFO] Settings: locale=['cs_CZ', 'en_US'] | max_rows=10 | concurrency=32 | output=oeg_judge_outloc52_2_submission_data.csv
+2026-04-04 12:38:06 [INFO] Loaded 10 unique (system, prompt) pairs from data_cs_CZ.csv
+2026-04-04 12:38:06 [INFO] Loaded 10 unique (system, prompt) pairs from data_en_US.csv
+2026-04-04 12:38:06 [INFO] Total tasks (before checkpoint): 60
+2026-04-04 12:38:06 [INFO] Skipping 0 already-done tasks. Remaining: 60
+2026-04-04 12:38:06 [INFO] Building all prompts for token-length pre-computation...
+2026-04-04 12:38:07 [INFO] HTTP Request: HEAD https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-04 12:38:07 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/utter-project/EuroLLM-22B-Instruct-2512/38196362cf70aebbc19d1acb9ebc7c18ef81d1b2/config.json "HTTP/1.1 200 OK"
+2026-04-04 12:38:07 [INFO] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/utter-project/EuroLLM-22B-Instruct-2512/38196362cf70aebbc19d1acb9ebc7c18ef81d1b2/config.json "HTTP/1.1 200 OK"
+config.json: 100%|█████████████████████████████████████████████████████████| 680/680 [00:00<00:00, 2.76MB/s]
+2026-04-04 12:38:10 [INFO] HTTP Request: HEAD https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-04 12:38:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/utter-project/EuroLLM-22B-Instruct-2512/38196362cf70aebbc19d1acb9ebc7c18ef81d1b2/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-04 12:38:10 [INFO] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/utter-project/EuroLLM-22B-Instruct-2512/38196362cf70aebbc19d1acb9ebc7c18ef81d1b2/tokenizer_config.json "HTTP/1.1 200 OK"
+tokenizer_config.json: 47.3kB [00:00, 95.9MB/s]
+2026-04-04 12:38:11 [INFO] HTTP Request: GET https://huggingface.co/api/models/utter-project/EuroLLM-22B-Instruct-2512/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-04 12:38:11 [INFO] HTTP Request: GET https://huggingface.co/api/models/utter-project/EuroLLM-22B-Instruct-2512/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-04 12:38:11 [INFO] HTTP Request: HEAD https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512/resolve/main/tokenizer.model "HTTP/1.1 302 Found"
+2026-04-04 12:38:11 [INFO] HTTP Request: GET https://huggingface.co/api/models/utter-project/EuroLLM-22B-Instruct-2512/xet-read-token/38196362cf70aebbc19d1acb9ebc7c18ef81d1b2 "HTTP/1.1 200 OK"
+tokenizer.model: 100%|█████████████████████████████████████████████████| 2.41M/2.41M [00:01<00:00, 2.07MB/s]
+2026-04-04 12:38:13 [INFO] HTTP Request: HEAD https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512/resolve/main/tokenizer.json "HTTP/1.1 302 Found"
+tokenizer.json: 100%|██████████████████████████████████████████████████| 15.8M/15.8M [00:00<00:00, 25.9MB/s]
+2026-04-04 12:38:13 [INFO] HTTP Request: HEAD https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+2026-04-04 12:38:13 [INFO] HTTP Request: HEAD https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512/resolve/main/special_tokens_map.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-04 12:38:13 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/utter-project/EuroLLM-22B-Instruct-2512/38196362cf70aebbc19d1acb9ebc7c18ef81d1b2/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-04-04 12:38:13 [INFO] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/utter-project/EuroLLM-22B-Instruct-2512/38196362cf70aebbc19d1acb9ebc7c18ef81d1b2/special_tokens_map.json "HTTP/1.1 200 OK"
+special_tokens_map.json: 100%|█████████████████████████████████████████████| 443/443 [00:00<00:00, 2.47MB/s]
+2026-04-04 12:38:14 [INFO] HTTP Request: HEAD https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+2026-04-04 12:38:15 [INFO] HTTP Request: GET https://huggingface.co/api/models/utter-project/EuroLLM-22B-Instruct-2512 "HTTP/1.1 200 OK"
+2026-04-04 12:38:15 [INFO] Tokenising prompts to compute max_model_len (model=utter-project/EuroLLM-22B-Instruct-2512)...
+2026-04-04 12:38:15 [INFO] Max prompt length: 3984 tokens → max_model_len=4048 (hard cap: 124000).
+2026-04-04 12:39:00 [INFO] Initialising vLLM (model=utter-project/EuroLLM-22B-Instruct-2512, dtype=auto, max_model_len=4048)...
+INFO 04-04 12:39:00 [utils.py:233] non-default args: {'max_model_len': 4048, 'disable_log_stats': True, 'model': 'utter-project/EuroLLM-22B-Instruct-2512'}
+INFO 04-04 12:41:14 [model.py:549] Resolved architecture: LlamaForCausalLM
+INFO 04-04 12:41:14 [model.py:1678] Using max model len 4048
+INFO 04-04 12:41:17 [scheduler.py:238] Chunked prefill is enabled with max_num_batched_tokens=16384.
+INFO 04-04 12:41:17 [vllm.py:790] Asynchronous scheduling is enabled.
+generation_config.json: 100%|███████████████████████████████████████████████| 132/132 [00:00<00:00, 403kB/s]
+(EngineCore pid=761695) INFO 04-04 12:41:19 [core.py:105] Initializing a V1 LLM engine (v0.19.0) with config: model='utter-project/EuroLLM-22B-Instruct-2512', speculative_config=None, tokenizer='utter-project/EuroLLM-22B-Instruct-2512', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4048, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=utter-project/EuroLLM-22B-Instruct-2512, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_images_per_batch': 0, 'compile_sizes': [], 'compile_ranges_endpoints': [16384], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=761695) INFO 04-04 12:41:21 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://147.251.59.52:43351 backend=nccl
+(EngineCore pid=761695) INFO 04-04 12:41:22 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=761695) INFO 04-04 12:41:25 [gpu_model_runner.py:4735] Starting to load model utter-project/EuroLLM-22B-Instruct-2512...
+(EngineCore pid=761695) INFO 04-04 12:41:39 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=761695) INFO 04-04 12:41:39 [flash_attn.py:596] Using FlashAttention version 3
+(EngineCore pid=761695) <frozen importlib._bootstrap_external>:1241: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+(EngineCore pid=761695) <frozen importlib._bootstrap_external>:1241: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+model.safetensors.index.json: 40.3kB [00:00, 61.8MB/s]
+(EngineCore pid=761695) INFO 04-04 12:44:26 [weight_utils.py:581] Time spent downloading weights for utter-project/EuroLLM-22B-Instruct-2512: 164.918694 seconds
+Loading safetensors checkpoint shards:   0% Completed | 0/10 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  10% Completed | 1/10 [00:00<00:05,  1.56it/s]
+Loading safetensors checkpoint shards:  20% Completed | 2/10 [00:01<00:05,  1.37it/s]
+Loading safetensors checkpoint shards:  30% Completed | 3/10 [00:02<00:05,  1.33it/s]
+Loading safetensors checkpoint shards:  40% Completed | 4/10 [00:02<00:04,  1.31it/s]
+Loading safetensors checkpoint shards:  50% Completed | 5/10 [00:03<00:03,  1.30it/s]
+Loading safetensors checkpoint shards:  60% Completed | 6/10 [00:04<00:03,  1.32it/s]
+Loading safetensors checkpoint shards:  70% Completed | 7/10 [00:05<00:02,  1.31it/s]
+Loading safetensors checkpoint shards:  80% Completed | 8/10 [00:06<00:01,  1.29it/s]
+Loading safetensors checkpoint shards:  90% Completed | 9/10 [00:06<00:00,  1.31it/s]
+Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:07<00:00,  1.55it/s]
+Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:07<00:00,  1.39it/s]
+(EngineCore pid=761695) 
+(EngineCore pid=761695) INFO 04-04 12:44:33 [default_loader.py:384] Loading weights took 7.29 seconds
+(EngineCore pid=761695) INFO 04-04 12:44:34 [gpu_model_runner.py:4820] Model loading took 42.17 GiB memory and 187.566480 seconds
+(EngineCore pid=761695) INFO 04-04 12:45:26 [backends.py:1051] Using cache directory: /scratch.ssd/vok/job_18667438.pbs-m1/vllm/torch_compile_cache/b0114f13a5/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=761695) INFO 04-04 12:45:26 [backends.py:1111] Dynamo bytecode transform time: 51.22 s
+(EngineCore pid=761695) INFO 04-04 12:45:32 [backends.py:372] Cache the graph of compile range (1, 16384) for later use
+(EngineCore pid=761695) INFO 04-04 12:45:42 [backends.py:390] Compiling a graph for compile range (1, 16384) takes 15.60 s
+(EngineCore pid=761695) INFO 04-04 12:45:45 [decorators.py:640] saved AOT compiled function to /scratch.ssd/vok/job_18667438.pbs-m1/vllm/torch_compile_cache/torch_aot_compile/a38ea12b5d6db2405106d5fb53075ba2ce95b50e0cfbb37ef131a2909131a219/rank_0_0/model
+(EngineCore pid=761695) INFO 04-04 12:45:45 [monitor.py:48] torch.compile took 70.48 s in total
+(EngineCore pid=761695) INFO 04-04 12:45:49 [monitor.py:76] Initial profiling/warmup run took 3.86 s
+(EngineCore pid=761695) INFO 04-04 12:45:57 [kv_cache_utils.py:829] Overriding num_gpu_blocks=0 with num_gpu_blocks_override=512
+(EngineCore pid=761695) INFO 04-04 12:45:57 [gpu_model_runner.py:5876] Profiling CUDA graph memory: PIECEWISE=51 (largest=512), FULL=51 (largest=512)
+(EngineCore pid=761695) INFO 04-04 12:45:59 [gpu_model_runner.py:5955] Estimated CUDA graph memory: 0.86 GiB total
+(EngineCore pid=761695) INFO 04-04 12:45:59 [gpu_worker.py:436] Available KV cache memory: 39.21 GiB
+(EngineCore pid=761695) INFO 04-04 12:45:59 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.9000 to 0.9093 to maintain the same effective KV cache size.
+(EngineCore pid=761695) INFO 04-04 12:45:59 [kv_cache_utils.py:1319] GPU KV cache size: 190,336 tokens
+(EngineCore pid=761695) INFO 04-04 12:45:59 [kv_cache_utils.py:1324] Maximum concurrency for 4,048 tokens per request: 47.02x
+(EngineCore pid=761695) 2026-04-04 12:45:59,867 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=761695) 2026-04-04 12:45:59,893 - INFO - autotuner.py:268 - flashinfer.jit: [Autotuner]: Autotuning process ends
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████████| 51/51 [00:04<00:00, 12.06it/s]
+Capturing CUDA graphs (decode, FULL): 100%|█████████████████████████████████| 51/51 [00:02<00:00, 17.81it/s]
+(EngineCore pid=761695) INFO 04-04 12:46:08 [gpu_model_runner.py:6046] Graph capturing finished in 9 secs, took 0.98 GiB
+(EngineCore pid=761695) INFO 04-04 12:46:08 [gpu_worker.py:597] CUDA graph pool memory: 0.98 GiB (actual), 0.86 GiB (estimated), difference: 0.12 GiB (12.0%).
+(EngineCore pid=761695) INFO 04-04 12:46:09 [core.py:283] init engine (profile, create kv cache, warmup model) took 94.48 seconds
+2026-04-04 12:46:09 [INFO] vLLM ready.
+2026-04-04 12:46:09 [INFO] Using user-supplied batch_size=16.
+Rendering prompts: 100%|████████████████████████████████████████████████████| 16/16 [00:01<00:00, 11.44it/s]
+Processed prompts: 100%|█| 16/16 [00:01<00:00, 12.97it/s, est. speed input: 10887.91 toks/s, output: 25.95 t
+Rendering prompts: 100%|███████████████████████████████████████████████████| 16/16 [00:00<00:00, 128.23it/s]
+Processed prompts: 100%|█| 16/16 [00:02<00:00,  6.98it/s, est. speed input: 11923.88 toks/s, output: 13.95 t
+Rendering prompts: 100%|███████████████████████████████████████████████████| 16/16 [00:00<00:00, 198.68it/s]
+Processed prompts: 100%|█| 16/16 [00:01<00:00, 11.47it/s, est. speed input: 13584.93 toks/s, output: 22.95 t
+Rendering prompts: 100%|███████████████████████████████████████████████████| 12/12 [00:00<00:00, 204.09it/s]
+Processed prompts: 100%|█| 12/12 [00:00<00:00, 12.80it/s, est. speed input: 14179.31 toks/s, output: 25.61 t
+2026-04-04 12:46:17 [INFO] Progress: 60/60 (100.0%) | 8.0 rows/s | ETA 0s | fallbacks: 0
+2026-04-04 12:46:17 [INFO] Done. 60 tasks completed in 7.5s. Fallback scores: 0.
+2026-04-04 12:46:17 [INFO] Output written to: /auto/vestec1-elixir/home/vok/py26/llm_judge/oeg_judge_outloc52_2_submission_data.csv
+(EngineCore pid=761695) INFO 04-04 12:46:17 [core.py:1210] Shutdown initiated (timeout=0)
+(EngineCore pid=761695) INFO 04-04 12:46:17 [core.py:1233] Shutdown complete
+(139env) (BOOKWORM)vok@bee2:/storage/vestec1-elixir/home/vok/py26/llm_judge$ 

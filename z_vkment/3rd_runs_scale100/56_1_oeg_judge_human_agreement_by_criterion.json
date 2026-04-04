@@ -1,0 +1,115 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "coherence": {
+                "gemma-4-26B-A4B-it_s105_loc": 0.6041847826086957
+            },
+            "instruction_following": {
+                "gemma-4-26B-A4B-it_s105_loc": 0.5767210144927537
+            },
+            "naturalness": {
+                "gemma-4-26B-A4B-it_s105_loc": 0.5447826086956522
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "coherence": {
+                "ar_EG": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.6829710144927535
+                },
+                "bn_BD": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.5123188405797101
+                },
+                "cs_CZ": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.4876811594202898
+                },
+                "de_DE": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.6047101449275364
+                },
+                "en_US": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.656340579710145
+                },
+                "hi_IN": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.7114130434782607
+                },
+                "id_ID": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.48677536231884055
+                },
+                "ja_JP": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.5682971014492755
+                },
+                "ru_RU": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.6190217391304348
+                },
+                "zh_CN": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.7123188405797102
+                }
+            },
+            "instruction_following": {
+                "ar_EG": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.6974637681159419
+                },
+                "bn_BD": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.5181159420289855
+                },
+                "cs_CZ": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.49329710144927535
+                },
+                "de_DE": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.5144927536231885
+                },
+                "en_US": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.6170289855072464
+                },
+                "hi_IN": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.6672101449275363
+                },
+                "id_ID": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.5030797101449276
+                },
+                "ja_JP": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.5177536231884057
+                },
+                "ru_RU": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.6068840579710145
+                },
+                "zh_CN": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.6318840579710144
+                }
+            },
+            "naturalness": {
+                "ar_EG": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.4940217391304349
+                },
+                "bn_BD": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.5273550724637682
+                },
+                "cs_CZ": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.5369565217391304
+                },
+                "de_DE": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.45688405797101445
+                },
+                "en_US": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.6396739130434782
+                },
+                "hi_IN": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.6135869565217391
+                },
+                "id_ID": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.48097826086956524
+                },
+                "ja_JP": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.5436594202898551
+                },
+                "ru_RU": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.5291666666666667
+                },
+                "zh_CN": {
+                    "gemma-4-26B-A4B-it_s105_loc": 0.6255434782608695
+                }
+            }
+        }
+    }
+}

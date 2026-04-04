@@ -1,0 +1,43 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "EuroLLM-9B-Instruct_h23": 0.5494565217391305
+            },
+            "naturalness": {
+                "EuroLLM-9B-Instruct_h23": 0.4968297101449275
+            },
+            "coherence": {
+                "EuroLLM-9B-Instruct_h23": 0.47771739130434776
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "cs_CZ": {
+                    "EuroLLM-9B-Instruct_h23": 0.3980072463768115
+                },
+                "en_US": {
+                    "EuroLLM-9B-Instruct_h23": 0.7009057971014493
+                }
+            },
+            "naturalness": {
+                "cs_CZ": {
+                    "EuroLLM-9B-Instruct_h23": 0.38840579710144935
+                },
+                "en_US": {
+                    "EuroLLM-9B-Instruct_h23": 0.6052536231884059
+                }
+            },
+            "coherence": {
+                "cs_CZ": {
+                    "EuroLLM-9B-Instruct_h23": 0.3536231884057971
+                },
+                "en_US": {
+                    "EuroLLM-9B-Instruct_h23": 0.6018115942028986
+                }
+            }
+        }
+    }
+}

@@ -19,9 +19,9 @@ Použití:
 # ===========================================================================
 # VSTUPY — upravte dle potřeby
 # ===========================================================================
-LLM_CSV   = "z_vkment/oeg_judge_outloc36_2_submission_data.csv"
-HUMAN_CSV = "z_vkment/oeg_human_eval_data.csv"
-STATS_CSV = "z_vkment/judge_comparison_stats_36_2.csv"
+LLM_CSV   = "z_vkment/oeg_judge_outloc41_3_submission_data.csv"
+HUMAN_CSV = "oeg_human_eval_data.csv"
+STATS_CSV = "z_vkment/judge_comparison_stats_41_3.csv"
 # ===========================================================================
 
 import csv

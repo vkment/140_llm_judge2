@@ -1,0 +1,61 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "aya-expanse-8b_pcsdeh": 0.5863677536231884
+            },
+            "naturalness": {
+                "aya-expanse-8b_pcsdeh": 0.43052536231884053
+            },
+            "coherence": {
+                "aya-expanse-8b_pcsdeh": 0.5209692028985508
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "cs_CZ": {
+                    "aya-expanse-8b_pcsdeh": 0.3690217391304348
+                },
+                "de_DE": {
+                    "aya-expanse-8b_pcsdeh": 0.5735507246376813
+                },
+                "en_US": {
+                    "aya-expanse-8b_pcsdeh": 0.744927536231884
+                },
+                "ru_RU": {
+                    "aya-expanse-8b_pcsdeh": 0.6579710144927536
+                }
+            },
+            "naturalness": {
+                "cs_CZ": {
+                    "aya-expanse-8b_pcsdeh": 0.30797101449275366
+                },
+                "de_DE": {
+                    "aya-expanse-8b_pcsdeh": 0.45416666666666666
+                },
+                "en_US": {
+                    "aya-expanse-8b_pcsdeh": 0.6110507246376812
+                },
+                "ru_RU": {
+                    "aya-expanse-8b_pcsdeh": 0.3489130434782608
+                }
+            },
+            "coherence": {
+                "cs_CZ": {
+                    "aya-expanse-8b_pcsdeh": 0.3034420289855073
+                },
+                "de_DE": {
+                    "aya-expanse-8b_pcsdeh": 0.5260869565217391
+                },
+                "en_US": {
+                    "aya-expanse-8b_pcsdeh": 0.6476449275362319
+                },
+                "ru_RU": {
+                    "aya-expanse-8b_pcsdeh": 0.6067028985507246
+                }
+            }
+        }
+    }
+}

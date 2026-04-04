@@ -1,0 +1,52 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "gemma-4-26B-A4B-it_h23": 0.6254528985507246,
+                "gemma-4-31B-it_h23": 0.6301630434782608
+            },
+            "naturalness": {
+                "gemma-4-26B-A4B-it_h23": 0.5830615942028986,
+                "gemma-4-31B-it_h23": 0.5814311594202899
+            },
+            "coherence": {
+                "gemma-4-26B-A4B-it_h23": 0.5513586956521739,
+                "gemma-4-31B-it_h23": 0.5554347826086957
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "cs_CZ": {
+                    "gemma-4-26B-A4B-it_h23": 0.5007246376811595,
+                    "gemma-4-31B-it_h23": 0.5048913043478261
+                },
+                "en_US": {
+                    "gemma-4-26B-A4B-it_h23": 0.75018115942029,
+                    "gemma-4-31B-it_h23": 0.7554347826086957
+                }
+            },
+            "naturalness": {
+                "cs_CZ": {
+                    "gemma-4-26B-A4B-it_h23": 0.5338768115942029,
+                    "gemma-4-31B-it_h23": 0.5317028985507246
+                },
+                "en_US": {
+                    "gemma-4-26B-A4B-it_h23": 0.6322463768115941,
+                    "gemma-4-31B-it_h23": 0.631159420289855
+                }
+            },
+            "coherence": {
+                "cs_CZ": {
+                    "gemma-4-26B-A4B-it_h23": 0.4737318840579709,
+                    "gemma-4-31B-it_h23": 0.46557971014492755
+                },
+                "en_US": {
+                    "gemma-4-26B-A4B-it_h23": 0.6289855072463769,
+                    "gemma-4-31B-it_h23": 0.6452898550724638
+                }
+            }
+        }
+    }
+}

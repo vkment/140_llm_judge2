@@ -1,0 +1,30 @@
+{
+    "ranking_accuracy": {
+        "aya-expanse-8b_pcsde": 0.6271186440677966
+    },
+    "acc_eq_by_instruction_following": {
+        "aya-expanse-8b_pcsde": 0.4874547101449275
+    },
+    "acc_eq_by_naturalness": {
+        "aya-expanse-8b_pcsde": 0.426268115942029
+    },
+    "acc_eq_by_coherence": {
+        "aya-expanse-8b_pcsde": 0.45117753623188406
+    },
+    "acc_eq_average": {
+        "aya-expanse-8b_pcsde": 0.45496678743961355
+    },
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "aya-expanse-8b_pcsde": 0.4874547101449275
+            },
+            "naturalness": {
+                "aya-expanse-8b_pcsde": 0.426268115942029
+            },
+            "coherence": {
+                "aya-expanse-8b_pcsde": 0.45117753623188406
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "ranking_accuracy": {
+        "Qwen3.5-35B-A3B_pcshr7": 0.8571428571428571
+    },
+    "acc_eq_by_instruction_following": {
+        "Qwen3.5-35B-A3B_pcshr7": 0.4623188405797101
+    },
+    "acc_eq_by_naturalness": {
+        "Qwen3.5-35B-A3B_pcshr7": 0.5181159420289856
+    },
+    "acc_eq_by_coherence": {
+        "Qwen3.5-35B-A3B_pcshr7": 0.48460144927536225
+    },
+    "acc_eq_average": {
+        "Qwen3.5-35B-A3B_pcshr7": 0.48834541062801934
+    },
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "Qwen3.5-35B-A3B_pcshr7": 0.4623188405797101
+            },
+            "naturalness": {
+                "Qwen3.5-35B-A3B_pcshr7": 0.5181159420289856
+            },
+            "coherence": {
+                "Qwen3.5-35B-A3B_pcshr7": 0.48460144927536225
+            }
+        }
+    }
+}
