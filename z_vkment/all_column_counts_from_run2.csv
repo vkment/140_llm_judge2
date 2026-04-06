@@ -1,0 +1,168 @@
+column_name,value,count
+
+LLM-judge: 13 different systems
+judge_model_name,Llama-4-Maverick,22560
+judge_model_name,DeepSeek-V3,22560
+judge_model_name,CommandA,22560
+judge_model_name,GPT-4.1,22560
+judge_model_name,AyaExpanse-8B,22560
+judge_model_name,Llama-3.1-8B,22560
+judge_model_name,CommandR7B,22560
+judge_model_name,Claude-4,22560
+judge_model_name,AyaExpanse-32B,22560
+judge_model_name,Mistral-Medium,22560
+judge_model_name,Qwen3-235B,22560
+judge_model_name,Mistral-7B,22560
+judge_model_name,Qwen2.5-7B,22560
+
+
+criterion a.k.a. rubric: 3
+criterion,instruction_following,97760
+criterion,coherence,97760
+criterion,naturalness,97760
+
+LLM-answering: 16 systems
+submission_system_name,Gemma-3-27B,18330
+submission_system_name,CommandR7B,18330
+submission_system_name,Gemini-2,18330
+submission_system_name,Mistral-Medium,18330
+submission_system_name,Qwen3-235B,18330
+submission_system_name,Llama-3,18330
+submission_system_name,DeepSeek-V3,18330
+submission_system_name,AyaExpanse-8B,18330
+submission_system_name,GPT-4,18330
+submission_system_name,Llama-4-Maverick,18330
+submission_system_name,Claude-4,18330
+submission_system_name,AyaExpanse-32B,18330
+submission_system_name,Qwen2,18330
+submission_system_name,Gemma-3-12B,18330
+submission_system_name,CommandA,18330
+submission_system_name,Mistral-7B,18330
+
+
+original prompts: 47 (!pozor) tj. ne 46 
+original_instance_id,34ff7b0c7d176187b5f56965bc072870,6240
+original_instance_id,25206396b6f90a56a632de9594cfa279,6240
+original_instance_id,a8de3aee209e73291020dfca4bc9547d,6240
+original_instance_id,9721721aee5763207020928a6be3d9b1,6240
+original_instance_id,453dbf627af720e73ca10e171bd55725,6240
+original_instance_id,fd3d2779b04a00f64e86ebda4403eb34,6240
+original_instance_id,c145f96bc4b6c5d0d18e06e89cb629bd,6240
+original_instance_id,24223944994a18d516282ccef47ac54d,6240
+original_instance_id,13ae1b97872d056d111cbf8dfd1617c2,6240
+original_instance_id,9071b005524e4661f6718fe829648c22,6240
+original_instance_id,22645d3694ea307a2d88a0b1669a4550,6240
+original_instance_id,941c034555e30f65555a5ce841836317,6240
+original_instance_id,e4c27cfc2c87eba9a17d237c0988dcbd,6240
+original_instance_id,41195c6e58c3dc54bd51d9462c2a1a35,6240  <--- je navíc, není v `oeg_human_eval_data.csv`, ani není v `oeg_human_eval_raw_data/*.csv`
+original_instance_id,95641032115fac92e1ea4efa811faae8,6240
+original_instance_id,6caeb46fd20a0b0f5a9f74da715d8b77,6240
+original_instance_id,619fdd90dcf02a109782351e726f434d,6240
+original_instance_id,7ce9fab7d8a5d11cac47de7ded5fb87c,6240
+original_instance_id,fb2c387e7e5272a43305940219116463,6240
+original_instance_id,aec42313c4c01a4d1e2240d54ab41992,6240
+original_instance_id,14e076d13751e87d8c09f7f13125e755,6240
+original_instance_id,177682e7e6b3b0b5e4ad47b2fcaa4451,6240
+original_instance_id,b400d942abc879906d5d2e7cbf1445b5,6240
+original_instance_id,f41fcb5561abc3e4c98c32d80bd0ac2e,6240
+original_instance_id,729ece24c8d479efaf9f43a78bcdf42f,6240
+original_instance_id,dff06d843446af8648fc9ff9afacb718,6240
+original_instance_id,df85068ad8d348d04f95ee17882f0da4,6240
+original_instance_id,fdefc09bc79c168c6ee59c351ac5db78,6240
+original_instance_id,362fcdcfe450161abe0dfc24f108c8a9,6240
+original_instance_id,44ea53138d50a0f07b1fb8d5fa927a6d,6240
+original_instance_id,b9b10ffcbee1477b164fd32d4ef7fb40,6240
+original_instance_id,0a3da1ceeb83f664b813bb28f001d766,6240
+original_instance_id,12f396cdef01341d9b307c7048b8d77a,6240
+original_instance_id,63d411be4c5a409e108fbdce6e3f8689,6240
+original_instance_id,c78e58efb81dc261314dbe9683046b8a,6240
+original_instance_id,b15d69d9ac2994c645e9c261a9036af5,6240
+original_instance_id,a87d8ce85c5e14f8054f86aaa36f49ad,6240
+original_instance_id,7a80c8edbaf9cffb15d2a71bb2427672,6240
+original_instance_id,d48c3ed115b970b0947d892881d35aa9,6240
+original_instance_id,cb75a2b7d6041b0ce85ec4218fe2f5e0,6240
+original_instance_id,f188e8e224ad837ca63d8472c69cf931,6240
+original_instance_id,170d490a7ae53347e8fe3eabe4e28001,6240
+original_instance_id,169c53c4e9f905b5a1579bb2c89f80b4,6240
+original_instance_id,104373856e995a074579797ebe34fcb2,6240
+original_instance_id,38b0d67f9db7712c2c589f4ced8943f1,6240
+original_instance_id,e91353a8c4dde03994b2cbfb5521172e,6240
+original_instance_id,e164924261a2ff3dddb8d1e0b4e5fdb6,6240
+
+locale: 10
+locale,en_US,29328
+locale,cs_CZ,29328
+locale,ar_EG,29328
+locale,bn_BD,29328
+locale,zh_CN,29328
+locale,de_DE,29328
+locale,hi_IN,29328
+locale,id_ID,29328
+locale,ja_JP,29328
+locale,ru_RU,29328
+
+score: 7
+score,7.0,211187
+score,6.0, 29798
+score,5.0, 42284
+score,4.0,   219
+score,3.0,  6922
+score,2.0,   389
+score,1.0,  2481
+
+==================================================================
+Kontrola nevýskytu v oeg_human_eval_raw_data/ *.csv ještě jednou:
+
+Program: count_all_doc_id_from_raw_data,py 
+
+doc_id,count
+34ff7b0c7d176187b5f56965bc072870,160
+25206396b6f90a56a632de9594cfa279,160
+a8de3aee209e73291020dfca4bc9547d,160
+9721721aee5763207020928a6be3d9b1,160
+453dbf627af720e73ca10e171bd55725,160
+fd3d2779b04a00f64e86ebda4403eb34,160
+c145f96bc4b6c5d0d18e06e89cb629bd,160
+24223944994a18d516282ccef47ac54d,160
+13ae1b97872d056d111cbf8dfd1617c2,160
+9071b005524e4661f6718fe829648c22,160
+22645d3694ea307a2d88a0b1669a4550,160
+941c034555e30f65555a5ce841836317,160
+e4c27cfc2c87eba9a17d237c0988dcbd,160
+41195c6e58c3dc54bd51d9462c2a1a35,0
+95641032115fac92e1ea4efa811faae8,160
+6caeb46fd20a0b0f5a9f74da715d8b77,160
+619fdd90dcf02a109782351e726f434d,160
+7ce9fab7d8a5d11cac47de7ded5fb87c,160
+fb2c387e7e5272a43305940219116463,160
+aec42313c4c01a4d1e2240d54ab41992,160
+14e076d13751e87d8c09f7f13125e755,160
+177682e7e6b3b0b5e4ad47b2fcaa4451,160
+b400d942abc879906d5d2e7cbf1445b5,160
+f41fcb5561abc3e4c98c32d80bd0ac2e,160
+729ece24c8d479efaf9f43a78bcdf42f,160
+dff06d843446af8648fc9ff9afacb718,160
+df85068ad8d348d04f95ee17882f0da4,160
+fdefc09bc79c168c6ee59c351ac5db78,160
+362fcdcfe450161abe0dfc24f108c8a9,160
+44ea53138d50a0f07b1fb8d5fa927a6d,160
+b9b10ffcbee1477b164fd32d4ef7fb40,160
+0a3da1ceeb83f664b813bb28f001d766,160
+12f396cdef01341d9b307c7048b8d77a,160
+63d411be4c5a409e108fbdce6e3f8689,160
+c78e58efb81dc261314dbe9683046b8a,160
+b15d69d9ac2994c645e9c261a9036af5,160
+a87d8ce85c5e14f8054f86aaa36f49ad,160
+7a80c8edbaf9cffb15d2a71bb2427672,160
+d48c3ed115b970b0947d892881d35aa9,160
+cb75a2b7d6041b0ce85ec4218fe2f5e0,160
+f188e8e224ad837ca63d8472c69cf931,160
+170d490a7ae53347e8fe3eabe4e28001,160
+169c53c4e9f905b5a1579bb2c89f80b4,160
+104373856e995a074579797ebe34fcb2,160
+38b0d67f9db7712c2c589f4ced8943f1,160
+e91353a8c4dde03994b2cbfb5521172e,160
+e164924261a2ff3dddb8d1e0b4e5fdb6,160
+
+=== doc_id bez výskytu ===
+41195c6e58c3dc54bd51d9462c2a1a35

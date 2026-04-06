@@ -1,0 +1,52 @@
+ ---
+    "Mistral-7B": {
+    
+       "bn_BD": {
+        "n_instances": 138,
+        "mean_acc_eq": 0.32964975845410627,
+        "mean_percentile": 0.48750456884057974,
+        "mean_centered_skill": -0.02499086231884056,
+        "std_centered_skill": 0.588399707454572,
+        "median_centered_skill": 0.0002714999999999801,
+        "n_above_chance": 69,
+        "n_below_chance": 69,
+        "n_equal_chance": 0
+      
+      "cs_CZ": {
+        "n_instances": 138,
+        "mean_acc_eq": 0.3532608695652174,
+        "mean_percentile": 0.5088318985507246,
+        "mean_centered_skill": 0.017663797101449275,
+        "std_centered_skill": 0.6591610369054354,
+        "median_centered_skill": -0.0323155,
+        "n_above_chance": 66,
+        "n_below_chance": 72,
+        "n_equal_chance": 0
+      },
+      ...
+      "en_US": {
+        "n_instances": 138,
+        "mean_acc_eq": 0.5677536231884057,
+        "mean_percentile": 0.8058429782608696,
+        "mean_centered_skill": 0.6116859565217391,
+        "std_centered_skill": 0.48217544973436205,
+        "median_centered_skill": 0.8298825,
+        "n_above_chance": 122,
+        "n_below_chance": 16,
+        "n_equal_chance": 0
+      },
+      ---
+
+
+"GPT-4.1": {
+     "en_US": {
+        "n_instances": 138,
+        "mean_acc_eq": 0.6702898550724637,
+        "mean_percentile": 0.9106818695652175,
+        "mean_centered_skill": 0.8213637391304348,
+        "std_centered_skill": 0.3167043874934686,
+        "median_centered_skill": 0.976049,
+        "n_above_chance": 132,
+        "n_below_chance": 6,
+        "n_equal_chance": 0
+      },

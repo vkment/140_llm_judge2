@@ -1,0 +1,84 @@
+import csv
+import os
+from collections import Counter
+
+# ====== vstupy ======
+input_dir = "oeg_human_eval_raw_data"
+
+doc_ids = [
+    "34ff7b0c7d176187b5f56965bc072870",
+    "25206396b6f90a56a632de9594cfa279",
+    "a8de3aee209e73291020dfca4bc9547d",
+    "9721721aee5763207020928a6be3d9b1",
+    "453dbf627af720e73ca10e171bd55725",
+    "fd3d2779b04a00f64e86ebda4403eb34",
+    "c145f96bc4b6c5d0d18e06e89cb629bd",
+    "24223944994a18d516282ccef47ac54d",
+    "13ae1b97872d056d111cbf8dfd1617c2",
+    "9071b005524e4661f6718fe829648c22",
+    "22645d3694ea307a2d88a0b1669a4550",
+    "941c034555e30f65555a5ce841836317",
+    "e4c27cfc2c87eba9a17d237c0988dcbd",
+    "41195c6e58c3dc54bd51d9462c2a1a35",
+    "95641032115fac92e1ea4efa811faae8",
+    "6caeb46fd20a0b0f5a9f74da715d8b77",
+    "619fdd90dcf02a109782351e726f434d",
+    "7ce9fab7d8a5d11cac47de7ded5fb87c",
+    "fb2c387e7e5272a43305940219116463",
+    "aec42313c4c01a4d1e2240d54ab41992",
+    "14e076d13751e87d8c09f7f13125e755",
+    "177682e7e6b3b0b5e4ad47b2fcaa4451",
+    "b400d942abc879906d5d2e7cbf1445b5",
+    "f41fcb5561abc3e4c98c32d80bd0ac2e",
+    "729ece24c8d479efaf9f43a78bcdf42f",
+    "dff06d843446af8648fc9ff9afacb718",
+    "df85068ad8d348d04f95ee17882f0da4",
+    "fdefc09bc79c168c6ee59c351ac5db78",
+    "362fcdcfe450161abe0dfc24f108c8a9",
+    "44ea53138d50a0f07b1fb8d5fa927a6d",
+    "b9b10ffcbee1477b164fd32d4ef7fb40",
+    "0a3da1ceeb83f664b813bb28f001d766",
+    "12f396cdef01341d9b307c7048b8d77a",
+    "63d411be4c5a409e108fbdce6e3f8689",
+    "c78e58efb81dc261314dbe9683046b8a",
+    "b15d69d9ac2994c645e9c261a9036af5",
+    "a87d8ce85c5e14f8054f86aaa36f49ad",
+    "7a80c8edbaf9cffb15d2a71bb2427672",
+    "d48c3ed115b970b0947d892881d35aa9",
+    "cb75a2b7d6041b0ce85ec4218fe2f5e0",
+    "f188e8e224ad837ca63d8472c69cf931",
+    "170d490a7ae53347e8fe3eabe4e28001",
+    "169c53c4e9f905b5a1579bb2c89f80b4",
+    "104373856e995a074579797ebe34fcb2",
+    "38b0d67f9db7712c2c589f4ced8943f1",
+    "e91353a8c4dde03994b2cbfb5521172e",
+    "e164924261a2ff3dddb8d1e0b4e5fdb6",
+]
+
+# ====== počítání ======
+counts = Counter()
+
+for filename in os.listdir(input_dir):
+    if filename.endswith(".csv"):
+        filepath = os.path.join(input_dir, filename)
+        
+        with open(filepath, newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                doc_id = row["doc_id"]
+                if doc_id in doc_ids:
+                    counts[doc_id] += 1
+
+# ====== výstup ======
+print("doc_id,count")
+for doc_id in doc_ids:
+    print(f"{doc_id},{counts[doc_id]}")
+
+# ====== kontrola chybějících ======
+print("\n=== doc_id bez výskytu ===")
+missing = [d for d in doc_ids if counts[d] == 0]
+for d in missing:
+    print(d)
+
+print(f"\nCelkem doc_id: {len(doc_ids)}")
+print(f"Bez výskytu: {len(missing)}")

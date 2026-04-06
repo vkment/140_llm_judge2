@@ -1,0 +1,95 @@
+column_name,value,count
+
+judge_model_name,human,22080
+
+criterion:3
+criterion,coherence,7360
+criterion,naturalness,7360
+criterion,instruction_following,7360
+
+LLM-answering: 16
+submission_system_name,Gemma-3-27B,1380
+submission_system_name,CommandA,1380
+submission_system_name,Gemini-2,1380
+submission_system_name,Mistral-Medium,1380
+submission_system_name,Claude-4,1380
+submission_system_name,Llama-4-Maverick,1380
+submission_system_name,DeepSeek-V3,1380
+submission_system_name,Qwen3-235B,1380
+submission_system_name,Gemma-3-12B,1380
+submission_system_name,GPT-4,1380
+submission_system_name,CommandR7B,1380
+submission_system_name,AyaExpanse-8B,1380
+submission_system_name,Qwen2,1380
+submission_system_name,Mistral-7B,1380
+submission_system_name,Llama-3,1380
+submission_system_name,AyaExpanse-32B,1380
+
+original prompts: 46
+original_instance_id,13ae1b97872d056d111cbf8dfd1617c2,480
+original_instance_id,fdefc09bc79c168c6ee59c351ac5db78,480
+original_instance_id,b9b10ffcbee1477b164fd32d4ef7fb40,480
+original_instance_id,34ff7b0c7d176187b5f56965bc072870,480
+original_instance_id,22645d3694ea307a2d88a0b1669a4550,480
+original_instance_id,e4c27cfc2c87eba9a17d237c0988dcbd,480
+original_instance_id,fd3d2779b04a00f64e86ebda4403eb34,480
+original_instance_id,362fcdcfe450161abe0dfc24f108c8a9,480
+original_instance_id,941c034555e30f65555a5ce841836317,480
+original_instance_id,9721721aee5763207020928a6be3d9b1,480
+original_instance_id,24223944994a18d516282ccef47ac54d,480
+original_instance_id,dff06d843446af8648fc9ff9afacb718,480
+original_instance_id,44ea53138d50a0f07b1fb8d5fa927a6d,480
+original_instance_id,d48c3ed115b970b0947d892881d35aa9,480
+original_instance_id,f41fcb5561abc3e4c98c32d80bd0ac2e,480
+original_instance_id,a8de3aee209e73291020dfca4bc9547d,480
+original_instance_id,169c53c4e9f905b5a1579bb2c89f80b4,480
+original_instance_id,b15d69d9ac2994c645e9c261a9036af5,480
+original_instance_id,0a3da1ceeb83f664b813bb28f001d766,480
+original_instance_id,aec42313c4c01a4d1e2240d54ab41992,480
+original_instance_id,e91353a8c4dde03994b2cbfb5521172e,480
+original_instance_id,619fdd90dcf02a109782351e726f434d,480
+original_instance_id,c78e58efb81dc261314dbe9683046b8a,480
+original_instance_id,7ce9fab7d8a5d11cac47de7ded5fb87c,480
+original_instance_id,25206396b6f90a56a632de9594cfa279,480
+original_instance_id,729ece24c8d479efaf9f43a78bcdf42f,480
+original_instance_id,a87d8ce85c5e14f8054f86aaa36f49ad,480
+original_instance_id,7a80c8edbaf9cffb15d2a71bb2427672,480
+original_instance_id,fb2c387e7e5272a43305940219116463,480
+original_instance_id,b400d942abc879906d5d2e7cbf1445b5,480
+original_instance_id,453dbf627af720e73ca10e171bd55725,480
+original_instance_id,170d490a7ae53347e8fe3eabe4e28001,480
+original_instance_id,c145f96bc4b6c5d0d18e06e89cb629bd,480
+original_instance_id,95641032115fac92e1ea4efa811faae8,480
+original_instance_id,cb75a2b7d6041b0ce85ec4218fe2f5e0,480
+original_instance_id,38b0d67f9db7712c2c589f4ced8943f1,480
+original_instance_id,104373856e995a074579797ebe34fcb2,480
+original_instance_id,e164924261a2ff3dddb8d1e0b4e5fdb6,480
+original_instance_id,6caeb46fd20a0b0f5a9f74da715d8b77,480
+original_instance_id,9071b005524e4661f6718fe829648c22,480
+original_instance_id,df85068ad8d348d04f95ee17882f0da4,480
+original_instance_id,14e076d13751e87d8c09f7f13125e755,480
+original_instance_id,f188e8e224ad837ca63d8472c69cf931,480
+original_instance_id,177682e7e6b3b0b5e4ad47b2fcaa4451,480
+original_instance_id,12f396cdef01341d9b307c7048b8d77a,480
+original_instance_id,63d411be4c5a409e108fbdce6e3f8689,480
+
+locale: 10
+locale,ja_JP,2208
+locale,de_DE,2208
+locale,id_ID,2208
+locale,ru_RU,2208
+locale,en_US,2208
+locale,hi_IN,2208
+locale,zh_CN,2208
+locale,cs_CZ,2208
+locale,ar_EG,2208
+locale,bn_BD,2208
+
+score: 7
+score,7.0,10222
+score,6.0, 3310
+score,5.0, 4459
+score,4.0, 1536
+score,3.0, 1237
+score,2.0,  297
+score,1.0, 1019

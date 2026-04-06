@@ -1,0 +1,317 @@
+
+     "Qwen3.5-35B-A3B_h13": {
+     
+          "cs_CZ": {
+        "coherence": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.5077898550724638,
+          "mean_percentile": 0.8694727282608695,
+          "mean_centered_skill": 0.738945456521739,   <----
+          "std_centered_skill": 0.3420534563908743,
+          "median_centered_skill": 0.873477,
+          "n_above_chance": 43,
+          "n_below_chance": 3,
+          "n_equal_chance": 0
+        },
+        "instruction_following": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.49311594202898545,
+          "mean_percentile": 0.8461254347826087,
+          "mean_centered_skill": 0.6922508695652174,   <----
+          "std_centered_skill": 0.43739493637929083,
+          "median_centered_skill": 0.9458015,
+          "n_above_chance": 42,
+          "n_below_chance": 4,
+          "n_equal_chance": 0
+        },
+        "naturalness": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.5315217391304348,
+          "mean_percentile": 0.9057446086956521,
+          "mean_centered_skill": 0.8114892173913042,   <----
+          "std_centered_skill": 0.30181772077263375,
+          "median_centered_skill": 0.97292,
+          "n_above_chance": 45,
+          "n_below_chance": 1,
+          "n_equal_chance": 0
+        }
+      },
+      
+      -----------------------------
+      
+   
+   
+   "gemma-4-31B-it_h23": {
+
+      "cs_CZ": {
+        "coherence": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.5010869565217392,
+          "mean_percentile": 0.8691364239130432,
+          "mean_centered_skill": 0.7382728478260868,   <----
+          "std_centered_skill": 0.30680336917230366,
+          "median_centered_skill": 0.8851435,
+          "n_above_chance": 45,
+          "n_below_chance": 1,
+          "n_equal_chance": 0
+        },
+        "instruction_following": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.5097826086956522,
+          "mean_percentile": 0.8639613369565218,
+          "mean_centered_skill": 0.7279226739130434,   <----
+          "std_centered_skill": 0.40476011544429696,
+          "median_centered_skill": 0.939978,
+          "n_above_chance": 41,
+          "n_below_chance": 5,
+          "n_equal_chance": 0
+        },
+        "naturalness": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.5403985507246377,
+          "mean_percentile": 0.9318971086956523,
+          "mean_centered_skill": 0.8637942173913041,   <----
+          "std_centered_skill": 0.2650362809733228,
+          "median_centered_skill": 0.9718500000000001,
+          "n_above_chance": 45,
+          "n_below_chance": 1,
+          "n_equal_chance": 0
+        }
+      },
+      
+           "en_US": {
+        "coherence": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.630072463768116,
+          "mean_percentile": 0.8990009021739133,
+          "mean_centered_skill": 0.7980018043478261,  <----
+          "std_centered_skill": 0.2771811758995737,
+          "median_centered_skill": 0.9180320000000002,
+          "n_above_chance": 45,
+          "n_below_chance": 1,
+          "n_equal_chance": 0
+        },
+        "instruction_following": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.7367753623188406,
+          "mean_percentile": 0.9317101195652172,
+          "mean_centered_skill": 0.863420239130435,  <----
+          "std_centered_skill": 0.2923524928218305,
+          "median_centered_skill": 0.9901060000000002,
+          "n_above_chance": 44,
+          "n_below_chance": 2,
+          "n_equal_chance": 0
+        },
+        "naturalness": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.5985507246376812,
+          "mean_percentile": 0.8635601739130435,
+          "mean_centered_skill": 0.7271203478260869,  <----
+          "std_centered_skill": 0.35908294816646824,
+          "median_centered_skill": 0.880275,
+          "n_above_chance": 43,
+          "n_below_chance": 3,
+          "n_equal_chance": 0
+        }
+      },
+      
+      --------------
+      
+      gemma-4-26B-A4B-it_h23
+      
+            "cs_CZ": {
+        "coherence": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.4804347826086956,
+          "mean_percentile": 0.8301936956521739,
+          "mean_centered_skill": 0.6603873913043479,   <----
+          "std_centered_skill": 0.43142304134358794,
+          "median_centered_skill": 0.7898499999999999,
+          "n_above_chance": 41,
+          "n_below_chance": 5,
+          "n_equal_chance": 0
+        },
+        "instruction_following": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.4961956521739132,
+          "mean_percentile": 0.8427894565217392,
+          "mean_centered_skill": 0.6855789130434783,   <----
+          "std_centered_skill": 0.39385008559773127,
+          "median_centered_skill": 0.9145005,
+          "n_above_chance": 40,
+          "n_below_chance": 6,
+          "n_equal_chance": 0
+        },
+        "naturalness": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.5333333333333334,
+          "mean_percentile": 0.9087903695652176,  
+          "mean_centered_skill": 0.8175807391304345,  <----
+          "std_centered_skill": 0.37304240222139073,
+          "median_centered_skill": 0.9787545,
+          "n_above_chance": 43,
+          "n_below_chance": 3,
+          "n_equal_chance": 0
+        }
+      },
+      
+      --------------
+      
+      
+"Claude-4": {
+
+      "cs_CZ": {
+        "coherence": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.5001811594202898,
+          "mean_percentile": 0.8807889891304346,
+          "mean_centered_skill": 0.7615779782608697,      <----
+          "std_centered_skill": 0.301214903333981,
+          "median_centered_skill": 0.8767654999999999,
+          "n_above_chance": 45,
+          "n_below_chance": 1,
+          "n_equal_chance": 0
+        },
+        "instruction_following": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.4909420289855072,
+          "mean_percentile": 0.8612702826086958,
+          "mean_centered_skill": 0.7225405652173913,     <----
+          "std_centered_skill": 0.3541721834943546,
+          "median_centered_skill": 0.8802735,
+          "n_above_chance": 42,
+          "n_below_chance": 4,
+          "n_equal_chance": 0
+        },
+        "naturalness": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.5452898550724637,
+          "mean_percentile": 0.9102767717391305,
+          "mean_centered_skill": 0.8205535434782607,     <----
+          "std_centered_skill": 0.34386382571825713,
+          "median_centered_skill": 0.978413,
+          "n_above_chance": 44,
+          "n_below_chance": 2,
+          "n_equal_chance": 0
+        }
+      },
+      
+      
+       "en_US": {
+        "coherence": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.5699275362318841,
+          "mean_percentile": 0.8227422934782609,
+          "mean_centered_skill": 0.6454845869565217,     <----
+          "std_centered_skill": 0.500008697944849,
+          "median_centered_skill": 0.8453424999999999,
+          "n_above_chance": 41,
+          "n_below_chance": 5,
+          "n_equal_chance": 0
+        },
+        "instruction_following": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.730072463768116,
+          "mean_percentile": 0.9322462391304347,
+          "mean_centered_skill": 0.8644924782608695,      <----
+          "std_centered_skill": 0.2824182031311274,
+          "median_centered_skill": 0.977731,
+          "n_above_chance": 44,
+          "n_below_chance": 2,
+          "n_equal_chance": 0
+        },
+        "naturalness": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.6036231884057972,
+          "mean_percentile": 0.8795337173913044,
+          "mean_centered_skill": 0.7590674347826089,      <----
+          "std_centered_skill": 0.3587207232912445,
+          "median_centered_skill": 0.9539375,
+          "n_above_chance": 44,
+          "n_below_chance": 2,
+          "n_equal_chance": 0
+        }
+      },
+      
+   -------------------------------
+   
+      "GPT-4.1": {
+      
+        "cs_CZ": {
+        "coherence": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.46992753623188405,
+          "mean_percentile": 0.8053401630434783,
+          "mean_centered_skill": 0.6106803260869564,      <----
+          "std_centered_skill": 0.4735938264837081,
+          "median_centered_skill": 0.8075549999999999,
+          "n_above_chance": 40,
+          "n_below_chance": 6,
+          "n_equal_chance": 0
+        },
+        "instruction_following": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.49039855072463767,
+          "mean_percentile": 0.7867556739130436,
+          "mean_centered_skill": 0.5735113478260869,      <----
+          "std_centered_skill": 0.5281547729965237,
+          "median_centered_skill": 0.883285,
+          "n_above_chance": 36,
+          "n_below_chance": 10,
+          "n_equal_chance": 0
+        },
+        "naturalness": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.5097826086956522,
+          "mean_percentile": 0.8546798695652175,
+          "mean_centered_skill": 0.7093597391304349,      <----
+          "std_centered_skill": 0.47262111977089766,
+          "median_centered_skill": 0.9300985,
+          "n_above_chance": 41,
+          "n_below_chance": 5,
+          "n_equal_chance": 0
+        }
+      },    
+      
+      --------------------------
+      
+      
+          "Mistral-Medium": {
+            "cs_CZ": {
+        "coherence": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.4936594202898551,
+          "mean_percentile": 0.849783402173913,
+          "mean_centered_skill": 0.6995668043478261,   <----
+          "std_centered_skill": 0.40392711331294817,
+          "median_centered_skill": 0.8755385,
+          "n_above_chance": 42,
+          "n_below_chance": 4,
+          "n_equal_chance": 0
+        },
+        "instruction_following": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.4847826086956522,
+          "mean_percentile": 0.8308865000000002,
+          "mean_centered_skill": 0.661773,            <----
+          "std_centered_skill": 0.41221447511090215,
+          "median_centered_skill": 0.8624850000000001,
+          "n_above_chance": 41,
+          "n_below_chance": 5,
+          "n_equal_chance": 0
+        },
+        "naturalness": {
+          "n_instances": 46,
+          "mean_acc_eq": 0.5268115942028985,
+          "mean_percentile": 0.903196,
+          "mean_centered_skill": 0.806392,    <----
+          "std_centered_skill": 0.2639128886181624,
+          "median_centered_skill": 0.9408454999999999,
+          "n_above_chance": 46,
+          "n_below_chance": 0,
+          "n_equal_chance": 0
+        }
+      },
+      
+      ---------------
+      
