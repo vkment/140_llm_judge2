@@ -1,0 +1,44 @@
+PROMPT - Ověření správnosti dokumentu "Postup - Obraz - Měření.md"
+
+Úloha: Ověření správnosti mého pochopení významu dat a programů, dle předaných dat a článků.
+
+Máme předány soubory dat a programů pro úlohu LLM-as-a-judge pro hodnocení odpovědí na prompty charakteru OEG.
+- "Files handed over to Nomox.txt"
+
+Z hlavních datových souborů jsou k dispozici první řádky:
+- first_lines_of_data_ru_RU.csv.txt
+- first_lines_of_data_cs_CZ.csv.txt
+- first-csv-lines_of_human-vs-llm-judge_evals.txt
+
+Některé přehledové statistiky ze souborů dat mají pro orientaci výsledky zde:
+- all_column_counts_from_human.txt
+- all_column_counts_from_run2.txt
+- human_eval_counts_cs_CZ.txt
+- oeg_judge_human_agreement_by_criterion.json
+- oeg_judge_human_agreement_results.json
+
+3 soubory programů v Pythonu:
+- judge_human_agreement.py
+- judge_utils.py
+- corr_utils.py
+
+Data i programy pocházejí ze studie Kocmi (2025):
+- https://aclanthology.org/2025.wmt-1.23.pdf
+- 2025.wmt-1.23.pdf
+Metriky jsou podrobněji vysvětleny v článku Deutsch (2023):
+- https://aclanthology.org/2023.emnlp-main.798.pdf
+- 2023.emnlp-main.798.pdf
+
+Své pochopení jsem shrnul do "přehledového souboru":
+"Postup tvorby párů prompt-response pro OEG, obraz v datech, měření kvality judgů.md"
+
+Ty proveď:
+1. Vlastní podrobné pochopení činnosti 3 výše uvedených programů v Pythonu, s ohledem na metodiku v článcích a další doprovodné informace zde přiložené.
+
+2. Podrobnou kontrolu mých tvrzení a zjištění z "přehledového souboru". Věnuj pozornost zejména věcné správnosti, dále případně nejednoznačnosti mého vyjádření, dále překlepy, ale nevoz se po kosmetických změnách stylizace. Buď pečlivý.
+
+První krok je k nabrání informací, druhý je Tvá hlavní práce zde.
+
+Potřebuješ-li ještě něco dalšího přiložit nebo se zeptat, vznes dotaz.
+
+

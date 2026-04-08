@@ -1,0 +1,45 @@
+Project document and Calendar: Nomox
+https://docs.google.com/document/d/1256rFU7961dIomRL14PwCmnAN6d1Vqo9R9m9m3NM7U0/edit?tab=t.0
+
+Calendar week 12   (16. 3. – 22. 3.)
+  The first meeting with the supervisor… 17.3.
+Calendar week 13   (23. 3. – 29. 3.)
+  Analysis of the provided data and programs
+Calendar week 14   (30. 3. –  5. 4.)
+  Drafting the "Activity Plan"
+  
+-> Required:   
+Plán experimentů:
+- Vytvoření programů pro inferenci LLM
+-- verze pro místní inferenci + verze přes API
+- ověření reproducibility aspoň 2 modelů proti předaným datům
+- ověření funkce výpočtu acc_eq podle Deutsch et al
+- Modely pro experimenty:
+-- Malé tradiční:
+--- aya-expanse-8b
+--- Llama-3.1-8B
+-- Doporučované malé nové:
+--- Selene-1-Mini-Llama-3.1-8B
+--- Qwen3-8B
+-- Větší a novější modely:
+--- Qwen3-14B
+--- Qwen3-32B
+--- Qwen3.5-35B-A3B
+--- Gemma-3-27b-it
+- Modifikace promptů:
+-- lokalizace (zejména čeština)
+-- úprava promptů na 7 úrovní
+-- CoT prompty
+-- inference s reasoningem
+
+Calendar week 15   (6. 4. – 12. 4.)
+   Analysis of the metrics used
+Calendar week 16  (13. 4. – 19. 4.)
+Calendar week 17  (20. 4. – 26. 4.)
+-> Required: Self-assessment report…
+Calendar week 18  (27. 4. –  3. 5.)
+Calendar week 19   (4. 5. – 10. 5.)
+Calendar week 20  (11. 5. – 17. 5.)
+Calendar week 21  (18. 5. – 24. 5.)
+-> Required: Final presentation
+

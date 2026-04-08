@@ -1,0 +1,26 @@
+Files handed over to Nomox on March 17, 2026
+From: https://github.com/ufal/llm-judge-wmt-mist-oeg
+
+corr_utils.py 4513
+judge_human_agreement.py 21909
+judge_utils.py 6821
+ls_-l.txt 718
+oeg_human_eval_data.csv 1672185
+oeg_judge_human_agreement_by_criterion.json 2255
+oeg_judge_human_agreement_results.json 5258
+oeg_judge_run2_submission_data.csv 23969615
+README.md 2157
+
+oeg_human_eval_raw_data/
+   data_ar_EG.csv 2126703
+   data_bn_BD.csv 3406684
+   data_cs_CZ.csv 1704859
+   data_de_DE.csv 1796710
+   data_en_US.csv 1988836
+   data_hi_IN.csv 3221276
+   data_id_ID.csv 1826918
+   data_ja_JP.csv 1831359
+   data_ru_RU.csv 2648000
+   data_zh_CN.csv 1558894
+   rankingInfo.json 29537
+
