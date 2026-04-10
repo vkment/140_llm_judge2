@@ -464,7 +464,7 @@ if __name__ == "__main__":
     # orig
     # judge_submission_csv = "oeg_judge_run2_submission_data.csv"
     # judge_submission_csv = "oeg_judge_out_submission_data.csv"
-    judge_submission_csv = "z_vkment/oeg_judge_outloc56_1_qq_submission_data.csv"
+    judge_submission_csv = "z_vkment/oeg_judge_outloc61_submission_data.csv"
 
 
     if os.path.exists(judge_submission_csv):

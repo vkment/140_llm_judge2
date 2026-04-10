@@ -1,5 +1,11 @@
 PROMPT - Ověření správnosti dokumentu "Postup - Obraz - Měření.md"
 
+Ověření s promptem a soubory níže proběhla zde:
+https://claude.ai/chat/1a3d1e95-2cc8-4c85-b5bc-d85821fcf914
+https://chatgpt.com/c/69d6800c-45c0-8391-8f81-9e523b905e07
+
+=============================================================================
+
 Úloha: Ověření správnosti mého pochopení významu dat a programů, dle předaných dat a článků.
 
 Máme předány soubory dat a programů pro úlohu LLM-as-a-judge pro hodnocení odpovědí na prompty charakteru OEG.
@@ -42,3 +48,23 @@ První krok je k nabrání informací, druhý je Tvá hlavní práce zde.
 Potřebuješ-li ještě něco dalšího přiložit nebo se zeptat, vznes dotaz.
 
 
+=============================================================================
+
+Provedené opravy z připomínek obou služeb:
+---
+Počet datových záznamů v každém souboru je 736 (46 x 16), tři criterion jsou předpokládány implicitně.
+---
+Každý zmíněný LLM-soudce tedy vytvořil hodnocení pro stejných 22080 úloh (reálně v datech je dalších 480 úloh pro nadbytečný prompt, srov. níže pro podrobnosti).
+---
+Pro češtinu je např. indikována účast tří různých lidských soudců (hodnotitelů, raters), mezi něž je činnost rozdělena, jejich hodnocení se tedy nepřekrývá. 
+---
+dobrá granularita ze 120 párů exemplářů z 16-exemplářové skupinu, krok 1/120; při agregaci průměrováním ze 46 promptů se citlivost zvyšuje až k $\Delta = \frac{1}{46 \cdot 120} = \frac{1}{5520} \approx 0.000181$; 46 promptů je při zaostření se na jednotlivá *locale* a jednotlivé *criterion*, při vyšší agregaci může být vyšší,
+---
+*Pozn.: konkrétní skript v implicitním průběhu zapisuje výsledky:*
+
+- *`ranking_accuracy` = systémová pairwise accuracy,*
+- *`acc_eq_by_*`, kde se mění criterion,*
+- *`acc_eq_average`, tj. průměr LLM-soudce přes 3 criterion.*
+
+*Postupy pro `tau_eq` a `tau_b` jsou v kódu připravené, ale implicitně se nepočítají.* 
+---
