@@ -1,0 +1,115 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "EuroLLM-22B-Instruct-2512_h23": 0.4690942028985507
+            },
+            "naturalness": {
+                "EuroLLM-22B-Instruct-2512_h23": 0.41934782608695653
+            },
+            "coherence": {
+                "EuroLLM-22B-Instruct-2512_h23": 0.4727173913043478
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "ar_EG": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.5224637681159422
+                },
+                "bn_BD": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.427536231884058
+                },
+                "cs_CZ": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.4007246376811594
+                },
+                "de_DE": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.45380434782608703
+                },
+                "en_US": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.5041666666666665
+                },
+                "hi_IN": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.5458333333333333
+                },
+                "id_ID": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.44112318840579706
+                },
+                "ja_JP": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.4036231884057972
+                },
+                "ru_RU": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.49800724637681154
+                },
+                "zh_CN": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.4936594202898551
+                }
+            },
+            "naturalness": {
+                "ar_EG": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.4079710144927536
+                },
+                "bn_BD": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.4563405797101449
+                },
+                "cs_CZ": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.3771739130434782
+                },
+                "de_DE": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.41612318840579726
+                },
+                "en_US": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.428804347826087
+                },
+                "hi_IN": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.48858695652173906
+                },
+                "id_ID": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.38695652173913053
+                },
+                "ja_JP": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.39619565217391306
+                },
+                "ru_RU": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.38387681159420295
+                },
+                "zh_CN": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.4514492753623189
+                }
+            },
+            "coherence": {
+                "ar_EG": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.5202898550724638
+                },
+                "bn_BD": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.4318840579710144
+                },
+                "cs_CZ": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.36394927536231886
+                },
+                "de_DE": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.5362318840579711
+                },
+                "en_US": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.501268115942029
+                },
+                "hi_IN": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.5626811594202898
+                },
+                "id_ID": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.38985507246376805
+                },
+                "ja_JP": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.42445652173913045
+                },
+                "ru_RU": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.5038043478260869
+                },
+                "zh_CN": {
+                    "EuroLLM-22B-Instruct-2512_h23": 0.4927536231884059
+                }
+            }
+        }
+    }
+}

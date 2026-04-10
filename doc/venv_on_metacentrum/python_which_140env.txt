@@ -1,0 +1,3 @@
+which python >> python_which_140env.txt
+
+/auto/vestec1-elixir/home/vok/pyenv/140env/bin/python

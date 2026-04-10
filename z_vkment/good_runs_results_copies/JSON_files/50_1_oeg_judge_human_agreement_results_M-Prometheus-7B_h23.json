@@ -1,0 +1,30 @@
+{
+    "ranking_accuracy": {
+        "M-Prometheus-7B_h23": 0.8416666666666667
+    },
+    "acc_eq_by_instruction_following": {
+        "M-Prometheus-7B_h23": 0.5729710144927536
+    },
+    "acc_eq_by_naturalness": {
+        "M-Prometheus-7B_h23": 0.5175000000000001
+    },
+    "acc_eq_by_coherence": {
+        "M-Prometheus-7B_h23": 0.5514673913043479
+    },
+    "acc_eq_average": {
+        "M-Prometheus-7B_h23": 0.5473128019323671
+    },
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "M-Prometheus-7B_h23": 0.5729710144927536
+            },
+            "naturalness": {
+                "M-Prometheus-7B_h23": 0.5175000000000001
+            },
+            "coherence": {
+                "M-Prometheus-7B_h23": 0.5514673913043479
+            }
+        }
+    }
+}
