@@ -17,13 +17,20 @@ import os
 import random
 import re
 import time
-from pathlib import Path 
+from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()  # načte .env do os.environ
+from transformers import AutoTokenizer as _TplTok #for stage 2 below
+
+#no reasoning
+#from vllm.config import ReasoningConfig #reading ReasoningConfig 
 
 import httpx
 import importlib    #used to import TEMPLATE_FILENAME later below
-TEMPLATE_FILENAME = "judge_templates_locales_hybrid5"    #here LOCALE_TEMPLATES, JUDGE_TEMPLATES are defined, suffix .py ommited  
+TEMPLATE_FILENAME = "judge_templates_locales_hybrid13"    #here LOCALE_TEMPLATES, JUDGE_TEMPLATES are defined, suffix .py ommited  
+
+#  Qwen/Qwen3-8B + judge_templates_locales_hybrid13.py
+
 
 # ---------------------------------------------------------------------------
 # Argument parser (root-level, notebook-compatible)
@@ -31,30 +38,35 @@ TEMPLATE_FILENAME = "judge_templates_locales_hybrid5"    #here LOCALE_TEMPLATES,
 
 parser = argparse.ArgumentParser(description="Run LLM-as-a-Judge evaluation on OEG human eval data.")
 parser.add_argument("--variant", default="local", type=str,
-    help="Inference variant - A: 'local' (vLLM) or B: 'api' (OpenRouter).",)
+    help='Inference variant - A: "local" (vLLM), or variant B: "api" (OpenRouter).',)
 parser.add_argument("--model", default="Qwen/Qwen3-8B", type=str,
-    help="Model name or local path. Also used as judge_model_name in output CSV.",)
+    help='Model name. Eg. "Qwen/Qwen3-8B" (A) or "meta-llama/llama-4-maverick" (B)'
+         'Part after "/" is also used as judge_model_name in output CSV.',)
+parser.add_argument("--model_name_suffix", default="_h13", type=str,
+    help='Suffix appended to base model name in judge_model_name column. E.g. "_p_csde". Empty = no suffix.'
+         "Suffix is a label that you use to distinguishing the run's subvariant parameters of given model"
+         'Eg. "lama-4-maverick_pcsde" would be indicated in the output CSV'
+         'Can be empty, or use something short and/or guiding yourself what the run was about',)
 parser.add_argument("--concurrency", default=32, type=int,
     help="Number of concurrent API requests (variant B only).",)
-parser.add_argument("--batch_size", default=32, type=int,
-    help="Batch size for local inference. Computed from VRAM if None.",)
+parser.add_argument("--batch_size", default=16, type=int,
+    help="Batch size for local inference (variant A only). Computed from VRAM if None.",)
 parser.add_argument("--max_rows", default=None, type=int,
     help="Process only first N rows per locale. None means: all.",)
-parser.add_argument("--locale", default=["cs_CZ", "de_DE", "en_US", "ru_RU"], nargs="+",
-    help='Locale(s) to process, e.g. ["cs_CZ", "de_DE"], or ["all"].',)
+parser.add_argument("--locale", default=["all"], nargs="+",
+    help='Locale(s) to process, e.g. ["cs_CZ", "en_US"], or ["all"].'
+         'It allows to narrow the inference just for few chosen languages (and their order, too)',)
 parser.add_argument("--temperature", default=0.0, type=float,
     help="Temperature for model.",)
-parser.add_argument("--output_csv", default="oeg_judge_outloc14_submission_data.csv", type=str,
+parser.add_argument("--output_csv", default="oeg_judge_outloc70_1_submission_data.csv", type=str,
     help="Path to output CSV file.",)
 parser.add_argument("--data_dir", default="oeg_human_eval_raw_data", type=str,
-    help="Directory with data_<locale>.csv files.",)
+    help="Directory with data_<locale>.csv files. Should not be changed, normally",)
 parser.add_argument("--template_variant", default="per_locale", type=str,
-    help="Template variant: 'default' (English templates) or "
-                           "'per_locale' (locale-specific templates if available).",)
-parser.add_argument("--model_name_suffix", default="_pcsdeh5", type=str,
-    help="Suffix appended to base model name in judge_model_name column. E.g. '_p_csde'. Empty = no suffix.",)
-parser.add_argument("--llm_log", default="run_judge14.log", type=str,
-    help="File for LLM I/O logging (exact prompt + raw response). None = off.",)
+    help='Template variant: "default" (one English templates for all languages) or '
+         '"per_locale" (locale-specific templates, if available, if not, English template is used).',)
+parser.add_argument("--llm_log", default="run_judge70_1.log", type=str,
+    help='File for LLM I/O logging (exact prompt + raw response). Eg. "run_judge15.log". None = off.',)
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -251,25 +263,221 @@ def build_prompt(criterion: str, locale: str, input_text: str,
     template = get_judge_template(criterion, locale, template_variant)
     return template.format(language=language, input=input_text, response=response_text)
 
+#original parse_score for non-reasoning models
+# def parse_score(raw: str, context: str = "") -> tuple[float, bool]:
+#     """
+#     Extract the first number from raw model output.
+#     Returns (score, used_fallback).
+#     Score is clipped to [1.0, 7.0].
+#     """
+#     match = re.search(r"\d+\.?\d*", raw.strip())
+#     if match:
+#         score = float(match.group())
+#         score = max(min(score, 7.0), 1.0)
+#         return score, False
+#     # Fallback
+#     score = float(random.randint(1, 7))
+#     logger.warning(
+#         "Score parsing FAILED for output %r (context: %s). Using random fallback %g.",
+#         raw[:80], context, score,
+#     )
+#     return score, True
 
+# PŮVODNÍ:
+# def parse_score(raw: str, context: str = "") -> tuple[float, bool]:
+#     """
+#     Extract the first number from raw model output.
+#     Returns (score, used_fallback).
+#     Score is clipped to [1.0, 7.0].
+#     """
+#     match = re.search(r"\d+\.?\d*", raw.strip())
+#     if match:
+#         score = float(match.group())
+#         score = max(min(score, 7.0), 1.0)
+#         return score, False
+#     # Fallback
+#     score = float(random.randint(1, 7))
+#     logger.warning(
+#         "Score parsing FAILED for output %r (context: %s). Using random fallback %g.",
+#         raw[:80], context, score,
+#     )
+#     return score, True
+
+# NOVÉ:
+# def parse_score(raw: str, context: str = "") -> tuple[float, bool]:
+#     """
+#     Extract score from raw model output.
+#     With reasoning models: looks for score after </think> tag.
+#     Falls back to searching full output if </think> missing (truncated).
+#     Score is clipped to [1.0, 7.0].
+#     Returns (score, used_fallback).
+#     """
+#     think_end = raw.find("</think>")
+#     search_text = raw[think_end + len("</think>"):] if think_end != -1 else raw
+#     match = re.search(r"\b([1-7])\b", search_text.strip())
+#     if match:
+#         return float(match.group(1)), False
+#     # Fallback: hledej v celém raw (thinking mohl být oříznut)
+#     match = re.search(r"\b([1-7])\b", raw.strip())
+#     if match:
+#         logger.warning(
+#             "Score found in thinking block (</think> missing?) for %s.", context
+#         )
+#         return float(match.group(1)), True
+#     score = float(random.randint(1, 7))
+#     logger.warning(
+#         "Score parsing FAILED for output %r (context: %s). Using random fallback %g.",
+#         raw[:80], context, score,
+#     )
+#     return score, True
+
+# Překlad nativních číslic → arabské ASCII
+_DIGIT_MAP = str.maketrans(
+    "০১২৩৪৫৬৭৮৯"   # bengálské    (bn_BD)
+    "٠١٢٣٤٥٦٧٨٩"   # arabsko-ind. (ar_EG)
+    "०१२३४५६७८९",  # dévanágarské (hi_IN)
+    "0123456789"
+    "0123456789"
+    "0123456789",
+)
+
+# # New implementation
+# def parse_score(raw: str, context: str = "") -> tuple[float, bool]:
+#     """
+#     Extract score from hybrid CoT or plain output.
+#     1. Přeloží nativní číslice (bengálské, arabské, dévanágarské) na ASCII.
+#     2. Hledá po </think> tagu, pokud je přítomen.
+#     3. Hledá číslo 1–7 na posledním neprázdném řádku.
+#     4. Fallback: poslední výskyt 1–7 v celém textu.
+#     5. Fallback: náhodné skóre.
+#     """
+#     # 1. Překlad nativních číslic
+#     text = raw.translate(_DIGIT_MAP)
+
+#     # 2. Odřízni <think> blok (Qwen) pokud přítomen, or </thought> for Gemma
+#     # think_end = text.find("</think>")
+
+#     # #this is buggy
+#     # think_end = max(text.find("</think>"), text.find("</thought>"))
+#     # search_text = text[think_end + len("</think>"):] if think_end != -1 else text
+
+#     # Correct version:
+#     _think_idx   = text.find("</think>")        #for Qwen
+#     _thought_idx = text.find("</thought>")      #for Gemma
+
+#     if _think_idx != -1 and (_thought_idx == -1 or _think_idx >= _thought_idx):
+#         search_text = text[_think_idx + len("</think>"):]
+#     elif _thought_idx != -1:
+#         search_text = text[_thought_idx + len("</thought>"):]
+#     else:
+#         search_text = text
+
+
+
+#     # 3. Poslední neprázdný řádek
+#     lines = [l.strip() for l in search_text.splitlines() if l.strip()]
+#     if lines:
+#         m = re.search(r"\b([1-7])\b", lines[-1])
+#         if m:
+#             return float(m.group(1)), False
+
+#     # 4. Poslední výskyt v celém search_text
+#     all_matches = list(re.finditer(r"\b([1-7])\b", search_text))
+#     if all_matches:
+#         logger.warning(
+#             "Score not on last line — using last occurrence in text (context: %s).", context
+#         )
+#         return float(all_matches[-1].group(1)), True
+
+#     # 5. Fallback do celého raw (thinking mohl být oříznut)
+#     all_matches = list(re.finditer(r"\b([1-7])\b", text))
+#     if all_matches:
+#         logger.warning(
+#             "Score found only in thinking block (</think> missing?) for %s.", context
+#         )
+#         return float(all_matches[-1].group(1)), True
+
+#     # 6. Náhodné skóre
+#     score = float(random.randint(1, 7))
+#     logger.warning(
+#         "Score parsing FAILED for output %r (context: %s). Using random fallback %g.",
+#         raw[:120], context, score,
+#     )
+#     return score, True
+
+# Next new implementation
 def parse_score(raw: str, context: str = "") -> tuple[float, bool]:
     """
-    Extract the first number from raw model output.
-    Returns (score, used_fallback).
-    Score is clipped to [1.0, 7.0].
+    Extract a 1-7 integer score from a (possibly chain-of-thought) model output.
+    Steps:
+      1. Translate native-script digits (Bangla, Arabic, Devanagari) to ASCII.
+      2. If a </think> or </thought> closing tag is present, restrict the search
+         to the text that follows it (skip the thinking block).
+      3a. Find a 1-7 digit on the *first* non-empty line (models that answer first,
+          then explain — e.g. "6\n\nExplanation: ...").
+      3b. Find a 1-7 digit on the *last* non-empty line (models that reason first,
+          then conclude).
+      4. Fallback: last occurrence of 1-7 anywhere in the remaining text.
+      5. Fallback: last occurrence of 1-7 in the full raw text (thinking block
+         included — handles models that omit the closing </think> tag).
+      6. Last-resort fallback: random integer 1-7 (should be extremely rare).
+    Returns:
+        (score, is_fallback) — is_fallback=True means a fallback was used.
     """
-    match = re.search(r"\d+\.?\d*", raw.strip())
-    if match:
-        score = float(match.group())
-        score = max(min(score, 7.0), 1.0)
-        return score, False
-    # Fallback
+    # Step 1 – normalise native digits to ASCII
+    text = raw.translate(_DIGIT_MAP)
+
+    # Step 2 – locate the end of the thinking block, if any
+    _think_idx   = text.find("</think>")      # Qwen-style thinking tag
+    _thought_idx = text.find("</thought>")    # Gemma-style thinking tag
+
+    if _think_idx != -1 and (_thought_idx == -1 or _think_idx >= _thought_idx):
+        search_text = text[_think_idx + len("</think>"):]
+    elif _thought_idx != -1:
+        search_text = text[_thought_idx + len("</thought>"):]
+    else:
+        search_text = text
+
+    lines = [l.strip() for l in search_text.splitlines() if l.strip()]
+
+    # Step 3a – look on the *first* non-empty line
+    # Handles models that emit the score first, then explain (e.g. "6\n\nExplanation: ...")
+    if lines:
+        m = re.search(r"\b([1-7])\b", lines[0])
+        if m:
+            return float(m.group(1)), False    # clean parse, no fallback
+
+    # Step 3b – look on the *last* non-empty line
+    # Handles models that reason first, then conclude with a score
+    if lines:
+        m = re.search(r"\b([1-7])\b", lines[-1])
+        if m:
+            return float(m.group(1)), False    # clean parse, no fallback
+
+    # Step 4 – last occurrence of a valid score anywhere in search_text
+    all_matches = list(re.finditer(r"\b([1-7])\b", search_text))
+    if all_matches:
+        logger.warning(
+            "Score not on first or last line — using last occurrence in text (context: %s).", context
+        )
+        return float(all_matches[-1].group(1)), True
+
+    # Step 5 – look in the thinking block itself (closing tag may be missing)
+    all_matches = list(re.finditer(r"\b([1-7])\b", text))
+    if all_matches:
+        logger.warning(
+            "Score found only in thinking block (</think> missing?) for %s.", context
+        )
+        return float(all_matches[-1].group(1)), True
+
+    # Step 6 – random fallback (score parsing completely failed)
     score = float(random.randint(1, 7))
     logger.warning(
         "Score parsing FAILED for output %r (context: %s). Using random fallback %g.",
-        raw[:80], context, score,
+        raw[:120], context, score,
     )
     return score, True
+
 
 
 def load_checkpoint(output_csv: str) -> set:
@@ -370,7 +578,29 @@ def run_local(args, records: list[dict], done: set, writer, outfile) -> tuple[in
     #     # prompt není v _write_row k dispozici – proto logovat dřív, v inference loopu
 
     import math
- 
+
+    #Function to be used in stage 2 below
+    def _apply_chat_template(tok, content: str) -> str:
+        """
+        Apply chat template in a model-agnostic way.
+        Tries Qwen3-style thinking suppression first (enable_thinking=False).
+        Falls back to plain apply_chat_template for models that don't support it
+        (e.g. Gemma 4, Llama, ...).
+        """
+        messages = [{"role": "user", "content": content}]
+        base_kwargs = dict(tokenize=False, add_generation_prompt=True)
+        try:
+            return tok.apply_chat_template(
+                messages,
+                enable_thinking=False,
+                thinking_budget=512,
+                **base_kwargs,
+            )
+        except TypeError:
+            # Model tokenizer doesn't support thinking kwargs (Gemma 4, Llama, ...)
+            return tok.apply_chat_template(messages, **base_kwargs)
+
+
     # judge_model_name = args.model.split("/")[-1]
     judge_model_name = args.model.split("/")[-1] + args.model_name_suffix #add suffix
  
@@ -400,14 +630,56 @@ def run_local(args, records: list[dict], done: set, writer, outfile) -> tuple[in
     # ------------------------------------------------------------------
     # 2.  Pre-build all prompts (response HTML passed through verbatim)
     # ------------------------------------------------------------------
+  
+    # Former implementation
+    # logger.info("Building all prompts for token-length pre-computation...")
+    # all_prompts: list[str] = [
+    #     build_prompt(
+    #         criterion=criterion,
+    #         locale=rec["locale"],
+    #         input_text=rec["prompt"],
+    #         response_text=rec["response"],   # HTML (<br>, **…**) kept as-is
+    #         template_variant=args.template_variant,
+    #     )
+    #     for rec, criterion in tasks_todo
+    # ]
+
+    # # new implementation allowing to suppress reasoning for Qwen models
+    # logger.info("Building all prompts for token-length pre-computation...")
+    # from transformers import AutoTokenizer as _TplTok
+    # _tpl_tok = _TplTok.from_pretrained(args.model)
+    # all_prompts: list[str] = [
+    #     _tpl_tok.apply_chat_template(
+    #         [{"role": "user", "content": build_prompt(
+    #             criterion=criterion,
+    #             locale=rec["locale"],
+    #             input_text=rec["prompt"],
+    #             response_text=rec["response"],   # HTML (<br>, **…**) kept as-is
+    #             template_variant=args.template_variant,
+    #         )}],
+    #         tokenize=False,
+    #         add_generation_prompt=True,
+    #         enable_thinking=False,  # DO NOT ALLOW allow <think>...</think>
+    #         thinking_budget=512,   # newly added - cap thinking tokens; prevents runaway reasoning
+  
+    #     )
+    #     for rec, criterion in tasks_todo
+    # ]
+
+    #New version for Gemma
     logger.info("Building all prompts for token-length pre-computation...")
+    _tpl_tok = _TplTok.from_pretrained(args.model)
+
     all_prompts: list[str] = [
-        build_prompt(
-            criterion=criterion,
-            locale=rec["locale"],
-            input_text=rec["prompt"],
-            response_text=rec["response"],   # HTML (<br>, **…**) kept as-is
-            template_variant=args.template_variant,
+        _apply_chat_template(       #defined newly above
+            _tpl_tok,
+            build_prompt(
+                criterion=criterion,
+                locale=rec["locale"],
+                input_text=rec["prompt"],
+                response_text=rec["response"],   # HTML (<br>, **…**) kept as-is
+                template_variant=args.template_variant,
+            ),
         )
         for rec, criterion in tasks_todo
     ]
@@ -416,11 +688,13 @@ def run_local(args, records: list[dict], done: set, writer, outfile) -> tuple[in
     # 3.  Tokenise → max_model_len
     # ------------------------------------------------------------------
  
-    MAX_OUT = 10  # tokens reserved for generation (= max_tokens)
+    MAX_OUT = 64   # 1280 = thinking_budget(512) + buffer pro </think> + digit(~64) + rezerva
+    # 1024  # tokens reserved for generation for reasoning model (= max_tokens), originally 10
     logger.info("Tokenising prompts to compute max_model_len (model=%s)...", args.model)
     try:
         from transformers import AutoTokenizer as _AutoTokenizer
-        _pre_tok = _AutoTokenizer.from_pretrained(args.model)
+        # _pre_tok = _AutoTokenizer.from_pretrained(args.model)
+        _pre_tok = _tpl_tok  # same tokenizer, read in section 2 already
         token_lengths = [len(_pre_tok.encode(p, add_special_tokens=False)) for p in all_prompts]
         max_input_len = max(token_lengths)
 
@@ -479,7 +753,24 @@ def run_local(args, records: list[dict], done: set, writer, outfile) -> tuple[in
         from vllm import LLM, SamplingParams  # type: ignore
         logger.info("Initialising vLLM (model=%s, dtype=auto, max_model_len=%d)...",
                     args.model, max_model_len)
+        #original initialization
+        # llm = LLM(model=args.model, dtype="auto", max_model_len=max_model_len)
+
+        #no reasoning
         llm = LLM(model=args.model, dtype="auto", max_model_len=max_model_len)
+
+        # #change to reasoning model having a budget limit
+        # llm = LLM(
+        #     model=args.model,
+        #     dtype="auto",
+        #     max_model_len=max_model_len,
+        #     reasoning_config=ReasoningConfig(
+        #         think_start_str="<think>",
+        #         think_end_str="</think>",
+        #     )
+        # )
+
+
         logger.info("vLLM ready.")
     except Exception as vllm_err:
         logger.warning(
@@ -565,10 +856,19 @@ def run_local(args, records: list[dict], done: set, writer, outfile) -> tuple[in
     try:
         if use_vllm and llm is not None:
             # ---- 8a. vLLM batch inference --------------------------------
-            sampling_params = SamplingParams(  # noqa: F821  (imported above)
+            #no reasoning
+            sampling_params = SamplingParams(
                 temperature=args.temperature,
-                max_tokens=10,
+                max_tokens=64,
             )
+
+            # #reasoning
+            # sampling_params = SamplingParams(  # noqa: F821  (imported above)
+            #     temperature=args.temperature,
+            #     max_tokens=1280,  #originally 10 for non-reasoning, 1024 for reasoning, 1280 for reasoning + reserve
+            #     thinking_token_budget=450,  # hard limit for thinking tokens
+            # )
+
             for batch_start in range(0, len(tasks_todo), batch_size):
                 batch_tasks = tasks_todo[batch_start: batch_start + batch_size]
                 batch_prompts = all_prompts[batch_start: batch_start + batch_size]
@@ -610,7 +910,7 @@ def run_local(args, records: list[dict], done: set, writer, outfile) -> tuple[in
             logger.info("transformers pipeline ready.")
  
             gen_kwargs: dict = {
-                "max_new_tokens": 10,
+                "max_new_tokens": 64,  # newly increased from 1024  #non-reasoning models 10, reasoning 1280
                 "return_full_text": False,
             }
             if args.temperature > 0.0:
@@ -623,8 +923,10 @@ def run_local(args, records: list[dict], done: set, writer, outfile) -> tuple[in
                 batch_tasks = tasks_todo[batch_start: batch_start + batch_size]
                 batch_prompts = all_prompts[batch_start: batch_start + batch_size]
  
+                # pipe_outputs = pipe(batch_prompts, **gen_kwargs)   #former line
+                # pipe_outputs = pipe(batch_prompts, **gen_kwargs, tokenizer=False)   #with reasoning suppression 
                 pipe_outputs = pipe(batch_prompts, **gen_kwargs)
- 
+
                 for idx, ((rec, criterion), out) in enumerate(zip(batch_tasks, pipe_outputs)):
                     raw = out[0]["generated_text"] if out else ""
                     _log_llm_io(all_prompts[batch_start + idx], raw)
@@ -650,6 +952,17 @@ def run_local(args, records: list[dict], done: set, writer, outfile) -> tuple[in
         completed, elapsed_total, fallback_count,
     )
     logger.info("Output written to: %s", output_path.resolve())
+
+    # Cleanup distributed process group if initialized
+    try:
+        import torch.distributed as dist
+        if dist.is_available() and dist.is_initialized():
+            dist.destroy_process_group()
+            logger.info("Distributed process group destroyed.")
+    except Exception:
+        pass  # not critical
+
+
     return completed, fallback_count
  
 
@@ -682,8 +995,9 @@ async def call_openrouter(
     payload = {
         "model": model,
         "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": 10,
+        "max_tokens": 1280,       #10 for non-reasoning, 1024 for reasoning, 1280 for reasoning w a reserve
         "temperature": temperature,
+        # "reasoning": {"exclude": True},   # ← added to disable thinking
     }
 
     backoff = 1.0
