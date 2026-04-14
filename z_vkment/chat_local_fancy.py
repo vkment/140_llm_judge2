@@ -16,7 +16,7 @@ import logging
 import os
 import sys
 import threading       # needed to run the pipeline in a background thread during streaming
-import warnings
+# import warnings        # residuum, unused already
 
 from dotenv import load_dotenv
 import torch
@@ -86,6 +86,11 @@ Available commands (type at the chat prompt):
 # 6. MAIN LOGIC
 def main(args: argparse.Namespace) -> None:
 
+    # Ensure the terminal speaks UTF-8 so Czech (and other non-ASCII)
+    # characters are read and printed correctly regardless of the system locale.
+    # sys.stdin.reconfigure(encoding='utf-8')  # Did not help with Czech Unicode characters
+    sys.stdout.reconfigure(encoding='utf-8')
+
     # ------------------------------------------------------------------
     # 6.1  Validate the requested system prompt preset
     # ------------------------------------------------------------------
@@ -125,7 +130,12 @@ def main(args: argparse.Namespace) -> None:
     # Suppress the "Both max_new_tokens and max_length have been set" message.
     # transformers emits this via its own logging system (logger.warning_once),
     # NOT via Python's warnings.warn — so warnings.filterwarnings() has no effect.
-    # The correct fix is to raise the log level of the relevant transformers module.
+    # The working fix is a logging.Filter on the transformers logger, OR simply
+    # raising the log level of the relevant module (chosen approach below).
+    #
+    # Alternatives that do NOT work / were tried:
+    #   warnings.filterwarnings("ignore", message=".*both `max_new_tokens`.*")
+    #   logging.getLogger("transformers").addFilter(...)
     logging.getLogger("transformers.generation.utils").setLevel(logging.ERROR)
 
     logger.info("Loading model %r onto GPU — this may take a while …", args.model)
@@ -188,6 +198,8 @@ def main(args: argparse.Namespace) -> None:
     #
     # Growing this list turn by turn is what gives the model its
     # "memory" of the conversation.
+    # NOTE: the system prompt is never shown to the user in the terminal,
+    #       but the model sees it on every single turn.
     # ------------------------------------------------------------------
     def fresh_history() -> list[dict]:
         """Return a new history list containing only the system prompt."""
@@ -203,8 +215,19 @@ def main(args: argparse.Namespace) -> None:
         # The prompt string shown to the user reflects all live settings.
         prompt_str = f"[{current_preset} | temp={temperature} | max={max_tokens}]> "
 
+        # This was not enough to code Czech unicode characters properly
+        # try:
+        #     user_input = input(prompt_str).strip()
+
+        #New implementation of Czech unicode charactes
         try:
-            user_input = input(prompt_str).strip()
+            sys.stdout.write(prompt_str)
+            sys.stdout.flush()
+            raw = sys.stdin.buffer.readline()
+            if not raw:          # EOF (Ctrl-D)
+                raise EOFError
+            user_input = raw.decode('utf-8', errors='replace').rstrip('\n').strip()
+
         except (EOFError, KeyboardInterrupt):
             print("\nExiting.")
             break
@@ -294,11 +317,35 @@ def main(args: argparse.Namespace) -> None:
             continue  # back to the top of the loop — no model call
 
         # --------------------------------------------------------------
-        # 6.6.2  Normal user message — run the model with streaming
+        # 6.6.2  Normal user message — run the model WITH STREAMING
+        #
+        # KEY DIFFERENCE vs chat_local.py:
+        #   In chat_local.py the pipeline call is synchronous — the main
+        #   thread blocks until the full reply is ready, then prints it
+        #   all at once.
+        #
+        #   Here we want to print each token as it comes off the GPU,
+        #   exactly like commercial chatbots do.  This requires splitting
+        #   the work across two threads:
+        #
+        #     main thread       — reads user input, then iterates over
+        #                         the streamer queue and prints tokens.
+        #     background thread — runs chat_pipeline(), which generates
+        #                         tokens and pushes them into the queue.
+        #
+        #   The streamer (TextIteratorStreamer) is the shared queue that
+        #   connects the two threads.  See Steps 2–4 below.
+        #
+        #   Note: only the DECODE phase produces tokens one-by-one and
+        #   benefits from streaming.  The PREFILL phase (processing the
+        #   full input history) still happens in one blocking GPU call
+        #   before any token appears — see chat_local.py for details.
         #
         # Step 1: Append the user's message to the history.
         # --------------------------------------------------------------
-        history.append({"role": "user", "content": user_input})
+        history.append({"role": "user", "content": user_input})  # <-- this goes to the LLM later as user's text
+
+
 
         # --------------------------------------------------------------
         # Step 2: Set up the streamer and generation config.
@@ -376,16 +423,28 @@ def main(args: argparse.Namespace) -> None:
             reply_text += token
         print("\n")                        # newline after the streamed reply
 
-        generation_thread.join()           # ensure background thread finished cleanly
+        generation_thread.join()           # wait for background thread 
+        
+        # here GPU is now idle until next turn
 
         # --------------------------------------------------------------
         # Step 5: Append the complete reply to the history.
         #         (Same as in chat_local.py — nothing changes here.)
         # --------------------------------------------------------------
-        history.append({"role": "assistant", "content": reply_text})
+        history.append({"role": "assistant", "content": reply_text})   # <-- this gets into chat's history
 
         # --------------------------------------------------------------
         # Step 6: Show context window usage.
+        #
+        # Apply the chat template to the current history (which now
+        # includes the assistant reply) and count the resulting tokens.
+        # This is the exact number of tokens that will be sent to the
+        # GPU as input on the *next* turn.
+        #
+        # If this approaches the model's context window limit, the
+        # pipeline will silently truncate the oldest tokens — the model
+        # will effectively "forget" the beginning of the conversation
+        # without any error or warning.  Use /clear to reset.
         # --------------------------------------------------------------
         formatted_history = chat_pipeline.tokenizer.apply_chat_template(
             history, tokenize=False, add_generation_prompt=True
