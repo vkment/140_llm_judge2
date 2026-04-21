@@ -108,7 +108,7 @@ These are **types of morphological structure**—how languages build words and e
 
 ![Image](/home/vojta/projects/llm_judge2/z_vkment/Lectures/2.webp)
 
-| ![Image](hablar-spanish-verb-conjugation.jpg) | ![Image](0*jI3q2ViDtRT5srGf.png) |
+| ![Image](hablar-spanish-verb-conjugation.jpg) | ![Image](0xjI3q2ViDtRT5srGf.png) |
 | --------------------------------------------- | -------------------------------- |
 
 

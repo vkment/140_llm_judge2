@@ -1,0 +1,707 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Liberation Mono;}{\f1\fnil\fcharset0 Liberation Mono;}{\f2\fnil\fcharset1 Segoe UI Symbol;}{\f3\fnil Liberation Mono;}}
+{\colortbl ;\red155\green0\blue211;\red255\green0\blue0;\red0\green0\blue0;\red0\green0\blue255;\red0\green128\blue0;\red100\green107\blue134;\red128\green0\blue255;\red0\green77\blue187;\red0\green176\blue80;\red158\green124\blue124;\red102\green102\blue102;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sl276\slmult1\b\f0\fs36 Instalace Python venv pro NPFL140 na AIC - pouze \cf1 transformers\cf0\b0\fs22\par
+Pro venv je volen n\f1\lang1033\'e1\f0\lang1029 zev \cf2\b 140evnb\cf0\b0\f1\lang1033 , zat\'ed\f0\lang1029 mco pro pln\f1\lang1033\'e9\f0\lang1029  prost\'f8ed\f1\lang1033\'ed\f0\lang1029  jinde \b 140env\b0\par
+Pou\'9e\f1\lang1033\'ed\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 m torch pro CUDA 12.8, proto\'9ee n\'eckter\f1\lang1033\'e9\f0\lang1029  modely vy\'9eaduj\f1\lang1033\'ed\f0\lang1029  posledn\f1\lang1033\'ed\f0\lang1029  verzi\f1\lang1033 ; \f0\lang1029 mo\'9en\f1\lang1033\'e1\f0\lang1029  nen\f1\lang1033\'ed\f0\lang1029  nejstabiln\'ecj\'9a\f1\lang1033\'ed\f0\lang1029  mo\'9enost (ov\'ec\'f8eno, \'9ee GPU P5000 si s b\'echem prost\'f8ed\f1\lang1033\'ed\f0\lang1029  neporad\f1\lang1033\'ed\f0\lang1029 !)\par
+\i VoK 14. 4. 2026\i0\f1\lang5\par
+\f0\lang1029\par
+\ul\b\fs36 I. Instalace venvb\f1\fs22\lang5\par
+\ulnone\b0\par
+kment@aic:~$ \cf1\b cd pyenv\cf0\b0\par
+kment@aic:~/pyenv$\par
+kment@aic:~/pyenv$ ls\par
+138env  139env\par
+kment@aic:~\cf3 /pyenv$ \cf2\b /opt/python/3.11.7/bin/python3 -m venv 140envb\cf0\b0\par
+kment@aic:~/pyenv$ ls\par
+138env  139env  140envb\par
+kment@aic:~/pyenv$\par
+kment@aic:~/pyenv$ \cf2\b source ~/pyenv/140envb/bin/activate\par
+\cf0\b0 (140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$ \cf1\b pip --version\b0\par
+\cf0 pip \b 23.2.1 \b0 from /lnet/aic/personal/kment/pyenv/140envb/lib/python3.11/site-packages/pip (python 3.11)\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv\cf3 $\cf1  \b python -m pip install --upgrade pip\cf0\b0\par
+
+\pard\sl240\slmult1\fs18 Requirement already satisfied: pip in ./140envb/lib/python3.11/site-packages (23.2.1)\par
+Collecting pip\par
+  Obtaining dependency information for pip from {{\field{\*\fldinst{HYPERLINK https://files.pythonhosted.org/packages/de/f0/c81e05b613866b76d2d1066490adf1a3dbc4ee9d9c839961c3fc8a6997af/pip-26.0.1-py3-none-any.whl.metadata }}{\fldrslt{https://files.pythonhosted.org/packages/de/f0/c81e05b613866b76d2d1066490adf1a3dbc4ee9d9c839961c3fc8a6997af/pip-26.0.1-py3-none-any.whl.metadata\ul0\cf0}}}}\f1\fs18\par
+  Downloading pip-26.0.1-py3-none-any.whl.metadata (4.7 kB)\par
+Downloading pip-26.0.1-py3-none-any.whl (1.8 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1\lang1033  1.8/1.8 MB 15.3 MB/s eta 0:00:00\par
+Installing collected packages: pip\par
+  Attempting uninstall: pip\par
+    Found existing installation: pip 23.2.1\par
+    Uninstalling pip-23.2.1:\par
+      Successfully uninstalled pip-23.2.1\par
+\cf5 Successfully installed pip-26.0.1\par
+
+\pard\sl276\slmult1\cf0\fs22 (140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$ \cf1\b pip --version\cf0\b0\par
+pip \cf5\b 26.0.1 \cf0\b0 from /lnet/aic/personal/kment/pyenv/140envb/lib/python3.11/site-packages/pip (python 3.11)\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$ \cf2\b pip install --no-cache-dir torch --index-url\f0\lang1029  {\cf0{\field{\*\fldinst{HYPERLINK https://download.pytorch.org/whl/cu128 }}{\fldrslt{https://download.pytorch.org/whl/cu128\ul0\cf0}}}}\f1\fs22\lang1033  \cf0\b0\par
+
+\pard\sl240\slmult1\fs16 Looking in indexes: {{\field{\*\fldinst{HYPERLINK https://download.pytorch.org/whl/cu128 }}{\fldrslt{https://download.pytorch.org/whl/cu128\ul0\cf0}}}}\f1\fs16\par
+Collecting torch\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://download-r2.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp311-cp311-manylinux_2_28_x86_64.whl.metadata }}{\fldrslt{https://download-r2.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp311-cp311-manylinux_2_28_x86_64.whl.metadata\ul0\cf0}}}}\f1\fs16  (29 kB)\par
+Collecting filelock (from torch)\par
+  Downloading filelock-3.25.2-py3-none-any.whl.metadata (2.0 kB)\par
+Collecting typing-extensions>=4.10.0 (from torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl.metadata }}{\fldrslt{https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl.metadata\ul0\cf0}}}}\f1\fs16  (3.3 kB)\par
+Requirement already satisfied: setuptools<82 in ./140envb/lib/python3.11/site-packages (from torch) (65.5.0)\par
+Collecting sympy>=1.13.3 (from torch)\par
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)\par
+Collecting networkx>=2.5.1 (from torch)\par
+  Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)\par
+Collecting jinja2 (from torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl.metadata }}{\fldrslt{https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl.metadata\ul0\cf0}}}}\f1\fs16  (2.9 kB)\par
+Collecting fsspec>=0.8.5 (from torch)\par
+  Downloading fsspec-2026.2.0-py3-none-any.whl.metadata (10 kB)\par
+Collecting cuda-toolkit==12.8.1 (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/cuda-toolkit/cuda_toolkit-12.8.1-py2.py3-none-any.whl }}{\fldrslt{https://pypi.nvidia.com/cuda-toolkit/cuda_toolkit-12.8.1-py2.py3-none-any.whl\ul0\cf0}}}}\f1\fs16  (2.3 kB)\par
+Collecting cuda-bindings<13,>=12.9.4 (from torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://download.pytorch.org/whl/cu128/cuda_bindings-12.9.4-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata }}{\fldrslt{https://download.pytorch.org/whl/cu128/cuda_bindings-12.9.4-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata\ul0\cf0}}}}\f1\fs16  (2.6 kB)\par
+Collecting nvidia-cudnn-cu12==9.19.0.56 (from torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-cudnn-cu12/nvidia_cudnn_cu12-9.19.0.56-py3-none-manylinux_2_27_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-cudnn-cu12/nvidia_cudnn_cu12-9.19.0.56-py3-none-manylinux_2_27_x86_64.whl\ul0\cf0}}}}\f1\fs16  (657.9 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  657.9/657.9 MB 158.4 MB/s  0:00:04\par
+Collecting nvidia-cusparselt-cu12==0.7.1 (from torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-cusparselt-cu12/nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-cusparselt-cu12/nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl\ul0\cf0}}}}\f1\fs16  (287.2 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  287.2/287.2 MB 333.0 MB/s  0:00:00\par
+Collecting nvidia-nccl-cu12==2.28.9 (from torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-nccl-cu12/nvidia_nccl_cu12-2.28.9-py3-none-manylinux_2_18_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-nccl-cu12/nvidia_nccl_cu12-2.28.9-py3-none-manylinux_2_18_x86_64.whl\ul0\cf0}}}}\f1\fs16  (296.8 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  296.8/296.8 MB 139.4 MB/s  0:00:01\par
+Collecting nvidia-nvshmem-cu12==3.4.5 (from torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-nvshmem-cu12/nvidia_nvshmem_cu12-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-nvshmem-cu12/nvidia_nvshmem_cu12-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl\ul0\cf0}}}}\f1\fs16  (139.1 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  139.1/139.1 MB 357.2 MB/s  0:00:00\par
+Collecting triton==3.6.0 (from torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://download-r2.pytorch.org/whl/triton-3.6.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata }}{\fldrslt{https://download-r2.pytorch.org/whl/triton-3.6.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata\ul0\cf0}}}}\f1\fs16  (1.7 kB)\par
+Collecting nvidia-cublas-cu12==12.8.4.1.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-cublas-cu12/nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-cublas-cu12/nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl\ul0\cf0}}}}\f1\fs16  (594.3 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  594.3/594.3 MB 157.5 MB/s  0:00:03\par
+Collecting nvidia-cuda-runtime-cu12==12.8.90.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-cuda-runtime-cu12/nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-cuda-runtime-cu12/nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl\ul0\cf0}}}}\f1\fs16  (954 kB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  954.8/954.8 kB 458.6 MB/s  0:00:00\par
+Collecting nvidia-cufft-cu12==11.3.3.83.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-cufft-cu12/nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-cufft-cu12/nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl\ul0\cf0}}}}\f1\fs16  (193.1 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  193.1/193.1 MB 101.4 MB/s  0:00:01\par
+Collecting nvidia-cufile-cu12==1.13.1.3.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-cufile-cu12/nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-cufile-cu12/nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl\ul0\cf0}}}}\f1\fs16  (1.2 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  1.2/1.2 MB 496.8 MB/s  0:00:00\par
+Collecting nvidia-cuda-cupti-cu12==12.8.90.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-cuda-cupti-cu12/nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-cuda-cupti-cu12/nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl\ul0\cf0}}}}\f1\fs16  (10.2 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  10.2/10.2 MB 220.8 MB/s  0:00:00\par
+Collecting nvidia-curand-cu12==10.3.9.90.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-curand-cu12/nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-curand-cu12/nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl\ul0\cf0}}}}\f1\fs16  (63.6 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  63.6/63.6 MB 191.7 MB/s  0:00:00\par
+Collecting nvidia-cusolver-cu12==11.7.3.90.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-cusolver-cu12/nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-cusolver-cu12/nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl\ul0\cf0}}}}\f1\fs16  (267.5 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  267.5/267.5 MB 161.2 MB/s  0:00:01\par
+Collecting nvidia-cusparse-cu12==12.5.8.93.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-cusparse-cu12/nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-cusparse-cu12/nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl\ul0\cf0}}}}\f1\fs16  (288.2 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  288.2/288.2 MB 109.3 MB/s  0:00:02\par
+Collecting nvidia-nvjitlink-cu12==12.8.93.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-nvjitlink-cu12/nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-nvjitlink-cu12/nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl\ul0\cf0}}}}\f1\fs16  (39.3 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  39.3/39.3 MB 168.8 MB/s  0:00:00\par
+Collecting nvidia-cuda-nvrtc-cu12==12.8.93.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-cuda-nvrtc-cu12/nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-cuda-nvrtc-cu12/nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl\ul0\cf0}}}}\f1\fs16  (88.0 MB)\par
+     \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  88.0/88.0 MB 164.9 MB/s  0:00:00\par
+Collecting nvidia-nvtx-cu12==12.8.90.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://pypi.nvidia.com/nvidia-nvtx-cu12/nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl }}{\fldrslt{https://pypi.nvidia.com/nvidia-nvtx-cu12/nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl\ul0\cf0}}}}\f1\fs16  (89 kB)\par
+Collecting cuda-pathfinder~=1.1 (from cuda-bindings<13,>=12.9.4->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://download.pytorch.org/whl/cuda_pathfinder-1.2.2-py3-none-any.whl.metadata }}{\fldrslt{https://download.pytorch.org/whl/cuda_pathfinder-1.2.2-py3-none-any.whl.metadata\ul0\cf0}}}}\f1\fs16  (3.2 kB)\par
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch)\par
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)\par
+Collecting MarkupSafe>=2.0 (from jinja2->torch)\par
+  Downloading {{\field{\*\fldinst{HYPERLINK https://download.pytorch.org/whl/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata }}{\fldrslt{https://download.pytorch.org/whl/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata\ul0\cf0}}}}\f1\fs16  (2.7 kB)\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://download-r2.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp311-cp311-manylinux_2_28_x86_64.whl }}{\fldrslt{https://download-r2.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp311-cp311-manylinux_2_28_x86_64.whl\ul0\cf0}}}}\f1\fs16  (820.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  820.2/820.2 MB 259.1 MB/s  0:00:04\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://download-r2.pytorch.org/whl/triton-3.6.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl }}{\fldrslt{https://download-r2.pytorch.org/whl/triton-3.6.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl\ul0\cf0}}}}\f1\fs16  (188.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  188.2/188.2 MB 132.3 MB/s  0:00:01\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://download.pytorch.org/whl/cu128/cuda_bindings-12.9.4-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl }}{\fldrslt{https://download.pytorch.org/whl/cu128/cuda_bindings-12.9.4-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl\ul0\cf0}}}}\f1\fs16  (12.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  12.2/12.2 MB 57.3 MB/s  0:00:00\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://download.pytorch.org/whl/cuda_pathfinder-1.2.2-py3-none-any.whl }}{\fldrslt{https://download.pytorch.org/whl/cuda_pathfinder-1.2.2-py3-none-any.whl\ul0\cf0}}}}\f1\fs16  (23 kB)\par
+Downloading fsspec-2026.2.0-py3-none-any.whl (202 kB)\par
+Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  2.1/2.1 MB 116.3 MB/s  0:00:00\par
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  6.3/6.3 MB 232.3 MB/s  0:00:00\par
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  536.2/536.2 kB 528.1 MB/s  0:00:00\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl }}{\fldrslt{https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl\ul0\cf0}}}}\f1\fs16  (44 kB)\par
+Downloading filelock-3.25.2-py3-none-any.whl (26 kB)\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl }}{\fldrslt{https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl\ul0\cf0}}}}\f1\fs16  (134 kB)\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://download.pytorch.org/whl/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl }}{\fldrslt{https://download.pytorch.org/whl/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl\ul0\cf0}}}}\f1\fs16  (22 kB)\par
+Installing collected packages: nvidia-cusparselt-cu12, mpmath, cuda-toolkit, typing-extensions, triton, sympy, nvidia-nvtx-cu12, nvidia-nvshmem-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufile-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, networkx, MarkupSafe, fsspec, filelock, cuda-pathfinder, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, jinja2, cuda-bindings, nvidia-cusolver-cu12, torch\par
+Successfully installed MarkupSafe-3.0.3 cuda-bindings-12.9.4 cuda-pathfinder-1.2.2 cuda-toolkit-12.8.1 filelock-3.25.2 fsspec-2026.2.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 nvidia-cublas-cu12-12.8.4.1 nvidia-cuda-cupti-cu12-12.8.90 nvidia-cuda-nvrtc-cu12-12.8.93 nvidia-cuda-runtime-cu12-12.8.90 nvidia-cudnn-cu12-9.19.0.56 nvidia-cufft-cu12-11.3.3.83 nvidia-cufile-cu12-1.13.1.3 nvidia-curand-cu12-10.3.9.90 nvidia-cusolver-cu12-11.7.3.90 nvidia-cusparse-cu12-12.5.8.93 nvidia-cusparselt-cu12-0.7.1 nvidia-nccl-cu12-2.28.9 nvidia-nvjitlink-cu12-12.8.93 nvidia-nvshmem-cu12-3.4.5 nvidia-nvtx-cu12-12.8.90 sympy-1.14.0 torch-2.11.0+cu128 triton-3.6.0 typing-extensions-4.15.0\par
+
+\pard\sl276\slmult1\fs22 (140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$ \cf2\b pip install numpy\cf0\b0\par
+
+\pard\sl240\slmult1\fs18 Collecting numpy\par
+  Downloading numpy-2.4.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)\par
+Downloading numpy-2.4.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  16.9/16.9 MB 88.5 MB/s  0:00:00\par
+Installing collected packages: numpy\par
+\cf5\b Successfully installed numpy-2.4.4\par
+
+\pard\sl276\slmult1\cf0\b0\fs22 (140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$ \cf1\b python -c "import torch; print(torch.version.cuda)"\cf0\b0\par
+\cf5 12.8\cf0\par
+(140envb) kment@aic:~/pyenv$ \cf1\b which python\cf0\b0\par
+/lnet/aic/personal/kment/pyenv/\cf5 140envb/bin/python\par
+\cf0 (140envb) kment@aic:~/pyenv$ \cf1\b python --version\cf0\b0\par
+\cf5 Python 3.11.7\par
+\cf0 (140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$ \cf2\b pip install transformers accelerate python-dotenv\cf0\b0\par
+
+\pard\sl240\slmult1\fs16 Collecting transformers\par
+  Downloading transformers-5.5.4-py3-none-any.whl.metadata (32 kB)\par
+Collecting accelerate\par
+  Downloading accelerate-1.13.0-py3-none-any.whl.metadata (19 kB)\par
+Collecting python-dotenv\par
+  Downloading python_dotenv-1.2.2-py3-none-any.whl.metadata (27 kB)\par
+Collecting huggingface-hub<2.0,>=1.5.0 (from transformers)\par
+  Downloading huggingface_hub-1.10.2-py3-none-any.whl.metadata (14 kB)\par
+Requirement already satisfied: numpy>=1.17 in ./140envb/lib/python3.11/site-packages (from transformers) (2.4.4)\par
+Collecting packaging>=20.0 (from transformers)\par
+  Downloading packaging-26.0-py3-none-any.whl.metadata (3.3 kB)\par
+Collecting pyyaml>=5.1 (from transformers)\par
+  Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)\par
+Collecting regex>=2025.10.22 (from transformers)\par
+  Downloading regex-2026.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)\par
+Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers)\par
+  Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)\par
+Collecting typer (from transformers)\par
+  Downloading typer-0.24.1-py3-none-any.whl.metadata (16 kB)\par
+Collecting safetensors>=0.4.3 (from transformers)\par
+  Downloading safetensors-0.7.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)\par
+Collecting tqdm>=4.27 (from transformers)\par
+  Downloading tqdm-4.67.3-py3-none-any.whl.metadata (57 kB)\par
+Requirement already satisfied: filelock>=3.10.0 in ./140envb/lib/python3.11/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers) (3.25.2)\par
+Requirement already satisfied: fsspec>=2023.5.0 in ./140envb/lib/python3.11/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers) (2026.2.0)\par
+Collecting hf-xet<2.0.0,>=1.4.3 (from huggingface-hub<2.0,>=1.5.0->transformers)\par
+  Downloading hf_xet-1.4.3-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)\par
+Collecting httpx<1,>=0.23.0 (from huggingface-hub<2.0,>=1.5.0->transformers)\par
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)\par
+Requirement already satisfied: typing-extensions>=4.1.0 in ./140envb/lib/python3.11/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers) (4.15.0)\par
+Collecting anyio (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers)\par
+  Downloading anyio-4.13.0-py3-none-any.whl.metadata (4.5 kB)\par
+Collecting certifi (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers)\par
+  Downloading certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)\par
+Collecting httpcore==1.* (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers)\par
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)\par
+Collecting idna (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers)\par
+  Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)\par
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers)\par
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)\par
+Collecting psutil (from accelerate)\par
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)\par
+Requirement already satisfied: torch>=2.0.0 in ./140envb/lib/python3.11/site-packages (from accelerate) (2.11.0+cu128)\par
+Requirement already satisfied: setuptools<82 in ./140envb/lib/python3.11/site-packages (from torch>=2.0.0->accelerate) (65.5.0)\par
+Requirement already satisfied: sympy>=1.13.3 in ./140envb/lib/python3.11/site-packages (from torch>=2.0.0->accelerate) (1.14.0)\par
+Requirement already satisfied: networkx>=2.5.1 in ./140envb/lib/python3.11/site-packages (from torch>=2.0.0->accelerate) (3.6.1)\par
+Requirement already satisfied: jinja2 in ./140envb/lib/python3.11/site-packages (from torch>=2.0.0->accelerate) (3.1.6)\par
+Requirement already satisfied: cuda-toolkit==12.8.1 in ./140envb/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch>=2.0.0->accelerate) (12.8.1)\par
+Requirement already satisfied: cuda-bindings<13,>=12.9.4 in ./140envb/lib/python3.11/site-packages (from torch>=2.0.0->accelerate) (12.9.4)\par
+Requirement already satisfied: nvidia-cudnn-cu12==9.19.0.56 in ./140envb/lib/python3.11/site-packages (from torch>=2.0.0->accelerate) (9.19.0.56)\par
+Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in ./140envb/lib/python3.11/site-packages (from torch>=2.0.0->accelerate) (0.7.1)\par
+Requirement already satisfied: nvidia-nccl-cu12==2.28.9 in ./140envb/lib/python3.11/site-packages (from torch>=2.0.0->accelerate) (2.28.9)\par
+Requirement already satisfied: nvidia-nvshmem-cu12==3.4.5 in ./140envb/lib/python3.11/site-packages (from torch>=2.0.0->accelerate) (3.4.5)\par
+Requirement already satisfied: triton==3.6.0 in ./140envb/lib/python3.11/site-packages (from torch>=2.0.0->accelerate) (3.6.0)\par
+Requirement already satisfied: nvidia-cublas-cu12==12.8.4.1.* in ./140envb/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch>=2.0.0->accelerate) (12.8.4.1)\par
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.8.90.* in ./140envb/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch>=2.0.0->accelerate) (12.8.90)\par
+Requirement already satisfied: nvidia-cufft-cu12==11.3.3.83.* in ./140envb/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch>=2.0.0->accelerate) (11.3.3.83)\par
+Requirement already satisfied: nvidia-cufile-cu12==1.13.1.3.* in ./140envb/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch>=2.0.0->accelerate) (1.13.1.3)\par
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.8.90.* in ./140envb/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch>=2.0.0->accelerate) (12.8.90)\par
+Requirement already satisfied: nvidia-curand-cu12==10.3.9.90.* in ./140envb/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch>=2.0.0->accelerate) (10.3.9.90)\par
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.3.90.* in ./140envb/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch>=2.0.0->accelerate) (11.7.3.90)\par
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.8.93.* in ./140envb/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch>=2.0.0->accelerate) (12.5.8.93)\par
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.93.* in ./140envb/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch>=2.0.0->accelerate) (12.8.93)\par
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.8.93.* in ./140envb/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch>=2.0.0->accelerate) (12.8.93)\par
+Requirement already satisfied: nvidia-nvtx-cu12==12.8.90.* in ./140envb/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch>=2.0.0->accelerate) (12.8.90)\par
+Requirement already satisfied: cuda-pathfinder~=1.1 in ./140envb/lib/python3.11/site-packages (from cuda-bindings<13,>=12.9.4->torch>=2.0.0->accelerate) (1.2.2)\par
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./140envb/lib/python3.11/site-packages (from sympy>=1.13.3->torch>=2.0.0->accelerate) (1.3.0)\par
+Requirement already satisfied: MarkupSafe>=2.0 in ./140envb/lib/python3.11/site-packages (from jinja2->torch>=2.0.0->accelerate) (3.0.3)\par
+Collecting click>=8.2.1 (from typer->transformers)\par
+  Downloading click-8.3.2-py3-none-any.whl.metadata (2.6 kB)\par
+Collecting shellingham>=1.3.0 (from typer->transformers)\par
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)\par
+Collecting rich>=12.3.0 (from typer->transformers)\par
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)\par
+Collecting annotated-doc>=0.0.2 (from typer->transformers)\par
+  Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)\par
+Collecting markdown-it-py>=2.2.0 (from rich>=12.3.0->typer->transformers)\par
+  Downloading markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)\par
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=12.3.0->typer->transformers)\par
+  Downloading pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)\par
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=12.3.0->typer->transformers)\par
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)\par
+Downloading transformers-5.5.4-py3-none-any.whl (10.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  10.2/10.2 MB 18.7 MB/s  0:00:00\par
+Downloading huggingface_hub-1.10.2-py3-none-any.whl (642 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  642.6/642.6 kB 7.4 MB/s  0:00:00\par
+Downloading hf_xet-1.4.3-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  4.2/4.2 MB 49.4 MB/s  0:00:00\par
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)\par
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)\par
+Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  3.3/3.3 MB 41.8 MB/s  0:00:00\par
+Downloading accelerate-1.13.0-py3-none-any.whl (383 kB)\par
+Downloading python_dotenv-1.2.2-py3-none-any.whl (22 kB)\par
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)\par
+Downloading packaging-26.0-py3-none-any.whl (74 kB)\par
+Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  806.6/806.6 kB 13.6 MB/s  0:00:00\par
+Downloading regex-2026.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (799 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  799.8/799.8 kB 13.3 MB/s  0:00:00\par
+Downloading safetensors-0.7.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (507 kB)\par
+Downloading tqdm-4.67.3-py3-none-any.whl (78 kB)\par
+Downloading anyio-4.13.0-py3-none-any.whl (114 kB)\par
+Downloading idna-3.11-py3-none-any.whl (71 kB)\par
+Downloading certifi-2026.2.25-py3-none-any.whl (153 kB)\par
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)\par
+Downloading typer-0.24.1-py3-none-any.whl (56 kB)\par
+Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)\par
+Downloading click-8.3.2-py3-none-any.whl (108 kB)\par
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)\par
+Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  1.2/1.2 MB 18.2 MB/s  0:00:00\par
+Downloading markdown_it_py-4.0.0-py3-none-any.whl (87 kB)\par
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)\par
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)\par
+Installing collected packages: tqdm, shellingham, safetensors, regex, pyyaml, python-dotenv, pygments, psutil, packaging, mdurl, idna, hf-xet, h11, click, certifi, annotated-doc, markdown-it-py, httpcore, anyio, rich, httpx, typer, huggingface-hub, tokenizers, accelerate, transformers\par
+Successfully installed accelerate-1.13.0 annotated-doc-0.0.4 anyio-4.13.0 certifi-2026.2.25 click-8.3.2 h11-0.16.0 hf-xet-1.4.3 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-1.10.2 idna-3.11 markdown-it-py-4.0.0 mdurl-0.1.2 packaging-26.0 psutil-7.2.2 pygments-2.20.0 python-dotenv-1.2.2 pyyaml-6.0.3 regex-2026.4.4 rich-15.0.0 safetensors-0.7.0 shellingham-1.5.4 tokenizers-0.22.2 tqdm-4.67.3 transformers-5.5.4 typer-0.24.1\par
+
+\pard\sl276\slmult1\fs22 (140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$ \cf1\b cd ..\par
+\cf0\b0 (140envb) kment@aic:~$ \cf1\b cd py\par
+\cf0\b0 (140envb) kment@aic:~/py$\par
+(140envb) kment@aic:~/py$ \cf1\b mkdir log\f0\lang1029\tab\tab\tab\f1\lang1033 <-- Vytvo\f0\lang1029\'f8en\f1\lang1033\'ed\f0\lang1029  adres\f1\lang1033\'e1\f0\lang1029\'f8e pro logy\cf0\b0\f1\lang1033\par
+(140envb) kment@aic:~/py$\par
+(140envb) kment@aic:~/py$ \cf1\b ls\cf0\b0\par
+log  __pycache__\par
+(140envb) kment@aic:~/py$\par
+\par
+\par
+\par
+\ul\b\f0\fs36\lang1029 II. Informace o nodech a dostupn\f1\lang1033\'fd\f0\lang1029 ch GPU\ulnone\b0\f1\fs28\lang1033\par
+\fs22\par
+\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$ \cf2\b sinfo -o "%N %G %f"\cf1             \cf6 <--- Co existuje celkov\f0\lang1029\'ec\cf0\b0\f1\lang1033\par
+NODELIST GRES AVAIL_FEATURES\par
+\cf7 gpu-node\b 1\b0  \cf0 gpu:nvidia_\cf7\b rtx_a4000\cf0\b0 :\cf2\b 8\cf0\b0 (S:0),gpu:nvidia_geforce_\cf7\b rtx_3090\cf0\b0 :\cf2\b 1\cf0\b0 (S:0) gpuram\cf2\b 16G\cf0\b0 ,gpuram\cf2\b 24G\cf0\b0 ,gpu_cc6.1,gpu_cc8.6\par
+\cf7 gpu-node\b 2\b0  \cf0 gpu:quadro_\cf7\b p5000\cf0\b0 :\cf2\b 8\cf0\b0 (S:0-1) gpuram\cf2\b 16G\cf0\b0 ,gpu_cc6.1\par
+
+\pard\sl276\slmult1\tx4828\cf7 gpu-node\b 3\b0  \cf0 gpu:nvidia_\cf7\b l4\cf0\b0 :\cf2\b 2\cf0\b0 ,gpu:nvidia_\cf7\b a16\cf0\b0 :\cf2\b 16\cf0\b0  gpuram\cf2\b 15\cf7 G\cf0\b0 ,gpuram\cf2\b 22G\cf0\b0 ,gpu_cc8.9,gpu_cc8.6\par
+
+\pard\sl276\slmult1\cf7 cpu-node\cf0 [1-2,4-7] (null) (null)\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$ \par
+(140envb) kment@aic:~/pyenv$ \cf2\b scontrol show node gpu-node1\f0\lang1029     \cf6\f1\lang1033 <--- Co je pr\'e1v\f0\'ec voln\f1\'e9\f0\lang1029  pro node1\cf0\b0\f1\lang1033\par
+NodeName=gpu-node1 Arch=x86_64 CoresPerSocket=8\par
+   CPUAlloc=16 CPUEfctv=30 CPUTot=32 CPULoad=6.25\par
+   AvailableFeatures=gpuram16G,gpuram24G,gpu_cc6.1,gpu_cc8.6\par
+   ActiveFeatures=\cf8 gpuram16G\cf0 ,\cf8 gpuram24G\cf0 ,gpu_cc6.1,gpu_cc8.6\par
+   Gres=gpu:\cf8 nvidia_rtx_a4000\cf0 :8(S:0),gpu:\cf8 nvidia_geforce_rtx_3090\cf0 :1(S:0)\f0\lang1029     \cf6\b\f1\lang1033 <--  8ks + 1ks\par
+\cf0\b0    NodeAddr=10.10.61.35 NodeHostName=gpu-node1 Version=25.11.4\par
+   OS=Linux 5.15.35-1-pve #1 SMP PVE 5.15.35-3 (Wed, 11 May 2022 07:57:51 +0200)\par
+   RealMemory=257830 AllocMem=90112 FreeMem=154069 Sockets=2 Boards=1\par
+   CoreSpecCount=1 CPUSpecList=30-31\par
+   State=MIXED ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A\par
+   Partitions=gpu\par
+   BootTime=2025-02-25T09:15:34 SlurmdStartTime=2026-04-13T17:41:48\par
+   LastBusyTime=2026-04-13T17:41:15 ResumeAfterTime=None\par
+   \cf8 CfgTRES=cpu=30,mem=257830M,billing=30,gres/gpu=9,gres/gpu:nvidia_geforce_rtx_3090=1\f0\lang1029   \cf6\b\f1\lang1033 <--- Co \f0\lang1029 existuje\cf5\b0\f1\lang1033\par
+\cf0    \cf2 AllocTRES=cpu=16,mem=88G,gres/gpu=5,gres/gpu:nvidia_geforce_rtx_3090=1\f0\lang1029    \cf6\b\f1\lang1033 <---\f0\lang1029  z toho zabran\f1\lang1033\'e9\cf2\b0\f0\lang1029               \cf0\f1\lang1033\par
+   CurrentWatts=0 AveWatts=0\par
+\par
+\cf6\b\f0\lang1029 =\f1\lang1033 > \cf0\b0  \cf5 14 CPU \f0\lang1029 voln\f1\lang1033\'e9\f0\lang1029 , 168 GB RAM voln\f1\lang1033\'e9\f0\lang1029 , \b\f1\lang1033 4gpu voln\'e1\b0\f0\lang1029 , \cf1\f1\lang1033 rtx_3090\f0\lang1029  nen\f1\lang1033\'ed\f0\lang1029  voln\f1\lang1033\'e1\cf0\par
+\par
+(140envb) kment@aic:~/pyenv$\par
+(140envb) kment@aic:~/pyenv$ \cf2 scontrol show node gpu-node2\par
+\cf0 NodeName=gpu-node2 Arch=x86_64 CoresPerSocket=8\par
+   CPUAlloc=28 CPUEfctv=30 CPUTot=32 CPULoad=7.29\par
+   AvailableFeatures=gpuram16G,gpu_cc6.1\par
+   ActiveFeatures=gpuram16G,gpu_cc6.1\par
+   Gres=gpu:quadro_p5000:8(S:0-1)\par
+   NodeAddr=10.10.61.36 NodeHostName=gpu-node2 Version=25.11.4\par
+   OS=Linux 5.15.35-1-pve #1 SMP PVE 5.15.35-3 (Wed, 11 May 2022 07:57:51 +0200)\par
+   RealMemory=257693 AllocMem=180224 FreeMem=209050 Sockets=2 Boards=1\par
+   CoreSpecCount=1 CPUSpecList=30-31\par
+   State=MIXED ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A\par
+   Partitions=gpu\par
+   BootTime=2026-04-08T09:59:20 SlurmdStartTime=2026-04-13T17:41:48\par
+   LastBusyTime=2026-04-14T03:17:41 ResumeAfterTime=None\par
+   \cf8 CfgTRES=cpu=30,mem=257693M,billing=30,gres/gpu=8\par
+\cf0    \cf2 AllocTRES=cpu=28,mem=176G,gres/gpu=8\cf0\par
+   CurrentWatts=0 AveWatts=0\par
+\par
+\cf6\b\f0\lang1029 =\f1\lang1033 >\f0\lang1029  \cf5\b0 2CPU voln\f1\lang1033\'e1\f0\lang1029 , 81 GB RAM voln\f1\lang1033\'e9\f0\lang1029 , \cf1\'9e\f1\lang1033\'e1\f0\lang1029 dn\f1\lang1033\'e9\f0\lang1029  GPU voln\f1\lang1033\'e9\par
+\par
+\cf0\f0\lang1029 (140envb) kment@aic:~/pyenv$ \cf2 scontrol show node gpu-node3\par
+\cf0 NodeName=gpu-node3 Arch=x86_64 CoresPerSocket=48\par
+   CPUAlloc=10 CPUEfctv=94 CPUTot=96 CPULoad=3.54\par
+   AvailableFeatures=gpuram15G,gpuram22G,gpu_cc8.9,gpu_cc8.6\par
+   ActiveFeatures=gpuram15G,gpuram22G,gpu_cc8.9,gpu_cc8.6\par
+   Gres=gpu:nvidia_l4:2,gpu:nvidia_a16:16\par
+   NodeAddr=10.10.61.37 NodeHostName=gpu-node3 Version=25.11.4\par
+   OS=Linux 6.8.12-15-pve #1 SMP PREEMPT_DYNAMIC PMX 6.8.12-15 (2025-09-12T11:02Z)\par
+   RealMemory=773333 AllocMem=83968 FreeMem=680601 Sockets=1 Boards=1\par
+   CoreSpecCount=1 CPUSpecList=94-95\par
+   State=MIXED ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A\par
+   Partitions=gpu\par
+   BootTime=2025-12-11T11:46:04 SlurmdStartTime=2026-04-14T10:15:19\par
+   LastBusyTime=2026-04-14T10:15:47 ResumeAfterTime=None\par
+\cf8    CfgTRES=cpu=94,mem=773333M,billing=94,gres/gpu=18,gres/gpu:nvidia_a16=16,gres/gpu:nvidia_l4=2\par
+\cf2    AllocTRES=cpu=10,mem=82G,gres/gpu=4,gres/gpu:nvidia_a16=2,gres/gpu:nvidia_l4=2\par
+\cf0    CurrentWatts=0 AveWatts=0\par
+\par
+\cf6\b =\f1\lang1033 >\f0\lang1029  \cf9 84CPU voln\f1\lang1033\'fd\f0\lang1029 ch, 691GB RAM voln\f1\lang1033\'e9\f0\lang1029 , 14 GPU voln\f1\lang1033\'fd\f0\lang1029 ch, a16 - 14 voln\f1\lang1033\'fd\f0\lang1029 ch\cf6 , \cf1 l4 \'9e\f1\lang1033\'e1\f0\lang1029 dn\f1\lang1033\'e1\f0\lang1029  voln\f1\lang1033\'e1\cf0\b0\f0\lang1029\par
+\par
+(140envb) kment@aic:~/pyenv$\par
+\par
+\b Je k dispozici tedy:\b0\par
+\par
+ 2x L4 (22G) na gpu-node3           - pro co nejlep\'9a\f1\lang1033\'ed inference\f0\lang1029 , ale jsou jen dv\'ec\par
+ 1x RTX 3090 (24G) na gpu-node1     - nejv\f1\lang1033\'ed\f0\lang1029 ce VRAM, je jen jedna\par
+ 8x RTX A4000 (16G) na gpu-node1    - st\'f8edn\f1\lang1033\'ed\f0\lang1029  cesta\par
+16\f1\lang1033\'d7 A16\f0\lang1029  (\f1\lang1033 15 GB\f0\lang1029 ) na gpu-node3        - \f1\lang1033\'fa\f0\lang1029 stup\par
+ 8\f1\lang1033\'d7 \f0\lang1029 Quadro \f1\lang1033 P5000 \f0\lang1029 (\f1\lang1033 16G\f0\lang1029 ) na gpu-node2 - nouzovka - \cf2 nefunguje*\cf0\par
+\par
+\par
+\ul\b\f1\fs36\lang1033 III. Spu\f0\lang1029\'9at\'ecn\f1\lang1033\'ed\f0\lang1029  programu\ulnone\b0\fs22\par
+\par
+\par
+\ul\b\fs28 III.A Interaktivn\f1\lang1033\'ed\f0\lang1029  b\'ech\ulnone\b0\f1\fs22\lang1033\par
+\f0\lang1029\par
+Straka TL;DR: To run an interactive GPU job with 1 CPU, 1 GPU, and 16GB RAM, run:\par
+\b srun -p gpu -c1 -G1 --mem=16G --pty bash\b0\par
+\par
+\par
+\b L4\b0\par
+\cf8\b srun -p gpu -c1  -G 1 --constraint=gpuram22G --mem=32G --pty bash \cf10\b0  \par
+\cf6 srun -p gpu -c1  -G 1 --constraint=gpuram22G --mem=32G -t 02:00:00 --pty bash  \cf10\par
+\cf0\par
+\b 3090\b0\par
+\cf8\b srun -p gpu -c1 -G 1 --constraint=gpuram24G --mem=32G --pty bash \cf0\b0\par
+\cf6 srun -p gpu -c1 -G 1 --constraint=gpuram24G --mem=32G \f1\lang1033 -t 02:00:00 \f0\lang1029 --pty bash \cf0\par
+\par
+\b A4000\b0\par
+\cf8\b srun -p gpu -c1 -G 1 --constraint='gpuram16G&gpu_cc8.6' --mem=32G --pty bash\cf0\b0\par
+\cf6 srun -p gpu -c1 -G 1 --constraint='gpuram16G&gpu_cc8.6' \f1\lang1033 -t 02:00:00 \f0\lang1029  --mem=32G --pty bash\par
+\cf0\par
+\b A16 jako fallback z A4000/3090/L4\b0\par
+\cf2\b srun -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G --pty bash \cf10\b0\par
+\cf6 srun -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G \f1\lang1033 -t 02:00:00 \f0\lang1029 --pty bash\par
+\cf0\f1\lang1033\par
+\b P5000\f0\lang1029    \cf2\f1\lang1033 <-- nepou\f0\lang1029\'9e\f1\lang1033\'ed\f0\lang1029 vat *\b0\f1\lang1033\par
+\cf8\b srun -p gpu \f0\lang1029 -c1 \f1\lang1033 -G 1 --constraint='gpuram16G&gpu_cc6.1' --mem=24G \f0\lang1029 --pty bash \cf10\b0\f1\lang1033\par
+\cf6 srun -p gpu \f0\lang1029 -c1 \f1\lang1033 -G 1 --constraint='gpuram16G&gpu_cc6.1' -t 02:00:00 --mem=24G \f0\lang1029 --pty bash\f1\lang1033\par
+\cf0\par
+\f0\fs20\lang1029 * P\'f8i b\'echu na P5000 b\'ech spadl s hl\f1\lang1033\'e1\f0\lang1029\'9aen\f1\lang1033\'ed\f0\lang1029 m:\f1\lang1033\par
+\cf2 UserWarning:\par
+Quadro P5000 with CUDA capability sm_61 is not compatible with the current PyTorch installation.\par
+The current PyTorch install supports CUDA capabilities sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\par
+If you want to use the Quadro P5000 GPU with PyTorch, please check the instructions at \line {\cf0{\field{\*\fldinst{HYPERLINK https://pytorch.org/get-started/locally/ }}{\fldrslt{https://pytorch.org/get-started/locally/\ul0\cf0}}}}\cf0\f1\fs20\par
+\fs22\par
+\par
+\ul\b\f0\fs28\lang1029 III.A.1 P\'f8\f1\lang1033\'ed\f0\lang1029 klad\f1\lang1033  interaktivn\'ed\f0\lang1029 ho b\'echu\ulnone\b0\f1\fs22\lang1033\par
+\par
+\par
+kment@aic:~$\par
+kment@aic:~$\par
+kment@aic:~$ \cf2\b srun -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G --pty bash\cf0\b0\par
+kment@gpu-node3:~$\par
+kment@gpu-node3:~$\par
+
+\pard\sl240\slmult1 kment@gpu-node3:~$ \cf2\b nvidia-smi\f0\lang1029    \cf6\f1\lang1033 <-- Pokud chci \f0\lang1029 vid\'ect jakou GPU jsem skute\'e8n\'ec obdr\'9eel\cf0\b0\f1\lang1033\par
+
+\pard\sl276\slmult1 Wed Apr 15 00:44:20 2026\par
++-----------------------------------------------------------------------------------------+\par
+| NVIDIA-SMI 550.54.14              Driver Version: 550.54.14      CUDA Version: 12.4     |\par
+|-----------------------------------------+------------------------+----------------------+\par
+| \cf1 GPU  \cf2 Name                 \cf0 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\par
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\par
+|                                         |                        |               MIG M. |\par
+|=========================================+========================+======================|\par
+|   \cf1 0\cf0   \cf2 NVIDIA L4\cf0                       Off |   00000000:41:00.0 Off |                    0 |\par
+| N/A   33C    P8             15W /   72W |       0MiB /  23034MiB |      0%      Default |\par
+|                                         |                        |                  N/A |\par
++-----------------------------------------+------------------------+----------------------+\par
+\par
++-----------------------------------------------------------------------------------------+\par
+| Processes:                                                                              |\par
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |\par
+|        ID   ID                                                               Usage      |\par
+|=========================================================================================|\par
+|  No running processes found                                                             |\par
++-----------------------------------------------------------------------------------------+\par
+kment@gpu-node3:~$\par
+kment@gpu-node3:~$\par
+kment@gpu-node3:~$ \cf2\b source ~/pyenv/140envb/bin/activate\cf0\b0\par
+(140envb) kment@gpu-node3:~$\par
+(140envb) kment@gpu-node3:~$\par
+(140envb) kment@gpu-node3:~$ \cf2\b cd ~/py\cf0\b0\par
+(140envb) kment@gpu-node3:~/py$\par
+(140envb) kment@gpu-node3:~/py$\f0\lang1029  \f1\lang1033\par
+(140envb) kment@gpu-node3:~/py$\par
+(140envb) kment@gpu-node3:~/py$ ls\par
+\fs16 '~'                                    log                                        __pycache__                   run_judge_transf_works3.log\par
+ chat_local_fancy_ORIG.py              logs                                       run_judge_transf66_9.log      run_judge_transf_works3.py\par
+ chat_local_fancy.py                   oeg_human_eval_raw_data                    run_judge_transf_works1.py    run_judge_transf_works3.sh\par
+ chat_local_ORIG.py                    oeg_judge_outloc66_9_submission_data.csv   run_judge_transf_works2.log\par
+ chat_local.py                         oeg_judge_outlocw2_submission_data.csv     run_judge_transf_works2.py\par
+ judge_templates_locales_hybrid13.py   oeg_judge_outlocw3_submission_data.csv     run_judge_transf_works2.sh\par
+\fs22 (140envb) kment@gpu-node3:~/py$\par
+(140envb) kment@gpu-node3:~/py$\f0\lang1029  \cf2\b\f1\lang1033 python chat_local.py\cf0\b0\par
+
+\pard\sl240\slmult1\fs14 kment@gpu-node1:~/py$ python chat_local.py\par
+2026-04-14 21:59:52,748 WARNING HF_TOKEN not found in .env \f3\emdash  proceeding without authentication.\par
+2026-04-14 21:59:52,748 INFO Loading model 'Qwen/Qwen2.5-3B-Instruct' onto GPU \emdash\f0  this may take a while \'85\f3\par
+2026-04-14 21:59:52,943 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json\ul0\cf0}}}}\f3\fs14  "HTTP/1.1 307 Temporary Redirect"\par
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\par
+2026-04-14 21:59:52,944 WARNING Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\par
+2026-04-14 21:59:52,950 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json\ul0\cf0}}}}\f3\fs14  "HTTP/1.1 200 OK"\par
+2026-04-14 21:59:52,977 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json\ul0\cf0}}}}\f3\fs14  "HTTP/1.1 200 OK"\par
+config.json: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 661/661 [00:00<00:00, 3.03MB/s]\par
+2026-04-14 21:59:53,138 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/model.safetensors }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/model.safetensors\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 404 Not Found"\par
+2026-04-14 21:59:53,258 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/model.safetensors.index.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/model.safetensors.index.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 307 Temporary Redirect"\par
+2026-04-14 21:59:53,264 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/model.safetensors.index.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/model.safetensors.index.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+2026-04-14 21:59:53,280 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/model.safetensors.index.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/model.safetensors.index.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+model.safetensors.index.json: 35.6kB [00:00, 92.7MB/s]\par
+2026-04-14 21:59:53,408 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/revision/main }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/revision/main\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+Downloading (incomplete total...): 0.00B [00:00, ?B/s]                                                                                         2026-04-14 21:59:53,535 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/aa8e72537993ba99e69dfaafa59ed015b17504d1/model-00001-of-00002.safetensors }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/aa8e72537993ba99e69dfaafa59ed015b17504d1/model-00001-of-00002.safetensors\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 302 Found"\par
+2026-04-14 21:59:53,545 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/aa8e72537993ba99e69dfaafa59ed015b17504d1/model-00002-of-00002.safetensors }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/aa8e72537993ba99e69dfaafa59ed015b17504d1/model-00002-of-00002.safetensors\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 302 Found"\par
+2026-04-14 21:59:53,822 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/xet-read-token/aa8e72537993ba99e69dfaafa59ed015b17504d1 }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/xet-read-token/aa8e72537993ba99e69dfaafa59ed015b17504d1\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+Downloading (incomplete total...):   0%|                                                                            | 0.00/3.97G [00:00<?, ?B/s]2026-04-14 21:59:53,828 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/xet-read-token/aa8e72537993ba99e69dfaafa59ed015b17504d1 }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/xet-read-token/aa8e72537993ba99e69dfaafa59ed015b17504d1\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+Fetching 2 files: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 2/2 [01:20<00:00, 40.24s/it]\par
+Download complete: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 6.17G/6.17G [01:22<00:00, 75.1MB/s]\par
+Loading weights: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 434/434 [00:02<00:00, 160.44it/s]\par
+2026-04-14 22:01:28,170 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/generation_config.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/generation_config.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 307 Temporary Redirect"\par
+2026-04-14 22:01:28,177 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+2026-04-14 22:01:28,191 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+generation_config.json: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 242/242 [00:00<00:00, 1.06MB/s]\par
+2026-04-14 22:01:28,320 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/tokenizer_config.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/tokenizer_config.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 307 Temporary Redirect"\par
+2026-04-14 22:01:28,327 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer_config.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer_config.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+2026-04-14 22:01:28,341 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer_config.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer_config.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+tokenizer_config.json: 7.30kB [00:00, 16.0MB/s]\par
+2026-04-14 22:01:28,475 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 404 Not Found"\par
+2026-04-14 22:01:28,591 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main?recursive=true&expand=false }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main?recursive=true&expand=false\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+2026-04-14 22:01:28,708 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/vocab.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/vocab.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 307 Temporary Redirect"\par
+2026-04-14 22:01:28,715 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/vocab.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/vocab.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+2026-04-14 22:01:28,728 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/vocab.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/vocab.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+vocab.json: 2.78MB [00:00, 119MB/s]\par
+2026-04-14 22:01:28,888 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/merges.txt }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/merges.txt\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 307 Temporary Redirect"\par
+2026-04-14 22:01:28,894 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/merges.txt }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/merges.txt\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+2026-04-14 22:01:28,908 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/merges.txt }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/merges.txt\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+merges.txt: 1.67MB [00:00, 121MB/s]\par
+2026-04-14 22:01:29,076 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/tokenizer.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/tokenizer.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 307 Temporary Redirect"\par
+2026-04-14 22:01:29,083 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+2026-04-14 22:01:29,098 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+tokenizer.json: 7.03MB [00:00, 139MB/s]\par
+2026-04-14 22:01:29,283 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/added_tokens.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/added_tokens.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 404 Not Found"\par
+2026-04-14 22:01:29,404 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/special_tokens_map.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/special_tokens_map.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 404 Not Found"\par
+2026-04-14 22:01:29,526 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/chat_template.jinja }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/chat_template.jinja\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 404 Not Found"\par
+2026-04-14 22:01:30,131 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+2026-04-14 22:01:30,135 INFO Model loaded successfully.  Ready to chat.\par
+\par
+2026-04-14 22:01:30,135 INFO Model device: cuda:0\par
+2026-04-14 22:01:30,135 INFO Model context window: 32768 tokens.\par
+
+\pard\sl276\slmult1\fs22 ==============================================================\par
+  Local LLM chat  \f3\emdash   type /help for available commands\par
+==============================================================\par
+\par
+Available commands (type at the chat prompt):\par
+  /help                         Show this help message\par
+  /system <name>                Switch to a named system prompt preset\par
+  /system new <name> <text>     Define a new preset and switch to it immediately\par
+  /system list                  List all available preset names and their texts\par
+  /temp <value>                 Change temperature       e.g.  /temp 0.3\par
+  /max <value>                  Change max new tokens    e.g.  /max 256\par
+  /clear                        Clear conversation history (keeps current settings)\par
+  /mode                         Show all current settings\par
+  /quit  or  /exit              Exit the program\par
+\par
+\f1\par
+[assistant | temp=0.7 | max=4096]> \cf1\b Kdo byl prvn\'ed \f0\'e8esk\f1\'fd kr\'e1l?\par
+\cf0\b0\par
+Assistant: Prvn\'edm zn\'e1m\'fdm \f0\'e8esk\f1\'fdm kr\'e1lem byl P\f0\'f8emysl Otakar I., kter\f1\'fd na\f0\'9ael tr\'f9n v roce 1214.\par
+\par
+  [context: 80 / 32,768 tokens  (0.2%)]\par
+[assistant | temp=0.7 | max=4096]> \cf1\b Kdo byl druh\f1\'fd \f0\'e8esk\f1\'fd kr\'e1l?\par
+\cf0\b0\par
+Assistant: Po P\f0\'f8emyslu Otakaru I. nastoupil jeho syn Vladislav I na tr\'f9n \'e8esk\f1\'fdch kr\'e1l\f0\'f9 v roce 1237.\par
+\par
+  [context: 144 / 32,768 tokens  (0.4%)]\par
+[assistant | temp=0.7 | max=4096]> \cf1\b /exit\cf0\b0\par
+Bye!\par
+\par
+kment@gpu-node1:~/py$ \par
+kment@gpu-node1:~/py$ \cf2\b python chat_local_fancy.py\cf0\b0\par
+\fs14 2026-04-14 22:12:09,112 WARNING HF_TOKEN not found in .env \f3\emdash  proceeding without authentication.\par
+2026-04-14 22:12:09,112 INFO Loading model 'Qwen/Qwen2.5-3B-Instruct' onto GPU \emdash\f0  this may take a while \'85\f3\par
+2026-04-14 22:12:09,291 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json\ul0\cf0}}}}\f3\fs14  "HTTP/1.1 307 Temporary Redirect"\par
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\par
+2026-04-14 22:12:09,291 WARNING Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\par
+2026-04-14 22:12:09,297 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json\ul0\cf0}}}}\f3\fs14  "HTTP/1.1 200 OK"\par
+Loading weights: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 434/434 [00:02<00:00, 163.47it/s]\par
+2026-04-14 22:12:13,321 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/generation_config.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/generation_config.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 307 Temporary Redirect"\par
+2026-04-14 22:12:13,326 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+2026-04-14 22:12:13,459 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 404 Not Found"\par
+2026-04-14 22:12:13,578 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main?recursive=true&expand=false }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main?recursive=true&expand=false\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+2026-04-14 22:12:14,119 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct\ul0\cf0}}}}\f1\fs14  "HTTP/1.1 200 OK"\par
+2026-04-14 22:12:14,125 INFO Model loaded successfully.  Ready to chat.\par
+\par
+2026-04-14 22:12:14,125 INFO Model device: cuda:0\par
+2026-04-14 22:12:14,125 INFO Model context window: 32768 tokens.\par
+\fs22 ==============================================================\par
+  Local LLM chat (streaming)  \f3\emdash   type /help for commands\par
+==============================================================\par
+\par
+Available commands (type at the chat prompt):\par
+  /help                         Show this help message\par
+  /system <name>                Switch to a named system prompt preset\par
+  /system new <name> <text>     Define a new preset and switch to it immediately\par
+  /system list                  List all available preset names and their texts\par
+  /temp <value>                 Change temperature       e.g.  /temp 0.3\par
+  /max <value>                  Change max new tokens    e.g.  /max 256\par
+  /clear                        Clear conversation history (keeps current settings)\par
+  /mode                         Show all current settings\par
+  /quit  or  /exit              Exit the program\par
+\par
+[assistant | temp=0.7 | max=4096]> \cf1\b /system new pirate Answer as the Czech pirate in Czech language\cf0\b0\par
+  Preset 'pirate' created and activated. History cleared.\par
+[pirate | temp=0.7 | max=4096]>\par
+[pirate | temp=0.7 | max=4096]> \cf1\b Kdo byl prvn\f1\'ed \f0\'e8esk\f1\'fd kr\'e1l?\par
+\cf0\b0\par
+Assistant: Na moji pobo\f0\'e8ku v \'e8esk\f1\'e9m h\f0\'f8motnictv\f1\'ed m\'e1me zvl\'e1\f0\'9atn\f1\'edho prvn\'edho kr\'e1le jm\'e9nem Old\f0\'f8ich, ale na\'9ai star\'9a\f1\'ed kn\f0\'ec\'9e\f1\'ed a kralov\'e9 se sna\f0\'9eili po\'e8\f1\'edtat i d\f0\'f8\f1\'edv. Ta kr\'e1ska! Vlastn\f0\'ec nejsem si jist\f1\'fd, jestli Old\f0\'f8ich byl prav\f1\'fd prvn\'ed, proto\f0\'9ee to je velmi star\f1\'e1 debata. Ale jak v\'ed\f0\'9a, v \'e8esk\f1\'e9m kr\'e1lovsk\'e9m historick\'e9m rocebuvi\f0\'e8k\f1\'e1ch je Old\f0\'f8ich prvn\f1\'edm, kter\'fd zaznamenali jako kr\'e1le.\par
+\par
+  [context: 194 / 32,768 tokens  (0.6%)]\par
+[pirate | temp=0.7 | max=4096]> \cf1\b A kdo je nejproslulej\f0\'9a\f1\'ed \f0\'e8esk\f1\'fd kr\'e1l?\par
+\cf0\b0\par
+Assistant: Pardon za nedorozum\f0\'ecn\f1\'ed, ale jako \f0\'e8esk\f1\'fd pir\'e1t nejsem vzd\f0\'eclan\f1\'fd tak, abych mohl p\f0\'f8esn\'ec identifikovat nejproslulej\'9a\f1\'edho \f0\'e8esk\f1\'e9ho kr\'e1le. Moje zp\f0\'f9sob \'9eivota je pln\f1\'fd p\'edse\f0\'f2, poh\f1\'e1dk a pov\f0\'ecst\f1\'ed, ale kdy\f0\'9e jde o historii, nejv\f1\'edce mi l\'edbaj\'ed kr\'e1lovna Zofie z Valois a jej\'ed syna Fridricha IV., proto\f0\'9ee jsou oba velmi zvl\f1\'e1\f0\'9atn\f1\'ed a maj\'ed dobrodru\f0\'9en\f1\'e9 pov\f0\'ecsti. M\'f9\'9ee\'9a se zeptat na to na star\f1\'e9 kn\'ed\f0\'9eete nebo na sv\f1\'e9ho star\'e9ho p\f0\'f8\f1\'edtele, kter\'fd v\f0\'ecd\f1\'ed o tom v\'edce.\par
+\par
+  [context: 411 / 32,768 tokens  (1.3%)]\par
+[pirate | temp=0.7 | max=4096]> \cf1\b Tak mi \f0\'f8ekni n\'ecjakou p\'ecknou historku z "pir\f1\'e1tstva".\cf0\b0\par
+\cf11 Traceback (most recent call last):\par
+  File "/lnet/aic/personal/kment/py/chat_local_fancy.py", line 412, in <module>\par
+    main(main_args)\par
+  File "/lnet/aic/personal/kment/py/chat_local_fancy.py", line 207, in main\par
+    user_input = input(prompt_str).strip()\par
+                 ^^^^^^^^^^^^^^^^^\par
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xc3 in position 47: invalid continuation byte\par
+\cf0 kment@gpu-node1:~/py$\par
+\par
+\par
+\ul\b\f0\fs28\lang1029 III.B D\f1\lang1033\'e1\f0\lang1029 vkov\f1\lang1033\'fd\f0\lang1029  b\'ech (v\'e8. ev. sledov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  pr\'f9b\'echu zpracov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  d\f1\lang1033\'e1\f0\lang1029 vky)\ulnone\b0\f1\fs22\lang1033\par
+\f0\lang1029\par
+---\par
+Straka: To run a shell script requiring a GPU in a non-interactive way, use\par
+\b sbatch -p gpu -c1 -G1 --mem=16G SCRIPT_PATH\par
+\b0 ---\par
+\par
+\b L4\b0\par
+\cf8\b sbatch -p gpu -c1  -G 1 --constraint=gpuram22G \cf1\f1\lang1033 ~/\f0\lang1029 py/scriptname.sh\par
+\cf0\b0\par
+\b 3090\b0\par
+\cf8\b sbatch -p gpu -c1 -G 1 --constraint=gpuram24G \cf1\f1\lang1033 ~/\f0\lang1029 py/scriptname.sh\par
+\cf8\par
+\cf0 A4000\b0\par
+\cf8\b sbatch -p gpu -c1 -G 1 --constraint='gpuram16G&gpu_cc8.6' --mem=32G \cf1\f1\lang1033 ~/\f0\lang1029 py/scriptname.sh\cf0\b0\par
+\cf8\b\par
+\par
+\cf0 A16 jako fallback z A4000/3090/L4\b0\par
+\cf2\b sbatch -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G \f1\lang1033 ~/\f0\lang1029 py/scriptname.sh\cf10\b0\par
+\cf8\b\par
+\par
+\cf0\f1\lang1033 P5000\f0\lang1029  \cf2\f1\lang1033 <-- nepou\f0\lang1029\'9e\f1\lang1033\'ed\f0\lang1029 vat *\cf0\b0\f1\lang1033\par
+\cf8\b\f0\lang1029 sbatch\f1\lang1033  -p gpu \f0\lang1029 -c1 \f1\lang1033 -G 1 --constraint='gpuram16G&gpu_cc6.1' \cf1 ~/\f0\lang1029 py/scriptname.sh\cf10\b0\f1\lang1033\par
+\cf0\f0\lang1029\par
+\par
+\b ---\cf1\b0\f1\lang1033 ~/\f0\lang1029 py/\b run_judge_transf_works2.sh\cf0\b0\par
+#!/bin/bash\par
+\cf3 #SBATCH -o /lnet/aic/personal/kment/py/log/%x-%j.out\par
+#SBATCH -e /lnet/aic/personal/kment/py/log/%x-%j.err\par
+\cf0\par
+source /lnet/aic/personal/kment/pyenv/140envb/bin/activate\par
+cd /lnet/aic/personal/kment/py\par
+\par
+python \cf2\b run_judge_transf_works2.py\cf0\b0\par
+\b ---\b0\par
+\par
+\par
+\ul\b\i\fs28 Alternativn\'ec - d\f1\lang1033\'e1\f0\lang1029 vkov\f1\lang1033\'fd\f0\lang1029  b\'ech\ulnone\b0 :\fs22\par
+\i0\par
+\cf2\b sbatch\cf8\f1\lang1033  \cf1 ~/\f0\lang1029 py/full_run_judge_transf_works2.sh  \cf0\b0\par
+\par
+---\cf1\f1\lang1033 ~/\f0\lang1029 py/\b full_run_judge_transf_works2.sh  \cf6\f1\lang1033 (pro \f0\lang1029 A16 jako fallback, v\'9ae je uvnit\'f8 .sh\f1\lang1033 )\f0\lang1029\par
+\cf0\b0 #!/bin/bash\par
+#SBATCH -p gpu\par
+#SBATCH -c 1\par
+#SBATCH -G 1\par
+\cf3 #SBATCH --constraint=gpuram15G \tab\tab\par
+#SBATCH --mem=24G \par
+\cf0 #SBATCH -J judge\par
+\cf3 #SBATCH -o /lnet/aic/personal/kment/py/log/%x-%j.out\par
+#SBATCH -e /lnet/aic/personal/kment/py/log/%x-%j.err\par
+\cf0\par
+source /lnet/aic/personal/kment/pyenv/140envb/bin/activate\par
+cd /lnet/aic/personal/kment/py\par
+\par
+python \cf2\b run_judge_transf_works2.py\cf0\b0\par
+---\par
+\par
+\par
+\par
+\ul\b\i\fs28 Zji\'9a\'9dov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  stavu job\'f9\ulnone :\b0\i0\fs22\par
+\par
+\cf2\b squeue -u $USER\cf0\b0\par
+\par
+\par
+\ul\b\i\fs28 P\'f8\f1\lang1033\'ed\f0\lang1029 klad konkr\f1\lang1033\'e9\f0\lang1029 tn\f1\lang1033\'ed\f0\lang1029 ho spu\'9at\'ecn\f1\lang1033\'ed\f0\lang1029  a mo\'9enost sledov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  pr\'f9b\'echu d\f1\lang1033\'e1\f0\lang1029 vky z sbatch\ulnone :\b0\i0\fs22\par
+\par
+\par
+kment@aic:~/py$ \cf2\b sbatch -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G ~/py/run_judge_transf_works2.sh\cf0\b0\par
+Submitted batch job \cf8\b 76746\cf0\b0\par
+kment@aic:~/py$\par
+kment@aic:~/py$ \cf2\b squeue -u $USER\cf0\b0\par
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)\par
+             \cf8\b 76746       \cf0\b0 gpu run_judg    kment  R       0:05      1 gpu-node1\par
+kment@aic:~/py$\par
+kment@aic:~/py$ \cf2\b cd log\cf0\b0\par
+kment@aic:~/py/log$ \cf2\b ls\par
+\cf6 run_judge_transf_works2.sh-76746.err  run_judge_transf_works2.sh-76746.out\par
+\cf0\b0 kment@aic:~/py/log$\par
+kment@aic:~/py/log$ \cf2\b tail -f  run_judge_transf_works2.sh-76746.out  \cf6\f1\lang1033 <--- follow the tail of the output log file\cf0\b0\f0\lang1029\par
+2026-04-14 22:54:46,638 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main?recursive=true&expand=false }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main?recursive=true&expand=false\ul0\cf0}}}}\f0\fs22  "HTTP/1.1 200 OK"\par
+2026-04-14 22:54:47,407 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct\ul0\cf0}}}}\f0\fs22  "HTTP/1.1 200 OK"\par
+2026-04-14 22:54:47,410 INFO Model loaded successfully.\par
+2026-04-14 22:54:47,410 INFO Model device: cuda:0\par
+2026-04-14 22:54:47,414 INFO Starting inference.  batch_size=4, temperature=0\par
+2026-04-14 22:54:52,144 INFO Progress: 4 / 1616  (0.2 %)  |  0.8 rows/s  |  fallbacks: 0  |  ETA: 1906s\par
+2026-04-14 22:54:55,997 INFO Progress: 8 / 1616  (0.5 %)  |  0.9 rows/s  |  fallbacks: 0  |  ETA: 1725s\par
+2026-04-14 22:55:00,772 INFO Progress: 12 / 1616  (0.7 %)  |  0.9 rows/s  |  fallbacks: 0  |  ETA: 1785s\par
+2026-04-14 22:55:04,464 INFO Progress: 16 / 1616  (1.0 %)  |  0.9 rows/s  |  fallbacks: 0  |  ETA: 1705s\par
+2026-04-14 22:55:08,101 INFO Progress: 20 / 1616  (1.2 %)  |  1.0 rows/s  |  fallbacks: 0  |  ETA: 1651s\par
+2026-04-14 22:55:11,781 INFO Progress: 24 / 1616  (1.5 %)  |  1.0 rows/s  |  fallbacks: 0  |  ETA: 1616s\par
+...\f1\lang1033   let it run\line or Ctrl+C ... \line\f0\lang1029\par
+\f1\lang1033\par
+\par
+\par
+\par
+\par
+}
+ 

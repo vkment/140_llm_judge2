@@ -1,0 +1,1423 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Liberation Mono;}{\f1\fnil\fcharset0 Liberation Mono;}{\f2\fnil\fcharset1 Segoe UI Symbol;}{\f3\fnil Liberation Mono;}{\f4\fnil\fcharset238 Calibri;}{\f5\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red155\green0\blue211;\red255\green0\blue0;\red100\green107\blue134;\red0\green0\blue255;\red0\green128\blue0;\red0\green0\blue0;\red128\green0\blue255;\red0\green77\blue187;\red0\green176\blue80;\red158\green124\blue124;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sl276\slmult1\b\f0\fs36 Instalace a pou\'9e\f1\lang1033\'ed\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  Python venv pro NPFL140 na AIC s \cf1 vLLM\cf0\b0\fs22\par
+Pro venv je volen n\f1\lang1033\'e1\f0\lang1029 zev \cf2\b 140evn\cf0\b0\f1\lang1033 , \f0\lang1029 n\f1\lang1033\'e1\f0\lang1029 zev \b 140envb \b0 je pro prost\'f8ed\f1\lang1033\'ed\f0\lang1029  s transformers only\par
+Pou\'9e\f1\lang1033\'ed\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 m torch pro CUDA 12.8, proto\'9ee n\'eckter\f1\lang1033\'e9\f0\lang1029  modely vy\'9eaduj\f1\lang1033\'ed\f0\lang1029  posledn\f1\lang1033\'ed\f0\lang1029  verzi\f1\lang1033 ; \f0\lang1029 mo\'9en\f1\lang1033\'e1\f0\lang1029  nen\f1\lang1033\'ed\f0\lang1029  nejstabiln\'ecj\'9a\f1\lang1033\'ed\f0\lang1029  mo\'9enost (ov\'ec\'f8eno, \'9ee GPU P5000 si s b\'echem prost\'f8ed\f1\lang1033\'ed\f0\lang1029  neporad\f1\lang1033\'ed\f0\lang1029 !)\par
+\i VoK 15. 4. 2026\i0\f1\lang5\par
+\par
+\ul\b\f0\fs36\lang1029 I. Instalace venv\par
+\ulnone\b0\f1\fs22\lang5\par
+Last login: Tue Apr 14 23:56:53 2026 from 173.249.46.8\par
+kment@aic:~$ \cf2\b cd pyenv\par
+\cf0\b0 kment@aic:~/pyenv$\par
+kment@aic:~/pyenv$\par
+kment@aic:~/pyenv$ \cf2\b /opt/python/3.11.7/bin/python3 -m venv 140env\cf0\b0\par
+kment@aic:~/pyenv$\par
+kment@aic:~/pyenv$\par
+kment@aic:~/pyenv$ \cf2\b source ~/pyenv/140env/bin/activate\cf0\b0\par
+(140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$ \cf1\b pip --version\cf0\b0\par
+pip 23.2.1 from /lnet/aic/personal/kment/pyenv/140env/lib/python3.11/site-packages/pip (python 3.11)\par
+(140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$ \cf2\b python -m pip install --upgrade pip\cf0\b0\par
+\cf3\fs16 Requirement already satisfied: pip in ./140env/lib/python3.11/site-packages (23.2.1)\par
+Collecting pip\par
+  Obtaining dependency information for pip from {{\field{\*\fldinst{HYPERLINK https://files.pythonhosted.org/packages/de/f0/c81e05b613866b76d2d1066490adf1a3dbc4ee9d9c839961c3fc8a6997af/pip-26.0.1-py3-none-any.whl.metadata }}{\fldrslt{https://files.pythonhosted.org/packages/de/f0/c81e05b613866b76d2d1066490adf1a3dbc4ee9d9c839961c3fc8a6997af/pip-26.0.1-py3-none-any.whl.metadata\ul0\cf0}}}}\f1\fs16\par
+  Using cached pip-26.0.1-py3-none-any.whl.metadata (4.7 kB)\par
+Using cached pip-26.0.1-py3-none-any.whl (1.8 MB)\par
+Installing collected packages: pip\par
+  Attempting uninstall: pip\par
+    Found existing installation: pip 23.2.1\par
+    Uninstalling pip-23.2.1:\par
+      Successfully uninstalled pip-23.2.1\par
+\cf5\b Successfully installed pip-26.0.1\par
+\cf0\b0\fs22 (140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$ \cf1\b pip --version\cf0\b0\par
+pip 26.0.1 from /lnet/aic/personal/kment/pyenv/140env/lib/python3.11/site-packages/pip (python 3.11)\par
+(140env) kment@aic:~/pyenv$\par
+\f0\lang1029 (140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$ \cf2\b pip install vllm==0.19.0\cf0\b0\par
+\cf3\fs16 Collecting vllm==0.19.0\par
+  Downloading vllm-0.19.0-cp38-abi3-manylinux_2_31_x86_64.whl.metadata (10.0 kB)\par
+Collecting regex (from vllm==0.19.0)\par
+  Using cached regex-2026.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)\par
+Collecting cachetools (from vllm==0.19.0)\par
+  Downloading cachetools-7.0.5-py3-none-any.whl.metadata (5.6 kB)\par
+Collecting psutil (from vllm==0.19.0)\par
+  Using cached psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)\par
+Collecting sentencepiece (from vllm==0.19.0)\par
+  Downloading sentencepiece-0.2.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (10 kB)\par
+Collecting numpy (from vllm==0.19.0)\par
+  Using cached numpy-2.4.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)\par
+Collecting requests>=2.26.0 (from vllm==0.19.0)\par
+  Downloading requests-2.33.1-py3-none-any.whl.metadata (4.8 kB)\par
+Collecting tqdm (from vllm==0.19.0)\par
+  Using cached tqdm-4.67.3-py3-none-any.whl.metadata (57 kB)\par
+Collecting blake3 (from vllm==0.19.0)\par
+  Downloading blake3-1.0.8-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.6 kB)\par
+Collecting py-cpuinfo (from vllm==0.19.0)\par
+  Downloading py_cpuinfo-9.0.0-py3-none-any.whl.metadata (794 bytes)\par
+Collecting transformers<5,>=4.56.0 (from vllm==0.19.0)\par
+  Downloading transformers-4.57.6-py3-none-any.whl.metadata (43 kB)\par
+Collecting tokenizers>=0.21.1 (from vllm==0.19.0)\par
+  Using cached tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)\par
+Collecting protobuf!=6.30.*,!=6.31.*,!=6.32.*,!=6.33.0.*,!=6.33.1.*,!=6.33.2.*,!=6.33.3.*,!=6.33.4.*,>=5.29.6 (from vllm==0.19.0)\par
+  Downloading protobuf-7.34.1-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)\par
+Collecting fastapi>=0.115.0 (from fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading fastapi-0.135.3-py3-none-any.whl.metadata (28 kB)\par
+Collecting aiohttp>=3.13.3 (from vllm==0.19.0)\par
+  Downloading aiohttp-3.13.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)\par
+Collecting openai>=2.0.0 (from vllm==0.19.0)\par
+  Downloading openai-2.31.0-py3-none-any.whl.metadata (31 kB)\par
+Collecting pydantic>=2.12.0 (from vllm==0.19.0)\par
+  Downloading pydantic-2.13.0-py3-none-any.whl.metadata (107 kB)\par
+Collecting prometheus_client>=0.18.0 (from vllm==0.19.0)\par
+  Downloading prometheus_client-0.25.0-py3-none-any.whl.metadata (2.1 kB)\par
+Collecting pillow (from vllm==0.19.0)\par
+  Downloading pillow-12.2.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)\par
+Collecting prometheus-fastapi-instrumentator>=7.0.0 (from vllm==0.19.0)\par
+  Downloading prometheus_fastapi_instrumentator-7.1.0-py3-none-any.whl.metadata (13 kB)\par
+Collecting tiktoken>=0.6.0 (from vllm==0.19.0)\par
+  Downloading tiktoken-0.12.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (6.7 kB)\par
+Collecting lm-format-enforcer==0.11.3 (from vllm==0.19.0)\par
+  Downloading lm_format_enforcer-0.11.3-py3-none-any.whl.metadata (17 kB)\par
+Collecting llguidance<1.4.0,>=1.3.0 (from vllm==0.19.0)\par
+  Downloading llguidance-1.3.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)\par
+Collecting outlines_core==0.2.11 (from vllm==0.19.0)\par
+  Downloading outlines_core-0.2.11-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.8 kB)\par
+Collecting diskcache==5.6.3 (from vllm==0.19.0)\par
+  Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)\par
+Collecting lark==1.2.2 (from vllm==0.19.0)\par
+  Downloading lark-1.2.2-py3-none-any.whl.metadata (1.8 kB)\par
+Collecting xgrammar<1.0.0,>=0.1.32 (from vllm==0.19.0)\par
+  Downloading xgrammar-0.1.33-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (7.6 kB)\par
+Collecting typing_extensions>=4.10 (from vllm==0.19.0)\par
+  Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)\par
+Collecting filelock>=3.16.1 (from vllm==0.19.0)\par
+  Downloading filelock-3.28.0-py3-none-any.whl.metadata (2.0 kB)\par
+Collecting partial-json-parser (from vllm==0.19.0)\par
+  Downloading partial_json_parser-0.2.1.1.post7-py3-none-any.whl.metadata (6.1 kB)\par
+Collecting pyzmq>=25.0.0 (from vllm==0.19.0)\par
+  Downloading pyzmq-27.1.0-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (6.0 kB)\par
+Collecting msgspec (from vllm==0.19.0)\par
+  Downloading msgspec-0.21.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.8 kB)\par
+Collecting gguf>=0.17.0 (from vllm==0.19.0)\par
+  Downloading gguf-0.18.0-py3-none-any.whl.metadata (4.5 kB)\par
+Collecting mistral_common>=1.10.0 (from mistral_common[image]>=1.10.0->vllm==0.19.0)\par
+  Downloading mistral_common-1.11.0-py3-none-any.whl.metadata (5.9 kB)\par
+Collecting opencv-python-headless>=4.13.0 (from vllm==0.19.0)\par
+  Downloading opencv_python_headless-4.13.0.92-cp37-abi3-manylinux_2_28_x86_64.whl.metadata (19 kB)\par
+Collecting pyyaml (from vllm==0.19.0)\par
+  Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)\par
+Collecting einops (from vllm==0.19.0)\par
+  Downloading einops-0.8.2-py3-none-any.whl.metadata (13 kB)\par
+Collecting compressed-tensors==0.14.0.1 (from vllm==0.19.0)\par
+  Downloading compressed_tensors-0.14.0.1-py3-none-any.whl.metadata (7.1 kB)\par
+Collecting depyf==0.20.0 (from vllm==0.19.0)\par
+  Downloading depyf-0.20.0-py3-none-any.whl.metadata (7.3 kB)\par
+Collecting cloudpickle (from vllm==0.19.0)\par
+  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)\par
+Collecting watchfiles (from vllm==0.19.0)\par
+  Downloading watchfiles-1.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)\par
+Collecting python-json-logger (from vllm==0.19.0)\par
+  Downloading python_json_logger-4.1.0-py3-none-any.whl.metadata (3.7 kB)\par
+Collecting ninja (from vllm==0.19.0)\par
+  Downloading ninja-1.13.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.1 kB)\par
+Collecting pybase64 (from vllm==0.19.0)\par
+  Downloading pybase64-1.4.3-cp311-cp311-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl.metadata (8.7 kB)\par
+Collecting cbor2 (from vllm==0.19.0)\par
+  Downloading cbor2-5.9.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)\par
+Collecting ijson (from vllm==0.19.0)\par
+  Downloading ijson-3.5.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (23 kB)\par
+Collecting setproctitle (from vllm==0.19.0)\par
+  Downloading setproctitle-1.3.7-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (10 kB)\par
+Collecting openai-harmony>=0.0.3 (from vllm==0.19.0)\par
+  Downloading openai_harmony-0.0.8-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.0 kB)\par
+Collecting anthropic>=0.71.0 (from vllm==0.19.0)\par
+  Downloading anthropic-0.95.0-py3-none-any.whl.metadata (3.1 kB)\par
+Collecting model-hosting-container-standards<1.0.0,>=0.1.13 (from vllm==0.19.0)\par
+  Downloading model_hosting_container_standards-0.1.14-py3-none-any.whl.metadata (24 kB)\par
+Collecting mcp (from vllm==0.19.0)\par
+  Downloading mcp-1.27.0-py3-none-any.whl.metadata (8.2 kB)\par
+Collecting opentelemetry-sdk>=1.27.0 (from vllm==0.19.0)\par
+  Downloading opentelemetry_sdk-1.41.0-py3-none-any.whl.metadata (1.7 kB)\par
+Collecting opentelemetry-api>=1.27.0 (from vllm==0.19.0)\par
+  Downloading opentelemetry_api-1.41.0-py3-none-any.whl.metadata (1.5 kB)\par
+Collecting opentelemetry-exporter-otlp>=1.27.0 (from vllm==0.19.0)\par
+  Downloading opentelemetry_exporter_otlp-1.41.0-py3-none-any.whl.metadata (2.4 kB)\par
+Collecting opentelemetry-semantic-conventions-ai>=0.4.1 (from vllm==0.19.0)\par
+  Downloading opentelemetry_semantic_conventions_ai-0.5.1-py3-none-any.whl.metadata (997 bytes)\par
+Collecting numba==0.61.2 (from vllm==0.19.0)\par
+  Downloading numba-0.61.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.8 kB)\par
+Collecting torch==2.10.0 (from vllm==0.19.0)\par
+  Downloading torch-2.10.0-3-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (31 kB)\par
+Collecting torchaudio==2.10.0 (from vllm==0.19.0)\par
+  Downloading torchaudio-2.10.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (6.9 kB)\par
+Collecting torchvision==0.25.0 (from vllm==0.19.0)\par
+  Downloading torchvision-0.25.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (5.4 kB)\par
+Collecting flashinfer-python==0.6.6 (from vllm==0.19.0)\par
+  Downloading flashinfer_python-0.6.6-py3-none-any.whl.metadata (11 kB)\par
+Collecting flashinfer-cubin==0.6.6 (from vllm==0.19.0)\par
+  Downloading flashinfer_cubin-0.6.6-py3-none-any.whl.metadata (1.3 kB)\par
+Collecting nvidia-cudnn-frontend<1.19.0,>=1.13.0 (from vllm==0.19.0)\par
+  Downloading nvidia_cudnn_frontend-1.18.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (4.4 kB)\par
+Collecting nvidia-cutlass-dsl>=4.4.0.dev1 (from vllm==0.19.0)\par
+  Downloading nvidia_cutlass_dsl-4.5.0.dev0-py3-none-any.whl.metadata (2.8 kB)\par
+Collecting quack-kernels>=0.2.7 (from vllm==0.19.0)\par
+  Downloading quack_kernels-0.3.10-py3-none-any.whl.metadata (619 bytes)\par
+Collecting loguru (from compressed-tensors==0.14.0.1->vllm==0.19.0)\par
+  Downloading loguru-0.7.3-py3-none-any.whl.metadata (22 kB)\par
+Collecting astor (from depyf==0.20.0->vllm==0.19.0)\par
+  Downloading astor-0.8.1-py2.py3-none-any.whl.metadata (4.2 kB)\par
+Collecting dill (from depyf==0.20.0->vllm==0.19.0)\par
+  Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)\par
+Collecting apache-tvm-ffi!=0.1.8,!=0.1.8.post0,<0.2,>=0.1.6 (from flashinfer-python==0.6.6->vllm==0.19.0)\par
+  Downloading apache_tvm_ffi-0.1.10-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (6.1 kB)\par
+Collecting click (from flashinfer-python==0.6.6->vllm==0.19.0)\par
+  Using cached click-8.3.2-py3-none-any.whl.metadata (2.6 kB)\par
+Collecting nvidia-ml-py (from flashinfer-python==0.6.6->vllm==0.19.0)\par
+  Downloading nvidia_ml_py-13.595.45-py3-none-any.whl.metadata (9.7 kB)\par
+Collecting packaging>=24.2 (from flashinfer-python==0.6.6->vllm==0.19.0)\par
+  Downloading packaging-26.1-py3-none-any.whl.metadata (3.5 kB)\par
+Collecting tabulate (from flashinfer-python==0.6.6->vllm==0.19.0)\par
+  Downloading tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)\par
+Collecting interegular>=0.3.2 (from lm-format-enforcer==0.11.3->vllm==0.19.0)\par
+  Downloading interegular-0.3.3-py37-none-any.whl.metadata (3.0 kB)\par
+Collecting llvmlite<0.45,>=0.44.0dev0 (from numba==0.61.2->vllm==0.19.0)\par
+  Downloading llvmlite-0.44.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.8 kB)\par
+Collecting numpy (from vllm==0.19.0)\par
+  Downloading numpy-2.2.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)\par
+Collecting sympy>=1.13.3 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)\par
+Collecting networkx>=2.5.1 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)\par
+Collecting jinja2 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)\par
+Collecting fsspec>=0.8.5 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading fsspec-2026.3.0-py3-none-any.whl.metadata (10 kB)\par
+Collecting cuda-bindings==12.9.4 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading cuda_bindings-12.9.4-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (2.6 kB)\par
+Collecting nvidia-cuda-nvrtc-cu12==12.8.93 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)\par
+Collecting nvidia-cuda-runtime-cu12==12.8.90 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)\par
+Collecting nvidia-cuda-cupti-cu12==12.8.90 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)\par
+Collecting nvidia-cudnn-cu12==9.10.2.21 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)\par
+Collecting nvidia-cublas-cu12==12.8.4.1 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)\par
+Collecting nvidia-cufft-cu12==11.3.3.83 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)\par
+Collecting nvidia-curand-cu12==10.3.9.90 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)\par
+Collecting nvidia-cusolver-cu12==11.7.3.90 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)\par
+Collecting nvidia-cusparse-cu12==12.5.8.93 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)\par
+Collecting nvidia-cusparselt-cu12==0.7.1 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl.metadata (7.0 kB)\par
+Collecting nvidia-nccl-cu12==2.27.5 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.0 kB)\par
+Collecting nvidia-nvshmem-cu12==3.4.5 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_nvshmem_cu12-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.1 kB)\par
+Collecting nvidia-nvtx-cu12==12.8.90 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)\par
+Collecting nvidia-nvjitlink-cu12==12.8.93 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)\par
+Collecting nvidia-cufile-cu12==1.13.1.3 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)\par
+Collecting triton==3.6.0 (from torch==2.10.0->vllm==0.19.0)\par
+  Downloading triton-3.6.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.7 kB)\par
+Collecting cuda-pathfinder~=1.1 (from cuda-bindings==12.9.4->torch==2.10.0->vllm==0.19.0)\par
+  Downloading cuda_pathfinder-1.5.3-py3-none-any.whl.metadata (1.9 kB)\par
+Collecting httpx (from model-hosting-container-standards<1.0.0,>=0.1.13->vllm==0.19.0)\par
+  Using cached httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)\par
+Collecting jmespath (from model-hosting-container-standards<1.0.0,>=0.1.13->vllm==0.19.0)\par
+  Downloading jmespath-1.1.0-py3-none-any.whl.metadata (7.6 kB)\par
+Requirement already satisfied: setuptools in ./140env/lib/python3.11/site-packages (from model-hosting-container-standards<1.0.0,>=0.1.13->vllm==0.19.0) (65.5.0)\par
+Collecting starlette>=0.49.1 (from model-hosting-container-standards<1.0.0,>=0.1.13->vllm==0.19.0)\par
+  Downloading starlette-1.0.0-py3-none-any.whl.metadata (6.3 kB)\par
+Collecting supervisor>=4.2.0 (from model-hosting-container-standards<1.0.0,>=0.1.13->vllm==0.19.0)\par
+  Downloading supervisor-4.3.0-py2.py3-none-any.whl.metadata (87 kB)\par
+Collecting huggingface-hub<1.0,>=0.34.0 (from transformers<5,>=4.56.0->vllm==0.19.0)\par
+  Downloading huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)\par
+Collecting safetensors>=0.4.3 (from transformers<5,>=4.56.0->vllm==0.19.0)\par
+  Using cached safetensors-0.7.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)\par
+Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface-hub<1.0,>=0.34.0->transformers<5,>=4.56.0->vllm==0.19.0)\par
+  Using cached hf_xet-1.4.3-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)\par
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp>=3.13.3->vllm==0.19.0)\par
+  Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)\par
+Collecting aiosignal>=1.4.0 (from aiohttp>=3.13.3->vllm==0.19.0)\par
+  Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)\par
+Collecting attrs>=17.3.0 (from aiohttp>=3.13.3->vllm==0.19.0)\par
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)\par
+Collecting frozenlist>=1.1.1 (from aiohttp>=3.13.3->vllm==0.19.0)\par
+  Downloading frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)\par
+Collecting multidict<7.0,>=4.5 (from aiohttp>=3.13.3->vllm==0.19.0)\par
+  Downloading multidict-6.7.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)\par
+Collecting propcache>=0.2.0 (from aiohttp>=3.13.3->vllm==0.19.0)\par
+  Downloading propcache-0.4.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (13 kB)\par
+Collecting yarl<2.0,>=1.17.0 (from aiohttp>=3.13.3->vllm==0.19.0)\par
+  Downloading yarl-1.23.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)\par
+Collecting idna>=2.0 (from yarl<2.0,>=1.17.0->aiohttp>=3.13.3->vllm==0.19.0)\par
+  Using cached idna-3.11-py3-none-any.whl.metadata (8.4 kB)\par
+Collecting anyio<5,>=3.5.0 (from anthropic>=0.71.0->vllm==0.19.0)\par
+  Using cached anyio-4.13.0-py3-none-any.whl.metadata (4.5 kB)\par
+Collecting distro<2,>=1.7.0 (from anthropic>=0.71.0->vllm==0.19.0)\par
+  Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)\par
+Collecting docstring-parser<1,>=0.15 (from anthropic>=0.71.0->vllm==0.19.0)\par
+  Downloading docstring_parser-0.18.0-py3-none-any.whl.metadata (3.5 kB)\par
+Collecting jiter<1,>=0.4.0 (from anthropic>=0.71.0->vllm==0.19.0)\par
+  Downloading jiter-0.14.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.2 kB)\par
+Collecting sniffio (from anthropic>=0.71.0->vllm==0.19.0)\par
+  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)\par
+Collecting certifi (from httpx->model-hosting-container-standards<1.0.0,>=0.1.13->vllm==0.19.0)\par
+  Using cached certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)\par
+Collecting httpcore==1.* (from httpx->model-hosting-container-standards<1.0.0,>=0.1.13->vllm==0.19.0)\par
+  Using cached httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)\par
+Collecting h11>=0.16 (from httpcore==1.*->httpx->model-hosting-container-standards<1.0.0,>=0.1.13->vllm==0.19.0)\par
+  Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)\par
+Collecting annotated-types>=0.6.0 (from pydantic>=2.12.0->vllm==0.19.0)\par
+  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)\par
+Collecting pydantic-core==2.46.0 (from pydantic>=2.12.0->vllm==0.19.0)\par
+  Downloading pydantic_core-2.46.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)\par
+Collecting typing-inspection>=0.4.2 (from pydantic>=2.12.0->vllm==0.19.0)\par
+  Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)\par
+Collecting annotated-doc>=0.0.2 (from fastapi>=0.115.0->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Using cached annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)\par
+Collecting fastapi-cli>=0.0.8 (from fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading fastapi_cli-0.0.24-py3-none-any.whl.metadata (6.4 kB)\par
+Collecting python-multipart>=0.0.18 (from fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading python_multipart-0.0.26-py3-none-any.whl.metadata (2.1 kB)\par
+Collecting email-validator>=2.0.0 (from fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading email_validator-2.3.0-py3-none-any.whl.metadata (26 kB)\par
+Collecting uvicorn>=0.12.0 (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading uvicorn-0.44.0-py3-none-any.whl.metadata (6.7 kB)\par
+Collecting pydantic-settings>=2.0.0 (from fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading pydantic_settings-2.13.1-py3-none-any.whl.metadata (3.4 kB)\par
+Collecting pydantic-extra-types>=2.0.0 (from fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading pydantic_extra_types-2.11.1-py3-none-any.whl.metadata (4.2 kB)\par
+Collecting dnspython>=2.0.0 (from email-validator>=2.0.0->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading dnspython-2.8.0-py3-none-any.whl.metadata (5.7 kB)\par
+Collecting typer>=0.16.0 (from fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Using cached typer-0.24.1-py3-none-any.whl.metadata (16 kB)\par
+Collecting rich-toolkit>=0.14.8 (from fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading rich_toolkit-0.19.7-py3-none-any.whl.metadata (1.0 kB)\par
+Collecting fastapi-cloud-cli>=0.1.1 (from fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading fastapi_cloud_cli-0.16.1-py3-none-any.whl.metadata (3.3 kB)\par
+Collecting rignore>=0.5.1 (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading rignore-0.7.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)\par
+Collecting sentry-sdk>=2.20.0 (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading sentry_sdk-2.58.0-py2.py3-none-any.whl.metadata (10 kB)\par
+Collecting fastar>=0.10.0 (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading fastar-0.11.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)\par
+Collecting MarkupSafe>=2.0 (from jinja2->torch==2.10.0->vllm==0.19.0)\par
+  Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)\par
+Collecting jsonschema>=4.21.1 (from mistral_common>=1.10.0->mistral_common[image]>=1.10.0->vllm==0.19.0)\par
+  Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)\par
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.21.1->mistral_common>=1.10.0->mistral_common[image]>=1.10.0->vllm==0.19.0)\par
+  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)\par
+Collecting referencing>=0.28.4 (from jsonschema>=4.21.1->mistral_common>=1.10.0->mistral_common[image]>=1.10.0->vllm==0.19.0)\par
+  Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)\par
+Collecting rpds-py>=0.25.0 (from jsonschema>=4.21.1->mistral_common>=1.10.0->mistral_common[image]>=1.10.0->vllm==0.19.0)\par
+  Downloading rpds_py-0.30.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)\par
+Collecting nvidia-cutlass-dsl-libs-base==4.5.0.dev0 (from nvidia-cutlass-dsl>=4.4.0.dev1->vllm==0.19.0)\par
+  Downloading nvidia_cutlass_dsl_libs_base-4.5.0.dev0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (2.7 kB)\par
+Collecting cuda-python>=12.8 (from nvidia-cutlass-dsl-libs-base==4.5.0.dev0->nvidia-cutlass-dsl>=4.4.0.dev1->vllm==0.19.0)\par
+  Downloading cuda_python-13.2.0-py3-none-any.whl.metadata (6.5 kB)\par
+INFO: pip is looking at multiple versions of cuda-python to determine which version is compatible with other requirements. This could take a while.\par
+  Downloading cuda_python-13.1.1-py3-none-any.whl.metadata (6.2 kB)\par
+  Downloading cuda_python-13.1.0-py3-none-any.whl.metadata (4.8 kB)\par
+  Downloading cuda_python-13.0.3-py3-none-any.whl.metadata (4.7 kB)\par
+  Downloading cuda_python-13.0.2-py3-none-any.whl.metadata (4.7 kB)\par
+  Downloading cuda_python-13.0.1-py3-none-any.whl.metadata (4.7 kB)\par
+  Downloading cuda_python-13.0.0-py3-none-any.whl.metadata (4.7 kB)\par
+  Downloading cuda_python-12.9.6-py3-none-any.whl.metadata (4.7 kB)\par
+INFO: pip is still looking at multiple versions of cuda-python to determine which version is compatible with other requirements. This could take a while.\par
+  Downloading cuda_python-12.9.5-py3-none-any.whl.metadata (4.7 kB)\par
+  Downloading cuda_python-12.9.4-py3-none-any.whl.metadata (4.7 kB)\par
+Collecting importlib-metadata<8.8.0,>=6.0 (from opentelemetry-api>=1.27.0->vllm==0.19.0)\par
+  Downloading importlib_metadata-8.7.1-py3-none-any.whl.metadata (4.7 kB)\par
+Collecting zipp>=3.20 (from importlib-metadata<8.8.0,>=6.0->opentelemetry-api>=1.27.0->vllm==0.19.0)\par
+  Downloading zipp-3.23.1-py3-none-any.whl.metadata (3.6 kB)\par
+Collecting opentelemetry-exporter-otlp-proto-grpc==1.41.0 (from opentelemetry-exporter-otlp>=1.27.0->vllm==0.19.0)\par
+  Downloading opentelemetry_exporter_otlp_proto_grpc-1.41.0-py3-none-any.whl.metadata (2.6 kB)\par
+Collecting opentelemetry-exporter-otlp-proto-http==1.41.0 (from opentelemetry-exporter-otlp>=1.27.0->vllm==0.19.0)\par
+  Downloading opentelemetry_exporter_otlp_proto_http-1.41.0-py3-none-any.whl.metadata (2.5 kB)\par
+Collecting googleapis-common-protos~=1.57 (from opentelemetry-exporter-otlp-proto-grpc==1.41.0->opentelemetry-exporter-otlp>=1.27.0->vllm==0.19.0)\par
+  Downloading googleapis_common_protos-1.74.0-py3-none-any.whl.metadata (9.2 kB)\par
+Collecting grpcio<2.0.0,>=1.63.2 (from opentelemetry-exporter-otlp-proto-grpc==1.41.0->opentelemetry-exporter-otlp>=1.27.0->vllm==0.19.0)\par
+  Downloading grpcio-1.80.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.8 kB)\par
+Collecting opentelemetry-exporter-otlp-proto-common==1.41.0 (from opentelemetry-exporter-otlp-proto-grpc==1.41.0->opentelemetry-exporter-otlp>=1.27.0->vllm==0.19.0)\par
+  Downloading opentelemetry_exporter_otlp_proto_common-1.41.0-py3-none-any.whl.metadata (1.9 kB)\par
+Collecting opentelemetry-proto==1.41.0 (from opentelemetry-exporter-otlp-proto-grpc==1.41.0->opentelemetry-exporter-otlp>=1.27.0->vllm==0.19.0)\par
+  Downloading opentelemetry_proto-1.41.0-py3-none-any.whl.metadata (2.4 kB)\par
+Collecting protobuf!=6.30.*,!=6.31.*,!=6.32.*,!=6.33.0.*,!=6.33.1.*,!=6.33.2.*,!=6.33.3.*,!=6.33.4.*,>=5.29.6 (from vllm==0.19.0)\par
+  Downloading protobuf-6.33.6-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)\par
+Collecting opentelemetry-semantic-conventions==0.62b0 (from opentelemetry-sdk>=1.27.0->vllm==0.19.0)\par
+  Downloading opentelemetry_semantic_conventions-0.62b0-py3-none-any.whl.metadata (2.5 kB)\par
+Collecting charset_normalizer<4,>=2 (from requests>=2.26.0->vllm==0.19.0)\par
+  Downloading charset_normalizer-3.4.7-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)\par
+Collecting urllib3<3,>=1.26 (from requests>=2.26.0->vllm==0.19.0)\par
+  Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)\par
+Collecting starlette>=0.49.1 (from model-hosting-container-standards<1.0.0,>=0.1.13->vllm==0.19.0)\par
+  Downloading starlette-0.52.1-py3-none-any.whl.metadata (6.3 kB)\par
+Collecting pycountry>=23 (from pydantic-extra-types[pycountry]>=2.10.5->mistral_common>=1.10.0->mistral_common[image]>=1.10.0->vllm==0.19.0)\par
+  Downloading pycountry-26.2.16-py3-none-any.whl.metadata (12 kB)\par
+Collecting python-dotenv>=0.21.0 (from pydantic-settings>=2.0.0->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Using cached python_dotenv-1.2.2-py3-none-any.whl.metadata (27 kB)\par
+Collecting torch-c-dlpack-ext (from quack-kernels>=0.2.7->vllm==0.19.0)\par
+  Downloading torch_c_dlpack_ext-0.1.5-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (14 kB)\par
+Collecting rich>=13.7.1 (from rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Using cached rich-15.0.0-py3-none-any.whl.metadata (18 kB)\par
+Collecting markdown-it-py>=2.2.0 (from rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Using cached markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)\par
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Using cached pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)\par
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)\par
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.10.0->vllm==0.19.0)\par
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)\par
+Collecting shellingham>=1.3.0 (from typer>=0.16.0->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Using cached shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)\par
+Collecting httptools>=0.6.3 (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading httptools-0.7.1-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)\par
+Collecting uvloop>=0.15.1 (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading uvloop-0.22.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.9 kB)\par
+Collecting websockets>=10.4 (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm==0.19.0)\par
+  Downloading websockets-16.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)\par
+Collecting httpx-sse>=0.4 (from mcp->vllm==0.19.0)\par
+  Downloading httpx_sse-0.4.3-py3-none-any.whl.metadata (9.7 kB)\par
+Collecting pyjwt>=2.10.1 (from pyjwt[crypto]>=2.10.1->mcp->vllm==0.19.0)\par
+  Downloading pyjwt-2.12.1-py3-none-any.whl.metadata (4.1 kB)\par
+Collecting sse-starlette>=1.6.1 (from mcp->vllm==0.19.0)\par
+  Downloading sse_starlette-3.3.4-py3-none-any.whl.metadata (14 kB)\par
+Collecting cryptography>=3.4.0 (from pyjwt[crypto]>=2.10.1->mcp->vllm==0.19.0)\par
+  Downloading cryptography-46.0.7-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)\par
+Collecting cffi>=2.0.0 (from cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp->vllm==0.19.0)\par
+  Downloading cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)\par
+Collecting pycparser (from cffi>=2.0.0->cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp->vllm==0.19.0)\par
+  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)\par
+Downloading vllm-0.19.0-cp38-abi3-manylinux_2_31_x86_64.whl (432.3 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1\lang1033  432.3/432.3 MB 54.7 MB/s  0:00:06\par
+Downloading compressed_tensors-0.14.0.1-py3-none-any.whl (196 kB)\par
+Downloading depyf-0.20.0-py3-none-any.whl (39 kB)\par
+Downloading diskcache-5.6.3-py3-none-any.whl (45 kB)\par
+Downloading flashinfer_cubin-0.6.6-py3-none-any.whl (267.7 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  267.7/267.7 MB 59.7 MB/s  0:00:04\par
+Downloading flashinfer_python-0.6.6-py3-none-any.whl (7.8 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  7.8/7.8 MB 60.9 MB/s  0:00:00\par
+Downloading lark-1.2.2-py3-none-any.whl (111 kB)\par
+Downloading lm_format_enforcer-0.11.3-py3-none-any.whl (45 kB)\par
+Downloading numba-0.61.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.8 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  3.8/3.8 MB 46.0 MB/s  0:00:00\par
+Downloading outlines_core-0.2.11-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.3 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  2.3/2.3 MB 28.1 MB/s  0:00:00\par
+Downloading torch-2.10.0-3-cp311-cp311-manylinux_2_28_x86_64.whl (915.5 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  915.5/915.5 MB 45.5 MB/s  0:00:15\par
+Downloading cuda_bindings-12.9.4-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  12.2/12.2 MB 75.3 MB/s  0:00:00\par
+Downloading nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl (594.3 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  594.3/594.3 MB 62.4 MB/s  0:00:07\par
+Downloading nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (10.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  10.2/10.2 MB 82.1 MB/s  0:00:00\par
+Downloading nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (88.0 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  88.0/88.0 MB 72.5 MB/s  0:00:01\par
+Downloading nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (954 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  954.8/954.8 kB 16.6 MB/s  0:00:00\par
+Downloading nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl (706.8 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  706.8/706.8 MB 50.8 MB/s  0:00:09\par
+Downloading nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (193.1 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  193.1/193.1 MB 77.5 MB/s  0:00:02\par
+Downloading nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  1.2/1.2 MB 23.6 MB/s  0:00:00\par
+Downloading nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl (63.6 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  63.6/63.6 MB 52.9 MB/s  0:00:01\par
+Downloading nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl (267.5 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  267.5/267.5 MB 68.6 MB/s  0:00:03\par
+Downloading nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (288.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  288.2/288.2 MB 75.0 MB/s  0:00:03\par
+Downloading nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl (287.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  287.2/287.2 MB 59.8 MB/s  0:00:04\par
+Downloading nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (322.3 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  322.3/322.3 MB 60.8 MB/s  0:00:04\par
+Downloading nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.3 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  39.3/39.3 MB 93.6 MB/s  0:00:00\par
+Downloading nvidia_nvshmem_cu12-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (139.1 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  139.1/139.1 MB 69.7 MB/s  0:00:01\par
+Downloading nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)\par
+Downloading torchaudio-2.10.0-cp311-cp311-manylinux_2_28_x86_64.whl (1.9 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  1.9/1.9 MB 25.5 MB/s  0:00:00\par
+Downloading torchvision-0.25.0-cp311-cp311-manylinux_2_28_x86_64.whl (8.1 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  8.1/8.1 MB 50.6 MB/s  0:00:00\par
+Downloading triton-3.6.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (188.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  188.2/188.2 MB 79.4 MB/s  0:00:02\par
+Downloading apache_tvm_ffi-0.1.10-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (2.6 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  2.6/2.6 MB 25.8 MB/s  0:00:00\par
+Downloading cuda_pathfinder-1.5.3-py3-none-any.whl (49 kB)\par
+Downloading llguidance-1.3.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  3.0/3.0 MB 38.1 MB/s  0:00:00\par
+Downloading llvmlite-0.44.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (42.4 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  42.4/42.4 MB 71.7 MB/s  0:00:00\par
+Downloading model_hosting_container_standards-0.1.14-py3-none-any.whl (121 kB)\par
+Downloading numpy-2.2.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  16.8/16.8 MB 34.1 MB/s  0:00:00\par
+Downloading nvidia_cudnn_frontend-1.18.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (2.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  2.2/2.2 MB 32.6 MB/s  0:00:00\par
+Downloading transformers-4.57.6-py3-none-any.whl (12.0 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  12.0/12.0 MB 67.5 MB/s  0:00:00\par
+Downloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  566.4/566.4 kB 7.6 MB/s  0:00:00\par
+Using cached hf_xet-1.4.3-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)\par
+Using cached tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)\par
+Downloading xgrammar-0.1.33-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (42.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  42.2/42.2 MB 70.5 MB/s  0:00:00\par
+Downloading aiohttp-3.13.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  1.8/1.8 MB 25.8 MB/s  0:00:00\par
+Downloading multidict-6.7.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (246 kB)\par
+Downloading yarl-1.23.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (102 kB)\par
+Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)\par
+Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)\par
+Downloading anthropic-0.95.0-py3-none-any.whl (627 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  627.7/627.7 kB 9.9 MB/s  0:00:00\par
+Using cached anyio-4.13.0-py3-none-any.whl (114 kB)\par
+Downloading distro-1.9.0-py3-none-any.whl (20 kB)\par
+Downloading docstring_parser-0.18.0-py3-none-any.whl (22 kB)\par
+Using cached httpx-0.28.1-py3-none-any.whl (73 kB)\par
+Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)\par
+Downloading jiter-0.14.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (358 kB)\par
+Downloading pydantic-2.13.0-py3-none-any.whl (471 kB)\par
+Downloading pydantic_core-2.46.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  2.1/2.1 MB 36.3 MB/s  0:00:00\par
+Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)\par
+Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)\par
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)\par
+Downloading fastapi-0.135.3-py3-none-any.whl (117 kB)\par
+Using cached annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)\par
+Downloading email_validator-2.3.0-py3-none-any.whl (35 kB)\par
+Downloading dnspython-2.8.0-py3-none-any.whl (331 kB)\par
+Downloading fastapi_cli-0.0.24-py3-none-any.whl (12 kB)\par
+Downloading fastapi_cloud_cli-0.16.1-py3-none-any.whl (33 kB)\par
+Downloading fastar-0.11.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (822 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  822.8/822.8 kB 13.4 MB/s  0:00:00\par
+Downloading filelock-3.28.0-py3-none-any.whl (39 kB)\par
+Downloading frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (231 kB)\par
+Downloading fsspec-2026.3.0-py3-none-any.whl (202 kB)\par
+Downloading gguf-0.18.0-py3-none-any.whl (114 kB)\par
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)\par
+Using cached idna-3.11-py3-none-any.whl (71 kB)\par
+Downloading interegular-0.3.3-py37-none-any.whl (23 kB)\par
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)\par
+Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)\par
+Downloading mistral_common-1.11.0-py3-none-any.whl (6.5 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  6.5/6.5 MB 55.3 MB/s  0:00:00\par
+Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)\par
+Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)\par
+Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  2.1/2.1 MB 25.5 MB/s  0:00:00\par
+Downloading nvidia_cutlass_dsl-4.5.0.dev0-py3-none-any.whl (10 kB)\par
+Downloading nvidia_cutlass_dsl_libs_base-4.5.0.dev0-cp311-cp311-manylinux_2_28_x86_64.whl (74.4 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  74.4/74.4 MB 76.0 MB/s  0:00:00\par
+Downloading cuda_python-12.9.4-py3-none-any.whl (7.6 kB)\par
+Downloading openai-2.31.0-py3-none-any.whl (1.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  1.2/1.2 MB 23.5 MB/s  0:00:00\par
+Downloading openai_harmony-0.0.8-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  3.0/3.0 MB 33.5 MB/s  0:00:00\par
+Downloading opencv_python_headless-4.13.0.92-cp37-abi3-manylinux_2_28_x86_64.whl (60.4 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  60.4/60.4 MB 89.8 MB/s  0:00:00\par
+Downloading opentelemetry_api-1.41.0-py3-none-any.whl (69 kB)\par
+Downloading importlib_metadata-8.7.1-py3-none-any.whl (27 kB)\par
+Downloading opentelemetry_exporter_otlp-1.41.0-py3-none-any.whl (7.0 kB)\par
+Downloading opentelemetry_exporter_otlp_proto_grpc-1.41.0-py3-none-any.whl (20 kB)\par
+Downloading opentelemetry_exporter_otlp_proto_common-1.41.0-py3-none-any.whl (18 kB)\par
+Downloading opentelemetry_exporter_otlp_proto_http-1.41.0-py3-none-any.whl (22 kB)\par
+Downloading opentelemetry_proto-1.41.0-py3-none-any.whl (72 kB)\par
+Downloading googleapis_common_protos-1.74.0-py3-none-any.whl (300 kB)\par
+Downloading grpcio-1.80.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (6.8 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  6.8/6.8 MB 56.2 MB/s  0:00:00\par
+Downloading opentelemetry_sdk-1.41.0-py3-none-any.whl (180 kB)\par
+Downloading opentelemetry_semantic_conventions-0.62b0-py3-none-any.whl (231 kB)\par
+Downloading protobuf-6.33.6-cp39-abi3-manylinux2014_x86_64.whl (323 kB)\par
+Downloading requests-2.33.1-py3-none-any.whl (64 kB)\par
+Downloading charset_normalizer-3.4.7-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (214 kB)\par
+Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)\par
+Using cached certifi-2026.2.25-py3-none-any.whl (153 kB)\par
+Downloading opentelemetry_semantic_conventions_ai-0.5.1-py3-none-any.whl (11 kB)\par
+Downloading packaging-26.1-py3-none-any.whl (95 kB)\par
+Downloading pillow-12.2.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  7.1/7.1 MB 57.6 MB/s  0:00:00\par
+Downloading prometheus_client-0.25.0-py3-none-any.whl (64 kB)\par
+Downloading prometheus_fastapi_instrumentator-7.1.0-py3-none-any.whl (19 kB)\par
+Downloading starlette-0.52.1-py3-none-any.whl (74 kB)\par
+Downloading propcache-0.4.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (210 kB)\par
+Downloading pydantic_extra_types-2.11.1-py3-none-any.whl (79 kB)\par
+Downloading pycountry-26.2.16-py3-none-any.whl (8.0 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  8.0/8.0 MB 15.3 MB/s  0:00:00\par
+Downloading pydantic_settings-2.13.1-py3-none-any.whl (58 kB)\par
+Using cached python_dotenv-1.2.2-py3-none-any.whl (22 kB)\par
+Downloading python_multipart-0.0.26-py3-none-any.whl (28 kB)\par
+Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)\par
+Downloading pyzmq-27.1.0-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (857 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  857.0/857.0 kB 12.0 MB/s  0:00:00\par
+Downloading quack_kernels-0.3.10-py3-none-any.whl (232 kB)\par
+Downloading referencing-0.37.0-py3-none-any.whl (26 kB)\par
+Using cached regex-2026.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (799 kB)\par
+Downloading rich_toolkit-0.19.7-py3-none-any.whl (32 kB)\par
+Using cached click-8.3.2-py3-none-any.whl (108 kB)\par
+Using cached rich-15.0.0-py3-none-any.whl (310 kB)\par
+Using cached pygments-2.20.0-py3-none-any.whl (1.2 MB)\par
+Using cached markdown_it_py-4.0.0-py3-none-any.whl (87 kB)\par
+Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)\par
+Downloading rignore-0.7.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (959 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  959.5/959.5 kB 16.8 MB/s  0:00:00\par
+Downloading rpds_py-0.30.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (390 kB)\par
+Using cached safetensors-0.7.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (507 kB)\par
+Downloading sentry_sdk-2.58.0-py2.py3-none-any.whl (460 kB)\par
+Downloading supervisor-4.3.0-py2.py3-none-any.whl (320 kB)\par
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  6.3/6.3 MB 50.9 MB/s  0:00:00\par
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  536.2/536.2 kB 6.3 MB/s  0:00:00\par
+Downloading tiktoken-0.12.0-cp311-cp311-manylinux_2_28_x86_64.whl (1.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  1.2/1.2 MB 19.9 MB/s  0:00:00\par
+Using cached tqdm-4.67.3-py3-none-any.whl (78 kB)\par
+Using cached typer-0.24.1-py3-none-any.whl (56 kB)\par
+Using cached shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)\par
+Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)\par
+Downloading uvicorn-0.44.0-py3-none-any.whl (69 kB)\par
+Downloading httptools-0.7.1-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (456 kB)\par
+Downloading uvloop-0.22.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.8 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  3.8/3.8 MB 26.5 MB/s  0:00:00\par
+Downloading watchfiles-1.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (456 kB)\par
+Downloading websockets-16.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (184 kB)\par
+Downloading zipp-3.23.1-py3-none-any.whl (10 kB)\par
+Downloading astor-0.8.1-py2.py3-none-any.whl (27 kB)\par
+Downloading blake3-1.0.8-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (387 kB)\par
+Downloading cachetools-7.0.5-py3-none-any.whl (13 kB)\par
+Downloading cbor2-5.9.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (262 kB)\par
+Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)\par
+Downloading dill-0.4.1-py3-none-any.whl (120 kB)\par
+Downloading einops-0.8.2-py3-none-any.whl (65 kB)\par
+Downloading ijson-3.5.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (135 kB)\par
+Downloading jmespath-1.1.0-py3-none-any.whl (20 kB)\par
+Downloading loguru-0.7.3-py3-none-any.whl (61 kB)\par
+Downloading mcp-1.27.0-py3-none-any.whl (215 kB)\par
+Downloading httpx_sse-0.4.3-py3-none-any.whl (9.0 kB)\par
+Downloading pyjwt-2.12.1-py3-none-any.whl (29 kB)\par
+Downloading cryptography-46.0.7-cp311-abi3-manylinux_2_34_x86_64.whl (4.5 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  4.5/4.5 MB 42.4 MB/s  0:00:00\par
+Downloading cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (215 kB)\par
+Downloading sse_starlette-3.3.4-py3-none-any.whl (14 kB)\par
+Downloading msgspec-0.21.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (219 kB)\par
+Downloading ninja-1.13.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (180 kB)\par
+Downloading nvidia_ml_py-13.595.45-py3-none-any.whl (51 kB)\par
+Downloading partial_json_parser-0.2.1.1.post7-py3-none-any.whl (10 kB)\par
+Using cached psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)\par
+Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)\par
+Downloading pybase64-1.4.3-cp311-cp311-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (71 kB)\par
+Downloading pycparser-3.0-py3-none-any.whl (48 kB)\par
+Downloading python_json_logger-4.1.0-py3-none-any.whl (15 kB)\par
+Downloading sentencepiece-0.2.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  1.4/1.4 MB 22.5 MB/s  0:00:00\par
+Downloading setproctitle-1.3.7-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (32 kB)\par
+Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)\par
+Downloading tabulate-0.10.0-py3-none-any.whl (39 kB)\par
+Downloading torch_c_dlpack_ext-0.1.5-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (897 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  897.8/897.8 kB 13.6 MB/s  0:00:00\par
+Installing collected packages: supervisor, py-cpuinfo, nvidia-ml-py, nvidia-cusparselt-cu12, mpmath, zipp, websockets, uvloop, urllib3, typing_extensions, triton, tqdm, tabulate, sympy, sniffio, shellingham, setproctitle, sentencepiece, safetensors, rpds-py, rignore, regex, pyzmq, pyyaml, python-multipart, python-json-logger, python-dotenv, pyjwt, pygments, pycparser, pycountry, pybase64, psutil, protobuf, propcache, prometheus_client, pillow, partial-json-parser, packaging, outlines_core, nvidia-nvtx-cu12, nvidia-nvshmem-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufile-cu12, nvidia-cudnn-frontend, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, ninja, networkx, multidict, msgspec, mdurl, MarkupSafe, loguru, llvmlite, llguidance, lark, jmespath, jiter, interegular, ijson, idna, httpx-sse, httptools, hf-xet, h11, fsspec, frozenlist, flashinfer-cubin, filelock, fastar, einops, docstring-parser, dnspython, distro, diskcache, dill, cuda-pathfinder, cloudpickle, click, charset_normalizer, certifi, cbor2, cachetools, attrs, astor, annotated-types, annotated-doc, aiohappyeyeballs, yarl, uvicorn, typing-inspection, sentry-sdk, requests, referencing, pydantic-core, opentelemetry-proto, opencv-python-headless, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, numba, markdown-it-py, jinja2, importlib-metadata, httpcore, grpcio, googleapis-common-protos, email-validator, depyf, cuda-bindings, cffi, blake3, apache-tvm-ffi, anyio, aiosignal, watchfiles, tiktoken, starlette, rich, pydantic, opentelemetry-exporter-otlp-proto-common, opentelemetry-api, nvidia-cusolver-cu12, jsonschema-specifications, huggingface-hub, httpx, gguf, cuda-python, cryptography, aiohttp, typer, torch, tokenizers, sse-starlette, rich-toolkit, pydantic-settings, pydantic-extra-types, prometheus-fastapi-instrumentator, opentelemetry-semantic-conventions, openai-harmony, openai, nvidia-cutlass-dsl-libs-base, lm-format-enforcer, jsonschema, fastapi, anthropic, transformers, torchvision, torchaudio, torch-c-dlpack-ext, opentelemetry-sdk, nvidia-cutlass-dsl, model-hosting-container-standards, mcp, fastapi-cloud-cli, fastapi-cli, xgrammar, quack-kernels, opentelemetry-semantic-conventions-ai, opentelemetry-exporter-otlp-proto-http, opentelemetry-exporter-otlp-proto-grpc, mistral_common, flashinfer-python, compressed-tensors, opentelemetry-exporter-otlp, vllm\par
+Successfully installed MarkupSafe-3.0.3 aiohappyeyeballs-2.6.1 aiohttp-3.13.5 aiosignal-1.4.0 annotated-doc-0.0.4 annotated-types-0.7.0 anthropic-0.95.0 anyio-4.13.0 apache-tvm-ffi-0.1.10 astor-0.8.1 attrs-26.1.0 blake3-1.0.8 cachetools-7.0.5 cbor2-5.9.0 certifi-2026.2.25 cffi-2.0.0 charset_normalizer-3.4.7 click-8.3.2 cloudpickle-3.1.2 compressed-tensors-0.14.0.1 cryptography-46.0.7 cuda-bindings-12.9.4 cuda-pathfinder-1.5.3 cuda-python-12.9.4 depyf-0.20.0 dill-0.4.1 diskcache-5.6.3 distro-1.9.0 dnspython-2.8.0 docstring-parser-0.18.0 einops-0.8.2 email-validator-2.3.0 fastapi-0.135.3 fastapi-cli-0.0.24 fastapi-cloud-cli-0.16.1 fastar-0.11.0 filelock-3.28.0 flashinfer-cubin-0.6.6 flashinfer-python-0.6.6 frozenlist-1.8.0 fsspec-2026.3.0 gguf-0.18.0 googleapis-common-protos-1.74.0 grpcio-1.80.0 h11-0.16.0 hf-xet-1.4.3 httpcore-1.0.9 httptools-0.7.1 httpx-0.28.1 httpx-sse-0.4.3 huggingface-hub-0.36.2 idna-3.11 ijson-3.5.0 importlib-metadata-8.7.1 interegular-0.3.3 jinja2-3.1.6 jiter-0.14.0 jmespath-1.1.0 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 lark-1.2.2 llguidance-1.3.0 llvmlite-0.44.0 lm-format-enforcer-0.11.3 loguru-0.7.3 markdown-it-py-4.0.0 mcp-1.27.0 mdurl-0.1.2 mistral_common-1.11.0 model-hosting-container-standards-0.1.14 mpmath-1.3.0 msgspec-0.21.1 multidict-6.7.1 networkx-3.6.1 ninja-1.13.0 numba-0.61.2 numpy-2.2.6 nvidia-cublas-cu12-12.8.4.1 nvidia-cuda-cupti-cu12-12.8.90 nvidia-cuda-nvrtc-cu12-12.8.93 nvidia-cuda-runtime-cu12-12.8.90 nvidia-cudnn-cu12-9.10.2.21 nvidia-cudnn-frontend-1.18.0 nvidia-cufft-cu12-11.3.3.83 nvidia-cufile-cu12-1.13.1.3 nvidia-curand-cu12-10.3.9.90 nvidia-cusolver-cu12-11.7.3.90 nvidia-cusparse-cu12-12.5.8.93 nvidia-cusparselt-cu12-0.7.1 nvidia-cutlass-dsl-4.5.0.dev0 nvidia-cutlass-dsl-libs-base-4.5.0.dev0 nvidia-ml-py-13.595.45 nvidia-nccl-cu12-2.27.5 nvidia-nvjitlink-cu12-12.8.93 nvidia-nvshmem-cu12-3.4.5 nvidia-nvtx-cu12-12.8.90 openai-2.31.0 openai-harmony-0.0.8 opencv-python-headless-4.13.0.92 opentelemetry-api-1.41.0 opentelemetry-exporter-otlp-1.41.0 opentelemetry-exporter-otlp-proto-common-1.41.0 opentelemetry-exporter-otlp-proto-grpc-1.41.0 opentelemetry-exporter-otlp-proto-http-1.41.0 opentelemetry-proto-1.41.0 opentelemetry-sdk-1.41.0 opentelemetry-semantic-conventions-0.62b0 opentelemetry-semantic-conventions-ai-0.5.1 outlines_core-0.2.11 packaging-26.1 partial-json-parser-0.2.1.1.post7 pillow-12.2.0 prometheus-fastapi-instrumentator-7.1.0 prometheus_client-0.25.0 propcache-0.4.1 protobuf-6.33.6 psutil-7.2.2 py-cpuinfo-9.0.0 pybase64-1.4.3 pycountry-26.2.16 pycparser-3.0 pydantic-2.13.0 pydantic-core-2.46.0 pydantic-extra-types-2.11.1 pydantic-settings-2.13.1 pygments-2.20.0 pyjwt-2.12.1 python-dotenv-1.2.2 python-json-logger-4.1.0 python-multipart-0.0.26 pyyaml-6.0.3 pyzmq-27.1.0 quack-kernels-0.3.10 referencing-0.37.0 regex-2026.4.4 requests-2.33.1 rich-15.0.0 rich-toolkit-0.19.7 rignore-0.7.6 rpds-py-0.30.0 safetensors-0.7.0 sentencepiece-0.2.1 sentry-sdk-2.58.0 setproctitle-1.3.7 shellingham-1.5.4 sniffio-1.3.1 sse-starlette-3.3.4 starlette-0.52.1 supervisor-4.3.0 sympy-1.14.0 tabulate-0.10.0 tiktoken-0.12.0 tokenizers-0.22.2 torch-2.10.0 torch-c-dlpack-ext-0.1.5 torchaudio-2.10.0 torchvision-0.25.0 tqdm-4.67.3 transformers-4.57.6 triton-3.6.0 typer-0.24.1 typing-inspection-0.4.2 typing_extensions-4.15.0 urllib3-2.6.3 uvicorn-0.44.0 uvloop-0.22.1 vllm-0.19.0 watchfiles-1.1.1 websockets-16.0 xgrammar-0.1.33 yarl-1.23.0 zipp-3.23.1\cf0\par
+\fs22 (140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$\par
+\f0\lang1029 (140env) kment@aic:~/pyenv$ \cf1\b pip list\cf0\b0\par
+\cf3\fs16 Package                                  Version       Build\par
+---------------------------------------- ------------- -----\par
+aiohappyeyeballs                         2.6.1\par
+aiohttp                                  3.13.5\par
+aiosignal                                1.4.0\par
+annotated-doc                            0.0.4\par
+annotated-types                          0.7.0\par
+anthropic                                0.95.0\par
+anyio                                    4.13.0\par
+apache-tvm-ffi                           0.1.10\par
+astor                                    0.8.1\par
+attrs                                    26.1.0\par
+blake3                                   1.0.8\par
+cachetools                               7.0.5\par
+cbor2                                    5.9.0\par
+certifi                                  2026.2.25\par
+cffi                                     2.0.0\par
+charset-normalizer                       3.4.7\par
+click                                    8.3.2\par
+cloudpickle                              3.1.2\par
+compressed-tensors                       0.14.0.1\par
+cryptography                             46.0.7\par
+cuda-bindings                            12.9.4\par
+cuda-pathfinder                          1.5.3\par
+cuda-python                              12.9.4\par
+depyf                                    0.20.0\par
+dill                                     0.4.1\par
+diskcache                                5.6.3\par
+distro                                   1.9.0\par
+dnspython                                2.8.0\par
+docstring_parser                         0.18.0\par
+einops                                   0.8.2\par
+email-validator                          2.3.0\par
+fastapi                                  0.135.3\par
+fastapi-cli                              0.0.24\par
+fastapi-cloud-cli                        0.16.1\par
+fastar                                   0.11.0\par
+filelock                                 3.28.0\par
+flashinfer-cubin                         0.6.6\par
+flashinfer-python                        0.6.6\par
+frozenlist                               1.8.0\par
+fsspec                                   2026.3.0\par
+gguf                                     0.18.0\par
+googleapis-common-protos                 1.74.0\par
+grpcio                                   1.80.0\par
+h11                                      0.16.0\par
+hf-xet                                   1.4.3\par
+httpcore                                 1.0.9\par
+httptools                                0.7.1\par
+httpx                                    0.28.1\par
+httpx-sse                                0.4.3\par
+huggingface_hub                          0.36.2\par
+idna                                     3.11\par
+ijson                                    3.5.0\par
+importlib_metadata                       8.7.1\par
+interegular                              0.3.3\par
+Jinja2                                   3.1.6\par
+jiter                                    0.14.0\par
+jmespath                                 1.1.0\par
+jsonschema                               4.26.0\par
+jsonschema-specifications                2025.9.1\par
+lark                                     1.2.2\par
+llguidance                               1.3.0\par
+llvmlite                                 0.44.0\par
+lm-format-enforcer                       0.11.3\par
+loguru                                   0.7.3\par
+markdown-it-py                           4.0.0\par
+MarkupSafe                               3.0.3\par
+mcp                                      1.27.0\par
+mdurl                                    0.1.2\par
+mistral_common                           1.11.0\par
+model-hosting-container-standards        0.1.14\par
+mpmath                                   1.3.0\par
+msgspec                                  0.21.1\par
+multidict                                6.7.1\par
+networkx                                 3.6.1\par
+ninja                                    1.13.0\par
+numba                                    0.61.2\par
+numpy                                    2.2.6\par
+nvidia-cublas-cu12                       12.8.4.1\par
+nvidia-cuda-cupti-cu12                   12.8.90\par
+nvidia-cuda-nvrtc-cu12                   12.8.93\par
+nvidia-cuda-runtime-cu12                 12.8.90\par
+nvidia-cudnn-cu12                        9.10.2.21\par
+nvidia-cudnn-frontend                    1.18.0\par
+nvidia-cufft-cu12                        11.3.3.83\par
+nvidia-cufile-cu12                       1.13.1.3\par
+nvidia-curand-cu12                       10.3.9.90\par
+nvidia-cusolver-cu12                     11.7.3.90\par
+nvidia-cusparse-cu12                     12.5.8.93\par
+nvidia-cusparselt-cu12                   0.7.1\par
+nvidia-cutlass-dsl                       4.5.0.dev0\par
+nvidia-cutlass-dsl-libs-base             4.5.0.dev0\par
+nvidia-ml-py                             13.595.45\par
+nvidia-nccl-cu12                         2.27.5\par
+nvidia-nvjitlink-cu12                    12.8.93\par
+nvidia-nvshmem-cu12                      3.4.5\par
+nvidia-nvtx-cu12                         12.8.90\par
+openai                                   2.31.0\par
+openai-harmony                           0.0.8\par
+opencv-python-headless                   4.13.0.92\par
+opentelemetry-api                        1.41.0\par
+opentelemetry-exporter-otlp              1.41.0\par
+opentelemetry-exporter-otlp-proto-common 1.41.0\par
+opentelemetry-exporter-otlp-proto-grpc   1.41.0\par
+opentelemetry-exporter-otlp-proto-http   1.41.0\par
+opentelemetry-proto                      1.41.0\par
+opentelemetry-sdk                        1.41.0\par
+opentelemetry-semantic-conventions       0.62b0\par
+opentelemetry-semantic-conventions-ai    0.5.1\par
+outlines_core                            0.2.11\par
+packaging                                26.1\par
+partial-json-parser                      0.2.1.1.post7\par
+pillow                                   12.2.0\par
+pip                                      26.0.1\par
+prometheus_client                        0.25.0\par
+prometheus-fastapi-instrumentator        7.1.0\par
+propcache                                0.4.1\par
+protobuf                                 6.33.6\par
+psutil                                   7.2.2\par
+py-cpuinfo                               9.0.0\par
+pybase64                                 1.4.3\par
+pycountry                                26.2.16\par
+pycparser                                3.0\par
+pydantic                                 2.13.0\par
+pydantic_core                            2.46.0\par
+pydantic-extra-types                     2.11.1\par
+pydantic-settings                        2.13.1\par
+Pygments                                 2.20.0\par
+PyJWT                                    2.12.1\par
+python-dotenv                            1.2.2\par
+python-json-logger                       4.1.0\par
+python-multipart                         0.0.26\par
+PyYAML                                   6.0.3\par
+pyzmq                                    27.1.0\par
+quack-kernels                            0.3.10\par
+referencing                              0.37.0\par
+regex                                    2026.4.4\par
+requests                                 2.33.1\par
+rich                                     15.0.0\par
+rich-toolkit                             0.19.7\par
+rignore                                  0.7.6\par
+rpds-py                                  0.30.0\par
+safetensors                              0.7.0\par
+sentencepiece                            0.2.1\par
+sentry-sdk                               2.58.0\par
+setproctitle                             1.3.7\par
+setuptools                               65.5.0\par
+shellingham                              1.5.4\par
+sniffio                                  1.3.1\par
+sse-starlette                            3.3.4\par
+starlette                                0.52.1\par
+supervisor                               4.3.0\par
+sympy                                    1.14.0\par
+tabulate                                 0.10.0\par
+tiktoken                                 0.12.0\par
+tokenizers                               0.22.2\par
+torch                                    2.10.0        3\par
+torch_c_dlpack_ext                       0.1.5\par
+torchaudio                               2.10.0\par
+torchvision                              0.25.0\par
+tqdm                                     4.67.3\par
+transformers                             4.57.6\par
+triton                                   3.6.0\par
+typer                                    0.24.1\par
+typing_extensions                        4.15.0\par
+typing-inspection                        0.4.2\par
+urllib3                                  2.6.3\par
+uvicorn                                  0.44.0\par
+uvloop                                   0.22.1\par
+vllm                                     0.19.0\par
+watchfiles                               1.1.1\par
+websockets                               16.0\par
+xgrammar                                 0.1.33\par
+yarl                                     1.23.0\par
+zipp                                     3.23.1\par
+\cf0\fs22 (140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$ \cf2\b pip install -U --no-deps \\\par
+  transformers==5.5.0 \\\par
+  tokenizers==0.22.2 \\\par
+  huggingface_hub==1.9.0 \\\par
+  safetensors==0.7.0 \\\par
+  sentencepiece==0.2.1 \\\par
+  accelerate==1.13.0 \\\par
+  python-dotenv==1.2.2 \\\par
+  httpx==0.28.1\par
+\cf3\b0\fs16 Collecting transformers==5.5.0\par
+  Downloading transformers-5.5.0-py3-none-any.whl.metadata (32 kB)\par
+Requirement already satisfied: tokenizers==0.22.2 in ./140env/lib/python3.11/site-packages (0.22.2)\par
+Collecting huggingface_hub==1.9.0\par
+  Downloading huggingface_hub-1.9.0-py3-none-any.whl.metadata (14 kB)\par
+Requirement already satisfied: safetensors==0.7.0 in ./140env/lib/python3.11/site-packages (0.7.0)\par
+Requirement already satisfied: sentencepiece==0.2.1 in ./140env/lib/python3.11/site-packages (0.2.1)\par
+Collecting accelerate==1.13.0\par
+  Using cached accelerate-1.13.0-py3-none-any.whl.metadata (19 kB)\par
+Requirement already satisfied: python-dotenv==1.2.2 in ./140env/lib/python3.11/site-packages (1.2.2)\par
+Requirement already satisfied: httpx==0.28.1 in ./140env/lib/python3.11/site-packages (0.28.1)\par
+Downloading transformers-5.5.0-py3-none-any.whl (10.2 MB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1\lang1033  10.2/10.2 MB 26.1 MB/s  0:00:00\par
+Downloading huggingface_hub-1.9.0-py3-none-any.whl (637 kB)\par
+   \f2\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\u9473?\f1  637.4/637.4 kB 8.6 MB/s  0:00:00\par
+Using cached accelerate-1.13.0-py3-none-any.whl (383 kB)\par
+Installing collected packages: transformers, huggingface_hub, accelerate\par
+  Attempting uninstall: transformers\par
+    Found existing installation: transformers 4.57.6\par
+    Uninstalling transformers-4.57.6:\par
+      Successfully uninstalled transformers-4.57.6\par
+  Attempting uninstall: huggingface_hub\par
+    Found existing installation: huggingface_hub 0.36.2\par
+    Uninstalling huggingface_hub-0.36.2:\par
+      Successfully uninstalled huggingface_hub-0.36.2\par
+\cf5 Successfully installed accelerate-1.13.0 huggingface_hub-1.9.0 transformers-5.5.0\par
+\cf6\fs22 (140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$\par
+\par
+\ul\b\f0\fs28\lang1029 I.A Vyzkou\'9aen\f1\lang1033\'ed\f0\lang1029  venv\f1\fs22\lang1033\par
+\ulnone\b0\par
+(140env) kment@aic:~/pyenv$\cf0\f0\lang1029\par
+(140env) kment@aic:~/pyenv$ \cf2\b srun -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G --pty bash\cf0\b0\par
+kment@gpu-node3:~/pyenv$\par
+kment@gpu-node3:~/pyenv$\par
+kment@gpu-node3:~/pyenv$ \cf2\b source ~/pyenv/140env/bin/activate\cf0\b0\par
+(140env) kment@gpu-node3:~/pyenv$\par
+(140env) kment@gpu-node3:~/pyenv$\par
+(140env) kment@gpu-node3:~/pyenv$ \cf1\b python -c "from transformers import AutoTokenizer; print('ok')"\cf0\b0\par
+\cf5\b ok\cf0\b0\par
+(140env) kment@gpu-node3:~/pyenv$\par
+(140env) kment@gpu-node3:~/pyenv$\par
+(140env) kment@gpu-node3:~/pyenv$ \cf1\b python -c "import vllm; print('vllm ok')"\cf0\b0\par
+\cf5\b vllm ok\par
+\cf0\b0 (140env) kment@gpu-node3:~/pyenv$\par
+(140env) kment@gpu-node3:~/pyenv$ \cf1\b python -c "import torch; print(torch.__version__)"\cf0\b0\par
+\cf5\b 2.10.0+cu128\cf0\b0\par
+(140env) kment@gpu-node3:~/pyenv$\par
+(140env) kment@gpu-node3:~/pyenv$\par
+\cf1\b (140env) kment@gpu-node3:~/pyenv$ \cf0\b0 python --version\par
+\cf5\b Python 3.11.7\cf0\b0\par
+(140env) kment@gpu-node3:~/pyenv$\par
+(140env) kment@gpu-node3:~/pyenv$\par
+(140env) kment@gpu-node3:~/pyenv$ \cf1\b which python\cf0\b0\par
+\cf5\b /lnet/aic/personal/kment/pyenv/140env/bin/python\cf0\b0\par
+(140env) kment@gpu-node3:~/pyenv$\par
+(140env) kment@gpu-node3:~/pyenv$\par
+(140env) kment@gpu-node3:~/pyenv$ \cf2\b cd ../py\par
+\cf0\b0 (140env) kment@gpu-node3:~/py$\par
+(140env) kment@gpu-node3:~/py$ \cf2\b python chat_local.py\cf0\b0\par
+\cf3 2026-04-15 15:16:25,245 INFO Loading model 'Qwen/Qwen2.5-3B-Instruct' onto GPU \f3\emdash  this may take a while \'85\par
+2026-04-15 15:16:25,388 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json\ul0\cf0}}}}\f3\fs22  "HTTP/1.1 307 Temporary Redirect"\par
+2026-04-15 15:16:25,395 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json\ul0\cf0}}}}\f3\fs22  "HTTP/1.1 200 OK"\par
+Loading weights: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1\lang1033 | 434/434 [00:12<00:00, 35.97it/s]\par
+2026-04-15 15:16:38,903 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/generation_config.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/generation_config.json\ul0\cf0}}}}\f1\fs22  "HTTP/1.1 307 Temporary Redirect"\par
+2026-04-15 15:16:38,909 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json\ul0\cf0}}}}\f1\fs22  "HTTP/1.1 200 OK"\par
+2026-04-15 15:16:39,043 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false\ul0\cf0}}}}\f1\fs22  "HTTP/1.1 404 Not Found"\par
+2026-04-15 15:16:39,168 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main?recursive=true&expand=false }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main?recursive=true&expand=false\ul0\cf0}}}}\f1\fs22  "HTTP/1.1 200 OK"\par
+2026-04-15 15:16:39,585 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct\ul0\cf0}}}}\f1\fs22  "HTTP/1.1 200 OK"\par
+2026-04-15 15:16:39,590 INFO Model loaded successfully.  Ready to chat.\par
+\par
+2026-04-15 15:16:39,590 INFO Model device: cuda:0\par
+2026-04-15 15:16:39,590 INFO Model context window: 32768 tokens.\par
+\cf0 ==============================================================\par
+  Local LLM chat  \f3\emdash   type /help for available commands\par
+==============================================================\par
+\par
+Available commands (type at the chat prompt):\par
+  /help                         Show this help message\par
+  /system <name>                Switch to a named system prompt preset\par
+  /system new <name> <text>     Define a new preset and switch to it immediately\par
+  /system list                  List all available preset names and their texts\par
+  /temp <value>                 Change temperature       e.g.  /temp 0.3\par
+  /max <value>                  Change max new tokens    e.g.  /max 256\par
+  /clear                        Clear conversation history (keeps current settings)\par
+  /mode                         Show all current settings\par
+  /quit  or  /exit              Exit the program\par
+\par
+[assistant | temp=0.7 | max=4096]> \cf1\b Kdo byl prvn\f1\'ed \f0\'e8esk\f1\'fd kr\'e1l?\b0\par
+\cf0\par
+Assistant: Prvn\'edm zn\'e1m\'fdm \f0\'e8esk\f1\'fdm kr\'e1lem je P\f0\'f8emysl Otakar I., kter\f1\'fd se stal kr\'e1lem v roce 1253. V\f0\'9aak existuj\f1\'ed tak\'e9 z\'e1znamy o p\f0\'f8edch\'f9dc\f1\'edch, kte\f0\'f8\f1\'ed \f0\'9eili d\'f8\f1\'edve ne\f0\'9e 900 let p\'f8. Kr. Je tedy slo\'9eit\f1\'e9 definovat jednoho "prvn\'edho" \f0\'e8esk\f1\'e9ho kr\'e1le, proto\f0\'9ee cel\f1\'e1 \f0\'f8ada osob mohou b\f1\'fdt pova\f0\'9eov\f1\'e1na za p\f0\'f8edky \'e8esk\f1\'fdch kr\'e1l\f0\'f9.\par
+\par
+  [context: 175 / 32,768 tokens  (0.5%)]\par
+[assistant | temp=0.7 | max=4096]> \cf1\b /exit\cf0\b0\par
+Bye!\par
+(140env) kment@gpu-node3:~/py$\par
+(140env) kment@gpu-node3:~/py$ \cf2\b python chat_local_fancy.py\cf0\b0\par
+\cf3 2026-04-15 15:17:22,858 INFO Loading model 'Qwen/Qwen2.5-3B-Instruct' onto GPU \f3\emdash  this may take a while \'85\par
+2026-04-15 15:17:23,010 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json\ul0\cf0}}}}\f3\fs22  "HTTP/1.1 307 Temporary Redirect"\par
+2026-04-15 15:17:23,015 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json\ul0\cf0}}}}\f3\fs22  "HTTP/1.1 200 OK"\par
+Loading weights: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 434/434 [00:03<00:00, 138.99it/s]\par
+2026-04-15 15:17:27,398 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/generation_config.json }}{\fldrslt{https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/generation_config.json\ul0\cf0}}}}\f1\fs22  "HTTP/1.1 307 Temporary Redirect"\par
+2026-04-15 15:17:27,402 INFO HTTP Request: HEAD {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json }}{\fldrslt{https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json\ul0\cf0}}}}\f1\fs22  "HTTP/1.1 200 OK"\par
+2026-04-15 15:17:27,526 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false\ul0\cf0}}}}\f1\fs22  "HTTP/1.1 404 Not Found"\par
+2026-04-15 15:17:27,650 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main?recursive=true&expand=false }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main?recursive=true&expand=false\ul0\cf0}}}}\f1\fs22  "HTTP/1.1 200 OK"\par
+2026-04-15 15:17:28,041 INFO HTTP Request: GET {{\field{\*\fldinst{HYPERLINK https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct }}{\fldrslt{https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct\ul0\cf0}}}}\f1\fs22  "HTTP/1.1 200 OK"\par
+2026-04-15 15:17:28,046 INFO Model loaded successfully.  Ready to chat.\par
+\par
+2026-04-15 15:17:28,046 INFO Model device: cuda:0\par
+2026-04-15 15:17:28,046 INFO Model context window: 32768 tokens.\par
+\cf0 ==============================================================\par
+  Local LLM chat (streaming)  \f3\emdash   type /help for commands\par
+==============================================================\par
+\par
+Available commands (type at the chat prompt):\par
+  /help                         Show this help message\par
+  /system <name>                Switch to a named system prompt preset\par
+  /system new <name> <text>     Define a new preset and switch to it immediately\par
+  /system list                  List all available preset names and their texts\par
+  /temp <value>                 Change temperature       e.g.  /temp 0.3\par
+  /max <value>                  Change max new tokens    e.g.  /max 256\par
+  /clear                        Clear conversation history (keeps current settings)\par
+  /mode                         Show all current settings\par
+  /quit  or  /exit              Exit the program\par
+\par
+[assistant | temp=0.7 | max=4096]> \cf1\b Kdo byl posledn\f1\'ed \f0\'e8esk\f1\'fd kr\'e1l?\par
+\cf0\b0\par
+Assistant: Posledn\'ed \f0\'e8esk\f1\'fd kr\'e1l byl V\'e1clav VII., kter\'fd tr\f0\'f9nil pouze kr\f1\'e1tce v roce 1346, a\f0\'9e po jeho smrti byl znovu zru\'9aen kr\f1\'e1lovsk\'fd titul v \f0\'c8ech\f1\'e1ch. V\'e1clav VII. byl v\f0\'9aak nevlastn\f1\'edm synem kr\'e1le V\'e1clava V., proto\f0\'9ee jeho matkou byla \'9alechti\'e8na zvan\f1\'e1 Helena Ro\f0\'9emberkov\f1\'e1, nikoli ofici\'e1ln\'ed kr\'e1lovna. Proto se \f0\'e8asto nezaneseme V\f1\'e1clava VII. jako posledn\'edho \f0\'e8esk\f1\'e9ho kr\'e1le.\par
+\par
+  [context: 195 / 32,768 tokens  (0.6%)]\par
+[assistant | temp=0.7 | max=4096]> \cf1\b /system new pirate Odpov\'eddej jako pir\'e1t z \f0\'c8ech\par
+\cf0\b0   Preset 'pirate' created and activated. History cleared.\par
+[pirate | temp=0.7 | max=4096]> \cf1\b Preferuje\'9a pro dopravu tramvaj nebo \'9akuner?\cf0\b0\par
+\par
+Assistant: Pir\f1\'e1t z \f0\'c8ech by si pravd\'ecpodobn\'ec vybral \'9akunera! Oto\'e8it \'9akuner s n\f1\'e1mo\f0\'f8n\f1\'edm p\f0\'f8\f1\'edstavem a zastavit tramvaj na m\f0\'ecstsk\f1\'e9m most\f0\'ec by bylo dost divn\f1\'e9 a prakticky slo\f0\'9eit\f1\'e9. V\f0\'9aimni, \'9ee \'9akunner je poh\f1\'e1n\f0\'ecn vodou, tak\'9ee by to pomalu pracovalo a bylo by t\'ec\'9ek\f1\'e9 s n\'edm prov\'e9st cestu proti proudu. Tramvaj pak by mohla b\'fdt mnohem rychlej\f0\'9a\f1\'ed a efektivn\f0\'ecj\'9a\f1\'ed za\f0\'f8\f1\'edzen\'edm pro zpracov\'e1n\'ed takov\'e9ho \'fakolu.\par
+\par
+  [context: 217 / 32,768 tokens  (0.7%)]\par
+[pirate | temp=0.7 | max=4096]> \cf1\b Co pije\f0\'9a?\par
+\cf0\b0\par
+Assistant: Co\'9e je tvoje ot\f1\'e1zka! Co\f0\'9epak nesouhlas\f1\'ed\f0\'9a, \'9ee pir\f1\'e1t z \f0\'c8ech se mus\f1\'ed b\'fdt zp\f0\'ectn\'ec orientovat a m\f1\'edt v\'fdborn\'fd senzorick\'fd smysl? Jako pir\'e1t z \f0\'c8ech bych mohl p\f1\'edt jak kvas, kter\'fd jsme v \f0\'c8esk\f1\'fdch zem\'edch d\f0\'eclali b\'echem letor, tak i pivo, kter\f1\'e9 je\f0\'9at\'ec dnes je obecn\'ec obl\f1\'edben\'e9. Ale jak u\f0\'9e jsem \'f8ekl, moje hlavn\f1\'ed z\'e1bava je v pln\f0\'ecn\f1\'ed \'fakol\f0\'f9 a ne v piju.\par
+\par
+  [context: 384 / 32,768 tokens  (1.2%)]\par
+[pirate | temp=0.7 | max=4096]> \cf1\b Pije\'9a r\f1\'e1d rum?\par
+\cf0\b0\par
+Assistant: Rum? To je p\f0\'f8\f1\'edjemn\'fd n\'e1poj, ale j\'e1 jako pir\'e1t z \f0\'c8esk\f1\'fdch zem\'ed m\f0\'ec \'9eivot p\'eckn\'ec vy\'9eene. Zat\f1\'edmco jin\'ed mohou p\'edt rum, \f0\'9aampa\'f2sk\f1\'e9 nebo jin\'e9 pit\'ed, j\'e1 mus\'edm se d\'edvat na pln\f0\'ecn\f1\'ed sv\'fdch hrdinsk\'fdch \'fakol\f0\'f9 a zachov\f1\'e1n\'ed mate\f0\'f8sk\f1\'e9ho plavidla. Ale pokud bys m\f0\'ec prosil o n\'ecjak\f1\'e9 \f0\'e8ajovit\f1\'e9 n\'e1poje nebo skleni\f0\'e8ku kvasu, budu ti velmi vd\'ec\'e8n\f1\'fd!\par
+\par
+  [context: 545 / 32,768 tokens  (1.7%)]\par
+[pirate | temp=0.7 | max=4096]> \cf1\b Jak bojuje\f0\'9a, kdy\'9e p\'f8epad\f1\'e1v\'e1\f0\'9a lod\'ec?\par
+\cf0\b0\par
+Assistant: Kdy\'9e se chyst\f1\'e1m p\f0\'f8epadnout lod, mus\f1\'edm b\'fdt pevn\'fd a odhodlan\'fd! Vzpom\'edn\'e1m na d\f0\'ectstv\f1\'ed, kdy jsem se vyd\'e1val s bratrancem po okol\'ed a p\f0\'f8ed\f1\'e1vali jsme se z\'e1pady na n\f0\'ecjak\f1\'e9 "nebezpe\f0\'e8n\f1\'e9" m\'edsta. Ale to byl jen z\'e1bavn\'fd v\'fdcvik, te\f0\'ef jsem pir\f1\'e1t a to bylo jin\'e9.\par
+\par
+M\f0\'f9\'9eu pou\'9e\f1\'edt n\f0\'eckolik zp\'f9sob\'f9:\par
+\par
+1. **Dopad:** Jak p\'f8\f1\'edmo, kdy\f0\'9e se na lodi objev\f1\'edm zezadu nebo ze strany.\par
+2. **\f0\'8atve:** Zajmu se na lodi, aby se p\'f8eptali, co se stalo. Pak m\'f9\'9eu zah\f1\'e1jit \f0\'9atv\'ecn\f1\'ed, abych zni\f0\'e8il jejich plavidlo nebo v\'9aechny zbran\'ec.\par
+3. **P\'f9lnakl\f1\'e1d\'e1n\'ed:** Pokud je lod pln\'e1 n\'e1mo\f0\'f8n\f1\'edky, mohu p\f0\'f8\par
+\par
+  [context: 829 / 32,768 tokens  (2.5%)]\par
+[pirate | temp=0.7 | max=4096]> \cf1\b St\'f8\f1\'edli\f0\'9a z d\'ecl?\par
+\cf0\b0\par
+Assistant: Aha, ty to mysl\f1\'ed\f0\'9a v\f1\'e1\f0\'9en\'ec! Kdy\'9e se chyst\f1\'e1m p\f0\'f8epadnout lod, nikdy jsem nepokou\'9ael st\'f8\f1\'edlet z dl\f0\'eclu. To by bylo p\'f8\f1\'edli\f0\'9a bezpe\'e8nostn\f1\'ed riziko a ztr\'e1tu zp\f0\'ectn\f1\'e9ho kontroly, kterou by mohlo v\'e9st ke zl\'e9mu situaci.\par
+\par
+M\f0\'f9\'9eu pou\'9e\f1\'edt sv\'e9 plavidlo, aby se p\f0\'f8ibli\'9eilo bl\f1\'edzko lod\f0\'ec a pak zas\f1\'e1hnout do nejvhodn\f0\'ecj\'9a\f1\'edho \f0\'e8asu. Moje hlavn\f1\'ed zbra\f0\'f2 je moje um\'ecl\f1\'e1 inteligence a moje zp\f0\'f9soby plavidla, abych se vyhnul obran\'ec lod\f1\'ed a p\f0\'f8ibl\f1\'ed\f0\'9eil se k jej\f1\'edm nebezpe\f0\'e8n\f1\'fdm zbran\'edm.\par
+\par
+Jako pir\'e1t z \f0\'c8esk\f1\'fdch zem\'ed bych m\f0\'ecl b\f1\'fdt opatrn\'fd a bezpe\f0\'e8n\f1\'fd, aby jsem nem\f0\'ecl probl\f1\'e9my s svou osudem. St\f0\'f8\f1\'edlen\'ed z dl\f0\'eclu by mohlo v\f1\'e9\par
+\par
+  [context: 1,105 / 32,768 tokens  (3.4%)]\par
+[pirate | temp=0.7 | max=4096]> \cf1\b /exit\cf0\b0\par
+Bye!\par
+(140env) kment@gpu-node3:~/py$\f0\lang1029  \par
+(140env) kment@gpu-node3:~/py$\par
+(140env) kment@gpu-node3:~/py$ \cf1\b deactivate\cf0\b0\par
+kment@gpu-node3:~/py$ \cf2\b exit\cf0\b0\par
+exit\par
+(140env) kment@aic:~/pyenv$ \cf1\b deactivate\cf0\b0\par
+kment@aic:~/pyenv$\par
+kment@aic:~/pyenv$\par
+--------------------------------\par
+\par
+\par
+\ul\b\fs36 II. Informace o nodech a dostupn\f1\lang1033\'fd\f0\lang1029 ch GPU\ulnone\b0\f1\fs28\lang1033\par
+\fs22\par
+\lang5 kment@aic:~/pyenv$ \lang1033\par
+\lang5 kment@aic:~/pyenv$ \cf2\b source ~/pyenv/140env/bin/activate\cf0\b0\lang1033\par
+(140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$ \cf2\b sinfo -o "%N %G %f"\cf1             \cf3 <--- Co existuje celkov\f0\lang1029\'ec\cf0\b0\f1\lang1033\par
+NODELIST GRES AVAIL_FEATURES\par
+\cf7 gpu-node\b 1\b0  \cf0 gpu:nvidia_\cf7\b rtx_a4000\cf0\b0 :\cf2\b 8\cf0\b0 (S:0),gpu:nvidia_geforce_\cf7\b rtx_3090\cf0\b0 :\cf2\b 1\cf0\b0 (S:0) gpuram\cf2\b 16G\cf0\b0 ,gpuram\cf2\b 24G\cf0\b0 ,gpu_cc6.1,gpu_cc8.6\par
+\cf7 gpu-node\b 2\b0  \cf0 gpu:quadro_\cf7\b p5000\cf0\b0 :\cf2\b 8\cf0\b0 (S:0-1) gpuram\cf2\b 16G\cf0\b0 ,gpu_cc6.1\par
+
+\pard\sl276\slmult1\tx4828\cf7 gpu-node\b 3\b0  \cf0 gpu:nvidia_\cf7\b l4\cf0\b0 :\cf2\b 2\cf0\b0 ,gpu:nvidia_\cf7\b a16\cf0\b0 :\cf2\b 16\cf0\b0  gpuram\cf2\b 15\cf7 G\cf0\b0 ,gpuram\cf2\b 22G\cf0\b0 ,gpu_cc8.9,gpu_cc8.6\par
+
+\pard\sl276\slmult1\cf7 cpu-node\cf0 [1-2,4-7] (null) (null)\par
+(140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$ \par
+(140env) kment@aic:~/pyenv$ \cf2\b scontrol show node gpu-node1\f0\lang1029     \cf3\f1\lang1033 <--- Co je pr\'e1v\f0\'ec voln\f1\'e9\f0\lang1029  pro node1\cf0\b0\f1\lang1033\par
+NodeName=gpu-node1 Arch=x86_64 CoresPerSocket=8\par
+   CPUAlloc=16 CPUEfctv=30 CPUTot=32 CPULoad=6.25\par
+   AvailableFeatures=gpuram16G,gpuram24G,gpu_cc6.1,gpu_cc8.6\par
+   ActiveFeatures=\cf8 gpuram16G\cf0 ,\cf8 gpuram24G\cf0 ,gpu_cc6.1,gpu_cc8.6\par
+   Gres=gpu:\cf8 nvidia_rtx_a4000\cf0 :8(S:0),gpu:\cf8 nvidia_geforce_rtx_3090\cf0 :1(S:0)\f0\lang1029     \cf3\b\f1\lang1033 <--  8ks + 1ks\par
+\cf0\b0    NodeAddr=10.10.61.35 NodeHostName=gpu-node1 Version=25.11.4\par
+   OS=Linux 5.15.35-1-pve #1 SMP PVE 5.15.35-3 (Wed, 11 May 2022 07:57:51 +0200)\par
+   RealMemory=257830 AllocMem=90112 FreeMem=154069 Sockets=2 Boards=1\par
+   CoreSpecCount=1 CPUSpecList=30-31\par
+   State=MIXED ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A\par
+   Partitions=gpu\par
+   BootTime=2025-02-25T09:15:34 SlurmdStartTime=2026-04-13T17:41:48\par
+   LastBusyTime=2026-04-13T17:41:15 ResumeAfterTime=None\par
+   \cf8 CfgTRES=cpu=30,mem=257830M,billing=30,gres/gpu=9,gres/gpu:nvidia_geforce_rtx_3090=1\f0\lang1029   \cf3\b\f1\lang1033 <--- Co \f0\lang1029 existuje\cf5\b0\f1\lang1033\par
+\cf0    \cf2 AllocTRES=cpu=16,mem=88G,gres/gpu=5,gres/gpu:nvidia_geforce_rtx_3090=1\f0\lang1029    \cf3\b\f1\lang1033 <---\f0\lang1029  z toho zabran\f1\lang1033\'e9\cf2\b0\f0\lang1029               \cf0\f1\lang1033\par
+   CurrentWatts=0 AveWatts=0\par
+\par
+\cf3\b\f0\lang1029 =\f1\lang1033 > \cf0\b0  \cf5 14 CPU \f0\lang1029 voln\f1\lang1033\'e9\f0\lang1029 , 168 GB RAM voln\f1\lang1033\'e9\f0\lang1029 , \b\f1\lang1033 4gpu voln\'e1\b0\f0\lang1029 , \cf1\f1\lang1033 rtx_3090\f0\lang1029  nen\f1\lang1033\'ed\f0\lang1029  voln\f1\lang1033\'e1\cf0\par
+\par
+(140env) kment@aic:~/pyenv$\par
+(140env) kment@aic:~/pyenv$ \cf2 scontrol show node gpu-node2\par
+\cf0 NodeName=gpu-node2 Arch=x86_64 CoresPerSocket=8\par
+   CPUAlloc=28 CPUEfctv=30 CPUTot=32 CPULoad=7.29\par
+   AvailableFeatures=gpuram16G,gpu_cc6.1\par
+   ActiveFeatures=gpuram16G,gpu_cc6.1\par
+   Gres=gpu:quadro_p5000:8(S:0-1)\par
+   NodeAddr=10.10.61.36 NodeHostName=gpu-node2 Version=25.11.4\par
+   OS=Linux 5.15.35-1-pve #1 SMP PVE 5.15.35-3 (Wed, 11 May 2022 07:57:51 +0200)\par
+   RealMemory=257693 AllocMem=180224 FreeMem=209050 Sockets=2 Boards=1\par
+   CoreSpecCount=1 CPUSpecList=30-31\par
+   State=MIXED ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A\par
+   Partitions=gpu\par
+   BootTime=2026-04-08T09:59:20 SlurmdStartTime=2026-04-13T17:41:48\par
+   LastBusyTime=2026-04-14T03:17:41 ResumeAfterTime=None\par
+   \cf8 CfgTRES=cpu=30,mem=257693M,billing=30,gres/gpu=8\par
+\cf0    \cf2 AllocTRES=cpu=28,mem=176G,gres/gpu=8\cf0\par
+   CurrentWatts=0 AveWatts=0\par
+\par
+\cf3\b\f0\lang1029 =\f1\lang1033 >\f0\lang1029  \cf5\b0 2CPU voln\f1\lang1033\'e1\f0\lang1029 , 81 GB RAM voln\f1\lang1033\'e9\f0\lang1029 , \cf1\'9e\f1\lang1033\'e1\f0\lang1029 dn\f1\lang1033\'e9\f0\lang1029  GPU voln\f1\lang1033\'e9\par
+\par
+\cf0\f0\lang1029 (140env) kment@aic:~/pyenv$ \cf2 scontrol show node gpu-node3\par
+\cf0 NodeName=gpu-node3 Arch=x86_64 CoresPerSocket=48\par
+   CPUAlloc=10 CPUEfctv=94 CPUTot=96 CPULoad=3.54\par
+   AvailableFeatures=gpuram15G,gpuram22G,gpu_cc8.9,gpu_cc8.6\par
+   ActiveFeatures=gpuram15G,gpuram22G,gpu_cc8.9,gpu_cc8.6\par
+   Gres=gpu:nvidia_l4:2,gpu:nvidia_a16:16\par
+   NodeAddr=10.10.61.37 NodeHostName=gpu-node3 Version=25.11.4\par
+   OS=Linux 6.8.12-15-pve #1 SMP PREEMPT_DYNAMIC PMX 6.8.12-15 (2025-09-12T11:02Z)\par
+   RealMemory=773333 AllocMem=83968 FreeMem=680601 Sockets=1 Boards=1\par
+   CoreSpecCount=1 CPUSpecList=94-95\par
+   State=MIXED ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A\par
+   Partitions=gpu\par
+   BootTime=2025-12-11T11:46:04 SlurmdStartTime=2026-04-14T10:15:19\par
+   LastBusyTime=2026-04-14T10:15:47 ResumeAfterTime=None\par
+\cf8    CfgTRES=cpu=94,mem=773333M,billing=94,gres/gpu=18,gres/gpu:nvidia_a16=16,gres/gpu:nvidia_l4=2\par
+\cf2    AllocTRES=cpu=10,mem=82G,gres/gpu=4,gres/gpu:nvidia_a16=2,gres/gpu:nvidia_l4=2\par
+\cf0    CurrentWatts=0 AveWatts=0\par
+\par
+\cf3\b =\f1\lang1033 >\f0\lang1029  \cf9 84CPU voln\f1\lang1033\'fd\f0\lang1029 ch, 691GB RAM voln\f1\lang1033\'e9\f0\lang1029 , 14 GPU voln\f1\lang1033\'fd\f0\lang1029 ch, a16 - 14 voln\f1\lang1033\'fd\f0\lang1029 ch\cf3 , \cf1 l4 \'9e\f1\lang1033\'e1\f0\lang1029 dn\f1\lang1033\'e1\f0\lang1029  voln\f1\lang1033\'e1\cf0\b0\f0\lang1029\par
+\par
+(140env) kment@aic:~/pyenv$\par
+\par
+\b Je k dispozici tedy:\b0\par
+\par
+ 2x L4 (22G) na gpu-node3           - pro co nejlep\'9a\f1\lang1033\'ed inference\f0\lang1029 , ale jsou jen dv\'ec\par
+ 1x RTX 3090 (24G) na gpu-node1     - nejv\f1\lang1033\'ed\f0\lang1029 ce VRAM, je jen jedna\par
+ 8x RTX A4000 (16G) na gpu-node1    - st\'f8edn\f1\lang1033\'ed\f0\lang1029  cesta\par
+16\f1\lang1033\'d7 A16\f0\lang1029  (\f1\lang1033 15 GB\f0\lang1029 ) na gpu-node3        - \f1\lang1033\'fa\f0\lang1029 stup\par
+ 8\f1\lang1033\'d7 \f0\lang1029 Quadro \f1\lang1033 P5000 \f0\lang1029 (\f1\lang1033 16G\f0\lang1029 ) na gpu-node2 - nouzovka - \cf2 nefunguje*\cf0\par
+\par
+\f1\lang1033\par
+\ul\b\fs36 III. Spu\f0\lang1029\'9at\'ecn\f1\lang1033\'ed\f0\lang1029  programu\ulnone\b0\fs22\par
+\par
+\par
+\ul\b\fs28 III.A Interaktivn\f1\lang1033\'ed\f0\lang1029  b\'ech\ulnone\b0\f1\fs22\lang1033\par
+\f0\lang1029\par
+Straka TL;DR: To run an interactive GPU job with 1 CPU, 1 GPU, and 16GB RAM, run:\par
+\b srun -p gpu -c1 -G1 --mem=16G --pty bash\b0\par
+\par
+\par
+\b L4\b0\par
+\cf8\b srun -p gpu -c1  -G 1 --constraint=gpuram22G --mem=32G --pty bash \cf10\b0  \par
+\cf3 srun -p gpu -c1  -G 1 --constraint=gpuram22G --mem=32G -t 02:00:00 --pty bash  \cf10\par
+\cf0\par
+\b 3090\b0\par
+\cf8\b srun -p gpu -c1 -G 1 --constraint=gpuram24G --mem=32G --pty bash \cf0\b0\par
+\cf3 srun -p gpu -c1 -G 1 --constraint=gpuram24G --mem=32G \f1\lang1033 -t 02:00:00 \f0\lang1029 --pty bash \cf0\par
+\par
+\b A4000\b0\par
+\cf8\b srun -p gpu -c1 -G 1 --constraint='gpuram16G&gpu_cc8.6' --mem=32G --pty bash\cf0\b0\par
+\cf3 srun -p gpu -c1 -G 1 --constraint='gpuram16G&gpu_cc8.6' \f1\lang1033 -t 02:00:00 \f0\lang1029  --mem=32G --pty bash\par
+\cf0\par
+\b A16 jako fallback z A4000/3090/L4\b0\par
+\cf2\b srun -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G --pty bash \cf10\b0\par
+\cf3 srun -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G \f1\lang1033 -t 02:00:00 \f0\lang1029 --pty bash\par
+\cf0\f1\lang1033\par
+\b P5000\f0\lang1029    \cf2\f1\lang1033 <-- nepou\f0\lang1029\'9e\f1\lang1033\'ed\f0\lang1029 vat *\b0\f1\lang1033\par
+\cf8\b srun -p gpu \f0\lang1029 -c1 \f1\lang1033 -G 1 --constraint='gpuram16G&gpu_cc6.1' --mem=24G \f0\lang1029 --pty bash \cf10\b0\f1\lang1033\par
+\cf3 srun -p gpu \f0\lang1029 -c1 \f1\lang1033 -G 1 --constraint='gpuram16G&gpu_cc6.1' -t 02:00:00 --mem=24G \f0\lang1029 --pty bash\f1\lang1033\par
+\cf0\par
+\f0\fs20\lang1029 * P\'f8i b\'echu na P5000 s transformers b\'ech spadl s hl\f1\lang1033\'e1\f0\lang1029\'9aen\f1\lang1033\'ed\f0\lang1029 m:\f1\lang1033\par
+\cf2 UserWarning:\par
+Quadro P5000 with CUDA capability sm_61 is not compatible with the current PyTorch installation.\par
+The current PyTorch install supports CUDA capabilities sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\par
+If you want to use the Quadro P5000 GPU with PyTorch, please check the instructions at \line {\cf0{\field{\*\fldinst{HYPERLINK https://pytorch.org/get-started/locally/ }}{\fldrslt{https://pytorch.org/get-started/locally/\ul0\cf0}}}}\cf0\f1\fs20\par
+\fs22\par
+\par
+\ul\b\f0\fs28\lang1029 III.A.1 P\'f8\f1\lang1033\'ed\f0\lang1029 klad\f1\lang1033  interaktivn\'ed\f0\lang1029 ho b\'echu\ulnone\b0\f1\fs22\lang1033\par
+\par
+\par
+kment@aic:~$\par
+kment@aic:~$\par
+kment@aic:~$ \cf2\b srun -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G --pty bash\cf0\b0\par
+kment@gpu-node3:~$\par
+kment@gpu-node3:~$\par
+
+\pard\sl240\slmult1 kment@gpu-node3:~$ \cf2\b nvidia-smi\f0\lang1029    \cf3\f1\lang1033 <-- Pokud chci \f0\lang1029 vid\'ect jakou GPU jsem skute\'e8n\'ec obdr\'9eel\cf0\b0\f1\lang1033\par
+
+\pard\sl276\slmult1 Wed Apr 15 00:44:20 2026\par
++-----------------------------------------------------------------------------------------+\par
+| NVIDIA-SMI 550.54.14              Driver Version: 550.54.14      CUDA Version: 12.4     |\par
+|-----------------------------------------+------------------------+----------------------+\par
+| \cf1 GPU  \cf2 Name                 \cf0 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\par
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\par
+|                                         |                        |               MIG M. |\par
+|=========================================+========================+======================|\par
+|   \cf1 0\cf0   \cf2 NVIDIA L4\cf0                       Off |   00000000:41:00.0 Off |                    0 |\par
+| N/A   33C    P8             15W /   72W |       0MiB /  23034MiB |      0%      Default |\par
+|                                         |                        |                  N/A |\par
++-----------------------------------------+------------------------+----------------------+\par
+\par
++-----------------------------------------------------------------------------------------+\par
+| Processes:                                                                              |\par
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |\par
+|        ID   ID                                                               Usage      |\par
+|=========================================================================================|\par
+|  No running processes found                                                             |\par
++-----------------------------------------------------------------------------------------+\par
+kment@gpu-node3:~$\par
+kment@gpu-node3:~$\par
+kment@gpu-node3:~$ \cf2\b source ~/pyenv/140envb/bin/activate\cf0\b0\par
+(140envb) kment@gpu-node3:~$\par
+(140envb) kment@gpu-node3:~$\par
+(140envb) kment@gpu-node3:~$ \cf2\b cd ~/py\cf0\b0\par
+(140envb) kment@gpu-node3:~/py$\par
+(140envb) kment@gpu-node3:~/py$\f0\lang1029  \f1\lang1033\par
+(140envb) kment@gpu-node3:~/py$\par
+(140envb) kment@gpu-node3:~/py$ ls\par
+\fs16 '~'                                    log                                        __pycache__                   run_judge_transf_works3.log\par
+ chat_local_fancy_ORIG.py              logs                                       run_judge_transf66_9.log      run_judge_transf_works3.py\par
+ chat_local_fancy.py                   oeg_human_eval_raw_data                    run_judge_transf_works1.py    run_judge_transf_works3.sh\par
+ chat_local_ORIG.py                    oeg_judge_outloc66_9_submission_data.csv   run_judge_transf_works2.log\par
+ chat_local.py                         oeg_judge_outlocw2_submission_data.csv     run_judge_transf_works2.py\par
+ judge_templates_locales_hybrid13.py   oeg_judge_outlocw3_submission_data.csv     run_judge_transf_works2.sh\par
+\fs22 (140envb) kment@gpu-node3:~/py$\par
+(140envb) kment@gpu-node3:~/py$\f0\lang1029  \cf2\b\f1\lang1033 python chat_local.py\cf0\b0\par
+
+\pard\sl240\slmult1\fs14 kment@gpu-node1:~/py$ python chat_local.py\par
+
+\pard\sl276\slmult1\f4\fs22\lang1029 ... a jako v\f5\lang1033\'fd\f4\lang1029\'9ae\line\f0\lang1033 [assistant | temp=0.7 | max=4096]> \cf1\b /exit\cf0\b0\par
+Bye!\par
+\par
+kment@gpu-node1:~/py$ \par
+
+\pard\sa200\sl276\slmult1\f4\lang1029\par
+
+\pard\sl276\slmult1\ul\b\f0\fs28 III.B D\f1\lang1033\'e1\f0\lang1029 vkov\f1\lang1033\'fd\f0\lang1029  b\'ech (v\'e8. ev. sledov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  pr\'f9b\'echu zpracov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  d\f1\lang1033\'e1\f0\lang1029 vky)\ulnone\b0\f1\fs22\lang1033\par
+\f0\lang1029\par
+\b V\f1\lang1033\'fd\f0\lang1029 hody d\f1\lang1033\'e1\f0\lang1029 vkov\f1\lang1033\'e9\f0\lang1029 ho b\'echu:\par
+\b0 - b\'ec\'9e\f1\lang1033\'ed\f0\lang1029  na node s GPU a obsazuje GPU nejkrat\'9a\f1\lang1033\'ed\f0\lang1029  a jen nezbytn\f1\lang1033\'fd\f0\lang1029  \'e8as\par
+- nen\f1\lang1033\'ed\f0\lang1029  t\'f8eba jej sledovat, ukon\'e8\f1\lang1033\'ed\f0\lang1029  se na z\f1\lang1033\'e1\f0\lang1029 v\'ecr s\f1\lang1033\'e1\f0\lang1029 m\par
+- pokud p\'f8esto sledujete (viz n\f1\lang1033\'ed\f0\lang1029\'9ee) a rozpoj\f1\lang1033\'ed\f0\lang1029  se termin\f1\lang1033\'e1\f0\lang1029 lov\f1\lang1033\'e1\f0\lang1029  relace, v\f1\lang1033\'fd\f0\lang1029 po\'e8et pokra\'e8uje a dokon\'e8\f1\lang1033\'ed\f0\lang1029  se\line   - vs. rozpojen\f1\lang1033\'ed\f0\lang1029  interaktivn\f1\lang1033\'ed\f0\lang1029 ho sezen\f1\lang1033\'ed\f0\lang1029  vede zpravidla k p\f1\lang1033\'e1\f0\lang1029 du b\'echu v\'f9bec\par
+\par
+---\par
+Straka: To run a shell script requiring a GPU in a non-interactive way, use\par
+\b sbatch -p gpu -c1 -G1 --mem=16G SCRIPT_PATH\par
+\b0 ---\par
+\par
+\b L4\b0\par
+\cf8\b sbatch -p gpu -c1  -G 1 --constraint=gpuram22G \cf1\f1\lang1033 ~/\f0\lang1029 py/scriptname.sh\par
+\cf0\b0\par
+\b 3090\b0\par
+\cf8\b sbatch -p gpu -c1 -G 1 --constraint=gpuram24G \cf1\f1\lang1033 ~/\f0\lang1029 py/scriptname.sh\par
+\cf8\par
+\cf0 A4000\b0\par
+\cf8\b sbatch -p gpu -c1 -G 1 --constraint='gpuram16G&gpu_cc8.6' --mem=32G \cf1\f1\lang1033 ~/\f0\lang1029 py/scriptname.sh\cf0\b0\par
+\cf8\b\par
+\par
+\cf0 A16 jako fallback z A4000/3090/L4\b0\par
+\cf2\b sbatch -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G \f1\lang1033 ~/\f0\lang1029 py/scriptname.sh\cf10\b0\par
+\cf8\b\par
+\par
+\cf0\f1\lang1033 P5000\f0\lang1029  \cf2\f1\lang1033 <-- nepou\f0\lang1029\'9e\f1\lang1033\'ed\f0\lang1029 vat *\cf0\b0\f1\lang1033\par
+\cf8\b\f0\lang1029 sbatch\f1\lang1033  -p gpu \f0\lang1029 -c1 \f1\lang1033 -G 1 --constraint='gpuram16G&gpu_cc6.1' \cf1 ~/\f0\lang1029 py/scriptname.sh\cf10\b0\f1\lang1033\par
+\cf0\f0\lang1029\par
+\par
+\b ---\cf1\b0\f1\lang1033 ~/\f0\lang1029 py/\b scriptname.sh\cf0\b0\par
+#!/bin/bash\par
+\cf6 #SBATCH -o /lnet/aic/personal/kment/py/log/%x-%j.out\par
+#SBATCH -e /lnet/aic/personal/kment/py/log/%x-%j.err\par
+\cf0\par
+source /lnet/aic/personal/kment/pyenv/140envb/bin/activate\par
+cd /lnet/aic/personal/kment/py\par
+python \cf2\b run_judge_transf_works2.py\cf0\b0\par
+\b ---\b0\par
+\par
+\par
+\ul\b\i\fs28 Alternativn\'ec pro d\f1\lang1033\'e1\f0\lang1029 vkov\f1\lang1033\'fd\f0\lang1029  b\'ech\ulnone\b0 :\fs22\par
+\i0\par
+\cf2\b sbatch\cf8\f1\lang1033  \cf1 ~/\f0\lang1029 py/scriptname2.sh\cf0\b0\par
+\par
+---\cf1\f1\lang1033 ~/\f0\lang1029 py/\b scriptname\f1\lang1033 2\f0\lang1029 .sh\f1\lang1033    \cf3 (pro \f0\lang1029 A16 jako fallback, v\'9ae je uvnit\'f8 .sh\f1\lang1033 )\f0\lang1029\par
+\cf0\b0 #!/bin/bash\par
+#SBATCH -p gpu\par
+#SBATCH -c 1\par
+#SBATCH -G 1\par
+\cf6 #SBATCH --constraint=gpuram15G \tab\tab\par
+#SBATCH --mem=24G \par
+\cf0 #SBATCH -J judge\par
+\cf6 #SBATCH -o /lnet/aic/personal/kment/py/log/%x-%j.out\par
+#SBATCH -e /lnet/aic/personal/kment/py/log/%x-%j.err\par
+\cf0\par
+source /lnet/aic/personal/kment/pyenv/140envb/bin/activate\par
+cd /lnet/aic/personal/kment/py\par
+python \cf2\b run_judge_transf_works3.py\cf0\b0\par
+---\par
+\par
+\par
+\par
+\ul\b\i\fs28 Zji\'9a\'9dov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  stavu job\'f9\ulnone :\b0\i0\fs22\par
+\par
+\cf2\b squeue -u $USER\cf0\b0\par
+\par
+\par
+\ul\b\i\fs28 P\'f8\f1\lang1033\'ed\f0\lang1029 klad konkr\f1\lang1033\'e9\f0\lang1029 tn\f1\lang1033\'ed\f0\lang1029 ho spu\'9at\'ecn\f1\lang1033\'ed\f0\lang1029  a mo\'9enost sledov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  pr\'f9b\'echu d\f1\lang1033\'e1\f0\lang1029 vky z sbatch\ulnone :\b0\i0\fs22\par
+\b\par
+---\cf1\b0\f1\lang1033 ~/\f0\lang1029 py/\b run_judge_transf_works2.sh\cf0\b0\par
+#!/bin/bash\par
+\cf6 #SBATCH -o /lnet/aic/personal/kment/py/log/%x-%j.out\par
+#SBATCH -e /lnet/aic/personal/kment/py/log/%x-%j.err\par
+\cf0\par
+source /lnet/aic/personal/kment/pyenv/140envb/bin/activate\par
+cd /lnet/aic/personal/kment/py\par
+python \cf2\b run_judge_transf_works2.py\cf0\b0\par
+\b ---\b0\par
+\b\i\fs28\par
+\par
+transformers only\b0\i0\fs22\par
+\par
+kment@aic:~/pyenv$\par
+kment@aic:~/pyenv$ \cf2\b sbatch -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G ~/py/run_judge_transf_works2.sh\par
+\cf0\b0 Submitted batch job \cf1\b 77030\cf0\b0\par
+kment@aic:~/pyenv$\par
+kment@aic:~/pyenv$ \cf1\b squeue -u $USER\cf0\b0\par
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)\par
+             \cf1\b 77030       \cf0\b0 gpu run_judg    kment  R       0:07      1 gpu-node3\par
+kment@aic:~/pyenv$ \par
+kment@aic:~/pyenv$ \cf1 cd ../py\cf0\par
+kment@aic:~/py$\par
+kment@aic:~/py$ \cf2\b cd log\cf0\b0\par
+kment@aic:\cf1\b ~/py/log\cf0\b0 $\par
+kment@aic:~/py/log$ \cf1\b ls\cf0\b0\par
+run_judge_transf_works2.sh-76742.out  \cf1 run_judge_transf_works2.sh-77030.err\cf0   run_judge_transf_works3.sh-76763.out  run_judge_transf_works3.sh-76782.err\par
+run_judge_transf_works2.sh-76746.err  \cf1 run_judge_transf_works2.sh-77030.out  \cf0 run_judge_transf_works3.sh-76774.err  run_judge_transf_works3.sh-76782.out\par
+run_judge_transf_works2.sh-76746.out  run_judge_transf_works3.sh-76763.err  run_judge_transf_works3.sh-76774.out\par
+kment@aic:~/py/log$\par
+kment@aic:~/py/log$\par
+kment@aic:~/py/log$\par
+kment@aic:~/py/log$\par
+kment@aic:~/py/log$ \cf2\b tail -f  run_judge_transf_works2.sh-77030.out\cf0\b0\par
+\cf3 2026-04-15 16:04:16,136 INFO Progress: 4 / 2208  (0.2 %)  |  1.1 rows/s  |  fallbacks: 0  |  ETA: 2022s\par
+2026-04-15 16:04:18,988 INFO Progress: 8 / 2208  (0.4 %)  |  1.2 rows/s  |  fallbacks: 0  |  ETA: 1793s\par
+2026-04-15 16:04:21,710 INFO Progress: 12 / 2208  (0.5 %)  |  1.3 rows/s  |  fallbacks: 0  |  ETA: 1691s\par
+2026-04-15 16:04:24,790 INFO Progress: 16 / 2208  (0.7 %)  |  1.3 rows/s  |  fallbacks: 0  |  ETA: 1688s\par
+2026-04-15 16:04:27,919 WARNING Score parsing FAILED for output "To evaluate this response, I'll compare it against the given prompt and the anchor criteria.\\n\\n### Prompt Analysis:\\n- **O" (context: instruction_following|Mistral-Medium|fd3d2779|cs_CZ). Using random fallback 3.\par
+2026-04-15 16:04:27,919 INFO Progress: 20 / 2208  (0.9 %)  |  1.3 rows/s  |  fallbacks: 1  |  ETA: 1691s\par
+...\par
+2026-04-15 16:04:48,584 WARNING Score parsing FAILED for output "Let's break down the response to evaluate it according to the criteria provided:\\n\\n### Structure:\\n- The response starts w" (context: coherence|CommandA|6caeb46f|cs_CZ). Using random fallback 6.\par
+2026-04-15 16:04:48,585 INFO Progress: 40 / 2208  (1.8 %)  |  \cf1\b 1.1 rows/s  \cf3\b0 |  fallbacks: 6  |  ETA: 1958s\par
+2026-04-15 16:04:51,601 INFO Progress: 44 / 2208  (2.0 %)  |  1.1 rows/s  |  fallbacks: 6  |  ETA: 1925s\par
+2026-04-15 16:04:54,699 INFO Progress: 48 / 2208  (2.2 %)  |  1.1 rows/s  |  fallbacks: 6  |  ETA: 1900s\par
+\cf0 ...\par
+\par
+...\f1\lang1033   \cf1 let it run\line or Ctrl+C \cf0 ... \line\f0\lang1029\par
+\par
+\par
+
+\pard\sa200\sl276\slmult1\b\i\fs28 Pln\f1\lang1033\'e1\f0\lang1029  verze s vLLM\par
+
+\pard\sl276\slmult1\i0\fs22 ---\cf1\b0\f1\lang1033 ~/\f0\lang1029 py/\b run_judge71.sh\cf0\b0\par
+#!/bin/bash\par
+#SBATCH -o /lnet/aic/personal/kment/py/log/%x-%j.out\par
+#SBATCH -e /lnet/aic/personal/kment/py/log/%x-%j.err\par
+\par
+source /lnet/aic/personal/kment/pyenv/140envb/bin/activate\par
+cd /lnet/aic/personal/kment/py\par
+python \cf1\b run_judge71.py\cf0\b0\par
+\b ---\f1\lang1033\par
+\b0\f0\lang1029\par
+kment@aic:~/pyenv$\par
+kment@aic:~/pyenv$ \cf2\b sbatch -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G ~/py/run_judge71.sh\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\f4\par
+
+\pard\sl240\slmult1\f0\par
+kment@aic:~$ \cf2\b cd py/log\cf0\b0\par
+kment@aic:~/py/log$\par
+kment@aic:~/py/log$\par
+kment@aic:~/py/log$ \cf2\b sbatch -p gpu -c1 -G 1 --constraint=gpuram15G --mem=24G ~/py/run_judge71.sh\cf0\b0\par
+Submitted batch job 77054\par
+kment@aic:~/py/log$\par
+kment@aic:~/py/log$ \cf2\b squeue -u $USER\cf0\b0\par
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)\par
+             77054       gpu run_judg    kment  R       0:09      1 gpu-node3\par
+kment@aic:~/py/log$\par
+kment@aic:~/py/log$ \cf1\b ls\cf0\b0\par
+\cf3 run_judge71.sh-77048.err  \cf1\b run_judge71.sh-77054.out\cf3\b0               run_judge_transf_works2.sh-77030.out  run_judge_transf_works3.sh-76782.err\par
+run_judge71.sh-77048.out  run_judge_transf_works2.sh-76742.out  run_judge_transf_works3.sh-76763.err  run_judge_transf_works3.sh-76782.out\par
+run_judge71.sh-77049.err  run_judge_transf_works2.sh-76746.err  run_judge_transf_works3.sh-76763.out\par
+run_judge71.sh-77049.out  run_judge_transf_works2.sh-76746.out  run_judge_transf_works3.sh-76774.err\par
+run_judge71.sh-77054.err  run_judge_transf_works2.sh-77030.err  run_judge_transf_works3.sh-76774.out\par
+\cf0 kment@aic:~/py/log$\par
+kment@aic:~/py/log$\par
+kment@aic:~/py/log$ \cf2\b tail -f run_judge71.sh-77054.out\f1\lang1033       <--- vypisuje za\f0\lang1029\'e8\f1\lang1033\'e1\f0\lang1029 tek b\'echu s kompilac\f1\lang1033\'ed\cf0\b0\f0\lang1029\par
+\cf3 kment@aic:~/py/log$ tail -f run_judge71.sh-77054.out\par
+(EngineCore pid=50190) INFO 04-15 17:02:23 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://10.10.61.37:49179 backend=nccl\par
+(EngineCore pid=50190) INFO 04-15 17:02:24 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A\par
+(EngineCore pid=50190) INFO 04-15 17:02:25 [gpu_model_runner.py:4735] Starting to load model Qwen/Qwen2.5-3B-Instruct...\par
+(EngineCore pid=50190) INFO 04-15 17:02:28 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].\par
+(EngineCore pid=50190) INFO 04-15 17:02:28 [flash_attn.py:596] Using FlashAttention version 2\par
+(EngineCore pid=50190) INFO 04-15 17:02:40 [default_loader.py:384] Loading weights took 11.53 seconds\par
+(EngineCore pid=50190) INFO 04-15 17:02:41 [gpu_model_runner.py:4820] Model loading took 5.79 GiB memory and 15.074971 seconds\par
+(EngineCore pid=50190) INFO 04-15 17:02:49 [backends.py:1051] Using cache directory: /home/kment/.cache/vllm/torch_compile_cache/0451837de3/rank_0_0/backbone for vLLM's torch.compile\par
+(EngineCore pid=50190) INFO 04-15 17:02:49 [backends.py:1111] Dynamo bytecode transform time: 8.10 s\par
+(EngineCore pid=50190) INFO 04-15 17:02:54 [backends.py:372] Cache the graph of compile range (1, 8192) for later use\par
+(EngineCore pid=50190) INFO 04-15 17:02:59 [backends.py:390] Compiling a graph for compile range (1, 8192) takes 9.15 s\par
+(EngineCore pid=50190) INFO 04-15 17:03:01 [decorators.py:640] saved AOT compiled function to /home/kment/.cache/vllm/torch_compile_cache/torch_aot_compile/e564bc260833df242e24aaf0301d290d8fa31018b303edc2c5d10a6d5966ebd9/rank_0_0/model\par
+(EngineCore pid=50190) INFO 04-15 17:03:01 [monitor.py:48] torch.compile took 19.44 s in total\par
+(EngineCore pid=50190) INFO 04-15 17:03:02 [monitor.py:76] Initial profiling/warmup run took 0.98 s\par
+(EngineCore pid=50190) INFO 04-15 17:03:09 [kv_cache_utils.py:829] Overriding num_gpu_blocks=0 with num_gpu_blocks_override=512\par
+(EngineCore pid=50190) INFO 04-15 17:03:09 [gpu_model_runner.py:5876] Profiling CUDA graph memory: PIECEWISE=51 (largest=512), FULL=35 (largest=256)\par
+(EngineCore pid=50190) INFO 04-15 17:03:10 [gpu_model_runner.py:5955] Estimated CUDA graph memory: 0.51 GiB total\par
+(EngineCore pid=50190) INFO 04-15 17:03:11 [gpu_worker.py:436] Available KV cache memory: 13.23 GiB\par
+(EngineCore pid=50190) INFO 04-15 17:03:11 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.9000 to 0.9232 to maintain the same effective KV cache size.\par
+(EngineCore pid=50190) INFO 04-15 17:03:11 [kv_cache_utils.py:1319] GPU KV cache size: 385,216 tokens\par
+(EngineCore pid=50190) INFO 04-15 17:03:11 [kv_cache_utils.py:1324] Maximum concurrency for 4,271 tokens per request: 90.17x\par
+(EngineCore pid=50190) INFO 04-15 17:03:17 [gpu_model_runner.py:6046] Graph capturing finished in 6 secs, took 0.56 GiB\par
+(EngineCore pid=50190) INFO 04-15 17:03:17 [gpu_worker.py:597] CUDA graph pool memory: 0.56 GiB (actual), 0.51 GiB (estimated), difference: 0.05 GiB (9.4%).\par
+(EngineCore pid=50190) INFO 04-15 17:03:17 [core.py:283] init engine (profile, create kv cache, warmup model) took 35.79 seconds\par
+^C\par
+\cf0 kment@aic:~/py/log$\par
+\f1\lang5 kment@aic:~/py/log$ \cf2\b tail -f run_judge71.sh-77054.err\f0\lang1029      \f1\lang1033 <--- b\f0\lang1029\'ec\'9en\f1\lang1033\'fd\f0\lang1029  v\f1\lang1033\'fd\f0\lang1029 stup z b\'echu jde sp\f1\lang1033\'ed\f0\lang1029\'9ae sem\cf0\b0\f1\lang5\par
+\cf3 Rendering prompts: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1\lang1033 | 4/4 [00:00<00:00, 585.51it/s]\par
+Processed prompts: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 4/4 [00:01<00:00,  2.25it/s, est. speed input: 1342.25 toks/s, output: 143.95 toks/s]\par
+2026-04-15 17:08:27 [WARNING] Score not on first or last line \f3\emdash\f0  using last occurrence in text (context: Mistral-Medium/44ea53138d50a0f07b1fb8d5fa927a6d/naturalness/cs_CZ).\par
+...\f1\par
+Rendering prompts: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 4/4 [00:00<00:00, 315.75it/s]\par
+Processed prompts: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 4/4 [00:02<00:00,  1.85it/s, est. speed input: 2575.41 toks/s, output: 118.37 toks/s]\par
+2026-04-15 17:08:33 [INFO] Progress: 600/2208 (27.2%) | \cf1\b 1.9 rows/s \cf3\b0 | ETA 846s | fallbacks: 23\par
+Rendering prompts: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 4/4 [00:00<00:00, 235.70it/s]\par
+Processed prompts:   0%|          | 0/4 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]\par
+...\par
+2026-04-15 17:12:03 [INFO] Progress: 1000/2208 (45.3%) | \cf1\b 1.9 rows/\b0 s \cf3 | ETA 635s | fallbacks: 36\par
+Rendering prompts: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 4/4 [00:00<00:00, 380.53it/s]\par
+Processed prompts: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 4/4 [00:02<00:00,  1.87it/s, est. speed input: 2400.26 toks/s, output: 117.30 toks/s]\par
+Rendering prompts: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 4/4 [00:00<00:00, 423.99it/s]\par
+\f0\lang1029 ...\par
+\f1\lang1033 speed input: 2796.73 toks/s, output: 112.91 toks/s]\par
+2026-04-15 17:22:40 [INFO] Progress: 2200/2208 (99.6%) | \b 1.9 rows/s \b0 | ETA 4s | fallbacks: 60\par
+Rendering prompts: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 4/4 [00:00<00:00, 418.17it/s]\par
+Processed prompts: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 4/4 [00:01<00:00,  2.03it/s, est. speed input: 1888.60 toks/s, output: 122.29 toks/s]\par
+Rendering prompts: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 4/4 [00:00<00:00, 247.58it/s]\par
+Processed prompts: 100%|\f2\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\u9608?\f1 | 4/4 [00:02<00:00,  1.87it/s, est. speed input: 2432.86 toks/s, output: 119.54 toks/s]\par
+2026-04-15 17:22:44 [INFO] Progress: 2208/2208 (100.0%) | \b 1.9 rows/s \b0 | ETA 0s | fallbacks: 60\par
+2026-04-15 17:22:44 [INFO] Done. 2208 tasks completed in 1166.8s. Fallback scores: 60.\par
+2026-04-15 17:22:44 [INFO] Output written to: /lnet/aic/personal/kment/py/oeg_judge_outloc71_submission_data.csv\par
+\b\f0\lang1029 Ctrl+C\b0\f1\lang1033\par
+\cf0\par
+\f0\lang1029 Je mo\'9en\f1\lang1033\'e9\f0\lang1029  p\'f8esm\'ecrovat v\'9ae do .out a sledovat pouze ten (.err bude pr\f1\lang1033\'e1\f0\lang1029 zdn\f1\lang1033\'fd\f0\lang1029 ):\f1\lang1033\par
+\par
+\b\f0\lang1029 ---\cf1\b0\f1\lang1033 ~/\f0\lang1029 py/\b run_judge71.sh\cf0\b0\par
+
+\pard\sl276\slmult1 #!/bin/bash\par
+#SBATCH -o /lnet/aic/personal/kment/py/log/%x-%j.out\par
+#SBATCH -e /lnet/aic/personal/kment/py/log/%x-%j.err\par
+\par
+source /lnet/aic/personal/kment/pyenv/140envb/bin/activate\par
+cd /lnet/aic/personal/kment/py\par
+\par
+python \cf2\b run_judge71.py 2>&1\cf0\b0\par
+\b ---\par
+\par
+\b0\i Pozn\f1\lang1033\'e1\f0\lang1029 mka:\b\par
+\b0 Uk\f1\lang1033\'e1\f0\lang1029 zky v\f1\lang1033\'fd\f0\lang1029\'9ae jsou jen cca 2x rychlej\'9a\f1\lang1033\'ed\f0\lang1029  pro vLLM ne\'9e pro trasnformeres. To ale nen\f1\lang1033\'ed\f0\lang1029  typick\f1\lang1033\'fd\f0\lang1029  v\f1\lang1033\'fd\f0\lang1029 sledek. Na modern\'ecj\'9a\f1\lang1033\'ed\f0\lang1029 m hardware bude vLLM 4-5x rychlej\'9a\f1\lang1033\'ed\f0\lang1029 . Zde mo\'9en\f1\lang1033\'e1\f0\lang1029  d\'f9sledek, \'9ee b\'ec\'9e\f1\lang1033\'ed\f0\lang1029  na star\'9a\f1\lang1033\'ed\f0\lang1029 ch kart\f1\lang1033\'e1\f0\lang1029 ch, anebo vliv velmi mal\f1\lang1033\'e9\f0\lang1029 ho batch size, v uk\f1\lang1033\'e1\f0\lang1029 zk\f1\lang1033\'e1\f0\lang1029 ch pouze 4.\par
+T\f1\lang1033\'e9\f0\lang1029\'9e nen\f1\lang1033\'ed\f0\lang1029  zcela jist\f1\lang1033\'e9\f0\lang1029 , \'9ee v obou p\'f8\f1\lang1033\'ed\f0\lang1029 padech byla p\'f8id\'eclena stejn\f1\lang1033\'e1\f0\lang1029  GPU karta.\par
+\i0\par
+\par
+ \b\par
+\f1\lang1033\par
+
+\pard\sa200\sl276\slmult1\b0\f5\lang5\par
+\par
+\par
+}
+ 

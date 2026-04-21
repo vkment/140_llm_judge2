@@ -10,7 +10,7 @@ import pandas as pd
 from corr_utils import my_pairwise_acc, my_acc_eq, my_tau_eq, my_tau_b
 
 #input file with LLM-judge(s) values [this judge(s) get evaluated]
-JUDGE_SUBMISSION_CSV = "z_vkment/oeg_judge_outlocw2_submission_data.csv"
+JUDGE_SUBMISSION_CSV = "z_vkment/oeg_judge_outloc71_submission_data.csv"
 
 
 # unfortunately human eval and LLM judges used different ways to represent locales
