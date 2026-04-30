@@ -1,0 +1,280 @@
+(BOOKWORM)vok@bee3:/storage/vestec1-elixir/home/vok/py26/llm_judge$ nvidia-smi
+Thu Apr 30 03:26:11 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 590.48.01              Driver Version: 590.48.01      CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100 NVL                On  |   00000000:07:00.0 Off |                    0 |
+| N/A   55C    P0            123W /  400W |     547MiB /  95830MiB |     84%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA H100 NVL                On  |   00000000:08:00.0 Off |                    0 |
+| N/A   64C    P0            334W /  400W |   87347MiB /  95830MiB |     41%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A          933260      C   gmx_mpi                                 538MiB |
+|    1   N/A  N/A          708986      C   VLLM::EngineCore                      87338MiB |
++-----------------------------------------------------------------------------------------+
+(BOOKWORM)vok@bee3:/storage/vestec1-elixir/home/vok/py26/llm_judge$ 
+
+
+(140env) (BOOKWORM)vok@bee3:/storage/vestec1-elixir/home/vok/py26/llm_judge$ 
+(140env) (BOOKWORM)vok@bee3:/storage/vestec1-elixir/home/vok/py26/llm_judge$ ./run_clean.sh run_judge79_3.py
+=== Starting run_judge79_3.py at Thu Apr 30 03:15:08 CEST 2026 ===
+2026-04-30 03:15:11 [INFO] CUDA_VISIBLE_DEVICES remapped: 'GPU-a0175a31-cf90-abe7-2005-0acbb3ef13ad' → '0'
+2026-04-30 03:15:11 [INFO] Loaded templates from judge_templates_locales_hybrid23.py
+2026-04-30 03:15:11 [INFO] LLM I/O logging → run_judge79_3.log
+2026-04-30 03:15:11 [INFO] Starting run_judge.py | variant=local | model=Qwen/Qwen3.6-35B-A3B
+2026-04-30 03:15:11 [INFO] Settings: locale=['all'] | max_rows=None | concurrency=32 | output=oeg_judge_outloc79_3_submission_data.csv
+2026-04-30 03:15:11 [INFO] Loaded 736 unique (system, prompt) pairs from data_ar_EG.csv
+2026-04-30 03:15:11 [INFO] Loaded 736 unique (system, prompt) pairs from data_bn_BD.csv
+2026-04-30 03:15:11 [INFO] Loaded 736 unique (system, prompt) pairs from data_cs_CZ.csv
+2026-04-30 03:15:11 [INFO] Loaded 736 unique (system, prompt) pairs from data_de_DE.csv
+2026-04-30 03:15:11 [INFO] Loaded 736 unique (system, prompt) pairs from data_en_US.csv
+2026-04-30 03:15:11 [INFO] Loaded 736 unique (system, prompt) pairs from data_hi_IN.csv
+2026-04-30 03:15:11 [INFO] Loaded 736 unique (system, prompt) pairs from data_id_ID.csv
+2026-04-30 03:15:11 [INFO] Loaded 736 unique (system, prompt) pairs from data_ja_JP.csv
+2026-04-30 03:15:11 [INFO] Loaded 736 unique (system, prompt) pairs from data_ru_RU.csv
+2026-04-30 03:15:11 [INFO] Loaded 736 unique (system, prompt) pairs from data_zh_CN.csv
+2026-04-30 03:15:11 [INFO] Total tasks (before checkpoint): 22080
+2026-04-30 03:15:11 [INFO] Skipping 0 already-done tasks. Remaining: 22080
+2026-04-30 03:15:11 [INFO] Building all prompts for token-length pre-computation...
+2026-04-30 03:16:16 [INFO] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.6-35B-A3B/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-30 03:16:16 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0/config.json "HTTP/1.1 200 OK"
+2026-04-30 03:16:16 [INFO] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.6-35B-A3B/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-30 03:16:16 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-30 03:16:16 [INFO] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.6-35B-A3B/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-30 03:16:16 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-30 03:16:16 [INFO] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.6-35B-A3B/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-30 03:16:16 [INFO] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.6-35B-A3B/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-30 03:16:20 [INFO] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.6-35B-A3B "HTTP/1.1 200 OK"
+2026-04-30 03:16:22 [INFO] Tokenising prompts to compute max_model_len (model=Qwen/Qwen3.6-35B-A3B)...
+2026-04-30 03:16:22 [INFO] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.6-35B-A3B/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-30 03:16:22 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0/config.json "HTTP/1.1 200 OK"
+2026-04-30 03:16:22 [INFO] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.6-35B-A3B/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-30 03:16:22 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-30 03:16:22 [INFO] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.6-35B-A3B/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-30 03:16:22 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-30 03:16:22 [INFO] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.6-35B-A3B/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-30 03:16:22 [INFO] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.6-35B-A3B/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-30 03:16:25 [INFO] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.6-35B-A3B "HTTP/1.1 200 OK"
+2026-04-30 03:18:40 [INFO] Max prompt length: 6267 tokens → max_model_len=6331 (hard cap: 124000).
+2026-04-30 03:19:21 [INFO] Initialising vLLM (model=Qwen/Qwen3.6-35B-A3B, dtype=auto, max_model_len=6331)...
+INFO 04-30 03:19:22 [utils.py:233] non-default args: {'max_model_len': 6331, 'disable_log_stats': True, 'model': 'Qwen/Qwen3.6-35B-A3B'}
+INFO 04-30 03:19:23 [model.py:549] Resolved architecture: Qwen3_5MoeForConditionalGeneration
+INFO 04-30 03:19:23 [model.py:1678] Using max model len 6331
+INFO 04-30 03:19:23 [scheduler.py:238] Chunked prefill is enabled with max_num_batched_tokens=16384.
+`Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+INFO 04-30 03:19:38 [config.py:281] Setting attention block size to 1056 tokens to ensure that attention page size is >= mamba page size.
+INFO 04-30 03:19:38 [config.py:312] Padding mamba page size by 0.76% to ensure that mamba page size and attention page size are exactly equal.
+INFO 04-30 03:19:38 [vllm.py:790] Asynchronous scheduling is enabled.
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+WARNING 04-30 03:20:10 [system_utils.py:152] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: CUDA is initialized
+2026-04-30 03:20:13 [INFO] Loaded templates from judge_templates_locales_hybrid23.py
+(EngineCore pid=708986) INFO 04-30 03:21:52 [core.py:105] Initializing a V1 LLM engine (v0.19.0) with config: model='Qwen/Qwen3.6-35B-A3B', speculative_config=None, tokenizer='Qwen/Qwen3.6-35B-A3B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=6331, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=Qwen/Qwen3.6-35B-A3B, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_images_per_batch': 0, 'compile_sizes': [], 'compile_ranges_endpoints': [16384], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=708986) `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+(EngineCore pid=708986) INFO 04-30 03:22:16 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://147.251.59.53:54663 backend=nccl
+(EngineCore pid=708986) INFO 04-30 03:22:16 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0, EPLB rank N/A
+(EngineCore pid=708986) The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+(EngineCore pid=708986) INFO 04-30 03:22:42 [gpu_model_runner.py:4735] Starting to load model Qwen/Qwen3.6-35B-A3B...
+(EngineCore pid=708986) INFO 04-30 03:22:44 [cuda.py:390] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+(EngineCore pid=708986) INFO 04-30 03:22:44 [mm_encoder_attention.py:230] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+(EngineCore pid=708986) INFO 04-30 03:22:44 [gdn_linear_attn.py:139] Using FlashInfer GDN prefill kernel
+(EngineCore pid=708986) INFO 04-30 03:22:44 [gdn_linear_attn.py:140] FlashInfer GDN prefill kernel is JIT-compiled; first run may take a while to compile. Set `--gdn-prefill-backend triton` to avoid JIT compile time.
+(EngineCore pid=708986) INFO 04-30 03:22:49 [unquantized.py:186] Using TRITON backend for Unquantized MoE
+(EngineCore pid=708986) INFO 04-30 03:22:50 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=708986) INFO 04-30 03:22:50 [flash_attn.py:596] Using FlashAttention version 3
+(EngineCore pid=708986) <frozen importlib._bootstrap_external>:1241: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+(EngineCore pid=708986) <frozen importlib._bootstrap_external>:1241: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+Loading safetensors checkpoint shards:   0% Completed | 0/26 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:   4% Completed | 1/26 [00:01<00:25,  1.02s/it]
+Loading safetensors checkpoint shards:   8% Completed | 2/26 [00:01<00:17,  1.36it/s]
+Loading safetensors checkpoint shards:  12% Completed | 3/26 [00:02<00:18,  1.27it/s]
+Loading safetensors checkpoint shards:  15% Completed | 4/26 [00:03<00:18,  1.21it/s]
+Loading safetensors checkpoint shards:  19% Completed | 5/26 [00:04<00:18,  1.13it/s]
+Loading safetensors checkpoint shards:  23% Completed | 6/26 [00:05<00:19,  1.01it/s]
+Loading safetensors checkpoint shards:  27% Completed | 7/26 [00:05<00:14,  1.27it/s]
+Loading safetensors checkpoint shards:  31% Completed | 8/26 [00:06<00:13,  1.35it/s]
+Loading safetensors checkpoint shards:  35% Completed | 9/26 [00:06<00:11,  1.54it/s]
+Loading safetensors checkpoint shards:  38% Completed | 10/26 [00:08<00:12,  1.28it/s]
+Loading safetensors checkpoint shards:  42% Completed | 11/26 [00:08<00:10,  1.42it/s]
+Loading safetensors checkpoint shards:  46% Completed | 12/26 [00:09<00:10,  1.33it/s]
+Loading safetensors checkpoint shards:  50% Completed | 13/26 [00:09<00:08,  1.45it/s]
+Loading safetensors checkpoint shards:  54% Completed | 14/26 [00:10<00:09,  1.31it/s]
+Loading safetensors checkpoint shards:  58% Completed | 15/26 [00:11<00:08,  1.37it/s]
+Loading safetensors checkpoint shards:  62% Completed | 16/26 [00:12<00:08,  1.19it/s]
+Loading safetensors checkpoint shards:  65% Completed | 17/26 [00:13<00:06,  1.38it/s]
+Loading safetensors checkpoint shards:  69% Completed | 18/26 [00:14<00:06,  1.16it/s]
+Loading safetensors checkpoint shards:  73% Completed | 19/26 [00:14<00:05,  1.33it/s]
+Loading safetensors checkpoint shards:  77% Completed | 20/26 [00:15<00:04,  1.21it/s]
+Loading safetensors checkpoint shards:  81% Completed | 21/26 [00:16<00:03,  1.35it/s]
+Loading safetensors checkpoint shards:  85% Completed | 22/26 [00:17<00:03,  1.33it/s]
+Loading safetensors checkpoint shards:  88% Completed | 23/26 [00:18<00:02,  1.16it/s]
+Loading safetensors checkpoint shards:  92% Completed | 24/26 [00:19<00:01,  1.17it/s]
+Loading safetensors checkpoint shards:  96% Completed | 25/26 [00:19<00:00,  1.26it/s]
+Loading safetensors checkpoint shards: 100% Completed | 26/26 [00:20<00:00,  1.48it/s]
+Loading safetensors checkpoint shards: 100% Completed | 26/26 [00:20<00:00,  1.29it/s]
+(EngineCore pid=708986) 
+(EngineCore pid=708986) INFO 04-30 03:23:12 [default_loader.py:384] Loading weights took 20.16 seconds
+(EngineCore pid=708986) INFO 04-30 03:23:13 [gpu_model_runner.py:4820] Model loading took 65.53 GiB memory and 28.355597 seconds
+(EngineCore pid=708986) INFO 04-30 03:23:13 [gpu_model_runner.py:5753] Encoder cache will be initialized with a budget of 16384 tokens, and profiled with 1 image items of the maximum feature size.
+(EngineCore pid=708986) INFO 04-30 03:24:14 [backends.py:1051] Using cache directory: /scratch.ssd/vok/job_19540382.pbs-m1/vllm/torch_compile_cache/9cfe5ecafd/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=708986) INFO 04-30 03:24:14 [backends.py:1111] Dynamo bytecode transform time: 54.93 s
+(EngineCore pid=708986) INFO 04-30 03:24:15 [backends.py:372] Cache the graph of compile range (1, 16384) for later use
+(EngineCore pid=708986) INFO 04-30 03:24:21 [backends.py:390] Compiling a graph for compile range (1, 16384) takes 5.78 s
+(EngineCore pid=708986) INFO 04-30 03:24:24 [decorators.py:640] saved AOT compiled function to /scratch.ssd/vok/job_19540382.pbs-m1/vllm/torch_compile_cache/torch_aot_compile/b039c8be28783ac9b87ef6902e3d133b6a88b437a13eeaeb3e20f67acf6a4897/rank_0_0/model
+(EngineCore pid=708986) INFO 04-30 03:24:24 [monitor.py:48] torch.compile took 64.61 s in total
+(EngineCore pid=708986) WARNING 04-30 03:24:26 [fused_moe.py:1090] Using default MoE config. Performance might be sub-optimal! Config file not found at /auto/vestec1-elixir/home/vok/pyenv/140env/lib/python3.11/site-packages/vllm/model_executor/layers/fused_moe/configs/E=256,N=512,device_name=NVIDIA_H100_NVL.json
+(EngineCore pid=708986) INFO 04-30 03:24:27 [monitor.py:76] Initial profiling/warmup run took 3.14 s
+(EngineCore pid=708986) INFO 04-30 03:24:28 [kv_cache_utils.py:829] Overriding num_gpu_blocks=0 with num_gpu_blocks_override=512
+(EngineCore pid=708986) INFO 04-30 03:24:28 [gpu_model_runner.py:5876] Profiling CUDA graph memory: PIECEWISE=51 (largest=512), FULL=51 (largest=512)
+(EngineCore pid=708986) INFO 04-30 03:24:33 [gpu_model_runner.py:5955] Estimated CUDA graph memory: 0.64 GiB total
+(EngineCore pid=708986) INFO 04-30 03:24:34 [gpu_worker.py:436] Available KV cache memory: 13.21 GiB
+(EngineCore pid=708986) INFO 04-30 03:24:34 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.9000 to 0.9069 to maintain the same effective KV cache size.
+(EngineCore pid=708986) INFO 04-30 03:24:34 [kv_cache_utils.py:1319] GPU KV cache size: 172,128 tokens
+(EngineCore pid=708986) INFO 04-30 03:24:34 [kv_cache_utils.py:1324] Maximum concurrency for 6,331 tokens per request: 72.78x
+(EngineCore pid=708986) 2026-04-30 03:24:34,602 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=708986) 2026-04-30 03:24:34,674 - INFO - autotuner.py:268 - flashinfer.jit: [Autotuner]: Autotuning process ends
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|█████████████████████████████| 51/51 [00:18<00:00,  2.70it/s]
+Capturing CUDA graphs (decode, FULL): 100%|████████████████████████████████████████████████| 51/51 [00:14<00:00,  3.52it/s]
+(EngineCore pid=708986) INFO 04-30 03:25:10 [gpu_model_runner.py:6046] Graph capturing finished in 36 secs, took 1.07 GiB
+(EngineCore pid=708986) INFO 04-30 03:25:10 [gpu_worker.py:597] CUDA graph pool memory: 1.07 GiB (actual), 0.64 GiB (estimated), difference: 0.43 GiB (39.8%).
+(EngineCore pid=708986) INFO 04-30 03:25:11 [core.py:283] init engine (profile, create kv cache, warmup model) took 117.86 seconds
+(EngineCore pid=708986) INFO 04-30 03:25:12 [vllm.py:790] Asynchronous scheduling is enabled.
+2026-04-30 03:25:12 [INFO] vLLM ready.
+2026-04-30 03:25:12 [INFO] Using user-supplied batch_size=8.
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  5.28it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00,  9.34it/s, est. speed input: 10515.24 toks/s, output: 18.69 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 41.23it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 19.95it/s, est. speed input: 19837.20 toks/s, output: 39.94 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 60.13it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 24.80it/s, est. speed input: 24421.67 toks/s, output: 49.64 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 72.71it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 22.68it/s, est. speed input: 25667.44 toks/s, output: 45.42 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 54.75it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 12.56it/s, est. speed input: 11513.58 toks/s, output: 25.14 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 51.92it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 16.77it/s, est. speed input: 15836.53 toks/s, output: 33.56 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 71.19it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 16.83it/s, est. speed input: 15702.89 toks/s, output: 33.67 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 134.91it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 41.66it/s, est. speed input: 30654.09 toks/s, output: 83.40 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 63.19it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 14.35it/s, est. speed input: 12087.48 toks/s, output: 28.73 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 42.87it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 13.20it/s, est. speed input: 13105.33 toks/s, output: 26.42 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 32.14it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 13.93it/s, est. speed input: 17401.87 toks/s, output: 27.89 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 66.67it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 17.32it/s, est. speed input: 12797.72 toks/s, output: 34.66 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 110.71it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 27.45it/s, est. speed input: 17753.27 toks/s, output: 54.97 toks/s]
+2026-04-30 03:25:22 [INFO] Progress: 100/22080 (0.5%) | 10.6 rows/s | ETA 2075s | fallbacks: 0
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 80.95it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 32.43it/s, est. speed input: 34306.98 toks/s, output: 64.97 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 70.87it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 24.53it/s, est. speed input: 27832.07 toks/s, output: 49.11 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 69.35it/s]
+Processed prompts: 100%|█████████████| 8/8 [00:01<00:00,  7.05it/s, est. speed input: 6345.00 toks/s, output: 14.11 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 79.23it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 23.97it/s, est. speed input: 26381.59 toks/s, output: 48.01 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 40.17it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 11.53it/s, est. speed input: 10253.21 toks/s, output: 23.07 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 44.28it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 12.36it/s, est. speed input: 10205.82 toks/s, output: 24.73 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 42.40it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 13.51it/s, est. speed input: 11504.53 toks/s, output: 27.05 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 45.17it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 13.06it/s, est. speed input: 12088.61 toks/s, output: 26.14 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 49.08it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 26.32it/s, est. speed input: 27258.49 toks/s, output: 52.68 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 116.49it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 35.27it/s, est. speed input: 29304.07 toks/s, output: 70.60 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 115.21it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 18.93it/s, est. speed input: 16286.67 toks/s, output: 37.89 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 64.79it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 18.32it/s, est. speed input: 13900.78 toks/s, output: 36.66 toks/s]
+2026-04-30 03:25:29 [INFO] Progress: 200/22080 (0.9%) | 11.7 rows/s | ETA 1865s | fallbacks: 0
+
+
+
+
+
+...
+
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 125.26it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 37.92it/s, est. speed input: 34619.25 toks/s, output: 75.91 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 127.45it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 42.11it/s, est. speed input: 28132.89 toks/s, output: 84.32 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 102.27it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 39.51it/s, est. speed input: 41755.53 toks/s, output: 79.12 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 136.23it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 46.60it/s, est. speed input: 34124.87 toks/s, output: 93.28 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 205.76it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 45.01it/s, est. speed input: 37787.18 toks/s, output: 90.09 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 296.76it/s]
+Processed prompts: 100%|███████████| 8/8 [00:00<00:00, 51.92it/s, est. speed input: 36867.81 toks/s, output: 103.92 toks/s]
+2026-04-30 03:50:24 [INFO] Progress: 22000/22080 (99.6%) | 14.5 rows/s | ETA 5s | fallbacks: 0
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 200.96it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 47.44it/s, est. speed input: 33702.16 toks/s, output: 95.00 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 293.29it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 36.09it/s, est. speed input: 24321.26 toks/s, output: 72.23 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 125.39it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 34.73it/s, est. speed input: 29801.59 toks/s, output: 69.52 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 137.22it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 37.66it/s, est. speed input: 27332.53 toks/s, output: 75.37 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 118.10it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 25.77it/s, est. speed input: 17671.20 toks/s, output: 51.59 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 40.48it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 18.23it/s, est. speed input: 19544.00 toks/s, output: 36.52 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 42.94it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 16.49it/s, est. speed input: 15052.19 toks/s, output: 33.01 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 38.81it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 15.36it/s, est. speed input: 15479.02 toks/s, output: 30.74 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 54.79it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 15.34it/s, est. speed input: 10504.01 toks/s, output: 30.70 toks/s]
+Rendering prompts: 100%|█████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 51.08it/s]
+Processed prompts: 100%|████████████| 8/8 [00:00<00:00, 15.25it/s, est. speed input: 11045.38 toks/s, output: 30.52 toks/s]
+2026-04-30 03:50:29 [INFO] Progress: 22080/22080 (100.0%) | 14.6 rows/s | ETA 0s | fallbacks: 0
+2026-04-30 03:50:29 [INFO] Done. 22080 tasks completed in 1516.9s. Fallback scores: 0.
+2026-04-30 03:50:29 [INFO] Output written to: /auto/vestec1-elixir/home/vok/py26/llm_judge/oeg_judge_outloc79_3_submission_data.csv
+(EngineCore pid=708986) INFO 04-30 03:50:29 [core.py:1210] Shutdown initiated (timeout=0)
+(EngineCore pid=708986) INFO 04-30 03:50:29 [core.py:1233] Shutdown complete
+[rank0]:[W430 03:50:30.506741187 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+=== Python finished with status 0 at Thu Apr 30 03:50:38 CEST 2026 ===
+
+=== Cleaning scratch ===
+
+**********************************************************************************************************
+
+The SCRATCHes have been SUCCESSFULLY cleaned...
+=== Done at Thu Apr 30 03:50:50 CEST 2026 ===
+(140env) (BOOKWORM)vok@bee3:/storage/vestec1-elixir/home/vok/py26/llm_judge$ 
+(140env) (BOOKWORM)vok@bee3:/storage/vestec1-elixir/home/vok/py26/llm_judge$ 
+(140env) (BOOKWORM)vok@bee3:/storage/vestec1-elixir/home/vok/py26/llm_judge$ 
+(140env) (BOOKWORM)vok@bee3:/storage/vestec1-elixir/home/vok/py26/llm_judge$ pwd
+/storage/vestec1-elixir/home/vok/py26/llm_judge
+(140env) (BOOKWORM)vok@bee3:/storage/vestec1-elixir/home/vok/py26/llm_judge$ cd $SCRATCHDIR
+(140env) (BOOKWORM)vok@bee3:/scratch.ssd/vok/job_19540382.pbs-m1$ 
+(140env) (BOOKWORM)vok@bee3:/scratch.ssd/vok/job_19540382.pbs-m1$ ls
+(140env) (BOOKWORM)vok@bee3:/scratch.ssd/vok/job_19540382.pbs-m1$ 
+(140env) (BOOKWORM)vok@bee3:/scratch.ssd/vok/job_19540382.pbs-m1$ clean_scratch
+
+**********************************************************************************************************
+
+The SCRATCHes have been SUCCESSFULLY cleaned...
+(140env) (BOOKWORM)vok@bee3:/scratch.ssd/vok/job_19540382.pbs-m1$ 
+(140env) (BOOKWORM)vok@bee3:/scratch.ssd/vok/job_19540382.pbs-m1$ exit
+logout
+
+qsub: job 19540382.pbs-m1.metacentrum.cz completed
+(BOOKWORM)vok@nympha:~$ 

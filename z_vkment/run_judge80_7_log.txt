@@ -1,0 +1,98 @@
+(140env) (BOOKWORM)vok@bee3:/storage/vestec1-elixir/home/vok/py26/llm_judge$ python run_judge80_7.py
+
+2026-04-29 23:25:44 [INFO] CUDA_VISIBLE_DEVICES remapped: 'GPU-a0175a31-cf90-abe7-2005-0acbb3ef13ad' → '0'
+2026-04-29 23:25:44 [INFO] Loaded templates from judge_templates_locales_hybrid33.py
+2026-04-29 23:25:44 [INFO] LLM I/O logging → run_judge80_7.log
+2026-04-29 23:25:44 [INFO] Starting run_judge.py | variant=local | model=openai/gpt-oss-120b
+2026-04-29 23:25:44 [INFO] Settings: locale=['cs_CZ'] | max_rows=6 | concurrency=32 | output=oeg_judge_outloc80_7_submission_data.csv
+2026-04-29 23:25:44 [INFO] Loaded 6 unique (system, prompt) pairs from data_cs_CZ.csv
+2026-04-29 23:25:44 [INFO] Total tasks (before checkpoint): 18
+2026-04-29 23:25:44 [INFO] Skipping 0 already-done tasks. Remaining: 18
+2026-04-29 23:25:44 [INFO] Building all prompts for token-length pre-computation...
+2026-04-29 23:26:44 [INFO] HTTP Request: HEAD https://huggingface.co/openai/gpt-oss-120b/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-29 23:26:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/openai/gpt-oss-120b/b5c939de8f754692c1647ca79fbf85e8c1e70f8a/config.json "HTTP/1.1 200 OK"
+2026-04-29 23:26:44 [INFO] HTTP Request: HEAD https://huggingface.co/openai/gpt-oss-120b/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-29 23:26:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/openai/gpt-oss-120b/b5c939de8f754692c1647ca79fbf85e8c1e70f8a/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-29 23:26:44 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai/gpt-oss-120b/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-29 23:26:44 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai/gpt-oss-120b/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-29 23:26:48 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai/gpt-oss-120b "HTTP/1.1 200 OK"
+2026-04-29 23:26:48 [INFO] Tokenising prompts to compute max_model_len (model=openai/gpt-oss-120b)...
+2026-04-29 23:26:49 [INFO] HTTP Request: HEAD https://huggingface.co/openai/gpt-oss-120b/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-29 23:26:49 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/openai/gpt-oss-120b/b5c939de8f754692c1647ca79fbf85e8c1e70f8a/config.json "HTTP/1.1 200 OK"
+2026-04-29 23:26:49 [INFO] HTTP Request: HEAD https://huggingface.co/openai/gpt-oss-120b/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-29 23:26:49 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/openai/gpt-oss-120b/b5c939de8f754692c1647ca79fbf85e8c1e70f8a/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-29 23:26:49 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai/gpt-oss-120b/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-29 23:26:49 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai/gpt-oss-120b/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-29 23:26:51 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai/gpt-oss-120b "HTTP/1.1 200 OK"
+2026-04-29 23:26:51 [INFO] Max prompt length: 1347 tokens → max_model_len=1411 (hard cap: 124000).
+2026-04-29 23:27:27 [INFO] Initialising vLLM (model=openai/gpt-oss-120b, dtype=auto, max_model_len=1411)...
+INFO 04-29 23:27:27 [utils.py:233] non-default args: {'max_model_len': 1411, 'disable_log_stats': True, 'model': 'openai/gpt-oss-120b'}
+INFO 04-29 23:27:28 [model.py:549] Resolved architecture: GptOssForCausalLM
+Parse safetensors files: 100%|█████████████████████████████████████████████████████████████| 15/15 [00:00<00:00, 82.56it/s]
+INFO 04-29 23:27:28 [model.py:1678] Using max model len 1411
+INFO 04-29 23:27:44 [scheduler.py:238] Chunked prefill is enabled with max_num_batched_tokens=16384.
+INFO 04-29 23:27:44 [config.py:131] Overriding max cuda graph capture size to 1024 for performance.
+INFO 04-29 23:27:44 [vllm.py:790] Asynchronous scheduling is enabled.
+(EngineCore pid=957661) INFO 04-29 23:27:47 [core.py:105] Initializing a V1 LLM engine (v0.19.0) with config: model='openai/gpt-oss-120b', speculative_config=None, tokenizer='openai/gpt-oss-120b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=1411, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=mxfp4, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='openai_gptoss', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=openai/gpt-oss-120b, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_images_per_batch': 0, 'compile_sizes': [], 'compile_ranges_endpoints': [16384], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512, 528, 544, 560, 576, 592, 608, 624, 640, 656, 672, 688, 704, 720, 736, 752, 768, 784, 800, 816, 832, 848, 864, 880, 896, 912, 928, 944, 960, 976, 992, 1008, 1024], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 1024, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=957661) INFO 04-29 23:27:48 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://147.251.59.53:47273 backend=nccl
+(EngineCore pid=957661) INFO 04-29 23:27:48 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0, EPLB rank N/A
+(EngineCore pid=957661) INFO 04-29 23:27:50 [gpu_model_runner.py:4735] Starting to load model openai/gpt-oss-120b...
+(EngineCore pid=957661) INFO 04-29 23:27:56 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'TRITON_ATTN'].
+(EngineCore pid=957661) INFO 04-29 23:27:56 [flash_attn.py:596] Using FlashAttention version 3
+(EngineCore pid=957661) INFO 04-29 23:27:56 [mxfp4.py:352] Using 'TRITON' Mxfp4 MoE backend.
+(EngineCore pid=957661) <frozen importlib._bootstrap_external>:1241: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+(EngineCore pid=957661) <frozen importlib._bootstrap_external>:1241: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+Loading safetensors checkpoint shards:   0% Completed | 0/15 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:   7% Completed | 1/15 [00:00<00:08,  1.63it/s]
+Loading safetensors checkpoint shards:  13% Completed | 2/15 [00:01<00:08,  1.51it/s]
+Loading safetensors checkpoint shards:  20% Completed | 3/15 [00:02<00:08,  1.36it/s]
+Loading safetensors checkpoint shards:  27% Completed | 4/15 [00:02<00:08,  1.37it/s]
+Loading safetensors checkpoint shards:  33% Completed | 5/15 [00:04<00:08,  1.13it/s]
+Loading safetensors checkpoint shards:  40% Completed | 6/15 [00:05<00:08,  1.00it/s]
+Loading safetensors checkpoint shards:  47% Completed | 7/15 [00:06<00:08,  1.07s/it]
+Loading safetensors checkpoint shards:  53% Completed | 8/15 [00:07<00:07,  1.10s/it]
+Loading safetensors checkpoint shards:  60% Completed | 9/15 [00:08<00:06,  1.09s/it]
+Loading safetensors checkpoint shards:  67% Completed | 10/15 [00:09<00:04,  1.03it/s]
+Loading safetensors checkpoint shards:  73% Completed | 11/15 [00:10<00:03,  1.09it/s]
+Loading safetensors checkpoint shards:  80% Completed | 12/15 [00:11<00:02,  1.02it/s]
+Loading safetensors checkpoint shards:  87% Completed | 13/15 [00:12<00:01,  1.00it/s]
+Loading safetensors checkpoint shards:  93% Completed | 14/15 [00:13<00:01,  1.11s/it]
+Loading safetensors checkpoint shards: 100% Completed | 15/15 [00:15<00:00,  1.17s/it]
+Loading safetensors checkpoint shards: 100% Completed | 15/15 [00:15<00:00,  1.00s/it]
+(EngineCore pid=957661) 
+(EngineCore pid=957661) INFO 04-29 23:28:13 [default_loader.py:384] Loading weights took 15.26 seconds
+(EngineCore pid=957661) INFO 04-29 23:28:13 [mxfp4.py:836] Using MoEPrepareAndFinalizeNoDPEPMonolithic
+(EngineCore pid=957661) INFO 04-29 23:28:17 [gpu_model_runner.py:4820] Model loading took 65.61 GiB memory and 25.531947 seconds
+(EngineCore pid=957661) INFO 04-29 23:28:58 [backends.py:1051] Using cache directory: /scratch.ssd/vok/job_19540382.pbs-m1/vllm/torch_compile_cache/9b8d9d2eae/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=957661) INFO 04-29 23:28:58 [backends.py:1111] Dynamo bytecode transform time: 41.24 s
+(EngineCore pid=957661) INFO 04-29 23:28:59 [backends.py:372] Cache the graph of compile range (1, 16384) for later use
+(EngineCore pid=957661) INFO 04-29 23:29:05 [backends.py:390] Compiling a graph for compile range (1, 16384) takes 6.45 s
+(EngineCore pid=957661) INFO 04-29 23:29:08 [decorators.py:640] saved AOT compiled function to /scratch.ssd/vok/job_19540382.pbs-m1/vllm/torch_compile_cache/torch_aot_compile/022cf315f1f699920a1ea85e83b7ffa0446c603b165efc5e58527225fbb108b1/rank_0_0/model
+(EngineCore pid=957661) INFO 04-29 23:29:08 [monitor.py:48] torch.compile took 50.85 s in total
+(EngineCore pid=957661) INFO 04-29 23:29:09 [monitor.py:76] Initial profiling/warmup run took 1.26 s
+(EngineCore pid=957661) INFO 04-29 23:29:10 [kv_cache_utils.py:829] Overriding num_gpu_blocks=0 with num_gpu_blocks_override=1024
+(EngineCore pid=957661) INFO 04-29 23:29:10 [gpu_model_runner.py:5876] Profiling CUDA graph memory: PIECEWISE=83 (largest=1024), FULL=83 (largest=1024)
+(EngineCore pid=957661) INFO 04-29 23:29:12 [gpu_model_runner.py:5955] Estimated CUDA graph memory: 0.82 GiB total
+(EngineCore pid=957661) INFO 04-29 23:29:13 [gpu_worker.py:436] Available KV cache memory: 15.01 GiB
+(EngineCore pid=957661) INFO 04-29 23:29:13 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.9000 to 0.9088 to maintain the same effective KV cache size.
+(EngineCore pid=957661) INFO 04-29 23:29:13 [kv_cache_utils.py:1319] GPU KV cache size: 218,608 tokens
+(EngineCore pid=957661) INFO 04-29 23:29:13 [kv_cache_utils.py:1324] Maximum concurrency for 1,411 tokens per request: 152.66x
+(EngineCore pid=957661) 2026-04-29 23:29:13,179 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=957661) 2026-04-29 23:29:13,254 - INFO - autotuner.py:268 - flashinfer.jit: [Autotuner]: Autotuning process ends
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|█████████████████████████████| 83/83 [00:24<00:00,  3.43it/s]
+Capturing CUDA graphs (decode, FULL): 100%|████████████████████████████████████████████████| 83/83 [00:19<00:00,  4.18it/s]
+(EngineCore pid=957661) INFO 04-29 23:29:58 [gpu_model_runner.py:6046] Graph capturing finished in 45 secs, took 1.32 GiB
+(EngineCore pid=957661) INFO 04-29 23:29:58 [gpu_worker.py:597] CUDA graph pool memory: 1.32 GiB (actual), 0.82 GiB (estimated), difference: 0.5 GiB (38.1%).
+(EngineCore pid=957661) INFO 04-29 23:29:58 [core.py:283] init engine (profile, create kv cache, warmup model) took 101.18 seconds
+2026-04-29 23:29:59 [INFO] vLLM ready.
+2026-04-29 23:29:59 [INFO] Using user-supplied batch_size=15.
+Rendering prompts: 100%|███████████████████████████████████████████████████████████████████| 15/15 [00:01<00:00, 11.90it/s]
+Processed prompts: 100%|██████████| 15/15 [00:02<00:00,  5.34it/s, est. speed input: 4621.71 toks/s, output: 325.31 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 252.41it/s]
+Processed prompts: 100%|████████████| 3/3 [00:00<00:00,  4.22it/s, est. speed input: 5606.22 toks/s, output: 257.77 toks/s]
+2026-04-29 23:30:04 [INFO] Progress: 18/18 (100.0%) | 3.8 rows/s | ETA 0s | fallbacks: 0
+2026-04-29 23:30:04 [INFO] Done. 18 tasks completed in 4.8s. Fallback scores: 0.
+2026-04-29 23:30:04 [INFO] Output written to: /auto/vestec1-elixir/home/vok/py26/llm_judge/oeg_judge_outloc80_7_submission_data.csv
+(EngineCore pid=957661) INFO 04-29 23:30:04 [core.py:1210] Shutdown initiated (timeout=0)
+(EngineCore pid=957661) INFO 04-29 23:30:04 [core.py:1233] Shutdown complete
+(140env) (BOOKWORM)vok@bee3:/storage/vestec1-elixir/home/vok/py26/llm_judge$ 

@@ -1,0 +1,30 @@
+{
+    "ranking_accuracy": {
+        "gpt-oss-120b_h34": 0.8389830508474576
+    },
+    "acc_eq_by_instruction_following": {
+        "gpt-oss-120b_h34": 0.4846014492753622
+    },
+    "acc_eq_by_naturalness": {
+        "gpt-oss-120b_h34": 0.5362318840579711
+    },
+    "acc_eq_by_coherence": {
+        "gpt-oss-120b_h34": 0.4916666666666667
+    },
+    "acc_eq_average": {
+        "gpt-oss-120b_h34": 0.5041666666666667
+    },
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "gpt-oss-120b_h34": 0.4846014492753622
+            },
+            "naturalness": {
+                "gpt-oss-120b_h34": 0.5362318840579711
+            },
+            "coherence": {
+                "gpt-oss-120b_h34": 0.4916666666666667
+            }
+        }
+    }
+}

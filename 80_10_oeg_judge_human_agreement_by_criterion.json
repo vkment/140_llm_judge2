@@ -1,0 +1,34 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "gpt-oss-120b_h34": 0.4846014492753622
+            },
+            "naturalness": {
+                "gpt-oss-120b_h34": 0.5362318840579711
+            },
+            "coherence": {
+                "gpt-oss-120b_h34": 0.4916666666666667
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "cs_CZ": {
+                    "gpt-oss-120b_h34": 0.4846014492753622
+                }
+            },
+            "naturalness": {
+                "cs_CZ": {
+                    "gpt-oss-120b_h34": 0.5362318840579711
+                }
+            },
+            "coherence": {
+                "cs_CZ": {
+                    "gpt-oss-120b_h34": 0.4916666666666667
+                }
+            }
+        }
+    }
+}

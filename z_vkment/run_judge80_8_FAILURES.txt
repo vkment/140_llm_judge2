@@ -1,0 +1,319 @@
+================================================================================
+>>> PROMPT:
+<|start|>system<|message|>You are ChatGPT, a large language model trained by OpenAI.
+Knowledge cutoff: 2024-06
+Current date: 2026-04-29
+
+Reasoning: low
+
+# Valid channels: analysis, commentary, final. Channel must be included for every message.<|end|><|start|>user<|message|>You are an LLM judge evaluating naturalness and fluency. Score how natural and fluent the response reads as Czech text.
+
+Anchor scores:
+
+7: Perfectly natural — fluent like a skilled native speaker throughout.
+   Reserve 7 for responses with no awkward phrasing, unnatural constructions, or
+   fluency issues of any kind. Any noticeable non-native phrasing drops to 6.
+
+5: Mostly natural — reads naturally overall. Some minor awkward phrasing or
+   slightly non-native constructions, but these do not disrupt understanding.
+
+3: Noticeably unnatural — multiple awkward or non-native constructions that require
+   some effort to read. The meaning is still recoverable but fluency is clearly impaired.
+   Note: if only occasional awkwardness is present, score 5, not 3.
+
+1: Incomprehensible or not in Czech — so unnatural or malformed that the meaning
+   cannot be recovered, or the response is not written in Czech.
+   Low fluency or frequent errors alone do not justify score 1.
+
+Intermediate scores (use only when clearly between two anchors):
+- 6 = between 7 and 5 (one or two minor non-native phrasings; still reads smoothly overall)
+- 4 = between 5 and 3 (noticeable unnatural phrasing throughout, but still understandable)
+- 2 = between 3 and 1 (very unnatural; meaning barely recoverable)
+
+Prompt: «Vymysli nějakou hádanku (včetně odpovědi) na téma piva?»
+Response: «Hádanka:<br><br>Mám hlavu plnou pěnivých radostí,<br>Mám tělo z chmelu a chuti.<br>Kdo jsem?<br><br>Odpověď:<br>Pivo!<br><br>Pivo je nápoj, který je často spojován s radostí a chutí, a proto se hodí jako téma pro tuto hádanku.»
+
+Output exactly one character from this set: 1 2 3 4 5 6 7
+
+Forbidden output:
+- words
+- labels
+- explanations
+- reasoning
+- analysis
+- punctuation
+- whitespace
+
+Score:<|end|><|start|>assistant
+────────────────────────────────────────────────────────────────────────────────
+<<< RESPONSE:
+analysisWe need to output a single digit. Evaluate naturalness. The response: "Hádanka: Mám hlavu plnou pěnivých radostí, Mám tělo z chmelu a chuti. Kdo jsem? Odpověď: Pivo! Pivo je nápoj, který je často spojován s radostí a chutí, a proto se hodí jako téma pro tuto hádanku."
+
+
+---
+
+================================================================================
+>>> PROMPT:
+<|start|>system<|message|>You are ChatGPT, a large language model trained by OpenAI.
+Knowledge cutoff: 2024-06
+Current date: 2026-04-29
+
+Reasoning: low
+
+# Valid channels: analysis, commentary, final. Channel must be included for every message.<|end|><|start|>user<|message|>You are an LLM judge evaluating naturalness and fluency. Score how natural and fluent the response reads as Czech text.
+
+Anchor scores:
+
+7: Perfectly natural — fluent like a skilled native speaker throughout.
+   Reserve 7 for responses with no awkward phrasing, unnatural constructions, or
+   fluency issues of any kind. Any noticeable non-native phrasing drops to 6.
+
+5: Mostly natural — reads naturally overall. Some minor awkward phrasing or
+   slightly non-native constructions, but these do not disrupt understanding.
+
+3: Noticeably unnatural — multiple awkward or non-native constructions that require
+   some effort to read. The meaning is still recoverable but fluency is clearly impaired.
+   Note: if only occasional awkwardness is present, score 5, not 3.
+
+1: Incomprehensible or not in Czech — so unnatural or malformed that the meaning
+   cannot be recovered, or the response is not written in Czech.
+   Low fluency or frequent errors alone do not justify score 1.
+
+Intermediate scores (use only when clearly between two anchors):
+- 6 = between 7 and 5 (one or two minor non-native phrasings; still reads smoothly overall)
+- 4 = between 5 and 3 (noticeable unnatural phrasing throughout, but still understandable)
+- 2 = between 3 and 1 (very unnatural; meaning barely recoverable)
+
+Prompt: «Můžeš napsat krátký příběh o přibližně 50 slovech o člověku, který objeví skrytou zahradu s rybníčkem?»
+Response: «V lese, v zahradě skryté, objevil muž rybníček, plný živých vln. Kvete zde rajská zahradna, kde slunce zrcadlí se v lesklých listech. Vzpomíná na své staré, ztracené radosti. Zde nalezl opět svou lásku k životu.»
+
+Output exactly one character from this set: 1 2 3 4 5 6 7
+
+Forbidden output:
+- words
+- labels
+- explanations
+- reasoning
+- analysis
+- punctuation
+- whitespace
+
+Score:<|end|><|start|>assistant
+────────────────────────────────────────────────────────────────────────────────
+<<< RESPONSE:
+analysisWe need to give a single digit. Evaluate naturalness. The Czech text: "V lese, v zahradě skryté, objevil muž rybníček, plný živých vln. Kvete zde rajská zahradna, kde slunce zrcadlí se v lesklých listech. Vzpomíná na své staré, ztracené radosti. Zde nalezl opět svou lásku k životu."
+
+
+---
+
+================================================================================
+>>> PROMPT:
+<|start|>system<|message|>You are ChatGPT, a large language model trained by OpenAI.
+Knowledge cutoff: 2024-06
+Current date: 2026-04-29
+
+Reasoning: low
+
+# Valid channels: analysis, commentary, final. Channel must be included for every message.<|end|><|start|>user<|message|>You are an LLM judge evaluating instruction following. Score how well the response follows the user's instructions in Czech.
+
+Anchor scores:
+
+7: Perfect — follows all instructions, all details, format, and style as requested.
+   Reserve 7 for responses with nothing to improve. Any minor omission or deviation drops to 6.
+
+5: Good — follows the main instructions. Minor details, formatting nuances, or secondary
+   requirements may be missing or slightly off, but the core request is fully addressed.
+
+3: Partial — the response is relevant to the topic but follows only a limited portion of
+   the instructions. Important parts are missing or incorrectly handled. The main intent
+   is only weakly met.
+   Note: if the main intent is met but details are missing, score 5, not 3.
+
+1: Fails — the response ignores the instructions entirely, is off-topic, or is not
+   in Czech. Poor quality or missing details alone do not justify score 1.
+
+Intermediate scores (use only when clearly between two anchors):
+- 6 = between 7 and 5 (very minor omission or deviation)
+- 4 = between 5 and 3 (noticeable gaps, but more than partial)
+- 2 = between 3 and 1 (very weak; barely relevant)
+
+Prompt: «Vymysli báseň o maloměstském životě v České republice, která bude přesně 10 veršů dlouhá.»
+Response: «V malém městě, kde čas se zastavil,  <br>u mostu starého vítr poštěkavil.  <br>Na náměstí trh, pár stánků s medem,  <br>děda na lavičce s kočkou vedle sedne.  <br><br>U pivnice vrátný zpívá už zase,  <br>děti na kolech sjíždějí z kopce.  <br>Kostelní věž hlídá klidný večer,  <br>měsíc se zrcadlí v okně u břehu.  <br><br>Život tu voní čerstvým chlebem a senem,  <br>v každým kroku doma, v každým okamžiku.»
+
+Output exactly one character from this set: 1 2 3 4 5 6 7
+
+Forbidden output:
+- words
+- labels
+- explanations
+- reasoning
+- analysis
+- punctuation
+- whitespace
+
+Score:<|end|><|start|>assistant
+────────────────────────────────────────────────────────────────────────────────
+<<< RESPONSE:
+analysisWe need to give a single digit. The poem has how many lines? Count line breaks: It shows <br> tags. Let's count verses: 
+
+---
+
+================================================================================
+>>> PROMPT:
+<|start|>system<|message|>You are ChatGPT, a large language model trained by OpenAI.
+Knowledge cutoff: 2024-06
+Current date: 2026-04-29
+
+Reasoning: low
+
+# Valid channels: analysis, commentary, final. Channel must be included for every message.<|end|><|start|>user<|message|>You are an LLM judge evaluating instruction following. Score how well the response follows the user's instructions in Czech.
+
+Anchor scores:
+
+7: Perfect — follows all instructions, all details, format, and style as requested.
+   Reserve 7 for responses with nothing to improve. Any minor omission or deviation drops to 6.
+
+5: Good — follows the main instructions. Minor details, formatting nuances, or secondary
+   requirements may be missing or slightly off, but the core request is fully addressed.
+
+3: Partial — the response is relevant to the topic but follows only a limited portion of
+   the instructions. Important parts are missing or incorrectly handled. The main intent
+   is only weakly met.
+   Note: if the main intent is met but details are missing, score 5, not 3.
+
+1: Fails — the response ignores the instructions entirely, is off-topic, or is not
+   in Czech. Poor quality or missing details alone do not justify score 1.
+
+Intermediate scores (use only when clearly between two anchors):
+- 6 = between 7 and 5 (very minor omission or deviation)
+- 4 = between 5 and 3 (noticeable gaps, but more than partial)
+- 2 = between 3 and 1 (very weak; barely relevant)
+
+Prompt: «Pověz mi pět zajímavostí o Karlu IV. z České republiky.»
+Response: «Jasně, tady je pět zajímavostí o Karlu IV., králi českém a císaři římské:<br><br>1. **Narodil se v Praze:** Na rozdíl od mnoha panovníků té doby se Karel IV. narodil v Praze v roce 1316. Jeho matka, Alžběta Lucemburská, byla těhotná, když cestovala do Prahy, aby se vyhnula politickým nepokojům. To z něj udělalo prvního českého krále, který se narodil v Čechách.<br><br>2. **Založil Karlovu univerzitu:** V roce 1348 Karel IV. založil Karlovu univerzitu v Praze, která se stala jednou z nejstarších a nejvýznamnějších univerzit ve střední Evropě. Byla to první univerzita ve Svaté říši římské a hrála klíčovou roli v rozvoji vzdělání a kultury v regionu.<br><br>3. **Byl "císařem čtyř":** Karel IV. byl císařem Svaté římské říše, králem českým, králem Itálie a hrabětem Lucemburským. Proto se mu někdy říká "císař čtyř".<br><br>4. **Zavedl Zlatou bulu sicilskou:** V roce 1355 vydal Karel IV. Zlatou bulu sicilskou, která upravovala proces volby císaře Svaté římské říše. Tato bula potvrdila a formalizovala roli kurfiřtů (volitelů) a měla zásadní vliv na politické uspořádání říše na staletí.<br><br>5. **Prahu proměnil v evropské centrum:** Karel IV. se zasadil o rozvoj Prahy, která se za jeho vlády stala jedním z nejvýznamnějších měst v Evropě. Nechal postavit Karlův most, Nový hrad (později Hradčany), založil Nové Město pražské a výrazně rozšířil a zkrášlil Pražský hrad.»
+
+Output exactly one character from this set: 1 2 3 4 5 6 7
+
+Forbidden output:
+- words
+- labels
+- explanations
+- reasoning
+- analysis
+- punctuation
+- whitespace
+
+Score:<|end|><|start|>assistant
+────────────────────────────────────────────────────────────────────────────────
+<<< RESPONSE:
+analysisWe need to give a single digit. The response is in Czech, gives five facts, meets request. Minor issues: first fact "Narodil se v Praze" actually he was born in Prag? He was born in Prague? Actually he was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? Actually Karel IV was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He think he was born in Prague? Actually Karel IV was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? Actually he was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in Prague? He was born in
+
+---
+
+
+vs. EXAMPLES OF GOOD ANSWERS (ie. expected format)
+
+================================================================================
+>>> PROMPT:
+<|start|>system<|message|>You are ChatGPT, a large language model trained by OpenAI.
+Knowledge cutoff: 2024-06
+Current date: 2026-04-29
+
+Reasoning: low
+
+# Valid channels: analysis, commentary, final. Channel must be included for every message.<|end|><|start|>user<|message|>You are an LLM judge evaluating naturalness and fluency. Score how natural and fluent the response reads as Czech text.
+
+Anchor scores:
+
+7: Perfectly natural — fluent like a skilled native speaker throughout.
+   Reserve 7 for responses with no awkward phrasing, unnatural constructions, or
+   fluency issues of any kind. Any noticeable non-native phrasing drops to 6.
+
+5: Mostly natural — reads naturally overall. Some minor awkward phrasing or
+   slightly non-native constructions, but these do not disrupt understanding.
+
+3: Noticeably unnatural — multiple awkward or non-native constructions that require
+   some effort to read. The meaning is still recoverable but fluency is clearly impaired.
+   Note: if only occasional awkwardness is present, score 5, not 3.
+
+1: Incomprehensible or not in Czech — so unnatural or malformed that the meaning
+   cannot be recovered, or the response is not written in Czech.
+   Low fluency or frequent errors alone do not justify score 1.
+
+Intermediate scores (use only when clearly between two anchors):
+- 6 = between 7 and 5 (one or two minor non-native phrasings; still reads smoothly overall)
+- 4 = between 5 and 3 (noticeable unnatural phrasing throughout, but still understandable)
+- 2 = between 3 and 1 (very unnatural; meaning barely recoverable)
+
+Prompt: «Pomůžeš mi s esejí o tom, jak změna klimatu ovlivňuje Českou republiku a jaké kroky může Česko podniknout, aby pomohlo?»
+Response: «Samozřejmě, rád ti pomohu! Níže najdeš návrh eseje na téma „Jak změna klimatu ovlivňuje Českou republiku a jaké kroky může Česko podniknout, aby pomohlo“. Můžeš ji upravit podle svých potřeb.<br><br>---<br><br>**Jak změna klimatu ovlivňuje Českou republiku a jaké kroky může Česko podniknout, aby pomohlo**<br><br>Změna klimatu je jedním z největších globálních problémů současnosti a její dopady se nevyhýbají ani České republice. Přestože naše země nepatří mezi největší producenty skleníkových plynů, změny klimatu zde mají stále výraznější dopad na přírodu, ekonomiku i každodenní život obyvatel.<br><br>Jedním z nejviditelnějších projevů změny klimatu v Česku je zvyšující se průměrná teplota. Podle údajů Českého hydrometeorologického ústavu se průměrná teplota v ČR za posledních sto let zvýšila o více než 1,5 °C. To vede k častějším a intenzivnějším vlnám veder, které ohrožují zdraví lidí, zejména starších osob a dětí. Dalším důsledkem je častější výskyt sucha, které negativně ovlivňuje zemědělství, snižuje úrodu a zvyšuje riziko požárů v lesích.<br><br>Změna klimatu má také vliv na vodní režim v krajině. V posledních letech se v Česku střídají období sucha s přívalovými dešti, což způsobuje povodně a erozi půdy. Tyto extrémní jevy ohrožují nejen zemědělce, ale i obyvatele měst a vesnic, kde dochází k poškození infrastruktury a majetku.<br><br>Aby Česká republika přispěla k řešení tohoto problému, může podniknout několik důležitých kroků. Prvním z nich je snižování emisí skleníkových plynů, například podporou obnovitelných zdrojů energie, jako jsou solární a větrné elektrárny, a postupným odklonem od uhlí. Důležitá je také podpora energetických úspor, například zateplováním budov nebo modernizací průmyslu.<br><br>Dalším krokem je adaptace na změnu klimatu. To znamená například lepší hospodaření s vodou, výsadbu stromů a obnovu krajiny, která pomáhá zadržovat vodu a snižuje riziko povodní. Města by měla rozšiřovat zeleň a vytvářet parky, které ochlazují prostředí a zlepšují kvalitu ovzduší.<br><br>V neposlední řadě je důležitá i osvěta a vzdělávání veřejnosti. Lidé by měli být informováni o tom, jak mohou svým chováním přispět ke snižování emisí – například úsporou energie, tříděním odpadu nebo využíváním veřejné dopravy.<br><br>Závěrem lze říci, že změna klimatu je výzvou, která se týká i České republiky. Každý krok, který podnikneme na úrovni státu, obcí i jednotlivců, může přispět k ochraně naší přírody a zajištění lepší budoucnosti pro další generace.<br><br>---<br><br>Pokud potřebuješ esej zkrátit, rozšířit nebo zaměřit na konkrétní oblast, dej mi vědět!»
+
+Output exactly one character from this set: 1 2 3 4 5 6 7
+
+Forbidden output:
+- words
+- labels
+- explanations
+- reasoning
+- analysis
+- punctuation
+- whitespace
+
+Score:<|end|><|start|>assistant
+────────────────────────────────────────────────────────────────────────────────
+<<< RESPONSE:
+analysisWe need to give a score. The response is fluent Czech, minor issues? Looks good. Probably 7.assistantfinal7
+
+================================================================================
+>>> PROMPT:
+<|start|>system<|message|>You are ChatGPT, a large language model trained by OpenAI.
+Knowledge cutoff: 2024-06
+Current date: 2026-04-29
+
+Reasoning: low
+
+# Valid channels: analysis, commentary, final. Channel must be included for every message.<|end|><|start|>user<|message|>You are an LLM judge evaluating logical structure and coherence. Score how well the response is organized and how clearly its ideas connect in Czech.
+
+Anchor scores:
+
+7: Perfect — clear structure, smooth logical flow, seamless transitions throughout.
+   Reserve 7 for responses where nothing disrupts the flow. Any noticeable gap or
+   abrupt transition drops to 6.
+
+5: Good — generally well-structured and easy to follow. Some minor gaps or slightly
+   abrupt transitions, but the overall progression of ideas is clear.
+   Note: if ideas are connected but flow is imperfect, score 5, not 3.
+
+3: Weak — relevant ideas are present but poorly connected. The response lacks overall
+   flow; multiple noticeable jumps between topics. The reader must make an effort
+   to follow the logic.
+   Note: if the overall structure is discernible despite weak transitions, score 5, not 3.
+
+1: Incoherent — no clear structure or logical progression. Ideas are disconnected or
+   contradictory. Very difficult to identify what the response is trying to convey.
+   Poor flow or weak transitions alone do not justify score 1.
+
+Intermediate scores (use only when clearly between two anchors):
+- 6 = between 7 and 5 (very minor disruption; one slightly abrupt transition)
+- 4 = between 5 and 3 (noticeable gaps in logic, but more than just weak)
+- 2 = between 3 and 1 (very weak structure; barely any logical connection)
+
+Prompt: «Tvoje nejlepší kamarádka se stěhuje na Slovensko a cítí se nervózně z toho, že musí začít od znova. Napiš jí upřímný dopis, ve kterém ji povzbudíš a poradíš jí, jak se přizpůsobit nové kultuře.»
+Response: «Milá [jméno],<br><br>píšu ti tento dopis, protože vím, jak moc se teď cítíš nervózní kvůli stěhování na Slovensko. Je úplně přirozené, že máš obavy - začínat znova v novém prostředí není nikdy jednoduché, i když se jedná o tak blízkou zemi, jako je Slovensko.<br><br>Nejdřív ti chci říct, že na tebe jsem neuvěřitelně pyšná. Rozhodnutí začít nový život vyžaduje obrovskou odvahu a já vím, že to zvládneš skvěle. Znám tě už tolik let a vím, jaká jsi silná a přizpůsobivá.<br><br>Co se týče přizpůsobení se nové kultuře, mám pro tebe pár rad:<br><br>**Buď trpělivá sama se sebou.** Adaptace chce čas - nedávej si tlak, že musíš mít všechno vyřešené hned. I malé pokroky jsou pokroky.<br><br>**Nauč se pár základních slovenských frází.** I když si rozumíme, místní ocení, když se snažíš mluvit jejich jazykem. Začni třeba s "ďakujem", "prosím" a "prepáčte".<br><br>**Zapoj se do komunit.** Hledej kroužky, spolky nebo skupiny lidí se společnými zájmy. Sport, vaření, čtení - cokoliv tě baví. Tam najdeš přátele nejpřirozeněji.<br><br>**Buď otevřená novým zvykům.** Slovensko má krásné tradice - zkus halušky, zajdi na folklórní festival, poznej jejich svátky. Nemusíš všechno přijmout, ale otevřenost ti pomůže pochopit nové prostředí.<br><br>**Zůstaň v kontaktu s domovem.** Nezapomínej na své kořeny a na nás tady. Budeme ti vždycky fandit a podporovat tě.<br><br>Pamatuj si, že každý nový začátek je také příležitost k růstu. Věřím, že toto dobrodružství ti přinese spoustu krásných zážitků a nových přátelství.<br><br>Chybíš mi už teď, ale vím, že to zvládneš úžasně. Jsem tu pro tebe, kdykoliv budeš potřebovat si popovídat nebo jen slyšet známý hlas.<br><br>S láskou a podporou,<br>[tvoje jméno]<br><br>P.S.: Už se těším na návštěvu a na to, až mi ukážeš svůj nový domov!»
+
+Output exactly one character from this set: 1 2 3 4 5 6 7
+
+Forbidden output:
+- words
+- labels
+- explanations
+- reasoning
+- analysis
+- punctuation
+- whitespace
+
+Score:<|end|><|start|>assistant
+────────────────────────────────────────────────────────────────────────────────
+<<< RESPONSE:
+analysisWe need to give a single digit. The response is well-structured, clear flow, minor transitions maybe fine. I'd give 7.assistantfinal7
+

@@ -1,0 +1,30 @@
+{
+    "ranking_accuracy": {
+        "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.5254237288135594
+    },
+    "acc_eq_by_instruction_following": {
+        "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.34329710144927544
+    },
+    "acc_eq_by_naturalness": {
+        "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.34202898550724636
+    },
+    "acc_eq_by_coherence": {
+        "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.33949275362318837
+    },
+    "acc_eq_average": {
+        "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.34160628019323674
+    },
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.34329710144927544
+            },
+            "naturalness": {
+                "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.34202898550724636
+            },
+            "coherence": {
+                "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.33949275362318837
+            }
+        }
+    }
+}

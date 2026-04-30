@@ -1,0 +1,115 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "Gemma-4-31B-IT-NVFP4": 0.6047463768115944
+            },
+            "naturalness": {
+                "Gemma-4-31B-IT-NVFP4": 0.5446557971014493
+            },
+            "coherence": {
+                "Gemma-4-31B-IT-NVFP4": 0.5983152173913044
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "ar_EG": {
+                    "Gemma-4-31B-IT-NVFP4": 0.6599637681159419
+                },
+                "bn_BD": {
+                    "Gemma-4-31B-IT-NVFP4": 0.4990942028985508
+                },
+                "cs_CZ": {
+                    "Gemma-4-31B-IT-NVFP4": 0.48967391304347824
+                },
+                "de_DE": {
+                    "Gemma-4-31B-IT-NVFP4": 0.5916666666666667
+                },
+                "en_US": {
+                    "Gemma-4-31B-IT-NVFP4": 0.7583333333333332
+                },
+                "hi_IN": {
+                    "Gemma-4-31B-IT-NVFP4": 0.6375
+                },
+                "id_ID": {
+                    "Gemma-4-31B-IT-NVFP4": 0.6018115942028986
+                },
+                "ja_JP": {
+                    "Gemma-4-31B-IT-NVFP4": 0.4994565217391305
+                },
+                "ru_RU": {
+                    "Gemma-4-31B-IT-NVFP4": 0.6496376811594203
+                },
+                "zh_CN": {
+                    "Gemma-4-31B-IT-NVFP4": 0.6603260869565218
+                }
+            },
+            "naturalness": {
+                "ar_EG": {
+                    "Gemma-4-31B-IT-NVFP4": 0.482427536231884
+                },
+                "bn_BD": {
+                    "Gemma-4-31B-IT-NVFP4": 0.5278985507246378
+                },
+                "cs_CZ": {
+                    "Gemma-4-31B-IT-NVFP4": 0.5286231884057971
+                },
+                "de_DE": {
+                    "Gemma-4-31B-IT-NVFP4": 0.488768115942029
+                },
+                "en_US": {
+                    "Gemma-4-31B-IT-NVFP4": 0.6317028985507246
+                },
+                "hi_IN": {
+                    "Gemma-4-31B-IT-NVFP4": 0.5809782608695653
+                },
+                "id_ID": {
+                    "Gemma-4-31B-IT-NVFP4": 0.47771739130434776
+                },
+                "ja_JP": {
+                    "Gemma-4-31B-IT-NVFP4": 0.5376811594202898
+                },
+                "ru_RU": {
+                    "Gemma-4-31B-IT-NVFP4": 0.5525362318840579
+                },
+                "zh_CN": {
+                    "Gemma-4-31B-IT-NVFP4": 0.6382246376811593
+                }
+            },
+            "coherence": {
+                "ar_EG": {
+                    "Gemma-4-31B-IT-NVFP4": 0.6817028985507246
+                },
+                "bn_BD": {
+                    "Gemma-4-31B-IT-NVFP4": 0.49963768115942025
+                },
+                "cs_CZ": {
+                    "Gemma-4-31B-IT-NVFP4": 0.4432971014492754
+                },
+                "de_DE": {
+                    "Gemma-4-31B-IT-NVFP4": 0.6239130434782608
+                },
+                "en_US": {
+                    "Gemma-4-31B-IT-NVFP4": 0.6536231884057971
+                },
+                "hi_IN": {
+                    "Gemma-4-31B-IT-NVFP4": 0.6836956521739131
+                },
+                "id_ID": {
+                    "Gemma-4-31B-IT-NVFP4": 0.4692028985507246
+                },
+                "ja_JP": {
+                    "Gemma-4-31B-IT-NVFP4": 0.5721014492753622
+                },
+                "ru_RU": {
+                    "Gemma-4-31B-IT-NVFP4": 0.659963768115942
+                },
+                "zh_CN": {
+                    "Gemma-4-31B-IT-NVFP4": 0.6960144927536231
+                }
+            }
+        }
+    }
+}

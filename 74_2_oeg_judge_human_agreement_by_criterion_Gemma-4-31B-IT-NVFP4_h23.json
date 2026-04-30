@@ -1,0 +1,115 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "Gemma-4-31B-IT-NVFP4_h23": 0.5935144927536231
+            },
+            "naturalness": {
+                "Gemma-4-31B-IT-NVFP4_h23": 0.5272101449275362
+            },
+            "coherence": {
+                "Gemma-4-31B-IT-NVFP4_h23": 0.5857246376811595
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "ar_EG": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.638768115942029
+                },
+                "bn_BD": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.4934782608695652
+                },
+                "cs_CZ": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5077898550724637
+                },
+                "de_DE": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5594202898550724
+                },
+                "en_US": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.734963768115942
+                },
+                "hi_IN": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.6211956521739129
+                },
+                "id_ID": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5846014492753623
+                },
+                "ja_JP": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5240942028985508
+                },
+                "ru_RU": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.6309782608695652
+                },
+                "zh_CN": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.6398550724637682
+                }
+            },
+            "naturalness": {
+                "ar_EG": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.48931159420289855
+                },
+                "bn_BD": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5297101449275362
+                },
+                "cs_CZ": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5380434782608695
+                },
+                "de_DE": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.44184782608695644
+                },
+                "en_US": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5980072463768116
+                },
+                "hi_IN": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5014492753623188
+                },
+                "id_ID": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.46086956521739136
+                },
+                "ja_JP": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5494565217391304
+                },
+                "ru_RU": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5786231884057971
+                },
+                "zh_CN": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5847826086956522
+                }
+            },
+            "coherence": {
+                "ar_EG": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.6726449275362318
+                },
+                "bn_BD": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5108695652173912
+                },
+                "cs_CZ": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.4990942028985507
+                },
+                "de_DE": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5878623188405797
+                },
+                "en_US": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.6329710144927536
+                },
+                "hi_IN": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.6380434782608696
+                },
+                "id_ID": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.4835144927536231
+                },
+                "ja_JP": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.5628623188405797
+                },
+                "ru_RU": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.613768115942029
+                },
+                "zh_CN": {
+                    "Gemma-4-31B-IT-NVFP4_h23": 0.6556159420289855
+                }
+            }
+        }
+    }
+}

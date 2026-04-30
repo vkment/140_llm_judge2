@@ -1,0 +1,198 @@
+
+When first logs waits and waits at 
+
+
+(BOOKWORM)vok@nympha:~$ ssh grogu3
+Linux grogu3.cerit-sc.cz 6.1.0-41-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.158-1+zs1 (2025-11-09) x86_64
+
+1 updates could not be installed automatically. For more details,
+see /var/log/unattended-upgrades/unattended-upgrades.log
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ watch -n 2 'cat /proc/net/dev | grep -E "eth|ens|ib"'
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ watch -n 2 'df -h ~/.cache/huggingface'
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ ps aux | grep run_judge
+vok       25201  0.4  0.0 7908044 1276152 pts/41 Sl+ 19:09   0:21 python run_judge77.py
+vok      591162  0.0  0.0  10040  2004 pts/42   S+   20:33   0:00 grep run_judge
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ df -h ~/.cache/huggingface
+Filesystem       Size  Used Avail Use% Mounted on
+147.251.6.196:/  9.3P  9.1P  140T  99% /auto/brno12-cerit
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ du -sh ~/.cache/huggingface/hub/models--nvidia*/
+du: cannot access '/storage/brno12-cerit/home/vok/.cache/huggingface/hub/models--nvidia*/': No such file or directory
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ find /storage -name "models--nvidia*" -type d 2>/dev/null
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ find /storage -name "*.safetensors" 2>/dev/null | head -5
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ cat /proc/25201/environ | tr '\0' '\n' | grep -E "HF|CACHE|HOME"
+SINGULARITY_CACHEDIR=/scratch.ssd/vok/job_19515338.pbs-m1
+NUMBA_CACHE_DIR=/scratch.ssd/vok/job_19515338.pbs-m1
+HF_HUB_CACHE=/scratch.ssd/vok/job_19515338.pbs-m1
+CUDA_CACHE_PATH=/scratch.ssd/vok/job_19515338.pbs-m1
+POCL_CACHE_DIR=/scratch.ssd/vok/job_19515338.pbs-m1
+MCR_CACHE_ROOT=/scratch.ssd/vok/job_19515338.pbs-m1
+HF_DATASETS_CACHE=/scratch.ssd/vok/job_19515338.pbs-m1
+MODULESHOME=/cvmfs/software.metacentrum.cz/modulefiles/5.3.1
+PBS_O_HOME=/storage/plzen1/home/vok
+HOME=/storage/brno12-cerit/home/vok
+XDG_CACHE_HOME=/scratch.ssd/vok/job_19515338.pbs-m1
+CUDA_HOME=/cvmfs/software.metacentrum.cz/spack18/software/linux-debian11-x86_64_v2/gcc-10.2.1/cuda-12.6.1-hplxoqpnmn7k5zolkvqlaxndmpd5s3ft
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ df -h /scratch.ssd/vok/job_19515338.pbs-m1
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/md2         42T  2.4T   40T   6% /scratch.ssd
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ du -sh /scratch.ssd/vok/job_19515338.pbs-m1/
+55G	/scratch.ssd/vok/job_19515338.pbs-m1/
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ ls -lh /scratch.ssd/vok/job_19515338.pbs-m1/
+total 4.0K
+-rw-rw-rw- 1 vok meta   0 Apr 28 19:16 103a070f5d94f3a7dd1a34e0ab59d20b344ddfdd509106ccce9023eeb26f0e79nvidia-NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4.lock
+srwx------ 1 vok meta   0 Apr 28 19:15 17d746f4-aa77-4886-8d22-b7065e415acf
+-rw------- 1 vok meta 191 Apr 28 19:12 CACHEDIR.TAG
+srwx------ 1 vok meta   0 Apr 28 19:15 edab5ba6-243c-4394-9aa2-97ca07fb85e8
+srwx------ 1 vok meta   0 Apr 28 19:15 f74c79aa-6162-42dd-a7f5-8737b0cb880f
+drwx------ 4 vok meta  44 Apr 28 19:13 huggingface
+drwx------ 6 vok meta  85 Apr 28 19:18 models--nvidia--NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4
+drwx------ 2 vok meta  10 Apr 28 19:11 torchinductor_vok
+drwx------ 3 vok meta  32 Apr 28 19:15 vllm
+drwx------ 3 vok meta  42 Apr 28 19:16 vok
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ du -sh /scratch.ssd/vok/job_19515338.pbs-m1/
+55G	/scratch.ssd/vok/job_19515338.pbs-m1/
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ ls -lh /scratch.ssd/vok/job_19515338.pbs-m1/models--nvidia--NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4/blobs/
+total 55G
+-rw------- 1 vok meta 4.7G Apr 28 19:16 037ea60b87cb2b8ce12beb7164c5382f4d97723c24cdbacc9fc188ae5a28f47b
+-rw------- 1 vok meta  563 Apr 28 19:12 0451f37912edb7f8a4bf04d77eef13f6130f0515
+-rw------- 1 vok meta 4.7G Apr 28 19:17 1d432c9c783453c6efa69d01228023b407be77e7bfea2909b2023c03df07df6a
+-rw------- 1 vok meta 535M Apr 28 19:18 1d8781b2643ca6566e7bdae77c275b62785de3502c5337b8cb53558df2477eed.incomplete
+-rw------- 1 vok meta 330M Apr 28 19:18 218355cf69f1f9d3efa1b5c8b5f531e28e1aa50a3d869ee768ba9835d936e182
+-rw------- 1 vok meta 7.1M Apr 28 19:12 25fdfa00f468ad953fc5516aeab78a128332da1a
+-rw------- 1 vok meta 4.7G Apr 28 19:17 3c0527dac96fd91874427f04e92c1df43585503608a487a4c8ffcf9d5f925bd4
+-rw------- 1 vok meta 4.7G Apr 28 19:17 3d31c241fb777f44342ac3c298147bb82ddcaa64214c555494d8fab397218d0e
+-rw------- 1 vok meta 327M Apr 28 19:18 5f6c3c0f842055418b0420dbeeba6b737d892d9d849725d956603a714f44745e.incomplete
+-rw------- 1 vok meta  17M Apr 28 19:12 623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7
+-rw------- 1 vok meta  11K Apr 28 19:12 71935c3a25edcdde07a0b7c4bec26f68bbce73a4
+-rw------- 1 vok meta 1.2G Apr 28 19:18 7814c9ae0dc394beb4709ebf0c7e976214e2770b322fa2422bc467446dd97023.incomplete
+-rw------- 1 vok meta 4.7G Apr 28 19:17 78d4a5ad26841e04ea92ae3d6b6b29ab9069b4ea27155b93213a5bfbeef85081
+-rw------- 1 vok meta  210 Apr 28 19:15 9f6546e3b99dd85a2899453a2487850007815ead
+-rw------- 1 vok meta 4.7G Apr 28 19:18 a5f795056a1ac69546ce8f5bccdcab3b6cb7142426024a81f23c15d3d45aa51e
+-rw------- 1 vok meta 4.7G Apr 28 19:17 a7d1c68e827296ee4bfc0ca4fe2c6a545c48b7a7f5148d9ebf4872c6fb123106
+-rw------- 1 vok meta 4.7G Apr 28 19:18 ac436f2e1af8185dc3b093e1527f3297b93fd639ab84ad208376bd82d5e94e94
+-rw------- 1 vok meta  20K Apr 28 19:13 b0577e12c52dac6d40529081c2c316b08b3b7ecf
+-rw------- 1 vok meta 992M Apr 28 19:18 b13aa79c0879539c4a514489497bccd21e23ec597d8112ba91808767fcbd4d92.incomplete
+-rw------- 1 vok meta 4.7G Apr 28 19:17 b4f598068350b93d42c486e537239dabc4661545ea2d39c8f0bb7ca23223c4f5
+-rw------- 1 vok meta 4.7G Apr 28 19:18 bf8bf1f4e2e01591c3d91f4b51f4f00252e14715132278177cab6ecc76511884
+-rw------- 1 vok meta 174K Apr 28 19:12 c96e5ad00986bfa0b666d4bc425666f1c51d6d1b
+-rw------- 1 vok meta  16M Apr 28 19:16 e0ca77ceed3a9511db61dc0ae6dbed2f71e6f6ee9f345fe3352f5cfe50cd094f
+-rw------- 1 vok meta 323M Apr 28 19:29 ecb72debb5d274b4beb74fb993a44e4f8ac27d640ecadaf656ed7de178942429.incomplete
+-rw------- 1 vok meta 4.7G Apr 28 19:18 ef6e73f64c3d7242a50230a288811eaa56aa2d9c6da9040b90361e6b9245bc26
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ nvdidia-smi
+-bash: nvdidia-smi: command not found
+(BOOKWORM)vok@grogu3:~$ nvidia-smi
+Tue Apr 28 20:38:42 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 590.48.01              Driver Version: 590.48.01      CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX PRO 6000 Blac...    On  |   00000000:01:00.0 Off |                    0 |
+| N/A   38C    P8             37W /  600W |       0MiB /  97887MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX PRO 6000 Blac...    On  |   00000000:61:00.0 Off |                    0 |
+| N/A   68C    P0            402W /  600W |   21777MiB /  97887MiB |     93%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA RTX PRO 6000 Blac...    On  |   00000000:81:00.0 Off |                    0 |
+| N/A   42C    P0             88W /  600W |   72347MiB /  97887MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA RTX PRO 6000 Blac...    On  |   00000000:E1:00.0 Off |                    0 |
+| N/A   66C    P0            380W /  600W |   88819MiB /  97887MiB |     99%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    1   N/A  N/A          906132      C   python3                               21768MiB |
+|    2   N/A  N/A           50831      C   VLLM::EngineCore                      72338MiB |
+|    3   N/A  N/A          266789      C   VLLM::EngineCore                      88810MiB |
++-----------------------------------------------------------------------------------------+
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ nvidia-smi -q | grep -A 2 "GPU-4e2765ca"
+    GPU UUID                                           : GPU-4e2765ca-4041-4dd8-8005-3c08e3aea400
+    GPU PDI                                            : 0x655d3bce7c2a50ef
+    Minor Number                                       : 3
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ 
+
+Claude:
+Minor Number 3 → přesně GPU 3 v nvidia-smi, jak jsem odhadl. 99% využití, 88GB obsazeno – vše běží správně.
+
+(BOOKWORM)vok@grogu3:~$ 
+(BOOKWORM)vok@grogu3:~$ ls -lh /scratch.ssd/vok/job_19515338.pbs-m1/models--nvidia--NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4/blobs/
+total 55G
+-rw------- 1 vok meta 4.7G Apr 28 19:16 037ea60b87cb2b8ce12beb7164c5382f4d97723c24cdbacc9fc188ae5a28f47b
+-rw------- 1 vok meta  563 Apr 28 19:12 0451f37912edb7f8a4bf04d77eef13f6130f0515
+-rw------- 1 vok meta 4.7G Apr 28 19:17 1d432c9c783453c6efa69d01228023b407be77e7bfea2909b2023c03df07df6a
+-rw------- 1 vok meta 535M Apr 28 19:18 1d8781b2643ca6566e7bdae77c275b62785de3502c5337b8cb53558df2477eed.incomplete
+-rw------- 1 vok meta 330M Apr 28 19:18 218355cf69f1f9d3efa1b5c8b5f531e28e1aa50a3d869ee768ba9835d936e182
+-rw------- 1 vok meta 7.1M Apr 28 19:12 25fdfa00f468ad953fc5516aeab78a128332da1a
+-rw------- 1 vok meta 4.7G Apr 28 19:17 3c0527dac96fd91874427f04e92c1df43585503608a487a4c8ffcf9d5f925bd4
+-rw------- 1 vok meta 4.7G Apr 28 19:17 3d31c241fb777f44342ac3c298147bb82ddcaa64214c555494d8fab397218d0e
+-rw------- 1 vok meta 327M Apr 28 19:18 5f6c3c0f842055418b0420dbeeba6b737d892d9d849725d956603a714f44745e.incomplete
+-rw------- 1 vok meta  17M Apr 28 19:12 623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7
+-rw------- 1 vok meta  11K Apr 28 19:12 71935c3a25edcdde07a0b7c4bec26f68bbce73a4
+-rw------- 1 vok meta 1.2G Apr 28 19:18 7814c9ae0dc394beb4709ebf0c7e976214e2770b322fa2422bc467446dd97023.incomplete
+-rw------- 1 vok meta 4.7G Apr 28 19:17 78d4a5ad26841e04ea92ae3d6b6b29ab9069b4ea27155b93213a5bfbeef85081
+-rw------- 1 vok meta  210 Apr 28 19:15 9f6546e3b99dd85a2899453a2487850007815ead
+-rw------- 1 vok meta 4.7G Apr 28 19:18 a5f795056a1ac69546ce8f5bccdcab3b6cb7142426024a81f23c15d3d45aa51e
+-rw------- 1 vok meta 4.7G Apr 28 19:17 a7d1c68e827296ee4bfc0ca4fe2c6a545c48b7a7f5148d9ebf4872c6fb123106
+-rw------- 1 vok meta 4.7G Apr 28 19:18 ac436f2e1af8185dc3b093e1527f3297b93fd639ab84ad208376bd82d5e94e94
+-rw------- 1 vok meta  20K Apr 28 19:13 b0577e12c52dac6d40529081c2c316b08b3b7ecf
+-rw------- 1 vok meta 992M Apr 28 19:18 b13aa79c0879539c4a514489497bccd21e23ec597d8112ba91808767fcbd4d92.incomplete
+-rw------- 1 vok meta 4.7G Apr 28 19:17 b4f598068350b93d42c486e537239dabc4661545ea2d39c8f0bb7ca23223c4f5
+-rw------- 1 vok meta 4.7G Apr 28 19:18 bf8bf1f4e2e01591c3d91f4b51f4f00252e14715132278177cab6ecc76511884
+-rw------- 1 vok meta 174K Apr 28 19:12 c96e5ad00986bfa0b666d4bc425666f1c51d6d1b
+-rw------- 1 vok meta  16M Apr 28 19:16 e0ca77ceed3a9511db61dc0ae6dbed2f71e6f6ee9f345fe3352f5cfe50cd094f
+-rw------- 1 vok meta 323M Apr 28 19:29 ecb72debb5d274b4beb74fb993a44e4f8ac27d640ecadaf656ed7de178942429.incomplete
+-rw------- 1 vok meta 4.7G Apr 28 19:18 ef6e73f64c3d7242a50230a288811eaa56aa2d9c6da9040b90361e6b9245bc26
+(BOOKWORM)vok@grogu3:~$ 

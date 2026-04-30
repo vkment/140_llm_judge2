@@ -1,0 +1,115 @@
+{
+    "criterion_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.4658152173913044
+            },
+            "naturalness": {
+                "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.42561594202898556
+            },
+            "coherence": {
+                "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.4265579710144928
+            }
+        }
+    },
+    "criterion_locale_grouped_scores": {
+        "acc_eq": {
+            "instruction_following": {
+                "ar_EG": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.5329710144927536
+                },
+                "bn_BD": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.3474637681159421
+                },
+                "cs_CZ": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.3668478260869566
+                },
+                "de_DE": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.4949275362318841
+                },
+                "en_US": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.6315217391304347
+                },
+                "hi_IN": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.46793478260869564
+                },
+                "id_ID": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.4253623188405798
+                },
+                "ja_JP": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.358695652173913
+                },
+                "ru_RU": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.5253623188405799
+                },
+                "zh_CN": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.5070652173913043
+                }
+            },
+            "naturalness": {
+                "ar_EG": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.4146739130434782
+                },
+                "bn_BD": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.2994565217391304
+                },
+                "cs_CZ": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.3501811594202899
+                },
+                "de_DE": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.44166666666666665
+                },
+                "en_US": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.5974637681159419
+                },
+                "hi_IN": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.46630434782608704
+                },
+                "id_ID": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.406340579710145
+                },
+                "ja_JP": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.39003623188405795
+                },
+                "ru_RU": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.3510869565217391
+                },
+                "zh_CN": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.538949275362319
+                }
+            },
+            "coherence": {
+                "ar_EG": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.46521739130434786
+                },
+                "bn_BD": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.35307971014492756
+                },
+                "cs_CZ": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.34221014492753626
+                },
+                "de_DE": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.4782608695652176
+                },
+                "en_US": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.45597826086956517
+                },
+                "hi_IN": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.483695652173913
+                },
+                "id_ID": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.3648550724637681
+                },
+                "ja_JP": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.3746376811594203
+                },
+                "ru_RU": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.4485507246376811
+                },
+                "zh_CN": {
+                    "NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4_h13": 0.49909420289855083
+                }
+            }
+        }
+    }
+}
